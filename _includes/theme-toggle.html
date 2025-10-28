@@ -1,0 +1,35 @@
+<script>
+  (function() {
+    // Detect system preference and stored preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const stored = localStorage.getItem('theme-mode');
+    const isDark = stored === 'dark' || (stored === null && prefersDark);
+
+    // Apply theme immediately to prevent flash
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+
+  // Theme toggle button handler
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+
+    function updateTheme(isDark) {
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      localStorage.setItem('theme-mode', isDark ? 'dark' : 'light');
+    }
+
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    toggle.setAttribute('aria-pressed', isDarkMode);
+
+    toggle.addEventListener('click', function() {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark';
+      updateTheme(!current);
+      toggle.setAttribute('aria-pressed', !current);
+    });
+  });
+</script>

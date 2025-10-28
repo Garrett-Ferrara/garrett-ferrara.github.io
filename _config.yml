@@ -1,0 +1,36 @@
+title: "Garrett Richard Ferrara"
+description: "Professional portfolio site"
+url: "https://garrett-ferrara.github.io"
+baseurl: ""
+permalink: pretty
+
+# Collections
+collections:
+  artifacts:
+    output: true
+    permalink: /portfolio/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: artifacts
+    values:
+      layout: artifact
+
+# Jekyll settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Build settings
+exclude:
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - .sass-cache
+  - .jekyll-cache
+  - vendor

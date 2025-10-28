@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<article class="cv-page">
+  <header class="cv-header">
+    <h1>{{ page.title }}</h1>
+    <button id="print-btn" class="btn btn-accent print-button">Print / Save as PDF</button>
+  </header>
+
+  <div class="cv-content">
+    {{ content }}
+  </div>
+</article>
+
+<script>
+  document.getElementById('print-btn').addEventListener('click', function() {
+    window.print();
+  });
+</script>

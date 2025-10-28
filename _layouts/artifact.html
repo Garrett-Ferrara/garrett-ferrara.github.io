@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<article class="artifact">
+  <div class="artifact-header">
+    <h1>{{ page.title }}</h1>
+    <p class="artifact-summary">{{ page.summary }}</p>
+
+    <div class="artifact-meta">
+      {% if page.role %}
+        <div class="meta-item">
+          <span class="meta-label">Role:</span>
+          <span class="meta-value">{{ page.role }}</span>
+        </div>
+      {% endif %}
+
+      {% if page.date %}
+        <div class="meta-item">
+          <span class="meta-label">Date:</span>
+          <span class="meta-value">{{ page.date | date: "%b %Y" }}</span>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if page.tags %}
+      <div class="artifact-tags">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="artifact-content">
+    {{ content }}
+  </div>
+
+  <div class="artifact-footer">
+    <a href="/portfolio/" class="link-back">← Back to Portfolio</a>
+  </div>
+</article>

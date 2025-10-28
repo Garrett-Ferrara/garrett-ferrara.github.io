@@ -1,0 +1,23 @@
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <p class="footer-disclaimer">{{ site.data.site.disclaimer }}</p>
+    </div>
+
+    <div class="footer-links">
+      {% if site.data.site.linkedin %}
+        <a href="{{ site.data.site.linkedin }}" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      {% endif %}
+
+      {% if site.data.site.email %}
+        <a href="mailto:{{ site.data.site.email }}" class="footer-link">Email</a>
+      {% else %}
+        <span class="footer-link footer-email-placeholder">[email address]</span>
+      {% endif %}
+    </div>
+
+    <div class="footer-credit">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.data.site.name }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

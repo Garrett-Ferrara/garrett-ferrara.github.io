@@ -1,0 +1,25 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+*.gem
+*.gemspec
+
+# Bundler
+.bundle/
+Gemfile.lock
+
+# OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node (if using any frontend tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+.env.local
