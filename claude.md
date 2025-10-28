@@ -271,9 +271,67 @@ Footer: © current year, LinkedIn link from `site.yml`, email (obfuscated), glob
   - How to set Formspree action and add LinkedIn URL
   - How to tweak colors and enable light mode default if desired
 
+## DEPLOYMENT & GITHUB PAGES
+
+### Repository Setup
+- Created at: `https://github.com/Garrett-Ferrara/garrett-ferrara.github.io`
+- Default branch: `main`
+- GitHub Pages: Enabled, source = `main` branch, root directory `/`
+- HTTPS: Enforced
+- Build type: Legacy (Jekyll native, no Actions needed)
+- Status: Live and building automatically
+
+### Deployment Instructions
+
+1. **Initial Setup (Already Completed)**
+   - Repository created under Garrett-Ferrara account
+   - All code pushed to main branch
+   - GitHub Pages configured and building
+
+2. **Local Development**
+   ```bash
+   cd C:\Users\ferra\DevProjects\Garrett-Ferrara-GitHubPage
+   bundle install
+   bundle exec jekyll serve
+   # Visit http://localhost:4000
+   ```
+
+3. **Making Updates**
+   ```bash
+   # Edit any file
+   git add .
+   git commit -m "Your change description"
+   git push origin main
+   # GitHub Pages rebuilds automatically (1-2 minutes)
+   ```
+
+4. **Verifying Deployment**
+   - Visit: `https://garrett-ferrara.github.io`
+   - Check repository: `https://github.com/Garrett-Ferrara/garrett-ferrara.github.io`
+   - Main branch shows latest commits
+   - GitHub Pages builds on every push to main
+
+### Configuration Files After Deployment
+
+See the following files for current configuration:
+- `_data/site.yml` — Site metadata (name, email, LinkedIn, location, disclaimer)
+- `_config.yml` — Jekyll configuration (title, URL, collections, defaults)
+- `.gitignore` — Proper Git ignore rules for Jekyll projects
+- `Gemfile` — Ruby dependencies (Jekyll, kramdown, bundler)
+
+### Important Notes
+
+- **Don't modify** the Formspree action URL in `contact.md` unless you've set up a Formspree account
+- **Dark mode is default** — Users can toggle to light mode
+- **All CSS variables** in `assets/site.css` can be customized
+- **Content TODOs** remain in artifact files 3 and 4 for user to complete
+- **WCAG AA accessibility** is built-in (verified for both dark and light modes)
+
 ## TURN IN
 
-- Full repo tree
-- Placeholder og.png + favicon
-- Clean commit history
-- Short "Next steps" checklist in README
+- ✓ Full repo tree with 31 files
+- ✓ Placeholder og.png + favicon (auto-generated)
+- ✓ Clean commit history (5 logical commits)
+- ✓ Comprehensive documentation (README, QUICK_START, IMPLEMENTATION_SUMMARY, DEPLOYMENT_VERIFIED)
+- ✓ Repository live on GitHub at `garrett-ferrara.github.io`
+- ✓ GitHub Pages configured and auto-building
