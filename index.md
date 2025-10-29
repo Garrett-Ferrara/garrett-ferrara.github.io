@@ -17,15 +17,10 @@ layout: page
   <a href="/contact/" class="btn btn-accent">Get in Touch</a>
 </div>
 
-<div class="insights-section">
-  <div class="insights-text">
-    <p>Equally comfortable conducting original analyses or leading teams, I excel in dynamic rhetorical situations where I can optimize how organizations collect, analyze, and communicate the information that drives critical decisions. I approach every role as a force multiplier that combines my own expertise with the ability to bring out the best capabilities in others.</p>
-  </div>
-  <img src="/assets/ActionableInsightsOnion.png" alt="Actionable Insights Onion" class="insights-graphic">
-</div>
-
 <div class="core-competencies">
   <h2>Core Competencies</h2>
+
+  <p class="competencies-intro">Equally comfortable conducting original analyses or leading teams, I excel in dynamic rhetorical situations where I can optimize how organizations collect, analyze, and communicate the information that drives critical decisions. I approach every role as a force multiplier that combines my own expertise with the ability to bring out the best capabilities in others.</p>
 
   <div class="competencies-grid">
     <div class="competency-card">
@@ -56,7 +51,12 @@ layout: page
 </div>
 
 <div class="bio-personal">
-  <h2>Beyond the Resume</h2>
-  <p>I'm a warm, curious, and candid individual who feels a responsibility to always volunteer to be the solution. I care deeply about both the missions and the people I work with, and I maintain a quiet and discrete professionalism that makes "About Me" sections unexpectedly challenging compared to the other work I'm known for.</p>
-  <p>I'm always open to discussing new opportunities and challenges where my analytical, editorial, and technical skills can make a meaningful impact!</p>
+  <div class="bio-personal-content">
+    <div class="bio-personal-text">
+      <h2>Beyond the Resume</h2>
+      <p>I'm a warm, curious, and candid individual who feels a responsibility to always volunteer to be the solution. I care deeply about both the missions and the people I work with, and I maintain a quiet and discrete professionalism that makes "About Me" sections unexpectedly challenging compared to the other work I'm known for.</p>
+      <p>I'm always open to discussing new opportunities and challenges where my analytical, editorial, and technical skills can make a meaningful impact!</p>
+    </div>
+    <img src="/assets/ActionableInsightsOnion.png" alt="Actionable Insights Onion" class="insights-graphic">
+  </div>
 </div>
