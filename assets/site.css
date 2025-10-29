@@ -49,6 +49,7 @@ html {
   scroll-behavior: smooth;
   background-color: var(--bg);
   color: var(--text);
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -402,13 +403,26 @@ a:hover {
 
 .insights-section {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 3rem;
   margin: 4rem 0;
   padding: 2rem 0;
 }
 
+.insights-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.insights-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
 .insights-graphic {
-  max-width: 500px;
+  flex: 0 0 auto;
+  max-width: 400px;
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -964,6 +978,15 @@ th {
   .bio-ctas .btn {
     width: 100%;
     text-align: center;
+  }
+
+  .insights-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .insights-text p {
+    font-size: 1rem;
   }
 
   .insights-graphic {

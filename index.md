@@ -11,11 +11,10 @@ layout: page
   </div>
 </div>
 
-<div class="bio-overview">
-  <p>Equally comfortable conducting original analyses or leading teams, I excel in dynamic rhetorical situations where I can optimize how organizations collect, analyze, and communicate the information that drives critical decisions. I approach every role as a force multiplier that combines my own expertise with the ability to bring out the best capabilities in others.</p>
-</div>
-
 <div class="insights-section">
+  <div class="insights-text">
+    <p>Equally comfortable conducting original analyses or leading teams, I excel in dynamic rhetorical situations where I can optimize how organizations collect, analyze, and communicate the information that drives critical decisions. I approach every role as a force multiplier that combines my own expertise with the ability to bring out the best capabilities in others.</p>
+  </div>
   <img src="/assets/ActionableInsightsOnion.png" alt="Actionable Insights Onion" class="insights-graphic">
 </div>
 
