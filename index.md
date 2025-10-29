@@ -9,24 +9,32 @@ hero_ctas:
     href: "/cv/"
 ---
 
-{{ site.data.site.about_short }}
+## About Me
 
-## About This Work
+<div class="about-header">
+  <img src="/assets/grfheadshot.png" alt="Garrett Richard Ferrara" class="headshot">
+  <div class="about-intro">
+    <p>I am an analyst and editor with over fifteen years of experience applying intelligence tradecraft, editorial expertise, and knowledge management frameworks to ensure the right information reaches the right eyes at the right time. Drawing on experience spanning military intelligence operations, Fortune 500 threat analysis, and technical writing for internal and external knowledge bases, I specialize in translating complex findings into clear, actionable insights. Equally comfortable conducting original analyses or leading teams, I excel in dynamic rhetorical situations where I can optimize how organizations collect, analyze, and communicate the information that drives critical decisions.</p>
+  </div>
+</div>
 
-I'm an analyst and editor who works at the intersection of intelligence tradecraft, writing theory, and knowledge management. My practice involves identifying signals in complex information environments and synthesizing them into coherent, actionable narratives for diverse audiences—policymakers, journalists, security professionals, and researchers.
+![Actionable Insights Onion](/assets/ActionableInsightsOnion.png){: .insights-graphic }
 
-Most of my professional work has been completed under security clearances or non-disclosure agreements. The materials featured here represent publicly shareable selections from my career, including published research, academic work, and case studies that illustrate my approach to evidence synthesis, editorial rigor, and strategic communication.
+I approach every role as a force multiplier that combines my own expertise with the ability to bring out the best capabilities in others. While titles and departments have varied, the core value I bring to every position remains consistent:
 
-## Areas of Focus
+**Investigative Flexibility:** I maintain my own analytical and writing prowess while staying agile enough to tackle diverse challenges. I'm eager to leap into unfamiliar or esoteric domains, either as surge support or as the team's dedicated subject matter expert.
 
-**Intelligence & Influence Operations**
-Analysis of disinformation campaigns, narrative warfare, and information security. Experience with platform-native influence operations research and geopolitical narrative analysis.
+**Editorial Leadership:** I ask the right questions to help specialized team members clarify their thinking and communicate complex findings effectively to their intended audiences, ensuring all outputs reflect the organization's values and professionalism through developmental editing and quality control.
 
-**OSINT & Research Methods**
-Open-source intelligence collection, corpus building, and knowledge infrastructure. Expertise in scaling qualitative research through agentic coding and human-AI collaboration.
+**Process Optimization:** I build and maintain the SOPs, documentation standards, and knowledge management frameworks that transform individual expertise into shared institutional capabilities.
 
-**Writing & Editorial Leadership**
-Developmental editing, narrative architecture, and audience-centric communication. Background in rhetorical theory, composition pedagogy, and knowledge management systems.
+**Strategic Communication:** I translate technical or ambiguous analysis into actionable, concise products tailored for different stakeholders, with particular expertise in executive briefings for time-constrained decision-makers and comprehensive how-to documentation.
+
+**Technical Integration:** I leverage off-the-shelf products like Grammarly, Jira, and Monday alongside agentic coding to automate routine analytical tasks, streamline workflow documentation, and build custom tools that enhance team productivity.
+
+Beyond my skillset, I'm a warm, curious, and candid individual who feels a responsibility to always volunteer to be the solution. I care deeply about both the missions and the people I work with, and I maintain a quiet and discrete professionalism that makes "About Me" sections unexpectedly challenging compared to the other work I'm known for.
+
+I'm always open to discussing new opportunities and challenges where my analytical, editorial, and technical skills can make a meaningful impact!
 
 ---
 

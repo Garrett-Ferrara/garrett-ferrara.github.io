@@ -327,6 +327,49 @@ a:hover {
   flex-wrap: wrap;
 }
 
+/* About Page Styles */
+.about-header {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: var(--card);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.headshot {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(199, 155, 59, 0.2);
+}
+
+.about-intro {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.about-intro p {
+  margin: 0;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.insights-graphic {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 8px;
+}
+
 /* Artifact Styles */
 .artifact {
   display: flex;
@@ -752,6 +795,22 @@ th {
 
   .portfolio-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .headshot {
+    width: 150px;
+    height: 150px;
+  }
+
+  .insights-graphic {
+    max-width: 100%;
   }
 }
 
