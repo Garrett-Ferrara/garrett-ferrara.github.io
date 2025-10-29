@@ -431,8 +431,8 @@ a:hover {
 }
 
 .core-competencies {
-  margin: 2rem 0 4rem 0;
-  padding: 2rem 0 3rem 0;
+  margin: 2rem 0 2rem 0;
+  padding: 1rem 0 2rem 0;
 }
 
 .core-competencies h2 {
@@ -442,10 +442,10 @@ a:hover {
 }
 
 .competencies-intro {
-  max-width: 900px;
-  margin: 0 auto 3rem;
-  padding: 0 2rem;
-  text-align: center;
+  max-width: 100%;
+  margin: 0 0 2rem 0;
+  padding: 0 1.5rem;
+  text-align: left;
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--text);
@@ -488,8 +488,8 @@ a:hover {
 }
 
 .bio-personal {
-  margin: 4rem 0;
-  padding: 2rem 1.5rem;
+  margin: 2rem 0;
+  padding: 1.5rem 1.5rem;
 }
 
 .bio-personal-content {
