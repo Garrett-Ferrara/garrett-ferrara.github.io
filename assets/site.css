@@ -338,47 +338,171 @@ a:hover {
   flex-wrap: wrap;
 }
 
-/* About Page Styles */
-.about-header {
+/* Professional Bio Styles */
+.bio-hero {
   display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-  padding: 2rem;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding: 3rem 2rem;
   background-color: var(--card);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border);
 }
 
-.headshot {
+.bio-headshot {
   flex-shrink: 0;
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
   object-fit: cover;
-  border: 2px solid var(--accent);
-  box-shadow: 0 4px 12px rgba(199, 155, 59, 0.2);
+  border: 3px solid var(--accent);
+  box-shadow: 0 8px 24px rgba(199, 155, 59, 0.15);
 }
 
-.about-intro {
+.bio-intro {
   flex: 1;
-  display: flex;
-  align-items: center;
 }
 
-.about-intro p {
-  margin: 0;
-  line-height: 1.8;
+.bio-intro h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.bio-tagline {
   font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.bio-summary {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.bio-overview {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.bio-overview p {
+  margin: 0;
+}
+
+.insights-section {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
+  padding: 2rem 0;
 }
 
 .insights-graphic {
-  max-width: 600px;
+  max-width: 500px;
   width: 100%;
   height: auto;
-  margin: 2rem auto;
-  display: block;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.core-competencies {
+  margin: 4rem 0;
+  padding: 3rem 0;
+}
+
+.core-competencies h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.competency-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--accent);
+}
+
+.competency-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(199, 155, 59, 0.1);
+  transform: translateY(-2px);
+}
+
+.competency-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.competency-card p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.bio-personal {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.bio-personal h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.bio-personal p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.bio-ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.bio-ctas .btn {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+}
+
+.bio-disclaimer {
+  max-width: 900px;
+  margin: 4rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 /* Artifact Styles */
@@ -808,16 +932,37 @@ th {
     grid-template-columns: 1fr;
   }
 
-  .about-header {
+  /* Bio responsive styles */
+  .bio-hero {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem 1rem;
+    gap: 2rem;
   }
 
-  .headshot {
-    width: 150px;
-    height: 150px;
+  .bio-headshot {
+    width: 140px;
+    height: 140px;
+  }
+
+  .bio-intro h1 {
+    font-size: 2rem;
+  }
+
+  .competencies-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .bio-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bio-ctas .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .insights-graphic {
