@@ -47,6 +47,11 @@ layout: page
       <h3>Technical Integration</h3>
       <p>I leverage off-the-shelf products like Grammarly, Jira, and Monday alongside agentic coding to automate routine analytical tasks, streamline workflow documentation, and build custom tools that enhance team productivity.</p>
     </div>
+
+    <div class="competency-card">
+      <h3>TODO: Add Title</h3>
+      <p>TODO: Add description for this competency here. This is placeholder text that you can replace with your own content.</p>
+    </div>
   </div>
 </div>
 
