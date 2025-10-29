@@ -431,8 +431,8 @@ a:hover {
 }
 
 .core-competencies {
-  margin: 4rem 0;
-  padding: 3rem 0;
+  margin: 2rem 0 4rem 0;
+  padding: 2rem 0 3rem 0;
 }
 
 .core-competencies h2 {
@@ -489,7 +489,7 @@ a:hover {
 
 .bio-personal {
   margin: 4rem 0;
-  padding: 2rem 0;
+  padding: 2rem 1.5rem;
 }
 
 .bio-personal-content {
@@ -503,6 +503,12 @@ a:hover {
 .bio-personal-text {
   flex: 1;
   min-width: 0;
+}
+
+.bio-personal .insights-graphic {
+  flex: 0 0 auto;
+  max-width: 300px;
+  width: 100%;
 }
 
 .bio-personal h2 {
@@ -522,7 +528,7 @@ a:hover {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin: 3rem 0;
+  margin: 2rem 0;
   flex-wrap: wrap;
 }
 
