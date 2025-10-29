@@ -49,6 +49,7 @@ Use the form below to send me a message directly via [Formspree](https://formspr
 - **LinkedIn:** [Add your LinkedIn URL to site data]
 {% endif %}
 
+- **Tech Projects:** See [Tech](/tech/) page for my repositories and technical work
 - **GitHub:** [garrett-ferrara]({{ site.data.site.github }})
 - **Location:** {{ site.data.site.location }}
 

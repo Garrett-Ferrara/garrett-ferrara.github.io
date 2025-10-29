@@ -1,10 +1,10 @@
 ---
 layout: page
-title: "Repositories"
-description: "Selected GitHub repositories and open-source work."
+title: "Tech"
+description: "Selected GitHub repositories, tools, and technical projects."
 ---
 
-## Notable Repositories
+## Notable Projects & Repositories
 
 ### TODO: Add your GitHub repositories
 

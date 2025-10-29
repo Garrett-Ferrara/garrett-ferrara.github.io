@@ -12,10 +12,10 @@ Hybrid professional + academic portfolio. Primary audience: hiring managers and 
 - `/portfolio` → portfolio index + artifact detail pages
 - `/cv` → HTML CV rendered from markdown + print-to-PDF button
 - `/texts` → simple list of selected writings/notes (markdown collection, optional starter)
-- `/repos` → links to GitHub repos
+- `/tech` → links to GitHub repos and tech projects
 - `/contact` → contact page with Formspree form
 
-Header nav (desktop + mobile): **Home · CV · Texts · Repos · Contact**
+Header nav (desktop + mobile): **Home · CV · Texts · Tech · Contact**
 Footer: LinkedIn only (+ email obfuscated), global disclaimer.
 
 ## BRAND & THEME

@@ -65,7 +65,7 @@ garrett-ferrara.github.io/
 ├── _config.yml             # Jekyll configuration
 ├── index.md                # Home page
 ├── cv.md                   # Curriculum Vitae
-├── repos.md                # GitHub repositories
+├── tech.md                 # Tech projects and repositories
 ├── contact.md              # Contact form
 └── README.md               # This file
 ```
@@ -91,7 +91,7 @@ Edit the navigation menu in `_includes/nav.html`. The current routes are:
 - `/` — Home / About
 - `/cv/` — Curriculum Vitae
 - `/texts/` — Writings & Notes
-- `/repos/` — GitHub Repositories
+- `/tech/` — Tech Projects & Repositories
 - `/contact/` — Contact Form
 
 To add or remove nav items, edit the `<ul class="nav-list">` in `_includes/nav.html`.
