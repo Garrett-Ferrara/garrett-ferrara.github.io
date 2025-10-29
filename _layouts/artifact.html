@@ -30,6 +30,16 @@ layout: default
         {% endfor %}
       </div>
     {% endif %}
+
+    {% if page.pdf %}
+      <div class="artifact-preview">
+        <div class="pdf-preview">
+          <div class="pdf-preview-icon"><i class="fas fa-file-pdf"></i></div>
+          <div class="pdf-preview-filename">{{ page.pdf | split: "/" | last }}</div>
+          <a href="{{ page.pdf }}" target="_blank" class="btn btn-accent" style="margin-top: 0.5rem;">View PDF</a>
+        </div>
+      </div>
+    {% endif %}
   </div>
 
   <div class="artifact-content">

@@ -1,11 +1,11 @@
 ---
-title: "Silicon Valley Bank Crisis Analysis"
-summary: "Tracked disinformation narratives during the March 2023 bank collapse, identifying how venture capitalist communications, foreign state media, and 'go woke, go broke' rhetoric amplified financial panic."
+title: "Writing with Invisible Ink: GRU X Campaign"
+summary: "Uncovered a sophisticated Russian military intelligence network of 5,314 X accounts using novel evasion tactics to amplify Doppelgänger content targeting Western support for Ukraine."
 role: "Managing Editor, Alethea Analysis Team"
 tags: ["OSINT", "Editorial Leadership", "Influence Operations", "Methodology"]
 date: 2024-06-30
-weight: 4
-pdf: "/assets/Alethea - Silicon Valley Bank Case Study.pdf"
+weight: 1
+pdf: "/assets/Alethea-Writing-With-Invisible-Ink.pdf"
 ---
 
 ## Context
@@ -14,7 +14,7 @@ As Managing Editor of Alethea's Analysis Team, I edited nearly 10,000 pages of i
 
 ## The Case Study
 
-This analysis tracked disinformation narratives during the March 2023 Silicon Valley Bank collapse, identifying how venture capitalist communications, foreign state media, and "go woke, go broke" rhetoric amplified financial panic and contributed to the crisis.
+This analysis uncovered a sophisticated Russian military intelligence (GRU) network of 5,314 X accounts using novel evasion tactics to amplify Doppelgänger content, revealing a strategic shift from broad division to targeting Western support for Ukraine through conservative-leaning narratives.
 
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: "Silicon Valley Bank Crisis Analysis"
-summary: "Tracked disinformation narratives during the March 2023 bank collapse, identifying how venture capitalist communications, foreign state media, and 'go woke, go broke' rhetoric amplified financial panic."
+title: "Stormkiller: Russian Influence Operation Coverup"
+summary: "Exposed Russian influence networks' shift to deflecting blame for their own operations after DOJ indictments, including fabricated statements from disinformation experts."
 role: "Managing Editor, Alethea Analysis Team"
 tags: ["OSINT", "Editorial Leadership", "Influence Operations", "Methodology"]
 date: 2024-06-30
-weight: 4
-pdf: "/assets/Alethea - Silicon Valley Bank Case Study.pdf"
+weight: 2
+pdf: "/assets/Alethea - Stormkiller Report.pdf"
 ---
 
 ## Context
@@ -14,7 +14,7 @@ As Managing Editor of Alethea's Analysis Team, I edited nearly 10,000 pages of i
 
 ## The Case Study
 
-This analysis tracked disinformation narratives during the March 2023 Silicon Valley Bank collapse, identifying how venture capitalist communications, foreign state media, and "go woke, go broke" rhetoric amplified financial panic and contributed to the crisis.
+This analysis exposed Russian influence networks' shift to deflecting blame for their own operations after DOJ indictments, including fabricated statements from disinformation experts claiming Ukraine was responsible for Russian influence campaigns targeting the 2024 election.
 
 ---
 

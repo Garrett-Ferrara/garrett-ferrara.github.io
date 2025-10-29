@@ -1,11 +1,11 @@
 ---
-title: "Silicon Valley Bank Crisis Analysis"
-summary: "Tracked disinformation narratives during the March 2023 bank collapse, identifying how venture capitalist communications, foreign state media, and 'go woke, go broke' rhetoric amplified financial panic."
+title: "Spamouflage Dragon: Chinese Influence Operation"
+summary: "Documented the first confirmed expansion of China's Spamouflage Dragon campaign to American alternative social platforms, targeting right-wing audiences on Gab."
 role: "Managing Editor, Alethea Analysis Team"
 tags: ["OSINT", "Editorial Leadership", "Influence Operations", "Methodology"]
 date: 2024-06-30
-weight: 4
-pdf: "/assets/Alethea - Silicon Valley Bank Case Study.pdf"
+weight: 3
+pdf: "/assets/Alethea - Spamo-Gabbing Report (2).pdf"
 ---
 
 ## Context
@@ -14,7 +14,7 @@ As Managing Editor of Alethea's Analysis Team, I edited nearly 10,000 pages of i
 
 ## The Case Study
 
-This analysis tracked disinformation narratives during the March 2023 Silicon Valley Bank collapse, identifying how venture capitalist communications, foreign state media, and "go woke, go broke" rhetoric amplified financial panic and contributed to the crisis.
+This report documents the first confirmed expansion of China's Spamouflage Dragon campaign to American alternative social platforms, revealing coordinated efforts to target right-wing audiences on Gab while spreading pro-CCP messaging about Xinjiang, dissidents, and rare earth mining.
 
 ---
 
