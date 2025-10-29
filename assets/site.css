@@ -424,8 +424,9 @@ a:hover {
   flex: 0 0 auto;
   max-width: 400px;
   width: 100%;
-  height: auto;
-  border-radius: 12px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 50%;
   border: 2px solid var(--accent);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
