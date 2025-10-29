@@ -1,7 +1,5 @@
 ---
 layout: page
-title: "About"
-description: "Analyst and editor specializing in intelligence tradecraft, editorial excellence, and knowledge management."
 ---
 
 <div class="bio-hero">
