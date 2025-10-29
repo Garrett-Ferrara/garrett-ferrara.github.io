@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "WebFetch(domain:docs.github.com)",
+      "Bash(gem install:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(tree:*)",
+      "Bash(gh repo create:*)",
+      "Bash(gh auth:*)",
+      "Bash(git remote:*)",
+      "Bash(gh repo view:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git credential:*)",
+      "Bash(cmdkey /delete:git:https://github.com)",
+      "Bash(gh api:*)",
+      "Bash(git rm:*)",
+      "Bash(ruby --version:*)",
+      "Bash(jekyll:*)",
+      "Bash(choco install:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

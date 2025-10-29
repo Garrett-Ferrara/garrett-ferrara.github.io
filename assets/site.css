@@ -221,7 +221,7 @@ select:focus-visible {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 0 1.5rem 3rem 1.5rem;
   min-height: calc(100vh - 300px);
 }
 
@@ -412,6 +412,7 @@ a:hover {
   width: 100%;
   height: auto;
   border-radius: 12px;
+  border: 2px solid var(--accent);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
