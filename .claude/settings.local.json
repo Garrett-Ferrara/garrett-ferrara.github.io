@@ -20,7 +20,8 @@
       "Bash(git rm:*)",
       "Bash(ruby --version:*)",
       "Bash(jekyll:*)",
-      "Bash(choco install:*)"
+      "Bash(choco install:*)",
+      "Read(//c/Users/**)"
     ],
     "deny": [],
     "ask": []

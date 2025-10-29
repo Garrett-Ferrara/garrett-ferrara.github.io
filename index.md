@@ -24,32 +24,32 @@ layout: page
 
   <div class="competencies-grid">
     <div class="competency-card">
-      <h3>Investigative Flexibility</h3>
+      <h3><i class="fas fa-brain"></i> Investigative Flexibility</h3>
       <p>I maintain my own analytical and writing prowess while staying agile enough to tackle diverse challenges. I'm eager to leap into unfamiliar or esoteric domains, either as surge support or as the team's dedicated subject matter expert.</p>
     </div>
 
     <div class="competency-card">
-      <h3>Editorial Leadership</h3>
+      <h3><i class="fas fa-pen-nib"></i> Editorial Leadership</h3>
       <p>I ask the right questions to help specialized team members clarify their thinking and communicate complex findings effectively to their intended audiences, ensuring all outputs reflect the organization's values and professionalism through developmental editing and quality control.</p>
     </div>
 
     <div class="competency-card">
-      <h3>Process Optimization</h3>
+      <h3><i class="fas fa-cogs"></i> Process Optimization</h3>
       <p>I build and maintain the SOPs, documentation standards, and knowledge management frameworks that transform individual expertise into shared institutional capabilities.</p>
     </div>
 
     <div class="competency-card">
-      <h3>Strategic Communication</h3>
+      <h3><i class="fas fa-comments"></i> Strategic Communication</h3>
       <p>I translate technical or ambiguous analysis into actionable, concise products tailored for different stakeholders, with particular expertise in executive briefings for time-constrained decision-makers and comprehensive how-to documentation.</p>
     </div>
 
     <div class="competency-card">
-      <h3>Technical Integration</h3>
+      <h3><i class="fas fa-puzzle-piece"></i> Technical Integration</h3>
       <p>I leverage off-the-shelf products like Grammarly, Jira, and Monday alongside agentic coding to automate routine analytical tasks, streamline workflow documentation, and build custom tools that enhance team productivity.</p>
     </div>
 
     <div class="competency-card">
-      <h3>TODO: Add Title</h3>
+      <h3><i class="fas fa-star"></i> TODO: Add Title</h3>
       <p>TODO: Add description for this competency here. This is placeholder text that you can replace with your own content.</p>
     </div>
   </div>
