@@ -11,6 +11,12 @@ layout: page
   </div>
 </div>
 
+<div class="bio-ctas">
+  <a href="/portfolio/" class="btn btn-accent">View My Work</a>
+  <a href="/cv/" class="btn btn-accent">Download CV</a>
+  <a href="/contact/" class="btn btn-accent">Get in Touch</a>
+</div>
+
 <div class="insights-section">
   <div class="insights-text">
     <p>Equally comfortable conducting original analyses or leading teams, I excel in dynamic rhetorical situations where I can optimize how organizations collect, analyze, and communicate the information that drives critical decisions. I approach every role as a force multiplier that combines my own expertise with the ability to bring out the best capabilities in others.</p>
@@ -53,14 +59,4 @@ layout: page
   <h2>Beyond the Resume</h2>
   <p>I'm a warm, curious, and candid individual who feels a responsibility to always volunteer to be the solution. I care deeply about both the missions and the people I work with, and I maintain a quiet and discrete professionalism that makes "About Me" sections unexpectedly challenging compared to the other work I'm known for.</p>
   <p>I'm always open to discussing new opportunities and challenges where my analytical, editorial, and technical skills can make a meaningful impact!</p>
-</div>
-
-<div class="bio-ctas">
-  <a href="/portfolio/" class="btn btn-accent">View My Work</a>
-  <a href="/cv/" class="btn btn-accent">Download CV</a>
-  <a href="/contact/" class="btn btn-accent">Get in Touch</a>
-</div>
-
-<div class="bio-disclaimer">
-  {{ site.data.site.disclaimer }}
 </div>
