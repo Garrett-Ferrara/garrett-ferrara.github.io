@@ -1,19 +1,37 @@
-/* Design Tokens */
-:root {
-  /* Default to dark mode */
-  --bg: #0f172a;        /* slate-900 */
-  --card: #111827;      /* gray-900 */
-  --paper: #f8fafc;     /* off-white for light/print */
-  --text: #e5e7eb;      /* gray-200 */
-  --muted: #aab2c8;     /* slate-400ish */
-  --accent: #c79b3b;    /* gold/bronze */
-  --accent-contrast: #1a1a1a;
-  --link: #d4af37;      /* slightly brighter gold for links */
-  --link-hover: #f1c453;
-  --border: #1f2937;    /* slate-800 */
-  --focus: #fde68a;     /* soft gold focus ring */
+/* ================================================================
+   FONT IMPORTS
+   ================================================================
+   Import Google Fonts for typography. */
 
-  /* Ensure no blue colors from browser defaults */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Verdana:wght@400;700&display=swap');
+
+/* ================================================================
+   DESIGN TOKENS (CSS Variables)
+   ================================================================
+   These variables define the site's color palette for dark mode.
+   They are used throughout the stylesheet via var(--name).
+   Edit these to change colors globally across the entire site.
+   ================================================================ */
+:root {
+  /* DARK MODE (Default) - Change these hex color values to customize dark theme */
+  --bg: #181a1b;            /* Background color (page body) - Dark charcoal */
+  --card: #0f172a;          /* Card/container backgrounds - Darker blue */
+  --paper: #f8fafc;         /* Off-white for light mode and printing - Nearly white */
+  --text: #e5e7eb;          /* Primary text color - Light gray for readability */
+  --muted: #aab2c8;         /* Secondary/muted text (metadata, subtitles) - Gray-blue */
+  --accent: #c79b3b;        /* Primary accent color (buttons, borders) - Gold/bronze */
+  --accent-contrast: #1a1a1a; /* Text color ON accent backgrounds - Near black */
+  --link: #d4af37;          /* Link text color - Brighter gold */
+  --link-hover: #f1c453;    /* Link hover state - Even brighter gold */
+  --border: #1f2937;        /* Border colors, dividers - Dark gray */
+  --focus: #fde68a;         /* Focus ring outline (keyboard navigation) - Soft gold */
+
+  /* SPACING TOKENS - Customize header and layout spacing */
+  --header-padding-top: .75rem;    /* Padding above nav bar - Valid: any length (0.5rem, 1rem, 2rem, etc) */
+  --header-padding-bottom: .75rem;  /* Padding below nav bar */
+  --header-padding-x: 1.5rem;       /* Left/right padding on header */
+
+  /* Browser color scheme hint - tells OS which theme is default */
   color-scheme: dark light;
 }
 
@@ -22,50 +40,120 @@ html {
   color: #e5e7eb !important;
 }
 
-:root[data-theme="light"] {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --paper: #f8fafc;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --accent: #b8860b;
-  --accent-contrast: #ffffff;
-  --link: #9b7e1a;
-  --link-hover: #c79b3b;
-  --border: #e5e7eb;
-  --focus: #d4af37;
+/* DARK MODE - Applied when data-theme="dark" attribute is set on <html> */
+:root[data-theme="dark"] {
+  --bg: #0f172a;            /* Background color - Deep blue-gray */
+  --card: #111827;          /* Card/container backgrounds - Slightly lighter dark gray */
+  --paper: #f8fafc;         /* Off-white for light/print */
+  --text: #e5e7eb;          /* Primary text color - Light gray */
+  --muted: #aab2c8;         /* Secondary/muted text - Gray-blue */
+  --accent: #c79b3b;        /* Primary accent - Gold/bronze */
+  --accent-contrast: #1a1a1a; /* Text on accent - Near black */
+  --link: #d4af37;          /* Link color - Brighter gold */
+  --link-hover: #f1c453;    /* Link hover - Even brighter gold */
+  --border: #1f2937;        /* Border colors - Dark gray */
+  --focus: #fde68a;         /* Focus ring - Soft gold */
 }
 
-/* Normalize & Base Styles */
+/* OPTION 2: Alternate - More blue slate bg / Deep blue cards
+:root[data-theme="dark"] {
+  --bg: #151d2d;
+  --card: #0f1620;
+  --paper: #f8fafc;
+  --text: #e5e7eb;
+  --muted: #aab2c8;
+  --accent: #c79b3b;
+  --accent-contrast: #1a1a1a;
+  --link: #d4af37;
+  --link-hover: #f1c453;
+  --border: #1f2937;
+  --focus: #fde68a;
+}
+*/
+
+/* OPTION 3: Alternate - Cool slate bg / Rich blue cards
+:root[data-theme="dark"] {
+  --bg: #1f2940;
+  --card: #101c2e;
+  --paper: #f8fafc;
+  --text: #e5e7eb;
+  --muted: #aab2c8;
+  --accent: #c79b3b;
+  --accent-contrast: #1a1a1a;
+  --link: #d4af37;
+  --link-hover: #f1c453;
+  --border: #1f2937;
+  --focus: #fde68a;
+}
+*/
+
+/* LIGHT MODE - Applied when user toggles theme via button
+   The [data-theme="light"] attribute is set on <html> by JavaScript.
+   These override the dark mode values above. */
+:root[data-theme="light"] {
+  --bg: #f8fafc;            /* Light background - Nearly white */
+  --card: #ffffff;          /* Light card backgrounds - Pure white */
+  --paper: #f8fafc;         /* Light paper color - Off-white */
+  --text: #1f2937;          /* Light text - Dark gray/charcoal */
+  --muted: #6b7280;         /* Light muted text - Medium gray */
+  --accent: #b8860b;        /* Light accent - Darker gold (darker gold for contrast) */
+  --accent-contrast: #ffffff; /* Text on light accent - White */
+  --link: #9b7e1a;          /* Light link color - Dark goldenrod */
+  --link-hover: #c79b3b;    /* Light link hover - Brighter gold */
+  --border: #e5e7eb;        /* Light borders - Very light gray */
+  --focus: #d4af37;         /* Light focus ring - Gold */
+}
+
+/* ================================================================
+   NORMALIZE & BASE STYLES
+   ================================================================
+   Resets default browser styling for consistent behavior across
+   all elements and browsers. */
 *,
 *::before,
 *::after {
+  /* Remove default margins and padding from all elements */
   margin: 0;
   padding: 0;
+  /* Include padding/border in width calculations (better for layouts) */
   box-sizing: border-box;
 }
 
+/* Root HTML element styles */
 html {
+  /* Smooth scrolling behavior for anchor links (applies to scroll behavior) */
   scroll-behavior: smooth;
   background-color: var(--bg);
   color: var(--text);
+  /* Prevent layout shift when scrollbar appears/disappears - Valid: stable, auto */
   scrollbar-gutter: stable;
 }
 
+/* Body element - container for all page content */
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  /* Verdana Pro for body text - clean and readable
+     Fallback: Verdana → Arial → sans-serif */
+  font-family: 'Verdana', 'Arial', sans-serif;
+  /* Line height for text readability - Valid values: 1.2 (tight) to 2 (loose), ~1.6 is ideal */
   line-height: 1.6;
   color: var(--text);
   background-color: var(--bg);
+  /* Smooth theme transition animation when toggling dark/light mode - Valid: all 0.3s ease */
   transition: background-color 0.3s ease, color 0.3s ease;
   background: #0f172a;
   color: #e5e7eb;
 }
 
-/* Accessibility */
+/* ================================================================
+   ACCESSIBILITY
+   ================================================================
+   Keyboard navigation support and focus indicators for screen readers. */
+
+/* Skip-to-content link - hidden by default, visible when focused
+   Allows keyboard users to skip header navigation and jump to main content */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -40px;        /* Hidden above viewport (40px up) */
   left: 0;
   background: var(--accent);
   color: var(--accent-contrast);
@@ -74,241 +162,352 @@ body {
   z-index: 100;
 }
 
+/* When skip link is focused (Tab key from browser chrome), slide it into view */
 .skip-link:focus {
-  top: 0;
+  top: 0;             /* Move into viewport to become visible */
 }
 
-/* Focus Visible */
+/* Focus Visible - Keyboard navigation indicator
+   Shows visible outline when user tabs through interactive elements
+   Only applies to keyboard focus, not mouse clicks (better UX) */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
+  /* 2px solid outline in focus color (gold) */
   outline: 2px solid var(--focus);
+  /* Space between element and outline - Valid: 0 to 8px typical */
   outline-offset: 2px;
 }
 
-/* Header */
+/* ================================================================
+   HEADER SECTION
+   ================================================================
+   Navigation bar that stays at top of page when scrolling. */
+
 .site-header {
   background-color: var(--card);
   border-bottom: 1px solid var(--border);
+  /* Stays at top of viewport when scrolling - Valid: sticky, fixed, relative, absolute */
   position: sticky;
   top: 0;
+  /* Ensure header stays above other content */
   z-index: 99;
+  display: flex;         /* Stack rows vertically */
+  flex-direction: column; /* Stack in column */
 }
 
-.header-container {
+/* Top row: title and social icons */
+.header-top {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin: 0 auto;        /* Center horizontally */
+  width: 100%;           /* Full width */
+  padding: var(--header-padding-top) var(--header-padding-x) 0 var(--header-padding-x);  /* Remove bottom spacing */
+  display: flex;         /* Horizontal layout */
+  justify-content: space-between;  /* Title left, social right */
+  align-items: center;   /* Vertically center */
   gap: 2rem;
 }
 
+/* Logo/wordmark - prevents shrinking in flex container */
 .wordmark {
+  /* Don't shrink below natural size - Valid: 0 to 1 (0=no shrink, 1=can shrink) */
   flex-shrink: 0;
 }
 
+/* Site title/logo link */
 .site-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;  /* Montserrat for site branding */
+  font-size: 1.5rem;       /* 24px at default browser size */
+  font-weight: 700;        /* Bold - Valid: 100 (thin) to 900 (black) */
   color: var(--text);
-  text-decoration: none;
-  letter-spacing: -0.5px;
+  text-decoration: none;   /* Remove underline from link */
+  letter-spacing: -0.5px;  /* Tight letter spacing for professional look */
+  /* Smooth color change on hover/interaction - Valid: color 0.2s ease, all 0.2s ease, etc */
   transition: color 0.2s ease;
+  padding-bottom: 12px;    /* Add space below for underline animation - adjust value to align with title */
 }
 
+/* Title hover state - highlights on mouseover */
 .site-title:hover {
-  color: var(--link);
+  color: var(--link);      /* Change to bright gold on hover */
 }
 
+/* Navigation container - second row, left-aligned */
 .site-nav {
-  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;        /* Center horizontally */
+  width: 100%;           /* Full width */
+  padding: 0 var(--header-padding-x) var(--header-padding-bottom) var(--header-padding-x);  /* Uses customizable spacing variable */
+  display: flex;         /* Horizontal layout */
+  justify-content: flex-start; /* Left-align nav links */
 }
 
+/* Navigation list - horizontal menu */
 .nav-list {
+  /* Remove bullet points */
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: flex;         /* Horizontal layout */
+  align-items: center;   /* Vertically center all nav links with title */
+  flex-wrap: wrap;       /* Wrap on narrow screens - Valid: wrap, nowrap */
+  gap: 2rem;             /* Space between nav items */
+  margin: 0;             /* Remove default list margins */
+  padding: 0;            /* Remove default list padding */
 }
 
+/* Navigation list items - remove default margins */
+.nav-list li {
+  display: flex;         /* Make li a flex container */
+  align-items: center;   /* Center the link inside li */
+  padding-top: 12px;
+}
+
+/* Individual navigation link */
 .nav-link {
   color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
+  text-decoration: none;  /* Remove underline */
+  font-weight: 500;       /* Semi-bold - Valid: 100-900 */
+  position: relative;     /* For underline animation positioning */
   transition: color 0.2s ease;
+  display: flex;          /* Make link a flex container */
+  align-items: center;    /* Center content vertically */
+  white-space: nowrap;    /* Prevent text wrapping */
 }
 
+/* Navigation link on hover - color change */
 .nav-link:hover {
-  color: var(--link);
+  color: var(--link);     /* Turn gold on hover */
 }
 
+/* Animated underline (created with ::after pseudo-element)
+   Starts at 0 width, animates to 100% on hover */
 .nav-link::after {
-  content: '';
+  content: '';            /* Empty content - just for visual decoration */
   position: absolute;
-  bottom: -4px;
+  bottom: -4px;           /* 4px below the text */
   left: 0;
-  width: 0;
-  height: 2px;
+  width: 0;               /* Starts hidden (0 width) */
+  height: 2px;            /* Thin line */
   background-color: var(--accent);
+  /* Animates width from 0 to 100% */
   transition: width 0.2s ease;
 }
 
+/* Hover state - expand underline to full width */
 .nav-link:hover::after {
-  width: 100%;
+  width: 100%;            /* Expand underline to full link width */
 }
 
+/* Header buttons/actions container - holds theme toggle, etc */
+/* Header buttons/actions container - holds social links, etc */
 .header-actions {
-  display: flex;
-  gap: 1rem;
+  display: flex;         /* Horizontal layout */
+  gap: 1rem;             /* Space between buttons/icons */
+  align-items: center;   /* Vertically center icons */
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  background: none;
-  border: 1px solid var(--border);
+/* Social media links (LinkedIn, GitHub) */
+.social-link {
   color: var(--text);
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  cursor: pointer;
+  text-decoration: none;  /* Remove underline */
+  font-size: 1.2rem;      /* Icon size */
+  transition: color 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;        /* Padding around icon for clickable area */
+}
+
+/* Social link hover state */
+.social-link:hover {
+  color: var(--link);     /* Turn gold on hover */
+}
+
+/* ================================================================
+   THEME TOGGLE BUTTON (Dark/Light Mode Switch)
+   ================================================================
+   Button to switch between dark and light color schemes.
+   JavaScript listens for clicks and changes [data-theme] attribute. */
+
+.theme-toggle {
+  background: none;      /* No background fill */
+  border: 1px solid var(--border);  /* Subtle border */
+  color: var(--text);
+  width: 40px;           /* Square button dimensions */
+  height: 40px;
+  border-radius: 6px;    /* Slightly rounded corners - Valid: 0 to 50% */
+  cursor: pointer;       /* Hand cursor on hover */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Smooth transition for background and text color changes */
   transition: all 0.2s ease;
 }
 
+/* Theme toggle on hover - highlight it */
 .theme-toggle:hover {
-  background-color: var(--border);
-  color: var(--accent);
+  background-color: var(--border);  /* Subtle background */
+  color: var(--accent);             /* Gold icon */
 }
 
+/* SVG icon sizing inside button */
 .theme-toggle svg {
   width: 20px;
   height: 20px;
 }
 
+/* Sun and moon icons - absolutely positioned to overlap */
 .sun-icon,
 .moon-icon {
-  position: absolute;
+  position: absolute;    /* Overlay on top of each other */
+  /* Fade and rotate the icons smoothly */
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* DARK MODE - Show moon, hide sun */
 :root[data-theme="dark"] .sun-icon {
-  opacity: 0;
-  transform: rotate(-90deg);
+  opacity: 0;            /* Make sun invisible */
+  transform: rotate(-90deg);  /* Rotate sun as it fades out */
 }
 
 :root[data-theme="dark"] .moon-icon {
-  opacity: 1;
-  transform: rotate(0deg);
+  opacity: 1;            /* Make moon visible */
+  transform: rotate(0deg);    /* Moon at normal rotation */
 }
 
+/* LIGHT MODE - Show sun, hide moon */
 :root[data-theme="light"] .sun-icon {
-  opacity: 1;
-  transform: rotate(0deg);
+  opacity: 1;            /* Make sun visible */
+  transform: rotate(0deg);    /* Sun at normal rotation */
 }
 
 :root[data-theme="light"] .moon-icon {
-  opacity: 0;
-  transform: rotate(90deg);
+  opacity: 0;            /* Make moon invisible */
+  transform: rotate(90deg);   /* Rotate moon as it fades out */
 }
 
-/* Main Content */
+/* ================================================================
+   MAIN CONTENT AREA
+   ================================================================
+   The primary content container (everything between header/footer). */
+
 main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  max-width: 1200px;      /* Limit content width for readability */
+  margin: 0 auto;         /* Center on page */
+  padding: 0.5rem 1.5rem 1.5rem 1.5rem;  /* Top/left/right/bottom spacing - reduced top padding */
+  /* Take up at least full viewport height (minus header/footer)
+     Calc allows dynamic sizing: 100vh - estimated header/footer height */
   min-height: calc(100vh - 300px);
 }
 
-/* Typography */
+/* ================================================================
+   TYPOGRAPHY
+   ================================================================
+   Heading and paragraph styling for content readability. */
+
+/* All headings - shared styles */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  font-weight: 700;
-  line-height: 1.2;
+  /* Montserrat font - bold and distinctive for titles
+     Fallback: sans-serif */
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 1.5em;      /* Space above (relative to font size) */
+  margin-bottom: 0.5em;   /* Space below */
+  font-weight: 700;       /* Bold - Valid: 100-900 */
+  line-height: 1.2;       /* Tighter line-height for headings - Valid: 1 to 2 */
   color: var(--text);
 }
 
+/* Page/article title */
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.5rem;      /* ~40px at default browser size */
 }
 
+/* Section heading */
 h2 {
-  font-size: 2rem;
+  font-size: 2rem;        /* ~32px */
 }
 
+/* Subsection heading */
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.5rem;      /* ~24px */
 }
 
+/* Minor section heading */
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.25rem;     /* ~20px */
 }
 
+/* Small headings */
 h5,
 h6 {
-  font-size: 1rem;
+  font-size: 1rem;        /* ~16px */
 }
 
+/* Paragraph spacing */
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem;    /* Space after each paragraph */
 }
 
+/* Link styling */
 a {
   color: var(--link);
-  text-decoration: underline;
-  text-decoration-color: var(--link);
-  text-underline-offset: 4px;
+  text-decoration: underline;     /* Underline links for accessibility */
+  text-decoration-color: var(--link);  /* Underline color */
+  text-underline-offset: 4px;     /* Space between text and underline */
   transition: color 0.2s ease;
 }
 
+/* Link hover state */
 a:hover {
-  color: var(--link-hover);
-  text-decoration-color: var(--link-hover);
+  color: var(--link-hover);           /* Brighter gold on hover */
+  text-decoration-color: var(--link-hover);  /* Underline color changes too */
 }
 
-/* Buttons */
+/* ================================================================
+   BUTTONS
+   ================================================================
+   Button base styles and variants (accent, secondary, etc). */
+
+/* Base button styles */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
+  display: inline-flex;   /* Inline element, can contain flex items */
+  align-items: center;    /* Vertically center content */
+  justify-content: center;/* Horizontally center content */
+  padding: 0.75rem 1.5rem; /* Vertical and horizontal padding */
+  border: none;           /* No border by default */
+  border-radius: 6px;     /* Rounded corners - Valid: 0 to 50% */
+  font-size: 1rem;        /* Base text size */
+  font-weight: 600;       /* Semi-bold - Valid: 100-900 */
+  cursor: pointer;        /* Hand cursor on hover */
+  text-decoration: none;  /* Remove link underlines */
+  /* Smooth transition for all properties when hovered */
   transition: all 0.2s ease;
-  gap: 0.5rem;
+  gap: 0.5rem;            /* Space between icon and text (if icon present) */
 }
 
+/* Accent button variant - primary CTA style (gold background) */
 .btn-accent {
-  background-color: var(--accent);
-  color: var(--accent-contrast);
+  background-color: var(--accent);      /* Gold/bronze background */
+  color: var(--accent-contrast);        /* Dark text on gold */
 }
 
+/* Accent button hover state */
 .btn-accent:hover {
-  background-color: var(--link);
-  color: var(--accent-contrast);
+  background-color: var(--link);        /* Brighter gold on hover */
+  color: var(--accent-contrast);        /* Keep text color */
 }
 
 /* Page Styles */
 .page {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: .75rem;
 }
 
 .page-header {
@@ -329,7 +528,7 @@ a:hover {
 }
 
 .page-content > * + * {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .hero-ctas {
@@ -353,8 +552,8 @@ a:hover {
 
 .bio-headshot {
   flex-shrink: 0;
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: 12px;
   object-fit: cover;
   border: 3px solid var(--accent);
@@ -389,7 +588,7 @@ a:hover {
 
 .bio-overview {
   max-width: 900px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 1rem;  /* Reduced bottom margin spacing */
   padding: 2rem;
   text-align: center;
   font-size: 1.05rem;
@@ -405,7 +604,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 3rem;
-  margin: 4rem 0;
+  margin: 3rem 0;
   padding: 2rem 0;
 }
 
@@ -431,8 +630,8 @@ a:hover {
 }
 
 .core-competencies {
-  margin: 2rem 0 2rem 0;
-  padding: 1rem 0 2rem 0;
+  margin: 0.5rem 0 2rem 0;  /* Reduced top margin spacing */
+  padding: 0rem 0 2rem 0;
 }
 
 .core-competencies h2 {
@@ -497,15 +696,22 @@ a:hover {
 
 .bio-personal {
   margin: 2rem 0;
-  padding: 1.5rem 1.5rem;
+  padding: 0;
+}
+
+.bio-personal h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .bio-personal-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 3rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .bio-personal-text {
@@ -513,16 +719,14 @@ a:hover {
   min-width: 0;
 }
 
-.bio-personal .insights-graphic {
+.bio-personal-image {
   flex: 0 0 auto;
-  max-width: 300px;
+  max-width: 380px;
   width: 100%;
-}
-
-.bio-personal h2 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .bio-personal p {
@@ -536,7 +740,7 @@ a:hover {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 1rem 0;  /* Reduced spacing around CTA buttons */
   flex-wrap: wrap;
 }
 
@@ -875,20 +1079,24 @@ a:hover {
   align-self: flex-start;
 }
 
-/* Footer */
+/* ================================================================
+   FOOTER SECTION
+   ================================================================
+   Footer with disclaimer, contact links, and credits. */
+
 .site-footer {
   background-color: var(--card);
   border-top: 1px solid var(--border);
-  margin-top: auto;
+  margin-top: auto;       /* Pushes footer to bottom when content is short */
 }
 
 .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
+  max-width: 1200px;      /* Match main content width */
+  margin: 0 auto;         /* Center footer */
+  padding: 2rem 1.5rem;   /* Inner spacing */
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex-direction: column;  /* Stack sections vertically */
+  gap: 1.5rem;            /* Space between sections */
 }
 
 .footer-section {
@@ -934,72 +1142,101 @@ a:hover {
   margin: 0;
 }
 
-/* Code Blocks */
+/* ================================================================
+   CODE BLOCKS & INLINE CODE
+   ================================================================
+   Styling for code snippets and blocks. */
+
+/* Code block and inline code - shared styles */
 pre,
 code {
-  background-color: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 0.9rem;
+  background-color: var(--card);    /* Slightly lighter background */
+  border: 1px solid var(--border);  /* Subtle border */
+  border-radius: 6px;               /* Slightly rounded - Valid: 0 to 50% */
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace; /* Monospace font */
+  font-size: 0.9rem;                /* Slightly smaller than body text */
 }
 
+/* Inline code (within paragraphs) */
 code {
-  padding: 0.2em 0.4em;
+  padding: 0.2em 0.4em;             /* Tight padding around inline code */
 }
 
+/* Code block (multi-line) */
 pre {
-  padding: 1rem;
-  overflow-x: auto;
-  margin: 1rem 0;
+  padding: 1rem;                    /* More spacious padding */
+  overflow-x: auto;                 /* Scroll horizontally if too wide */
+  margin: 1rem 0;                   /* Space above/below block */
 }
 
+/* Code inside code block - override styles */
 pre code {
-  border: none;
-  padding: 0;
-  background: none;
+  border: none;                     /* Remove border from code inside pre */
+  padding: 0;                       /* No padding (already padded by pre) */
+  background: none;                 /* No background (uses pre background) */
 }
 
-/* Blockquotes */
+/* ================================================================
+   BLOCKQUOTES
+   ================================================================
+   Quoted text styling. */
+
 blockquote {
-  border-left: 4px solid var(--accent);
-  padding-left: 1rem;
+  border-left: 4px solid var(--accent);  /* Gold left border accent */
+  padding-left: 1rem;                    /* Space between border and text */
   margin-left: 0;
-  color: var(--muted);
-  font-style: italic;
+  color: var(--muted);                   /* Muted gray text */
+  font-style: italic;                    /* Italicized quote */
 }
 
-/* Lists */
+/* ================================================================
+   LISTS
+   ================================================================
+   Unordered and ordered lists. */
+
+/* Both unordered and ordered lists */
 ul,
 ol {
-  margin: 1rem 0;
-  padding-left: 2rem;
+  margin: 1rem 0;                    /* Space above and below */
+  padding-left: 2rem;                /* Indent for bullets/numbers */
 }
 
+/* Individual list items */
 li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;             /* Space between items */
 }
 
-/* Tables */
+/* ================================================================
+   TABLES
+   ================================================================
+   Table styling for data presentation. */
+
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
+  width: 100%;                       /* Full width of container */
+  border-collapse: collapse;         /* Merge adjacent borders - Valid: collapse, separate */
+  margin: 1.5rem 0;                  /* Space around table */
 }
 
+/* Table cells (header and data) */
 th,
 td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
+  padding: 0.75rem;                  /* Internal cell spacing */
+  text-align: left;                  /* Left-align content */
+  border-bottom: 1px solid var(--border);  /* Horizontal dividers */
 }
 
+/* Table header cells */
 th {
-  background-color: var(--card);
-  font-weight: 600;
+  background-color: var(--card);     /* Slightly lighter background */
+  font-weight: 600;                  /* Bold text */
 }
 
-/* Responsive Design */
+/* ================================================================
+   RESPONSIVE DESIGN
+   ================================================================
+   Mobile-first adjustments for screens smaller than 768px (tablets).
+   These rules override larger screen styles on smaller devices. */
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -1015,8 +1252,9 @@ th {
   }
 
   .nav-list {
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row;
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
 
   main {
@@ -1043,15 +1281,15 @@ th {
   /* Bio responsive styles */
   .bio-hero {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     padding: 2rem 1rem;
     gap: 2rem;
   }
 
   .bio-headshot {
-    width: 140px;
-    height: 140px;
+    width: 200px;
+    height: 200px;
   }
 
   .bio-intro h1 {
@@ -1094,6 +1332,11 @@ th {
   .bio-personal-content {
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
+  }
+
+  .bio-personal-image {
+    max-width: 280px;
   }
 
   .bio-personal h2 {
@@ -1101,34 +1344,44 @@ th {
   }
 }
 
-/* Print Styles */
+/* ================================================================
+   PRINT STYLES
+   ================================================================
+   Adjustments for when user prints the page (Ctrl+P or File > Print).
+   Removes nav, header, footer, and optimizes for paper output. */
+
 @media print {
+  /* Hide navigation and interactive elements */
   .site-header,
   .site-footer,
   .theme-toggle,
   .print-button,
   .skip-link {
-    display: none;
+    display: none;  /* Valid: none (hides element), block, flex, grid, etc */
   }
 
+  /* Force light background and dark text for paper (printing) */
   html {
-    background-color: var(--paper);
+    background-color: var(--paper);  /* Off-white for paper */
   }
 
   body {
     background-color: var(--paper);
-    color: #000;
+    color: #000;                     /* Black text for readability on paper */
   }
 
+  /* Remove padding/margins for print */
   main {
     padding: 0;
   }
 
+  /* Black text for all links in print */
   a {
     color: #000;
-    text-decoration: underline;
+    text-decoration: underline;      /* Keep underlines in print */
   }
 
+  /* Black text for all headings */
   h1,
   h2,
   h3,
@@ -1138,15 +1391,16 @@ th {
     color: #000;
   }
 
+  /* Light gray borders for print visibility */
   .artifact-header,
   .artifact-footer {
     border-color: #ccc;
   }
 
-  page-break-after: avoid;
+  /* Prevent awkward page breaks inside content blocks */
   p,
   ul,
   ol {
-    page-break-inside: avoid;
+    page-break-inside: avoid;        /* Keep paragraphs/lists on same page */
   }
 }

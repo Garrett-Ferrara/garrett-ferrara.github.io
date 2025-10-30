@@ -56,12 +56,13 @@ layout: page
 </div>
 
 <div class="bio-personal">
+  <h2>Beyond the Resume</h2>
   <div class="bio-personal-content">
     <div class="bio-personal-text">
-      <h2>Beyond the Resume</h2>
+      <p>My personal and professional interests sit at the intersection of Composition Studies, Intelligence Studies, and Knowledge Management. I'm drawn to the human-centered work of transforming information into understanding, and to the systemic challenges of ensuring that the right knowledge reaches the right people at the right time—whether in national security contexts, organizational settings, or academic communities.</p>
       <p>I'm a warm, curious, and candid individual who feels a responsibility to always volunteer to be the solution. I care deeply about both the missions and the people I work with, and I maintain a quiet and discrete professionalism that makes "About Me" sections unexpectedly challenging compared to the other work I'm known for.</p>
       <p>I'm always open to discussing new opportunities and challenges where my analytical, editorial, and technical skills can make a meaningful impact!</p>
     </div>
-    <img src="/assets/ActionableInsightsOnion.png" alt="Actionable Insights Onion" class="insights-graphic">
+    <img src="/assets/ActionableInsightsOnion.png" alt="Actionable Insights Onion" class="bio-personal-image">
   </div>
 </div>

@@ -31,17 +31,9 @@
 <!-- Stylesheet -->
 <link rel="stylesheet" href="/assets/site.css">
 
-<!-- Prevent theme flash on page load -->
+<!-- Force dark mode - light mode disabled -->
 <script>
-  (function() {
-    const stored = localStorage.getItem('theme-mode');
-    const isDark = stored === 'dark' || (stored === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    if (!isDark) {
-      document.documentElement.setAttribute('data-theme', 'light');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  })();
+  document.documentElement.setAttribute('data-theme', 'dark');
 </script>
 
 <!-- Analytics Placeholder -->
