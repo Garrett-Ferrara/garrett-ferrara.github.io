@@ -842,6 +842,18 @@ strong {
   cursor: pointer;
 }
 
+.artifact-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.artifact-links .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .artifact-content {
   flex: 1;
 }
