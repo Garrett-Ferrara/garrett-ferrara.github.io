@@ -23,7 +23,9 @@ Use the filter below to explore by topic.
       <h3>{{ artifact.title }}</h3>
       <p class="artifact-summary">{{ artifact.summary }}</p>
 
-      {% if artifact.pdf %}
+      {% if artifact.preview_image %}
+        <img src="{{ artifact.preview_image }}" alt="{{ artifact.title }}" class="artifact-preview-image">
+      {% elsif artifact.pdf %}
         <div class="artifact-preview">
           <div class="pdf-preview">
             <div class="pdf-preview-icon"><i class="fas fa-file-pdf"></i></div>

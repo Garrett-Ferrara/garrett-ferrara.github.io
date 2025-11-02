@@ -24,18 +24,18 @@ layout: page
 
   <div class="competencies-grid">
     <div class="competency-card">
-      <h3><i class="fas fa-magnifying-glass"></i> Investigative Flexibility</h3>
+      <h3><i class="fas fa-magnifying-glass"></i> Investigative Acumen</h3>
       <p>I maintain my own analytical and writing prowess while staying agile enough to tackle diverse challenges. I'm eager to leap into unfamiliar or esoteric domains, either as surge support or as the team's dedicated subject matter expert.</p>
     </div>
 
     <div class="competency-card">
       <h3><i class="fas fa-pen-nib"></i> Editorial Leadership</h3>
-      <p>I ask the right questions to help specialized team members clarify their thinking and communicate complex findings effectively to their intended audiences, ensuring all outputs reflect the organization's values and professionalism through developmental editing and quality control.</p>
+      <p>I ask the right questions to help specialized team members clarify their thinking and <strong>communicate complex findings effectively</strong> to their intended audiences, ensuring all outputs reflect the organization's values and professionalism through developmental editing and quality control.</p>
     </div>
 
     <div class="competency-card">
       <h3><i class="fas fa-cogs"></i> Process Optimization</h3>
-      <p>I build and maintain the SOPs, documentation standards, and knowledge management frameworks that transform individual expertise into shared institutional capabilities.</p>
+      <p>I design, build, and maintain the SOPs, documentation guides, and knowledge bases that transform individual expertise into <strong>shared institutional capabilities</strong>.</p>
     </div>
 
     <div class="competency-card">

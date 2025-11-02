@@ -32,12 +32,16 @@ layout: default
     {% endif %}
 
     {% if page.pdf %}
-      <div class="artifact-preview">
-        <div class="pdf-preview">
-          <div class="pdf-preview-icon"><i class="fas fa-file-pdf"></i></div>
-          <div class="pdf-preview-filename">{{ page.pdf | split: "/" | last }}</div>
-          <a href="{{ page.pdf }}" target="_blank" class="btn btn-accent" style="margin-top: 0.5rem;">View PDF</a>
+      <div class="pdf-viewer-container">
+        <div class="pdf-viewer-header">
+          <h3>{{ page.pdf | split: "/" | last }}</h3>
+          <a href="{{ page.pdf }}" download class="btn btn-accent btn-sm">Download PDF</a>
         </div>
+        <embed
+          src="{{ page.pdf }}#zoom=80"
+          type="application/pdf"
+          class="pdf-viewer"
+          title="PDF Viewer for {{ page.title }}">
       </div>
     {% endif %}
   </div>

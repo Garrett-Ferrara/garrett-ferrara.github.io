@@ -21,7 +21,13 @@
       "Bash(ruby --version:*)",
       "Bash(jekyll:*)",
       "Bash(choco install:*)",
-      "Read(//c/Users/**)"
+      "Read(//c/Users/**)",
+      "Bash(ssh-keygen:*)",
+      "Bash(cat:*)",
+      "Bash(ssh:*)",
+      "Bash(bundle exec jekyll serve:*)",
+      "Bash(bash scripts/generate-pdf-previews.sh:*)",
+      "Bash(\"C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\magick.exe\" convert -density 150 \"assets/Alethea-Writing-With-Invisible-Ink.pdf[0]\" -quality 85 -crop 800x1000+0+0 +repage \"assets/previews/Alethea-Writing-With-Invisible-Ink-preview.png\")"
     ],
     "deny": [],
     "ask": []

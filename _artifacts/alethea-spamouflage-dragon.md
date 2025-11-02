@@ -5,7 +5,8 @@ role: "Managing Editor, Alethea Analysis Team"
 tags: ["OSINT", "Editorial Leadership", "Influence Operations", "Methodology"]
 date: 2024-06-30
 weight: 3
-pdf: "/assets/Alethea - Spamo-Gabbing Report (2).pdf"
+pdf: "/assets/Alethea - Spamo-Gabbing Report.pdf"
+preview_image: "/assets/previews/Alethea - Spamo-Gabbing Report.jpg"
 ---
 
 ## Context

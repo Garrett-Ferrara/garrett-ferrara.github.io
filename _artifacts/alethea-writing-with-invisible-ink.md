@@ -6,6 +6,7 @@ tags: ["OSINT", "Editorial Leadership", "Influence Operations", "Methodology"]
 date: 2024-06-30
 weight: 1
 pdf: "/assets/Alethea-Writing-With-Invisible-Ink.pdf"
+preview_image: "/assets/previews/Alethea-Writing-With-Invisible-Ink.jpg"
 ---
 
 ## Context
