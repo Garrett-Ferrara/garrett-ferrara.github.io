@@ -4,9 +4,7 @@ title: "Portfolio"
 description: "Selected public work and academic projects."
 ---
 
-## Work & Projects
-
-Below is a curated collection of publicly shareable work across intelligence analysis, research infrastructure, and academic writing. Use the filter below to explore by topic.
+Use the filter below to explore by topic.
 
 <div class="filter-controls">
   <span class="filter-label">Filter by:</span>
@@ -77,6 +75,3 @@ Below is a curated collection of publicly shareable work across intelligence ana
   });
 </script>
 
----
-
-{{ site.data.site.disclaimer }}

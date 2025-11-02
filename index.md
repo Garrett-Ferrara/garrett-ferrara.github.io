@@ -24,7 +24,7 @@ layout: page
 
   <div class="competencies-grid">
     <div class="competency-card">
-      <h3><i class="fas fa-brain"></i> Investigative Flexibility</h3>
+      <h3><i class="fas fa-magnifying-glass"></i> Investigative Flexibility</h3>
       <p>I maintain my own analytical and writing prowess while staying agile enough to tackle diverse challenges. I'm eager to leap into unfamiliar or esoteric domains, either as surge support or as the team's dedicated subject matter expert.</p>
     </div>
 

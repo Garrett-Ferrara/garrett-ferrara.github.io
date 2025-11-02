@@ -152,6 +152,66 @@ Your content here...
 
 Artifacts are automatically listed on `/portfolio/` and sorted by `weight` then `date`.
 
+#### Adding PDF Preview Images
+
+To enhance portfolio artifacts with preview images on the portfolio grid, follow these steps:
+
+**Option 1: Using macOS Preview or Online Tools (Easiest)**
+1. Open your PDF in Preview (macOS) or any PDF viewer
+2. Take a screenshot of the first page (keyboard: Cmd+Shift+4 on Mac, Print Screen on Windows)
+3. Crop to show just the relevant content
+4. Save as PNG (e.g., `artifact-preview.png`)
+5. Place in `assets/portfolio-previews/`
+
+**Option 2: Using ImageMagick (Free Command-Line Tool)**
+```bash
+# Install ImageMagick (Windows: use Chocolatey)
+# brew install imagemagick  (macOS)
+# choco install imagemagick (Windows)
+
+# Convert first page of PDF to PNG
+convert -density 150 path/to/document.pdf[0] -quality 85 assets/portfolio-previews/document-preview.png
+```
+
+**Option 3: Using Ghostscript (Free, Cross-Platform)**
+```bash
+# Install Ghostscript: https://www.ghostscript.com/download/gsdnld.html
+
+# Convert first page to PNG
+gswin64c -sDEVICE=pngalpha -r150 -o output.png input.pdf
+```
+
+**Option 4: Online PDF to Image Converter**
+- Visit [ilovepdf.com](https://www.ilovepdf.com/pdf_to_jpg) or [pdfconvert.me](https://pdfconvert.me/)
+- Upload PDF, select first page only, download as PNG
+- Save with descriptive name in `assets/portfolio-previews/`
+
+**Preview Image Best Practices:**
+- **Size:** 400px × 500px (or similar 4:5 ratio)
+- **Format:** PNG (transparent background) or JPG
+- **Quality:** 85-90% quality to keep file size under 200KB
+- **Naming:** Use kebab-case, e.g., `alethea-case-studies-preview.png`
+
+**To Display in Portfolio Grid:**
+
+Add to your artifact's front matter:
+```yaml
+---
+title: "Your Artifact"
+summary: "..."
+preview_image: "assets/portfolio-previews/artifact-preview.png"
+---
+```
+
+Then in `portfolio/index.md`, update the card display:
+```html
+{% if artifact.preview_image %}
+  <img src="{{ artifact.preview_image }}" alt="{{ artifact.title }}" class="artifact-preview-image">
+{% else %}
+  <!-- existing PDF/repo preview -->
+{% endif %}
+```
+
 ### Editing the Home Page
 
 Edit `index.md` to update the About section, tagline, and call-to-action buttons.
