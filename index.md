@@ -49,8 +49,8 @@ layout: page
     </div>
 
     <div class="competency-card">
-      <h3><i class="fas fa-star"></i> TODO: Add Title</h3>
-      <p>TODO: Add description for this competency here. This is placeholder text that you can replace with your own content.</p>
+      <h3><i class="fas fa-layer-group"></i> Narrative Analysis</h3>
+      <p>I deconstruct information ecosystems and rhetorical contexts to identify the narratives, frames, and stakeholder positions that shape outcomes. Whether analyzing influence operations, organizational communication, or knowledge landscapes, I reveal the hidden structures that drive decisions.</p>
     </div>
   </div>
 </div>
