@@ -13,8 +13,8 @@ description: "A distant reading analysis of disciplinary turns in Internet Studi
 </header>
 
 <div class="graphics-container">
-  <img src="/assets/EveryFirstMonday/EFM_Frequency_WordCloud.PNG" alt="Word cloud from First Monday corpus">
-  <p class="caption">A word cloud generated in WordStat spanning the entire First Monday historical corpus.</p>
+  <img src="/assets/EveryFirstMonday/ChatGPT_First_Monday_Egg.png" alt="ChatGPT visualization of First Monday corpus">
+  <p class="caption">ChatGPT trying its hardest to visualize First Monday being an egg with a WordStat wordcloud as the contents. Note the distorted text; an unedited version of this word cloud appears later on. Source: OpenAI. (2025). DALL·E 3 [AI image generator].</p>
 </div>
 
 <nav class="toc" id="toc">
@@ -74,49 +74,86 @@ This project employed agentic coding—iterative collaboration with large langua
 
 ## Distant Reading Graphics & Results {#distant-reading-results}
 
-### Temporal Heatmap
+### Combined N-gram Coverage
 
-<div class="graphics-container">
-  <img src="/assets/EveryFirstMonday/temporal_heatmap.png" alt="Temporal heatmap showing n-gram frequency across years">
-  <p class="caption">A heatmap displaying all ten n-grams over time (1996 and 2025 are partial years).</p>
-</div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-### N-gram Area Plot
+<div id="plot-combined-area" style="width:100%; height:700px;"></div>
 
-<div class="graphics-container">
-  <img src="/assets/EveryFirstMonday/combined_ngram_area_plot.png" alt="Combined n-gram area plot">
-  <p class="caption">An area plot showing all ten n-grams across First Monday's history, revealing overlapping and divergent trends.</p>
-</div>
+The stacked area plot above shows all ten n-grams combined, revealing how total scholarly attention to these key concepts evolved over *First Monday*'s 29-year span. Each colored band represents one term, and the height of each band indicates its raw frequency. This visualization makes it easy to observe both individual term trajectories and how they collectively shifted across different periods.
 
-### N-gram Frequency Line Graphs
+### Individual Term Trajectories
 
 The carousel below displays individual frequency line graphs for all ten n-grams, allowing close examination of each term's trajectory across *First Monday*'s 29-year span. The first five graphs represent core RhetComp terminology; the latter five represent comparative digital studies concepts. Use the navigation buttons to move between graphs and observe both the magnitude of usage and the timing of rises and declines in scholarly attention.
 
 <p class="caption">Individual n-gram frequency trends across First Monday's history (1996–2025). Terms 1–5 represent the undergraduate corpus (Identity, Discourse, Writing, Rhetoric, Composition); terms 6–10 represent the background corpus (Digital Media, Digital Divide, Public Sphere, Online Communities, Civic Engagement).</p>
 
-<div class="image-carousel" id="carousel-all">
-  <div class="carousel-container">
-    <!-- Undergraduate corpus -->
-    <img src="/assets/EveryFirstMonday/lg_ug1_identity.png" alt="Identity n-gram trend" class="carousel-image" data-label="Identity">
-    <img src="/assets/EveryFirstMonday/lg_ug2_discourse.png" alt="Discourse n-gram trend" class="carousel-image" data-label="Discourse" style="display: none;">
-    <img src="/assets/EveryFirstMonday/lg_ug3_writing.png" alt="Writing n-gram trend" class="carousel-image" data-label="Writing" style="display: none;">
-    <img src="/assets/EveryFirstMonday/lg_ug4_rhetoric.png" alt="Rhetoric n-gram trend" class="carousel-image" data-label="Rhetoric" style="display: none;">
-    <img src="/assets/EveryFirstMonday/lg_ug5_composition.png" alt="Composition n-gram trend" class="carousel-image" data-label="Composition" style="display: none;">
-    <!-- Background corpus -->
-    <img src="/assets/EveryFirstMonday/lg_bg1_digital_media.png" alt="Digital media n-gram trend" class="carousel-image" data-label="Digital Media" style="display: none;">
-    <img src="/assets/EveryFirstMonday/lg_bg2_digital_divide.png" alt="Digital divide n-gram trend" class="carousel-image" data-label="Digital Divide" style="display: none;">
-    <img src="/assets/EveryFirstMonday/lg_bg3_public_sphere.png" alt="Public sphere n-gram trend" class="carousel-image" data-label="Public Sphere" style="display: none;">
-    <img src="/assets/EveryFirstMonday/lg_bg4_online_communities.png" alt="Online communities n-gram trend" class="carousel-image" data-label="Online Communities" style="display: none;">
-    <img src="/assets/EveryFirstMonday/lg_bg5_civic_engagement.png" alt="Civic engagement n-gram trend" class="carousel-image" data-label="Civic Engagement" style="display: none;">
+<div class="filled-area-carousel" id="filled-area-carousel">
+  <div class="viz-container">
+    <!-- Plotly filled area chart divs -->
+    <div class="viz-view" id="area-viz-1" style="display: block;">
+      <div id="plot-area-ug1-identity" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-2" style="display: none;">
+      <div id="plot-area-ug2-discourse" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-3" style="display: none;">
+      <div id="plot-area-ug3-writing" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-4" style="display: none;">
+      <div id="plot-area-ug4-rhetoric" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-5" style="display: none;">
+      <div id="plot-area-ug5-composition" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-6" style="display: none;">
+      <div id="plot-area-bg1-digital-media" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-7" style="display: none;">
+      <div id="plot-area-bg2-digital-divide" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-8" style="display: none;">
+      <div id="plot-area-bg3-public-sphere" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-9" style="display: none;">
+      <div id="plot-area-bg4-online-communities" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="viz-view" id="area-viz-10" style="display: none;">
+      <div id="plot-area-bg5-civic-engagement" style="width:100%; height:600px;"></div>
+    </div>
   </div>
+
   <div class="carousel-controls">
-    <button class="carousel-prev" onclick="changeImage('carousel-all', -1)">← Previous</button>
-    <span class="carousel-label"><span class="carousel-term"></span> - <span class="carousel-current">1</span>/<span class="carousel-total">10</span></span>
-    <button class="carousel-next" onclick="changeImage('carousel-all', 1)">Next →</button>
+    <button class="carousel-prev" onclick="changeAreaChart('filled-area-carousel', -1)">← Previous</button>
+    <span class="carousel-label"><span class="area-term"></span> - <span class="area-current">1</span>/<span class="area-total">10</span></span>
+    <button class="carousel-next" onclick="changeAreaChart('filled-area-carousel', 1)">Next →</button>
   </div>
 </div>
 
-The individual trend lines above reveal the temporal granularity of how each term has evolved within *First Monday*'s discourse. While the area plots and heatmaps show the aggregate picture, these single-term trajectories allow readers to observe specific inflection points—moments when scholarly attention surged or declined. The following interactive visualizations extend this analysis by introducing dimensional complexity: each bubble's position, size, and color encode multiple variables simultaneously, enabling a richer comparative view of how terms distributed across time, frequency, and prevalence.
+
+### Temporal Heatmaps
+
+The heatmaps below provide a compact overview of term prevalence patterns across years. Toggle between unigrams and bigrams to see how individual terms and paired concepts evolved, then view the normalized heatmap to understand each term's prevalence relative to its peak occurrence.
+
+<div class="heatmap-carousel">
+  <div id="plot-unigrams-heatmap" style="width:100%; height:600px; display:block;"></div>
+  <div id="plot-bigrams-heatmap" style="width:100%; height:600px; display:none;"></div>
+
+  <div class="heatmap-controls">
+    <button id="heatmap-unigrams-btn" class="heatmap-toggle active" onclick="toggleHeatmapType('unigrams')">Unigrams</button>
+    <button id="heatmap-bigrams-btn" class="heatmap-toggle" onclick="toggleHeatmapType('bigrams')">Bigrams</button>
+  </div>
+</div>
+
+### Term Prevalence Normalized to Peak
+
+<div id="plot-normalized-heatmap" style="width:100%; height:700px;"></div>
+
+This normalized view shows each term's prevalence as a percentage of its peak maximum. A term that peaked in one year at 56% of articles would show as 100% in that year. This normalization reveals the relative importance of each term within its own trajectory, making it easier to compare terms with very different baseline frequencies.
+
+### Interactive Bubble Charts
+
+The bubble charts below provide a multidimensional view of each term's evolution. Each bubble represents a year, with position on the x-axis showing time, position on the y-axis showing prevalence (% of articles), bubble size indicating reference density, and color representing the year. This allows simultaneous analysis of frequency, prevalence, and temporal distribution.
 
 <div class="interactive-viz-carousel" id="viz-carousel">
   <div class="viz-container">
@@ -160,7 +197,7 @@ The individual trend lines above reveal the temporal granularity of how each ter
   </div>
 </div>
 
-<p class="caption">Interactive bubble/motion charts for all ten n-grams. Charts 1–5 represent RhetComp core terminology (Identity, Discourse, Writing, Rhetoric, Composition); charts 6–10 represent digital studies background concepts (Digital Media, Digital Divide, Public Sphere, Online Communities, Civic Engagement). Click through to explore trajectories across time.</p>
+<p class="caption">Interactive bubble charts for all ten n-grams. Charts 1–5 represent RhetComp core terminology (Identity, Discourse, Writing, Rhetoric, Composition); charts 6–10 represent digital studies background concepts (Digital Media, Digital Divide, Public Sphere, Online Communities, Civic Engagement). Click through to explore multidimensional patterns.</p>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>

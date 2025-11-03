@@ -5,7 +5,7 @@ role: "Researcher & Technical Lead"
 tags: ["Agentic Coding", "Distant Reading", "Corpus Analysis", "Academic Methods"]
 date: 2025-11-02
 weight: 5
-preview_image: "/assets/EveryFirstMonday/EFM_Frequency_WordCloud.PNG"
+preview_image: "/assets/EveryFirstMonday/ChatGPT_First_Monday_Egg.png"
 ---
 
 <a href="/texts/first_monday/" class="btn btn-accent">Read the Full Analysis →</a>

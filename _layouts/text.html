@@ -154,7 +154,9 @@
       font-size: 0.875rem;
       font-style: italic;
       color: var(--muted);
-      margin: 1rem 0 0.5rem;
+      margin: 1rem auto 0.5rem;
+      max-width: 1000px;
+      width: 80%;
     }
 
     .graphics-container {
@@ -276,7 +278,8 @@
       font-style: italic;
     }
 
-    .interactive-viz-carousel {
+    .interactive-viz-carousel,
+    .filled-area-carousel {
       margin: 2rem 0;
       max-width: 1000px;
       margin-left: auto;
@@ -406,6 +409,45 @@
     .back-to-texts a:hover {
       border-bottom-color: var(--link-hover);
       color: var(--link-hover);
+    }
+
+    .heatmap-carousel {
+      margin: 2rem 0;
+    }
+
+    .heatmap-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+
+    .heatmap-toggle {
+      background: var(--card);
+      color: var(--text);
+      border: 2px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+
+    .heatmap-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .heatmap-toggle.active {
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border-color: var(--accent);
+    }
+
+    .heatmap-toggle.active:hover {
+      background: var(--link-hover);
+      border-color: var(--link-hover);
     }
 
     /* Light mode adjustments */
