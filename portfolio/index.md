@@ -19,37 +19,39 @@ Use the filter below to explore by topic.
 <div class="portfolio-grid">
   {% assign sorted_artifacts = site.artifacts | sort: "weight" | sort: "date" | reverse %}
   {% for artifact in sorted_artifacts %}
-    <a href="{{ artifact.url }}" class="artifact-card" data-tags="{% for tag in artifact.tags %}{{ tag }}{% unless forloop.last %},{% endunless %}{% endfor %}">
-      <h3>{{ artifact.title }}</h3>
-      <p class="artifact-summary">{{ artifact.summary }}</p>
+    {% if artifact.published != false %}
+      <a href="{{ artifact.url }}" class="artifact-card" data-tags="{% for tag in artifact.tags %}{{ tag }}{% unless forloop.last %},{% endunless %}{% endfor %}">
+        <h3>{{ artifact.title }}</h3>
+        <p class="artifact-summary">{{ artifact.summary }}</p>
 
-      {% if artifact.preview_image %}
-        <img src="{{ artifact.preview_image }}" alt="{{ artifact.title }}" class="artifact-preview-image">
-      {% elsif artifact.pdf %}
-        <div class="artifact-preview">
-          <div class="pdf-preview">
-            <div class="pdf-preview-icon"><i class="fas fa-file-pdf"></i></div>
-            <div class="pdf-preview-filename">View PDF</div>
+        {% if artifact.preview_image %}
+          <img src="{{ artifact.preview_image }}" alt="{{ artifact.title }}" class="artifact-preview-image">
+        {% elsif artifact.pdf %}
+          <div class="artifact-preview">
+            <div class="pdf-preview">
+              <div class="pdf-preview-icon"><i class="fas fa-file-pdf"></i></div>
+              <div class="pdf-preview-filename">View PDF</div>
+            </div>
           </div>
-        </div>
-      {% else %}
-        <div class="artifact-preview">
-          <div class="file-tree">
-            <div class="file-tree-item"><span class="file-tree-folder">📁 Repository</span></div>
-            <div class="file-tree-item"><span class="file-tree-indent"></span><span class="file-tree-file">📄 README.md</span></div>
-            <div class="file-tree-item"><span class="file-tree-indent"></span><span class="file-tree-file">📄 index.py</span></div>
-            <div class="file-tree-item"><span class="file-tree-indent"></span><span class="file-tree-file">📁 src/</span></div>
-            <div class="file-tree-item"><span class="file-tree-indent"></span><span class="file-tree-indent"></span><span class="file-tree-file">📄 main.py</span></div>
+        {% else %}
+          <div class="artifact-preview">
+            <div class="file-tree">
+              <div class="file-tree-item"><span class="file-tree-folder">📁 Repository</span></div>
+              <div class="file-tree-item"><span class="file-tree-indent"></span><span class="file-tree-file">📄 README.md</span></div>
+              <div class="file-tree-item"><span class="file-tree-indent"></span><span class="file-tree-file">📄 index.py</span></div>
+              <div class="file-tree-item"><span class="file-tree-indent"></span><span class="file-tree-file">📁 src/</span></div>
+              <div class="file-tree-item"><span class="file-tree-indent"></span><span class="file-tree-indent"></span><span class="file-tree-file">📄 main.py</span></div>
+            </div>
           </div>
-        </div>
-      {% endif %}
+        {% endif %}
 
-      <div class="artifact-tags">
-        {% for tag in artifact.tags limit: 3 %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-    </a>
+        <div class="artifact-tags">
+          {% for tag in artifact.tags limit: 3 %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </a>
+    {% endif %}
   {% endfor %}
 </div>
 
