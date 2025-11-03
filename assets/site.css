@@ -140,7 +140,12 @@ body {
   background-color: var(--bg);
   /* Smooth theme transition animation when toggling dark/light mode - Valid: all 0.3s ease */
   transition: background-color 0.3s ease, color 0.3s ease;
-  background: #0f172a;
+  background-color: #0f172a;
+  background-image: url('/assets/examplebackground.jpeg');
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-size: auto;
   color: #e5e7eb;
 }
 
@@ -396,6 +401,7 @@ main {
   max-width: 1200px;      /* Limit content width for readability */
   margin: 0 auto;         /* Center on page */
   padding: 0.5rem 1.5rem 1.5rem 1.5rem;  /* Top/left/right/bottom spacing - reduced top padding */
+  background-color: var(--bg);  /* Mask body background texture; keep texture visible in margins */
   /* Take up at least full viewport height (minus header/footer)
      Calc allows dynamic sizing: 100vh - estimated header/footer height */
   min-height: calc(100vh - 300px);
