@@ -42,8 +42,8 @@ html {
 
 /* DARK MODE - Applied when data-theme="dark" attribute is set on <html> */
 :root[data-theme="dark"] {
-  --bg: #0f172a;            /* Background color - Deep blue-gray */
-  --card: #111827;          /* Card/container backgrounds - Slightly lighter dark gray */
+  --bg: #111827;            /* Background color - Slightly lighter dark gray (swapped with card) */
+  --card: #0f172a;          /* Card/container backgrounds - Deep blue-gray (swapped with bg) */
   --paper: #f8fafc;         /* Off-white for light/print */
   --text: #e5e7eb;          /* Primary text color - Light gray */
   --muted: #aab2c8;         /* Secondary/muted text - Gray-blue */
@@ -140,12 +140,12 @@ body {
   background-color: var(--bg);
   /* Smooth theme transition animation when toggling dark/light mode - Valid: all 0.3s ease */
   transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: #0f172a;
+  background-color: #111827;
   color: #e5e7eb;
   position: relative;
 }
 
-/* Stretched background texture with 50% opacity using pseudo-element */
+/* Stretched background texture with 15% opacity using pseudo-element */
 body::before {
   content: '';
   position: fixed;
@@ -158,7 +158,7 @@ body::before {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  opacity: 0.5;
+  opacity: 0.15;
   pointer-events: none;  /* Allow clicks to pass through */
   z-index: 0;  /* Behind content but above background color */
 }
@@ -215,6 +215,9 @@ select:focus-visible {
   z-index: 99;
   display: flex;         /* Stack rows vertically */
   flex-direction: column; /* Stack in column */
+  max-width: 1200px;     /* Match main content width */
+  margin: 0 auto;        /* Center horizontally */
+  width: 100%;           /* Full available width */
 }
 
 /* Top row: title and social icons */
@@ -1200,6 +1203,10 @@ strong {
   margin-top: auto;       /* Pushes footer to bottom when content is short */
   position: relative;
   z-index: 1;  /* Appear above background texture pseudo-element */
+  max-width: 1200px;     /* Match main content width */
+  margin-left: auto;     /* Center horizontally */
+  margin-right: auto;    /* Center horizontally */
+  width: 100%;           /* Full available width */
 }
 
 .footer-content {
