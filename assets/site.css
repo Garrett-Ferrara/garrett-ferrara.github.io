@@ -451,6 +451,7 @@ h6 {
 /* Page/article title */
 h1 {
   font-size: 2.5rem;      /* ~40px at default browser size */
+  margin-top: 1rem;
 }
 
 /* Section heading */
@@ -492,6 +493,16 @@ a {
 a:hover {
   color: var(--link-hover);           /* Brighter gold on hover */
   text-decoration-color: var(--link-hover);  /* Underline color changes too */
+}
+
+/* Exception: spoke-box links have no underline, except titles */
+.spoke-box {
+  text-decoration: none;
+}
+
+.spoke-box .spoke-box-title {
+  text-decoration: underline;
+  text-decoration-color: var(--link);
 }
 
 /* Strong text styling - subtle gold accent */
