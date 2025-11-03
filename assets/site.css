@@ -141,12 +141,25 @@ body {
   /* Smooth theme transition animation when toggling dark/light mode - Valid: all 0.3s ease */
   transition: background-color 0.3s ease, color 0.3s ease;
   background-color: #0f172a;
-  background-image: url('/assets/examplebackground.jpeg');
-  background-repeat: repeat-y;
+  color: #e5e7eb;
+  position: relative;
+}
+
+/* Tiled background texture with 50% opacity using pseudo-element */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/tiled_background.png');
+  background-repeat: repeat;
   background-attachment: fixed;
   background-position: 0 0;
-  background-size: auto;
-  color: #e5e7eb;
+  opacity: 0.5;
+  pointer-events: none;  /* Allow clicks to pass through */
+  z-index: 0;  /* Behind content but above background color */
 }
 
 /* ================================================================
@@ -402,6 +415,8 @@ main {
   margin: 0 auto;         /* Center on page */
   padding: 0.5rem 1.5rem 1.5rem 1.5rem;  /* Top/left/right/bottom spacing - reduced top padding */
   background-color: var(--bg);  /* Mask body background texture; keep texture visible in margins */
+  position: relative;
+  z-index: 1;  /* Appear above background texture pseudo-element */
   /* Take up at least full viewport height (minus header/footer)
      Calc allows dynamic sizing: 100vh - estimated header/footer height */
   min-height: calc(100vh - 300px);
@@ -1182,6 +1197,8 @@ strong {
   background-color: var(--card);
   border-top: 1px solid var(--border);
   margin-top: auto;       /* Pushes footer to bottom when content is short */
+  position: relative;
+  z-index: 1;  /* Appear above background texture pseudo-element */
 }
 
 .footer-content {
