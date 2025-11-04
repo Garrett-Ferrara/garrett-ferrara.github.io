@@ -6,16 +6,6 @@ date: 2025-11-03
 description: "Combined visualization of all key terms showing aggregate frequency trends across First Monday's history."
 ---
 
-## All Terms Raw Frequency
-
-This stacked area chart shows all ten n-grams combined, revealing how total scholarly attention to these key concepts evolved over *First Monday*'s 29-year span. Each colored band represents one term, and the height of each band indicates its raw frequency (total number of occurrences).
-
-**What to observe:**
-- Which terms dominated early years versus recent ones
-- Periods of rapid growth or decline
-- Interactions between RhetComp concepts and digital studies terminology
-- The overall volume of scholarly conversation about these topics across time
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <div class="chart-wrapper">
@@ -176,18 +166,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-## Interpretation
-
-The stacked area visualization reveals the collective scholarly conversation around key concepts in Internet Studies over nearly three decades. Notice how certain terms rise and fall in response to technological, social, and disciplinary shifts:
-
-- **Persistence of core RhetComp terms** (Rhetoric, Writing, Composition) indicates foundational theoretical continuity
-- **Rise of Identity and Discourse** reflects growing scholarly interest in how digital platforms mediate selfhood and communication
-- **Emergence and evolution of digital studies terminology** (Digital Media, Online Communities) tracks the field's adaptation to new phenomena
-
-This macro-level view sets the stage for deeper exploration of individual term trajectories.
-
----
+Each colored band shows one term's raw frequency (total occurrences) across the journal's history. The collective height reveals how scholarly attention to all ten concepts together has evolved. Core RhetComp terms (Rhetoric, Writing, Composition) maintain persistent presence, while Identity and Discourse surge in the 2000s–2010s. Digital studies terminology (Digital Media, Online Communities) shows more recent emergence, tracking the field's adaptation to technological change. This macro view shows the discipline's shifting priorities while foundational concepts endure.
 
 <div class="back-to-hub">
-  <p><a href="/texts/fm_presentation/">← Back to Presentation Hub</a></p>
+  <p>
+    <a href="/texts/fm_presentation_agentic-coding/">← Previous: Agentic Coding</a>
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+    <a href="/texts/fm_presentation_term-trajectories/">Next: Term Trajectories →</a>
+  </p>
 </div>

@@ -7,30 +7,41 @@ description: "A distant reading analysis of disciplinary turns in Internet Studi
 ---
 
 <header class="text-header">
+  <h1>~~~~~~WORKING DRAFT~~~~~</h1>
+  <p class="metadata"> !!!Not for further publication or dissemination.!!!</p>
   <h1>{{ page.title }}</h1>
   <p class="subtitle tagline">{{ page.subtitle }}</p>
   <p class="metadata">Created by Garrett Richard Ferrara | Graduate Digital Text Project | November 2025</p>
 </header>
 
-<div class="graphics-container">
-  <img src="/assets/EveryFirstMonday/ChatGPT_First_Monday_Egg.png" alt="ChatGPT visualization of First Monday corpus">
-  <p class="caption">ChatGPT trying its hardest to visualize First Monday being an egg with a WordStat wordcloud as the contents. Note the distorted text; an unedited version of this word cloud appears later on. Source: OpenAI. (2025). DALL·E 3 [AI image generator].</p>
+<div class="hero-wrapper">
+  <nav class="toc" id="toc">
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#executive-summary">Executive Summary</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#distant-reading-results">Distant Reading Graphics & Results</a></li>
+      <li><a href="#agentic-coding">Agentic Coding Applications</a></li>
+      <li><a href="#reflections">Reflections & Conclusions</a></li>
+      <li><a href="#appendices">Appendices</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </nav>
+
+  <div class="graphics-container">
+    <img src="/assets/EveryFirstMonday/ChatGPT_First_Monday_Egg.png" alt="ChatGPT visualization of First Monday corpus">
+    <p class="caption">ChatGPT trying its hardest to visualize First Monday being an egg with a WordStat wordcloud as the contents. Note the distorted text; an unedited version of this word cloud appears later. <br> Source: OpenAI. (2025). DALL·E 3 [AI image generator].</p>
+  </div>
 </div>
 
-<nav class="toc" id="toc">
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#methodology">Methodology</a></li>
-    <li><a href="#distant-reading-results">Distant Reading Graphics & Results</a></li>
-    <li><a href="#agentic-coding">Agentic Coding Applications</a></li>
-    <li><a href="#reflections">Reflections & Conclusions</a></li>
-    <li><a href="#appendices">Appendices</a></li>
-  </ul>
-</nav>
+## Executive Summary {#executive-summary}
+
+This distant reading analysis examines 2,710 articles from *First Monday* (1996–2025) to trace disciplinary turns in Internet Studies scholarship. Using n-gram frequency analysis and agentic coding methodology, the project reveals how core rhetoric and composition concepts (Identity, Discourse, Writing, Rhetoric, Composition) have persisted and evolved alongside emerging digital studies terminology. The analysis demonstrates that internet studies has adapted rather than replaced traditional RhetComp frameworks, revealing a field learning to theorize digital phenomena through established rhetorical lenses while remaining epistemically open to new conceptual formations.
 
 ## Introduction {#introduction}
 
-> "Network sense is the awareness of connections that shape scholarly activity." — Derek Mueller, *Network Sense*
+> "[Thin and distant research methods] lay plain layered and connective patterns that, because they can be apprehended, provide a basis for sensing more extensively the connections that hover just beyond the point where one decides to begin." <br> — Derek Mueller, *Network Sense* [^1]
 
 *First Monday*, founded in 1996, stands as one of the earliest peer-reviewed journals dedicated to the Internet as a social, political, and cultural phenomenon. As a foundational text in digital studies and internet research, *First Monday* captures the disciplinary emergence of rhetoric and composition scholarship grappling with digital communication, online communities, and the evolving nature of authorship and authority in networked spaces. This distant reading analysis examines how key terms—Identity, Discourse, Writing, Rhetoric, and Composition—have shifted in frequency and prominence across nearly three decades of scholarly conversation.
 
@@ -78,7 +89,9 @@ This project employed agentic coding—iterative collaboration with large langua
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<div id="plot-combined-area" style="width:100%; height:700px;"></div>
+<div class="chart-wrapper">
+  <div id="plot-combined-area" style="width:90%; height:700px; margin: 0 auto;"></div>
+</div>
 
 The stacked area plot above shows all ten n-grams combined, revealing how total scholarly attention to these key concepts evolved over *First Monday*'s 29-year span. Each colored band represents one term, and the height of each band indicates its raw frequency. This visualization makes it easy to observe both individual term trajectories and how they collectively shifted across different periods.
 
@@ -92,34 +105,34 @@ The carousel below displays individual frequency line graphs for all ten n-grams
   <div class="viz-container">
     <!-- Plotly filled area chart divs -->
     <div class="viz-view" id="area-viz-1" style="display: block;">
-      <div id="plot-area-ug1-identity" style="width:100%; height:600px;"></div>
+      <div id="plot-area-ug1-identity" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-2" style="display: none;">
-      <div id="plot-area-ug2-discourse" style="width:100%; height:600px;"></div>
+      <div id="plot-area-ug2-discourse" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-3" style="display: none;">
-      <div id="plot-area-ug3-writing" style="width:100%; height:600px;"></div>
+      <div id="plot-area-ug3-writing" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-4" style="display: none;">
-      <div id="plot-area-ug4-rhetoric" style="width:100%; height:600px;"></div>
+      <div id="plot-area-ug4-rhetoric" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-5" style="display: none;">
-      <div id="plot-area-ug5-composition" style="width:100%; height:600px;"></div>
+      <div id="plot-area-ug5-composition" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-6" style="display: none;">
-      <div id="plot-area-bg1-digital-media" style="width:100%; height:600px;"></div>
+      <div id="plot-area-bg1-digital-media" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-7" style="display: none;">
-      <div id="plot-area-bg2-digital-divide" style="width:100%; height:600px;"></div>
+      <div id="plot-area-bg2-digital-divide" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-8" style="display: none;">
-      <div id="plot-area-bg3-public-sphere" style="width:100%; height:600px;"></div>
+      <div id="plot-area-bg3-public-sphere" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-9" style="display: none;">
-      <div id="plot-area-bg4-online-communities" style="width:100%; height:600px;"></div>
+      <div id="plot-area-bg4-online-communities" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="area-viz-10" style="display: none;">
-      <div id="plot-area-bg5-civic-engagement" style="width:100%; height:600px;"></div>
+      <div id="plot-area-bg5-civic-engagement" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
   </div>
 
@@ -136,8 +149,10 @@ The carousel below displays individual frequency line graphs for all ten n-grams
 The heatmaps below provide a compact overview of term prevalence patterns across years. Toggle between unigrams and bigrams to see how individual terms and paired concepts evolved, then view the normalized heatmap to understand each term's prevalence relative to its peak occurrence.
 
 <div class="heatmap-carousel">
-  <div id="plot-unigrams-heatmap" style="width:100%; height:600px; display:block;"></div>
-  <div id="plot-bigrams-heatmap" style="width:100%; height:600px; display:none;"></div>
+  <div class="chart-wrapper">
+    <div id="plot-unigrams-heatmap" style="width:90%; height:600px; display:block; margin: 0 auto;"></div>
+    <div id="plot-bigrams-heatmap" style="width:90%; height:600px; display:none; margin: 0 auto;"></div>
+  </div>
 
   <div class="heatmap-controls">
     <button id="heatmap-unigrams-btn" class="heatmap-toggle active" onclick="toggleHeatmapType('unigrams')">Unigrams</button>
@@ -147,7 +162,9 @@ The heatmaps below provide a compact overview of term prevalence patterns across
 
 ### Term Prevalence Normalized to Peak
 
-<div id="plot-normalized-heatmap" style="width:100%; height:700px;"></div>
+<div class="chart-wrapper">
+  <div id="plot-normalized-heatmap" style="width:90%; height:700px; margin: 0 auto;"></div>
+</div>
 
 This normalized view shows each term's prevalence as a percentage of its peak maximum. A term that peaked in one year at 56% of articles would show as 100% in that year. This normalization reveals the relative importance of each term within its own trajectory, making it easier to compare terms with very different baseline frequencies.
 
@@ -159,34 +176,34 @@ The bubble charts below provide a multidimensional view of each term's evolution
   <div class="viz-container">
     <!-- Plotly chart divs -->
     <div class="viz-view" id="viz-1" style="display: block;">
-      <div id="plot-ug1-identity" style="width:100%; height:600px;"></div>
+      <div id="plot-ug1-identity" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-2" style="display: none;">
-      <div id="plot-ug2-discourse" style="width:100%; height:600px;"></div>
+      <div id="plot-ug2-discourse" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-3" style="display: none;">
-      <div id="plot-ug3-writing" style="width:100%; height:600px;"></div>
+      <div id="plot-ug3-writing" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-4" style="display: none;">
-      <div id="plot-ug4-rhetoric" style="width:100%; height:600px;"></div>
+      <div id="plot-ug4-rhetoric" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-5" style="display: none;">
-      <div id="plot-ug5-composition" style="width:100%; height:600px;"></div>
+      <div id="plot-ug5-composition" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-6" style="display: none;">
-      <div id="plot-bg1-digital-media" style="width:100%; height:600px;"></div>
+      <div id="plot-bg1-digital-media" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-7" style="display: none;">
-      <div id="plot-bg2-digital-divide" style="width:100%; height:600px;"></div>
+      <div id="plot-bg2-digital-divide" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-8" style="display: none;">
-      <div id="plot-bg3-public-sphere" style="width:100%; height:600px;"></div>
+      <div id="plot-bg3-public-sphere" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-9" style="display: none;">
-      <div id="plot-bg4-online-communities" style="width:100%; height:600px;"></div>
+      <div id="plot-bg4-online-communities" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
     <div class="viz-view" id="viz-10" style="display: none;">
-      <div id="plot-bg5-civic-engagement" style="width:100%; height:600px;"></div>
+      <div id="plot-bg5-civic-engagement" style="width:90%; height:600px; margin: 0 auto;"></div>
     </div>
   </div>
 
@@ -442,6 +459,16 @@ The appendices below provide supplementary data, methodological documentation, a
     <p><strong>GitHub Repository:</strong> [Link to be provided]<br><strong>Contents:</strong><br>— Python scraping scripts (requests, BeautifulSoup, OJS API parsing)<br>— Data processing pipeline (pandas, regex normalization, deduplication logic)<br>— Visualization code (Plotly, matplotlib, WordStat integration)<br>— Jekyll layout files and CSS (responsive design, dark/light modes)<br>— Full corpus (CSV export, metadata tables, validation reports)<br><strong>Open-Source Dependencies:</strong> Requests, BeautifulSoup4, Pandas, Plotly, Matplotlib, NLTK<br><strong>License:</strong> MIT (code); data available under Creative Commons Attribution 4.0 with proper citation to *First Monday*.</p>
   </div>
 </details>
+
+## References {#references}
+
+[^1]: Mueller, D. N. (2017). Network Sense: Methods for Visualizing a Discipline. The WAC Clearinghouse; University Press of Colorado. https://doi.org/10.37514/WRI-B.2017.0124
+
+About the Journal. (n.d.). First Monday. Retrieved September 17, 2025, from https://firstmonday.org/ojs/index.php/fm/about
+
+Special Issue #1: Music and the Internet—4 July 2005 | First Monday. (n.d.). Retrieved September 22, 2025, from https://firstmonday.org/ojs/index.php/fm/issue/view/211
+
+Submissions | First Monday. (n.d.). Retrieved September 22, 2025, from https://firstmonday.org/ojs/index.php/fm/about/submissions
 
 ---
 

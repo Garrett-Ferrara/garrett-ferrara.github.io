@@ -9,6 +9,9 @@ collections:
   artifacts:
     output: true
     permalink: /portfolio/:name/
+  texts:
+    output: true
+    permalink: /texts/:name/
 
 # Defaults
 defaults:
@@ -17,6 +20,11 @@ defaults:
       type: artifacts
     values:
       layout: artifact
+  - scope:
+      path: ""
+      type: texts
+    values:
+      layout: text
 
 # Jekyll settings
 markdown: kramdown

@@ -6,15 +6,6 @@ date: 2025-11-03
 description: "Heatmap visualizations showing unigram and bigram term prevalence over time with toggle controls."
 ---
 
-## Temporal Heatmaps
-
-The heatmaps below provide a compact overview of term prevalence patterns across years. Use the toggle buttons to switch between **unigrams** (single terms) and **bigrams** (paired concepts).
-
-**Unigrams:** Identity, Discourse, Writing, Rhetoric, Composition
-**Bigrams:** Civic Engagement, Online Communities, Public Sphere, Digital Divide, Digital Media
-
-Each cell shows the percentage of articles in that year containing the term. Darker colors indicate higher prevalence. Peak values and years are shown on the left margin.
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <div class="heatmap-carousel">
@@ -184,17 +175,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-## Interpretation
-
-The heatmaps reveal:
-
-- **Peaks and valleys:** Darker cells show years of high prevalence for each term
-- **Comparative trends:** Toggle between unigrams and bigrams to compare how single terms versus paired concepts evolved
-- **Temporal clusters:** Some terms cluster together (e.g., RhetComp terms remain consistently present), while others spike in specific decades
-- **Disciplinary shifts:** Notice how digital studies terminology becomes prominent in the 2000s while foundational RhetComp terms persist across the entire timeline
-
----
+Toggle between **unigrams** (Identity, Discourse, Writing, Rhetoric, Composition) and **bigrams** (Civic Engagement, Online Communities, Public Sphere, Digital Divide, Digital Media) to compare how single terms versus paired concepts evolved. Each cell shows the percentage of articles containing the term; darker colors indicate higher prevalence, with peak values and years shown on the left margin. This comparison reveals how paired concepts gained prominence alongside individual theoretical terms as the field evolved.
 
 <div class="back-to-hub">
-  <p><a href="/texts/fm_presentation/">← Back to Presentation Hub</a></p>
+  <p>
+    <a href="/texts/fm_presentation_bubble-charts/">← Previous: Bubble Charts</a>
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+    <a href="/texts/fm_presentation_normalized-heatmap/">Next: Normalized Map →</a>
+  </p>
 </div>

@@ -138,5 +138,23 @@ This project illustrates one model of responsible agentic coding: AI handling te
 ---
 
 <div class="back-to-hub">
-  <p><a href="/texts/fm_presentation/">← Back to Presentation Hub</a></p>
+  <p>
+    <a href="/texts/fm_presentation_findings/">← Previous: Key Findings</a>
+
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+
+    <a href="/texts/fm_presentation_frequency-stacked-area/">Next: Stacked Area →</a>
+  </p>
+</div>
+
+---
+
+<div class="back-to-hub">
+  <p>
+    <a href="/texts/fm_presentation_findings/">← Previous: Key Findings</a>
+
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+
+    <a href="/texts/fm_presentation_frequency-stacked-area/">Next: Stacked Area →</a>
+  </p>
 </div>

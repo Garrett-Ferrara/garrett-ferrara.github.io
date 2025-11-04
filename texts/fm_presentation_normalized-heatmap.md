@@ -6,10 +6,6 @@ date: 2025-11-03
 description: "Heatmap visualization showing each term's prevalence normalized to its peak maximum value."
 ---
 
-## Normalized to Peak Maximum
-
-The visualization below shows each term's prevalence as a **percentage of its peak maximum**. A term that peaked at 50% of articles will show 100% in its peak year, and other years will be scaled proportionally. This normalization allows fair comparison across terms with different baseline frequencies.
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <div class="chart-wrapper">
@@ -143,20 +139,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-## Interpretation
-
-Normalizing to peak maximum reveals important insights:
-
-- **Fair comparison across terms:** Each term's journey is scaled relative to its own maximum, eliminating baseline frequency differences
-- **Decline trajectories:** You can see how terms that peaked early (e.g., core RhetComp terms) have maintained presence even as they declined from their peak
-- **Rising and falling patterns:** Digital studies terms show more recent peaks, reflecting their emergence as disciplinary vocabulary
-- **Sustained presence:** RhetComp concepts (Rhetoric, Writing, Composition) maintain relatively high normalized values across decades, even as their peak years differ
-- **Temporal concentration:** Some terms show tighter temporal bands (concentrated presence in specific decades), while others are more diffuse
-
-This normalized view helps answer: *Which terms have strongest staying power relative to their peak relevance?* and *Which terms show the most dramatic rise and fall?*
-
----
+The visualization shows each term's prevalence as a percentage of its peak maximum. A term that peaked at 50% of articles will show 100% in its peak year, with other years scaled proportionally. This normalization reveals which concepts have strongest staying power relative to their peak relevance—core RhetComp terms (Rhetoric, Writing, Composition) maintain high normalized values even as they decline from their peak, while digital studies concepts show more recent emergence. Bright yellow indicates terms at their strongest relative position; darker colors show periods of lower relative prevalence.
 
 <div class="back-to-hub">
-  <p><a href="/texts/fm_presentation/">← Back to Presentation Hub</a></p>
+  <p>
+    <a href="/texts/fm_presentation_heatmap-toggle/">← Previous: Split Heatmaps</a>
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+  </p>
 </div>

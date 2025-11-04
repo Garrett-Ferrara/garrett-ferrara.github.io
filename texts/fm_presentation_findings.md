@@ -49,5 +49,23 @@ What these visualizations reveal is a discipline in **productive conversation wi
 ---
 
 <div class="back-to-hub">
-  <p><a href="/texts/fm_presentation/">← Back to Presentation Hub</a></p>
+  <p>
+    <a href="/texts/fm_presentation_methodology/">← Previous: Methodology</a>
+
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+
+    <a href="/texts/fm_presentation_agentic-coding/">Next: Agentic Coding →</a>
+  </p>
+</div>
+
+---
+
+<div class="back-to-hub">
+  <p>
+    <a href="/texts/fm_presentation_methodology/">← Previous: Methodology</a>
+
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+
+    <a href="/texts/fm_presentation_agentic-coding/">Next: Agentic Coding →</a>
+  </p>
 </div>

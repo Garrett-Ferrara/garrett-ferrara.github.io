@@ -6,6 +6,8 @@ date: 2025-11-03
 description: "Interactive hub presenting distant reading analysis of Internet Studies through network sense mapping."
 ---
 
+<hr style="border: none; border-top: 3px solid white; margin-bottom: 0;">
+
 <div class="hub-container">
   <div class="spoke-grid">
     <!-- Left column: Network Sense & Methodology -->
@@ -18,7 +20,7 @@ description: "Interactive hub presenting distant reading analysis of Internet St
     <a href="/texts/fm_presentation_methodology/" class="spoke-box">
       <div class="spoke-box-icon">⚙️</div>
       <h3 class="spoke-box-title">Methodology</h3>
-      <p class="spoke-box-desc">Agentic coding, corpus construction, and research design for 2,710 articles.</p>
+      <p class="spoke-box-desc">Thin and distant methodologies with OSINT-adjacent scraping and corpus analysis.</p>
     </a>
 
     <!-- Center: Hero Image with Title -->
@@ -26,20 +28,20 @@ description: "Interactive hub presenting distant reading analysis of Internet St
       <h1>{{ page.title }}</h1>
       <p class="subtitle tagline">{{ page.subtitle }}</p>
       <p class="metadata">Created by Garrett Richard Ferrara | Graduate Digital Text Project | November 2025</p>
-      <img src="/assets/EveryFirstMonday/ChatGPT_First_Monday_Egg.png" alt="ChatGPT visualization of First Monday corpus">
+      <img src="/assets/EveryFirstMonday/ChatGPT_First_Monday_Egg.png" alt="ChatGPT trying its hardest to visualize First Monday being an egg with a WordStat wordcloud as the contents. Note the distorted text; an unedited version of this word cloud appears later. Source: OpenAI. (2025). DALL·E 3 [AI image generator].">
     </div>
 
     <!-- Right column: Key Findings & Agentic Coding -->
     <a href="/texts/fm_presentation_findings/" class="spoke-box">
       <div class="spoke-box-icon">💡</div>
       <h3 class="spoke-box-title">Key Findings</h3>
-      <p class="spoke-box-desc">A selection of findings from visualizations that could warrant further investigation.</p>
+      <p class="spoke-box-desc">Where visualizations offered insight into RhetComp's relationship to Internet Studies.</p>
     </a>
 
     <a href="/texts/fm_presentation_agentic-coding/" class="spoke-box">
       <div class="spoke-box-icon">🤖</div>
       <h3 class="spoke-box-title">Agentic Coding</h3>
-      <p class="spoke-box-desc">AI collaboration, research integrity, and lessons for generative tools in scholarship.</p>
+      <p class="spoke-box-desc">Reflections on AI collaboration and research integrity with generative tools in scholarship.</p>
     </a>
 
     <!-- Bottom row: Visualizations (5 boxes) -->

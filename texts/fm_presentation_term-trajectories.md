@@ -6,15 +6,6 @@ date: 2025-11-03
 description: "Carousel visualization of individual term frequency trends with trendlines across First Monday's history."
 ---
 
-## Individual Term Trajectories
-
-Use the carousel below to explore individual frequency line graphs for all ten n-grams. Each chart shows one term's trajectory across *First Monday*'s 29-year span, with a trendline overlaid to reveal the direction of change.
-
-**First five charts:** Core RhetComp terminology (Identity, Discourse, Writing, Rhetoric, Composition)
-**Last five charts:** Comparative digital studies concepts (Digital Media, Digital Divide, Public Sphere, Online Communities, Civic Engagement)
-
-**How to read:** The colored area shows raw frequency; the dashed line shows the linear trend across all years. Click Previous/Next to navigate between terms.
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <div class="filled-area-carousel" id="filled-area-carousel">
@@ -220,18 +211,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-## Interpretation
-
-These individual term trajectories reveal distinct patterns:
-
-- **Sustained presence** of core RhetComp terms (Rhetoric, Writing, Composition) indicates theoretical continuity even as the field evolves
-- **Rapid rise** of Identity and Discourse in the 2000s–2010s reflects increased scholarly focus on how digital platforms mediate selfhood and communication
-- **Variable uptake** of digital studies concepts suggests that different terms become salient in response to specific technological or social events
-
-Compare trends across terms to understand how the discipline has shifted priorities while maintaining foundational concepts.
-
----
-
 <div class="back-to-hub">
-  <p><a href="/texts/fm_presentation/">← Back to Presentation Hub</a></p>
+  <p>
+    <a href="/texts/fm_presentation_frequency-stacked-area/">← Previous: Stacked Area</a>
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+    <a href="/texts/fm_presentation_bubble-charts/">Next: Bubble Charts →</a>
+  </p>
 </div>

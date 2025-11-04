@@ -6,17 +6,6 @@ date: 2025-11-03
 description: "Interactive bubble chart carousel showing term prevalence, frequency, and temporal distribution."
 ---
 
-## Interactive Bubble Charts
-
-The bubble charts below provide a multidimensional view of each term's evolution. Each bubble represents a year:
-
-- **X-axis:** % of articles containing the term
-- **Y-axis:** References per 1,000 words
-- **Bubble size:** Number of articles in that year
-- **Bubble color:** Year (ranging from deep blue for 1996 to red for 2025)
-
-Use the carousel to navigate through all 10 terms. Click to explore interactive tooltips showing detailed data for each year.
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <div class="interactive-viz-carousel" id="viz-carousel">
@@ -250,19 +239,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-## Interpretation
-
-The bubble charts reveal multidimensional patterns:
-
-- **Rightward movement:** Terms that trend right are increasing in prevalence across the corpus
-- **Upward movement:** Concentration of references (intensity) increases over time
-- **Color progression:** Watching bubbles move from blue (early years) to red (recent years) shows temporal evolution
-- **Clustering:** Terms with similar trajectories suggest conceptual proximity in scholarly discourse
-
-Hover over bubbles to see exact values for each year. Compare terms across charts to understand how the discipline's conceptual toolkit has evolved.
-
----
+Each bubble represents a single year with four dimensions: x-axis shows % of articles containing the term, y-axis shows references per 1,000 words (concentration), bubble size shows article count, and color shows year (blue for 1996 to red for 2025). Rightward bubbles indicate increasing prevalence; upward movement shows intensifying concentration. Color progression reveals temporal evolution. Navigate the carousel to compare trajectories and see how different concepts have evolved in prominence and intensity across the journal's history. Hover over bubbles for detailed data.
 
 <div class="back-to-hub">
-  <p><a href="/texts/fm_presentation/">← Back to Presentation Hub</a></p>
+  <p>
+    <a href="/texts/fm_presentation_term-trajectories/">← Previous: Term Trajectories</a>
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+    <a href="/texts/fm_presentation_heatmap-toggle/">Next: Split Heatmaps →</a>
+  </p>
 </div>

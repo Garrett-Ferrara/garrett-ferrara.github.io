@@ -1534,3 +1534,34 @@ th {
     page-break-inside: avoid;        /* Keep paragraphs/lists on same page */
   }
 }
+
+/* ================================================================
+   HORIZONTAL RULES / DIVIDERS
+   ================================================================ */
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--border);
+  margin: 0.5rem 0;
+}
+
+/* ================================================================
+   BACK TO HUB BUTTON STYLING
+   ================================================================ */
+
+.back-to-hub {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.back-to-hub p {
+  margin: 0;
+  padding: 0;
+}
+
+.back-to-hub a {
+  margin: 0 0.5rem;
+}
+

@@ -1,33 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git init:*)",
-      "WebFetch(domain:docs.github.com)",
-      "Bash(gem install:*)",
-      "Bash(git config:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(tree:*)",
-      "Bash(gh repo create:*)",
-      "Bash(gh auth:*)",
-      "Bash(git remote:*)",
-      "Bash(gh repo view:*)",
-      "Bash(git branch:*)",
-      "Bash(git push:*)",
-      "Bash(git credential:*)",
-      "Bash(cmdkey /delete:git:https://github.com)",
-      "Bash(gh api:*)",
-      "Bash(git rm:*)",
-      "Bash(ruby --version:*)",
-      "Bash(jekyll:*)",
-      "Bash(choco install:*)",
-      "Read(//c/Users/**)",
-      "Bash(ssh-keygen:*)",
-      "Bash(cat:*)",
-      "Bash(ssh:*)",
-      "Bash(bundle exec jekyll serve:*)",
-      "Bash(bash scripts/generate-pdf-previews.sh:*)",
-      "Bash(\"C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\magick.exe\" convert -density 150 \"assets/Alethea-Writing-With-Invisible-Ink.pdf[0]\" -quality 85 -crop 800x1000+0+0 +repage \"assets/previews/Alethea-Writing-With-Invisible-Ink-preview.png\")"
+      "Bash(awk:*)",
+      "Bash(bundle exec jekyll build:*)",
+      "Bash(dir:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

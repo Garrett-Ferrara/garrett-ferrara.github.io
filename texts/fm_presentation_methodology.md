@@ -6,84 +6,286 @@ date: 2025-11-03
 description: "Research design, data collection process, and validation strategies for distant reading analysis."
 ---
 
-## The Corpus: 2,710 Articles Across 29 Years
+<style>
+.slideshow-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-This analysis examined every article published in *First Monday* from January 1996 through October 2025—359 issues spanning nearly three decades of Internet Studies scholarship. The resulting dataset includes:
+.slide {
+  display: none;
+  animation: fadeIn 0.5s;
+}
 
-- **Total Articles:** 2,710
-- **Issues:** 359
-- **Date Range:** January 1996 – October 2025
-- **Metadata Completeness:** 100% (title, author, publication date, DOI, URL)
-- **Extraction Success Rate:** 100% (zero articles lost to parsing errors)
+.slide.active {
+  display: block;
+}
 
-All dates were normalized to ISO 8601 format. Author names were deduplicated using fuzzy string matching (90% similarity threshold). Duplicate articles were identified and removed via content hash comparison.
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-## Agentic Coding: Human Governance + AI Infrastructure
+.slide h2 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
 
-This project employed **agentic coding**—iterative collaboration with large language models (Claude Sonnet and ChatGPT)—to build and validate the corpus. Rather than replacing human expertise, AI assistance accelerated *infrastructure scaffolding* while I maintained governance over research design, validation protocols, and interpretive authority.
+.slide h3 {
+  color: var(--accent);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
 
-### The Iterative Loop
+.slide p, .slide blockquote {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+}
 
-1. **Problem Posing:** I identified specific technical obstacles (legacy HTML parsing, platform migrations to OJS, inconsistent metadata schemas)
-2. **AI Generation:** Claude generated initial parsing logic, boilerplate code, and visualization templates
-3. **Testing & Refinement:** I tested outputs against project requirements, identified edge cases, and refined prompts based on failures
-4. **Human Judgment:** Applied rigorous QA to assess data quality, validate assumptions, and ensure methodological integrity
+.slide blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--muted);
+}
 
-### Research-Grade Data Validation
+.slide ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
 
-For this project to support credible scholarly claims, data validation was non-negotiable. I established:
+.slide li {
+  margin: 0.75rem 0;
+  color: var(--text);
+}
 
-**Dual Parsing Strategies:**
-- Primary parser: Custom Python script using BeautifulSoup for legacy HTML
-- Secondary parser: OJS API integration for modern platform versions
-- Cross-validation: Both parsers run in parallel; discrepancies trigger manual review
+.slide-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
 
-**Checkpointing & Idempotence:**
-- Incremental saves every 50 articles
-- Resume capability if extraction interrupted
-- Deterministic output: same input always produces same result
+.slide-controls button {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
 
-**Anomaly Detection:**
-- Manual spot-check of 10% random sample
-- Cross-reference against archive records for accuracy
-- Date normalization verified against source metadata
-- Author deduplication audited for false positives/negatives
+.slide-controls button:hover {
+  background: var(--link-hover);
+}
 
-### What Data We Tracked
+.slide-controls button:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 
-For each article:
-- Title, author(s), publication date, DOI, full URL
-- Article text (body) for n-gram extraction
-- Issue number and volume for temporal tracking
+.slide-counter {
+  font-weight: 600;
+  color: var(--muted);
+  min-width: 80px;
+  text-align: center;
+}
 
-## N-gram Selection Rationale
+.slide-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
 
-I analyzed ten key terms selected to bridge undergraduate RhetComp pedagogy with contemporary digital studies discourse:
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-**Undergraduate RhetComp Corpus (Terms 1–5):**
-- *Identity* — Individual selfhood, subjectivity, self-representation in text and online
-- *Discourse* — Language use, communicative practices, discursive formations
-- *Writing* — Composition practice, written expression, authorship
-- *Rhetoric* — Persuasive strategies, rhetorical theory, situated argumentation
-- *Composition* — Writing instruction, curriculum, composition studies discipline
+.dot.active {
+  background: var(--accent);
+}
 
-**Background Digital Studies Corpus (Terms 6–10):**
-- *Digital Media* — Electronic platforms, digital technologies, media ecologies
-- *Digital Divide* — Access disparities, equity issues, technological inequality
-- *Public Sphere* — Democratic participation, civic discourse spaces
-- *Online Communities* — Virtual collectives, networked groups, digital sociality
-- *Civic Engagement* — Political participation, activism, collective action
+.dot:hover {
+  background: var(--accent);
+}
+</style>
 
-Tracking both sets reveals how *First Monday* has navigated the intersection of traditional rhetorical concepts and emerging digital-era concerns.
+<div class="slideshow-container" id="slideshow">
+  <!-- Slide 1: Methodology Overview -->
+  <div class="slide active">
+    <h2>⚙️ Methodology Overview</h2>
+    <p>This project focused on combining two broad research methodologies:</p>
+    <h3>Thin and Distant Analysis</h3>
+    <p>Most of the analysis and visualizations in this project were inspired by Derek Mueller's Network Sense, particularly graphics used in the book such as Google Motion Charts and others. By visualizing the data from a birds-eye-view, I sought to uncover patterns and connections invisible while working directly within First Monday scholarship.</p>
+    <h3>LLM Collaboration</h3>
+    <p>This project employed agentic coding and iterative collaboration with large language models to build a comprehensive corpus from First Monday's digital archives (1996–2025). The resulting dataset includes 2,710 articles across 359 issues, with complete metadata extraction (title, author, publication date, URL, DOI). Later on, agentic coding was used to build out this website structure and all the visualizations contained within.</p>
+  </div>
 
-## What Patterns Reveal About Disciplinary Turns
+  <!-- Slide 2: Primer on Generative AI/LLMs -->
+  <div class="slide">
+    <h2>🤖 A Brief Primer on Generative AI/LLMs</h2>
+    <p>It's only fair to let some text from the AI make it into the final report; below is a summary from ChatGPT 5 for an introductory primer slide on AI:</p>
+    <ul>
+      <li>Generative AI is a type of artificial intelligence that can create new content—like text, images, or code—based on what it has learned from large amounts of data.</li>
+      <li>Large Language Models (LLMs) are a kind of generative AI focused on language. Examples include ChatGPT and Claude.</li>
+      <li>LLMs work by predicting what word or phrase should come next in a sentence, allowing them to answer questions, summarize text, or help write essays and code.</li>
+      <li>LLMs process text in small pieces called tokens (roughly a few words each). Users are allotted tokens through subscriptions (like ChatGPT Plus) or direct pay-per-use in applications.</li>
+      <li>These models don't actually "know" facts—they generate responses based on patterns, so they can sometimes make mistakes or include inaccurate details.</li>
+      <li>In this project, LLMs were used to help collect data, organize information, and assist in building the visualizations and website.</li>
+    </ul>
+    <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">Text generated by ChatGPT (OpenAI, 2025)</p>
+  </div>
 
-Peaks and valleys in n-gram frequency mark moments of heightened scholarly attention. A rise in "Online Communities" may indicate growing interest in participatory culture; a spike in "Digital Divide" might reflect policy discussions or crisis moments. Sustained presence of "Rhetoric" and "Composition" alongside increasing mentions of "Identity" and "Discourse" suggests how our field has integrated digital concerns into long-standing theoretical frameworks.
+  <!-- Slide 3: LLMs Used In The Project -->
+  <div class="slide">
+    <h2>💻 LLMs Used In The Project</h2>
+    <h3><a href="https://claude.com/product/claude-code" target="_blank"><strong>Claude Code 2.0.31</strong></a> <span style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.75rem; font-weight: 700; display: inline-block; margin-left: 0.5rem; vertical-align: middle;">ANTHROPIC</span></h3>
+    <p><a href="https://claude.com/product/claude-code" target="_blank"><strong>Claude Code</strong></a> is Anthropic's command line interface (CLI) agentic coding tool with the capability of directly modifying files and code, managing GitHub repositories, and debugging its own code. I started using Claude Code in exploratory projects right after its Windows release on July 11, 2025, <a href="https://claudelog.com/faqs/claude-code-release-notes/#v1051" target="_blank"><strong>v1.0.51</strong></a>. Similar tools include <a href="https://github.com/features/copilot" target="_blank">GitHub's Copilot</a>, but as I already had a subscription to Claude and was comfortable with operating in the terminal, I've had no reason to explore alternatives.</p>
+    <h3><a href="https://openai.com/index/introducing-gpt-5/" target="_blank"><strong>ChatGPT 5</strong></a> <span style="background: linear-gradient(135deg, #10a37f, #0d8a6f); color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.75rem; font-weight: 700; display: inline-block; margin-left: 0.5rem; vertical-align: middle;">OPENAI</span></h3>
+    <p><a href="https://openai.com/index/introducing-gpt-5/" target="_blank"><strong>OpenAI's ChatGPT</strong></a> the general purpose LLM most likely readers are familiar with and remains my daily driver LLM for two reasons: I get a lot of free credits by sharing my data with them, and though I prefer Claude in most applications, I frequently run out of Claude tokens while using Claude Code. ChatGPT was used most often in this project in helping surface investigative leads through open ended questions, using generated text as a sounding board through which to refine my own ideas, and creating clean and comprehensive prompts to pass over to Claude Code.</p>
+    <h3><a href="https://www.anthropic.com/claude/sonnet" target="_blank"><strong>Claude Sonnet 4</strong></a> <span style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.75rem; font-weight: 700; display: inline-block; margin-left: 0.5rem; vertical-align: middle;">ANTHROPIC</span></h3>
+    <p>I did not use <a href="https://www.anthropic.com/claude/sonnet" target="_blank"><strong>Claude Sonnet 4</strong></a> much as I was making sure to use nearly all of my allotted tokens on Claude Code. That said, I occasionally used Claude in the same tasks as ChatGPT, particularly when I was unsatisfied with ChatGPT's responses and wanted a fresh perspective.</p>
+  </div>
 
-The visualizations make these temporal patterns legible, allowing us to see not just what scholars wrote about, but when and with what relative emphasis—the disciplinary signature of our field's evolution.
+  <!-- Slide 4: Technical Stuff -->
+  <div class="slide">
+    <h2>🔧 Technical Architecture</h2>
+    <p>Another slide giving the AI a voice, given that it built everything it would be most capable at explaining how everything works</p>
+    <h3>Data Collection & Processing</h3>
+    <p>The corpus was built using <a href="https://www.python.org/" target="_blank"><strong>Python</strong></a> with <a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank"><strong>BeautifulSoup</strong></a> for web scraping and data extraction. A <strong>dual-parsing strategy</strong> handled both legacy HTML archives (1996–2005) and modern <a href="https://pkp.sfu.ca/ojs/" target="_blank"><strong>OJS</strong></a> platform versions. All extraction was throttled and respectful of <strong>robots.txt</strong> standards.</p>
+    <h3>Visualization & Deployment</h3>
+    <p>Interactive visualizations were built with <a href="https://plotly.com/" target="_blank"><strong>Plotly</strong></a>, a JavaScript charting library that renders directly in the browser. The entire website runs on <a href="https://jekyllrb.com/" target="_blank"><strong>Jekyll</strong></a>, GitHub's native static site generator, deployed automatically to <a href="https://pages.github.com/" target="_blank"><strong>GitHub Pages</strong></a> with zero additional infrastructure.</p>
+    <h3>AI's Role</h3>
+    <p><a href="https://claude.ai" target="_blank"><strong>Claude Code</strong></a> handled most technical decisions—choosing parsing libraries, managing file operations, and scaffolding the website structure. I maintained control over research design, data validation, and quality assurance. This division preserved scholarly integrity while accelerating infrastructure development.</p>
+    <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">Text generated by Claude Code, edited by author (Anthropic, 2025)</p>
+  </div>
+
+  <!-- Slide 5: The Corpus -->
+  <div class="slide">
+    <h2>📚 The Corpus: 2,710 Articles Across 29 Years</h2>
+    <p>This analysis examined every article published in <a href="https://firstmonday.org" target="_blank"><strong>First Monday</strong></a> from May 1996 through October 2025—<strong>359 issues</strong> spanning nearly three decades of Internet Studies scholarship.</p>
+    <h3>Dataset Specifications</h3>
+    <ul>
+      <li><strong>Total Articles:</strong> 2,710</li>
+      <li><strong>Issues:</strong> 359</li>
+      <li><strong>Date Range:</strong> May 1996 – October 2025</li>
+      <li><strong>Metadata Completeness:</strong> 100% (title, author, publication date, DOI, URL)</li>
+      <li><strong>Extraction Success Rate:</strong> 100% (zero articles lost to parsing errors)</li>
+    </ul>
+    <p>All dates were normalized to <strong>ISO 8601 format</strong>. Author names were deduplicated using <strong>fuzzy string matching</strong> (90% similarity threshold). Duplicate articles were identified and removed via <strong>content hash comparison</strong>.</p>
+    <h3>N-gram Tracking</h3>
+    <p>Ten key terms were analyzed across this corpus: five <strong>unigrams</strong> (<em>Identity, Discourse, Writing, Rhetoric, Composition</em>) and five <strong>bigrams</strong> (<em>Digital Media, Digital Divide, Public Sphere, Online Communities, Civic Engagement</em>). These selections bridge classical <a href="https://en.wikipedia.org/wiki/Rhetoric_and_composition" target="_blank"><strong>Rhetoric and Composition</strong></a> pedagogy with contemporary digital studies discourse.</p>
+    <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">Text generated by Claude Code, edited by author (Anthropic, 2025)</p>
+  </div>
+
+  <!-- Slide 6: Graphs/Visualizations -->
+  <div class="slide">
+    <h2>📊 Visualizations & Analysis</h2>
+    <p>Four primary visualization types reveal different aspects of the n-gram patterns:</p>
+    <h3>Stacked Area Chart</h3>
+    <p>Shows <strong>combined frequency</strong> of all ten terms across time, revealing <strong>macro-level trends</strong> in scholarly attention. Each colored band represents one term's raw frequency, allowing for quick identification of disciplinary shifts.</p>
+    <h3>Individual Term Trajectories</h3>
+    <p><strong>Interactive carousel</strong> displaying each term's frequency curve independently, with <strong>trendlines</strong> showing directional change. Reveals which concepts are rising, plateauing, or declining in prominence.</p>
+    <h3>Bubble Charts</h3>
+    <p><strong>Four-dimensional analysis</strong> where x-axis shows <strong>prevalence</strong> (% of articles), y-axis shows <strong>concentration</strong> (references per 1,000 words), bubble size represents <strong>article count</strong>, and color represents <strong>year</strong>. Captures temporal evolution in detail.</p>
+    <h3>Heatmaps</h3>
+    <p>Two versions—one comparing <strong>unigrams vs. bigrams by year</strong>, and one <strong>normalizing each term to its peak maximum</strong> to show relative staying power across the corpus. Enables identification of which concepts maintained prominence over time.</p>
+    <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">Text generated by Claude Code, edited by author (Anthropic, 2025)</p>
+  </div>
+
+  <!-- Controls -->
+  <div class="slide-controls">
+    <button onclick="changeSlide(-1)" id="prevBtn">← Previous</button>
+    <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">6</span></span>
+    <button onclick="changeSlide(1)" id="nextBtn">Next →</button>
+  </div>
+
+  <!-- Dot indicators -->
+  <div class="slide-indicator" id="dotIndicator"></div>
+</div>
+
+<script>
+let currentSlide = 1;
+const totalSlides = 6;
+
+function showSlide(n) {
+  const slides = document.querySelectorAll('#slideshow .slide');
+
+  if (n > totalSlides) currentSlide = totalSlides;
+  if (n < 1) currentSlide = 1;
+
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[currentSlide - 1].classList.add('active');
+
+  document.getElementById('currentSlide').textContent = currentSlide;
+  document.getElementById('prevBtn').disabled = currentSlide === 1;
+  document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+  const dots = document.querySelectorAll('#slideshow .dot');
+  dots.forEach(dot => dot.classList.remove('active'));
+  if (dots[currentSlide - 1]) {
+    dots[currentSlide - 1].classList.add('active');
+  }
+}
+
+function changeSlide(n) {
+  currentSlide += n;
+  showSlide(currentSlide);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const dotContainer = document.getElementById('dotIndicator');
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = function() {
+      currentSlide = i + 1;
+      showSlide(currentSlide);
+    };
+    dotContainer.appendChild(dot);
+  }
+  showSlide(currentSlide);
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowLeft') changeSlide(-1);
+  if (event.key === 'ArrowRight') changeSlide(1);
+});
+</script>
 
 ---
 
 <div class="back-to-hub">
-  <p><a href="/texts/fm_presentation/">← Back to Presentation Hub</a></p>
+  <p>
+    <a href="/texts/fm_presentation_network-sense/">← Previous: Network Sense</a>
+
+    <a href="/texts/fm_presentation/">Back to Hub</a>
+
+    <a href="/texts/fm_presentation_findings/">Next: Key Findings →</a>
+  </p>
 </div>
