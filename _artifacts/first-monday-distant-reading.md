@@ -9,7 +9,7 @@ preview_image: "/assets/EveryFirstMonday/ChatGPT_First_Monday_Egg.png"
 published: false
 ---
 
-<a href="/texts/first_monday/" class="btn btn-accent">Read the Full Analysis →</a>
+<a href="/texts/fm_presentation/" class="btn btn-accent">Explore the Interactive Presentation →</a>
 
 This graduate digital text project applies distant reading methodology and agentic coding to trace disciplinary turns in Internet Studies scholarship. By analyzing 2,710 articles from *First Monday* (1996–2025) using n-gram frequency analysis, the project reveals how core rhetoric and composition concepts (Identity, Discourse, Writing, Rhetoric, Composition) have persisted and evolved alongside emerging digital studies terminology.
 
