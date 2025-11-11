@@ -36,8 +36,8 @@
 }
 
 html {
-  background-color: #0f172a !important;
-  color: #e5e7eb !important;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 /* DARK MODE - Applied when data-theme="dark" attribute is set on <html> */
@@ -140,8 +140,6 @@ body {
   background-color: var(--bg);
   /* Smooth theme transition animation when toggling dark/light mode - Valid: all 0.3s ease */
   transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: #111827;
-  color: #e5e7eb;
   position: relative;
 }
 
