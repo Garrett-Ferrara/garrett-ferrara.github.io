@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-Each colored band shows one term's raw frequency (total occurrences) across the journal's history. The collective height reveals how scholarly attention to all ten concepts together has evolved. Core RhetComp terms (Rhetoric, Writing, Composition) maintain persistent presence, while Identity and Discourse surge in the 2000s–2010s. Digital studies terminology (Digital Media, Online Communities) shows more recent emergence, tracking the field's adaptation to technological change. This macro view shows the discipline's shifting priorities while foundational concepts endure.
+Each line graph in this gallery shows one term's raw frequency (total occurrences) across the journal's history. Note that these graphs are not normalized along the y axis; these charts are better for understanding individual trends within a term rather than comparing to each other.
 
 <div class="back-to-hub">
   <p>

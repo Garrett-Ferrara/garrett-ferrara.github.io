@@ -158,10 +158,10 @@ description: "Key findings from the distant reading analysis of First Monday."
     <h2>📊 Key Findings</h2>
     <p>Organizing nearly 30 years of a journal in a short presentation is exactly the job for thin and distant reading, and while analysis was not the central goal of this project, the process of building this project with agentic coding revealed two key findings:</p>
     <ul>
-      <li><strong>Visualizations revealed no turns explicitly toward or away from core terms</strong> representing explicit Rhetoric and Composition affiliation, such as "Writing", "Rhetoric", and "Composition", though visualizations did reveal evidence of concurrent turns in the journal related to adjacent terms.</li>
+      <li><strong>Visualizations revealed no turns explicitly toward or away from core terms</strong> representing explicit Rhetoric and Composition affiliation, such as "Writing", "Rhetoric", and "Composition", though visualizations <strong>did reveal evidence of concurrent turns in the journal related to adjacent terms.</strong></li>
       <li><strong>Phenomena most prominently displayed and worth further investigation</strong> include strong turns toward "Identity" and "Digital Media", potential turns away from "Writing" and "Digital Divide", and spikes in the terms "Discourse" and "Civic Engagement" during election years.</li>
     </ul>
-    <p>While the visualizations themselves are available from the hub page for you to explore yourself, the following slides offer a brief summary.</p>
+    <p>While the visualizations themselves are available from the <a href="/texts/fm_presentation/">hub page</a> for you to explore yourself, the following slides offer a brief summary.</p>
   </div>
 
   <!-- Slide 2: Weak Direct Presence of "Rhetoric" and "Composition" -->
@@ -258,6 +258,7 @@ function showSlide(n) {
 function changeSlide(n) {
   currentSlide += n;
   showSlide(currentSlide);
+  document.getElementById('slideshow').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // Initialize dots

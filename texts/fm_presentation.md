@@ -13,8 +13,8 @@ description: "Interactive hub presenting distant reading analysis of Internet St
     <!-- Left column: Network Sense & Methodology -->
     <a href="/texts/fm_presentation_network-sense/" class="spoke-box">
       <div class="spoke-box-icon">🔍</div>
-      <h3 class="spoke-box-title">What is Network Sense?</h3>
-      <p class="spoke-box-desc">Mueller's framework <br>for understanding disciplinary patterns through distant reading.</p>
+      <h3 class="spoke-box-title">Introduction</h3>
+      <p class="spoke-box-desc">The goals, scope, and background of this Black Box Network Sense.</p>
     </a>
 
     <a href="/texts/fm_presentation_methodology/" class="spoke-box">
@@ -41,7 +41,7 @@ description: "Interactive hub presenting distant reading analysis of Internet St
     <a href="/texts/fm_presentation_agentic-coding/" class="spoke-box">
       <div class="spoke-box-icon">🤖</div>
       <h3 class="spoke-box-title">Agentic Coding</h3>
-      <p class="spoke-box-desc">Reflections on AI collaboration and research integrity with generative tools in scholarship.</p>
+      <p class="spoke-box-desc">Reflections on the power of agentic coding in this project and its impact on authorship.</p>
     </a>
 
     <!-- Bottom row: Visualizations (5 boxes) -->
@@ -66,7 +66,7 @@ description: "Interactive hub presenting distant reading analysis of Internet St
     <a href="/texts/fm_presentation_heatmap-toggle/" class="spoke-box">
       <img src="/assets/fm_presentation/Heat1.png" alt="Temporal Heatmaps" class="spoke-box-image">
       <h3 class="spoke-box-title">Split Heatmaps</h3>
-      <p class="spoke-box-desc">A toggleable map comparing unigram/bigram prevalance by year.</p>
+      <p class="spoke-box-desc">A toggleable heatmap comparing unigram/bigram prevalance by year.</p>
     </a>
 
     <a href="/texts/fm_presentation_normalized-heatmap/" class="spoke-box">
@@ -81,9 +81,14 @@ description: "Interactive hub presenting distant reading analysis of Internet St
 
 ## About This Presentation
 
-This interactive hub guides you through a distant reading analysis of *First Monday* (1996–2025), exploring how core rhetoric and composition concepts have evolved alongside emerging digital studies terminology. Each page is self-contained and independent—explore in any order by clicking the boxes above.
+This interactive hub guides you through how agentic coding tools assisted a distant reading analysis of First Monday (1996-2025), exploring how core rhetoric and composition concepts have evolved alongside emerging internet studies terminology. Each page is self-contained, explore in any order or follow along a more traditional route with the navigation buttons at the bottom of each page.
 
-**What you'll find:** Eight sections combining conceptual frameworks (Network Sense, Methodology, Findings), interactive visualizations (four different chart types), and reflections on scholarly method in the age of generative AI.
+<div class="disclaimer-box">
+  <strong>Generative AI Acknowledgment:</strong>
+  <p>The author acknowledges the use of OpenAI's ChatGPT 5 and Anthropic's Claude Sonnet 4 / Claude Code 2.0.31 in generating the infrastructure, data scraping tools, visualizations, and isolated text used in this project. AI-generated text appears most prominently in the Methodology section and in various low-stakes titles, labels, or descriptions created when building out the site. No AI-generated insights or conclusions were included unless explicitly cited otherwise, and all final content was written or reviewed by the author. Thorough details of how AI was used in this project is covered in the Methodology and Agentic Coding Applications sections.</p>
+</div>
+
+**What you'll find:** Four pages consist of slide-style presentations introducing the project, its methodology, and its key takeaways. Below, five individual pages contain graphs and charts showcasing the projects data in different ways.
 
 **How to navigate:** Click any box above to jump to that section. Use the "← Back to Presentation Hub" button at the bottom of each page to return here.
 

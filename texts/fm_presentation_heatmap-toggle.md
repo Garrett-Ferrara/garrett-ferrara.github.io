@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-Toggle between **unigrams** (Identity, Discourse, Writing, Rhetoric, Composition) and **bigrams** (Civic Engagement, Online Communities, Public Sphere, Digital Divide, Digital Media) to compare how single terms versus paired concepts evolved. Each cell shows the percentage of articles containing the term; darker colors indicate higher prevalence, with peak values and years shown on the left margin. This comparison reveals how paired concepts gained prominence alongside individual theoretical terms as the field evolved.
+Toggle between **unigrams** (Identity, Discourse, Writing, Rhetoric, Composition) and **bigrams** (Civic Engagement, Online Communities, Public Sphere, Digital Divide, Digital Media) to compare how single terms versus concepts evolved. Each cell shows the percentage of articles containing the term; darker colors indicate higher prevalence, with peak values and years shown on the left margin. This comparison reveals how concepts gained prominence alongside individual theoretical terms as the field evolved.
 
 <div class="back-to-hub">
   <p>

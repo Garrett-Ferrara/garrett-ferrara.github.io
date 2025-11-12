@@ -167,7 +167,7 @@ description: "Research design, data collection process, and validation strategie
     <h3><a href="https://claude.com/product/claude-code" target="_blank"><strong>Claude Code 2.0.31</strong></a> <span style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.75rem; font-weight: 700; display: inline-block; margin-left: 0.5rem; vertical-align: middle;">ANTHROPIC</span></h3>
     <p><a href="https://claude.com/product/claude-code" target="_blank"><strong>Claude Code</strong></a> is Anthropic's command line interface (CLI) agentic coding tool with the capability of directly modifying files and code, managing GitHub repositories, and debugging its own code. I started using Claude Code in exploratory projects right after its Windows release on July 11, 2025, <a href="https://claudelog.com/faqs/claude-code-release-notes/#v1051" target="_blank"><strong>v1.0.51</strong></a>. Similar tools include <a href="https://github.com/features/copilot" target="_blank">GitHub's Copilot</a>, but as I already had a subscription to Claude and was comfortable with operating in the terminal, I've had no reason to explore alternatives.</p>
     <h3><a href="https://openai.com/index/introducing-gpt-5/" target="_blank"><strong>ChatGPT 5</strong></a> <span style="background: linear-gradient(135deg, #10a37f, #0d8a6f); color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.75rem; font-weight: 700; display: inline-block; margin-left: 0.5rem; vertical-align: middle;">OPENAI</span></h3>
-    <p><a href="https://openai.com/index/introducing-gpt-5/" target="_blank"><strong>OpenAI's ChatGPT</strong></a> the general purpose LLM most likely readers are familiar with and remains my daily driver LLM for two reasons: I get a lot of free credits by sharing my data with them, and though I prefer Claude in most applications, I frequently run out of Claude tokens while using Claude Code. ChatGPT was used most often in this project in helping surface investigative leads through open ended questions, using generated text as a sounding board through which to refine my own ideas, and creating clean and comprehensive prompts to pass over to Claude Code.</p>
+    <p><a href="https://openai.com/index/introducing-gpt-5/" target="_blank"><strong>OpenAI's ChatGPT</strong></a> is the general purpose LLM most likely readers are familiar with and remains my daily driver LLM for two reasons: I get a lot of free credits by sharing my data with them, and though I prefer Claude in most applications, I frequently run out of Claude tokens while using Claude Code. ChatGPT was used most often in this project in helping surface investigative leads through open ended questions, using generated text as a sounding board through which to refine my own ideas, and creating clean and comprehensive prompts to pass over to Claude Code.</p>
     <h3><a href="https://www.anthropic.com/claude/sonnet" target="_blank"><strong>Claude Sonnet 4</strong></a> <span style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.75rem; font-weight: 700; display: inline-block; margin-left: 0.5rem; vertical-align: middle;">ANTHROPIC</span></h3>
     <p>I did not use <a href="https://www.anthropic.com/claude/sonnet" target="_blank"><strong>Claude Sonnet 4</strong></a> much as I was making sure to use nearly all of my allotted tokens on Claude Code. That said, I occasionally used Claude in the same tasks as ChatGPT, particularly when I was unsatisfied with ChatGPT's responses and wanted a fresh perspective.</p>
   </div>
@@ -175,7 +175,7 @@ description: "Research design, data collection process, and validation strategie
   <!-- Slide 4: Technical Stuff -->
   <div class="slide">
     <h2>🔧 Technical Architecture</h2>
-    <p>Another slide giving the AI a voice, given that it built everything it would be most capable at explaining how everything works</p>
+    <p>Another slide giving the AI a voice, this summary is Claude Code's explanation of how this site was constructed. Note that in the "AI's Role" section, "I" refers to the author, not Claude.</p>
     <h3>Data Collection & Processing</h3>
     <p>The corpus was built using <a href="https://www.python.org/" target="_blank"><strong>Python</strong></a> with <a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank"><strong>BeautifulSoup</strong></a> for web scraping and data extraction. A <strong>dual-parsing strategy</strong> handled both legacy HTML archives (1996–2005) and modern <a href="https://pkp.sfu.ca/ojs/" target="_blank"><strong>OJS</strong></a> platform versions. All extraction was throttled and respectful of <strong>robots.txt</strong> standards.</p>
     <h3>Visualization & Deployment</h3>
@@ -197,25 +197,23 @@ description: "Research design, data collection process, and validation strategie
       <li><strong>Metadata Completeness:</strong> 100% (title, author, publication date, DOI, URL)</li>
       <li><strong>Extraction Success Rate:</strong> 100% (zero articles lost to parsing errors)</li>
     </ul>
-    <p>All dates were normalized to <strong>ISO 8601 format</strong>. Author names were deduplicated using <strong>fuzzy string matching</strong> (90% similarity threshold). Duplicate articles were identified and removed via <strong>content hash comparison</strong>.</p>
     <h3>N-gram Tracking</h3>
     <p>Ten key terms were analyzed across this corpus: five <strong>unigrams</strong> (<em>Identity, Discourse, Writing, Rhetoric, Composition</em>) and five <strong>bigrams</strong> (<em>Digital Media, Digital Divide, Public Sphere, Online Communities, Civic Engagement</em>). These selections bridge classical <a href="https://en.wikipedia.org/wiki/Rhetoric_and_composition" target="_blank"><strong>Rhetoric and Composition</strong></a> pedagogy with contemporary digital studies discourse.</p>
-    <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">Text generated by Claude Code, edited by author (Anthropic, 2025)</p>
   </div>
 
   <!-- Slide 6: Graphs/Visualizations -->
   <div class="slide">
     <h2>📊 Visualizations & Analysis</h2>
-    <p>Four primary visualization types reveal different aspects of the n-gram patterns:</p>
+    <p>The last of the major pieces of AI-generated text appearing in this project, the descriptions of the four primary visualization types reveal different aspects of the n-gram patterns.</p>
     <h3>Stacked Area Chart</h3>
-    <p>Shows <strong>combined frequency</strong> of all ten terms across time, revealing <strong>macro-level trends</strong> in scholarly attention. Each colored band represents one term's raw frequency, allowing for quick identification of disciplinary shifts.</p>
+    <p>Shows <strong>combined frequency</strong> of all ten terms across time, revealing <strong>macro-level trends</strong> in scholarly attention. Each colored band represents one term's raw frequency, allowing a bird's eye view of disciplinary trends.</p>
     <h3>Individual Term Trajectories</h3>
     <p><strong>Interactive carousel</strong> displaying each term's frequency curve independently, with <strong>trendlines</strong> showing directional change. Reveals which concepts are rising, plateauing, or declining in prominence.</p>
     <h3>Bubble Charts</h3>
     <p><strong>Four-dimensional analysis</strong> where x-axis shows <strong>prevalence</strong> (% of articles), y-axis shows <strong>concentration</strong> (references per 1,000 words), bubble size represents <strong>article count</strong>, and color represents <strong>year</strong>. Captures temporal evolution in detail.</p>
     <h3>Heatmaps</h3>
     <p>Two versions—one comparing <strong>unigrams vs. bigrams by year</strong>, and one <strong>normalizing each term to its peak maximum</strong> to show relative staying power across the corpus. Enables identification of which concepts maintained prominence over time.</p>
-    <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">Text generated by Claude Code, edited by author (Anthropic, 2025)</p>
+    <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">Text generated by Claude Code, edited by author (Anthropic, 2025). Note: While other AI-generated slides were a pre-planned rhetorical choice, I originally set out to write this slide. I soon realized I was changing the mostly fine automatically generated placeholder text only to avoid having too much of the project be AI-generated. In the end, I decided these descriptions were adequate and to only make minor edits to this slide, otherwise leaving it as is.</p>
   </div>
 
   <!-- Controls -->
@@ -256,6 +254,7 @@ function showSlide(n) {
 function changeSlide(n) {
   currentSlide += n;
   showSlide(currentSlide);
+  document.getElementById('slideshow').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 document.addEventListener('DOMContentLoaded', function() {

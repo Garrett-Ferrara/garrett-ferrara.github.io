@@ -141,7 +141,7 @@ description: "Introduction to network sense methodology for distant reading anal
     <h2>🔍 An Introduction to Black Box Network Sense</h2>
     <p>This project is a multimodal digital text that explores how agentic coding can be applied in conducting a thin and distant analysis of a journal beyond the time or skill constraints of what might usually be possible, while preserving the integrity of the academic findings.</p>
     <p><strong>The case study explored in this application is a network sense analysis of Rhetoric and Composition's relationship with <a href="https://firstmonday.org" target="_blank">First Monday</a>, one of the first peer-reviewed journals dedicated to the interdisciplinary study of the internet.</strong></p>
-    <p>Nearly entirely with the AI coding agent Claude Code, this project accomplished the following:</p>
+    <p>Assisted with the AI coding agent Claude Code at every step, this project accomplished the following:</p>
     <ul>
       <li>Created an initial corpus by ethically and systematically scraping the entire history of First Monday</li>
       <li>Distilled the corpus into actionable findings and charts</li>
@@ -157,7 +157,8 @@ description: "Introduction to network sense methodology for distant reading anal
       "We need to see the way documents have served not simply to write, but also to underwrite social interactions; not simply to communicate, but also to coordinate social practices." — <a href="https://firstmonday.org/index.php/fm/article/view/209" target="_blank">Brown &amp; Duguid, "The Social Life of Documents"</a> (First Monday, May 1996)
     </blockquote>
     <p>The above quote is from the second article of First Monday's first issue, published in May, 1996. Though not explicit, a close read of the full text reveals obvious ties to <strong>Rhetoric and Composition</strong>, with direct references to <a href="https://en.wikipedia.org/wiki/Public_sphere" target="_blank">Habermas's Public Sphere</a> and indirect parallels to <a href="https://en.wikipedia.org/wiki/Carol_Berkenkotter" target="_blank">Miller's "Genre as Social Action."</a></p>
-    <p>Though it is simple to read the first issue of a journal and see the connection, it is less impractical to reach back through nearly 30 years of scholarship to analyze how the disciplines of Internet Studies and Rhetoric and Composition have intertwined. The problem needs a different approach.</p>
+    <p>Though it is simple to read the first issue of a journal and see the connection, it is less practical to reach back through nearly 30 years of scholarship to analyze how the disciplines of Internet Studies and Rhetoric and Composition have intertwined.</p>
+    <p>The problem needs a different approach.</p>
   </div>
 
   <!-- Slide 3: What is Network Sense -->
@@ -187,9 +188,9 @@ description: "Introduction to network sense methodology for distant reading anal
     </blockquote>
     <p>When combined, the core value seen in thin and distant reading comes from being able to triage potential patterns at a scale impossible when doing thorough research on a subject.</p>
     <ul>
-      <li>Patterns revealed from thin and distant analyses can be actionable on their own, or they can be used as the spark for more in-depth analysis of a phenomenon.</li>
-      <li>In this project, one example pattern is how the term "Civic Engagement" spikes in prominence during election years, but only really since 2016. What changed?</li>
-      <li>Thin and distant methods are particularly useful for graduate students and newcomers to the field, as they help build understanding of discourse trends without needing to catch up on years of academic debate and context.</li>
+      <li><strong>Actionable insights:</strong> Patterns revealed from thin and distant analyses can be actionable on their own, or they can be used as the spark for more in-depth analysis of a phenomenon.</li>
+      <li><strong>Pattern discovery:</strong> In this project, one example pattern is how the term "Civic Engagement" spikes in prominence during election years, but only really since 2016. What changed?</li>
+      <li><strong>Accessibility:</strong> Thin and distant methods are particularly useful for graduate students and newcomers to the field, as they help build understanding of discourse trends without needing to catch up on years of academic debate and context.</li>
     </ul>
   </div>
 
@@ -254,6 +255,7 @@ function showSlide(n) {
 function changeSlide(n) {
   currentSlide += n;
   showSlide(currentSlide);
+  document.getElementById('slideshow').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // Initialize dots

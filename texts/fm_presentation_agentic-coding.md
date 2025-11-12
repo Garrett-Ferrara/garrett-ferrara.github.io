@@ -171,7 +171,7 @@ description: "Reflection on using generative AI as research infrastructure."
     <p>To understand the rest of these reflections, it is important to have a broad idea of how Claude Code looks and works in practice, with an example interaction in modifying visualizations below:</p>
     <ul>
       <li><strong>Claude Code runs in your terminal</strong> and uses plain-language instructions to create or modify files, folders, and code. With an example graph folder open, you can say "Reduce the thickness of the lines in the individual graphs," which results in the agent replacing "linewidth=3" with "linewidth=1.5".</li>
-      <li><strong>Text highlighted in red</strong> means code that was modified or removed. Text highlighted in green reflects the new code.</li>
+      <li><strong>Text highlighted in red</strong> means code that was modified or removed. <strong>Text highlighted in green</strong> reflects the new code.</li>
       <li><strong>In the example below, note that Claude Code handles typos well</strong>, and once it "understands" a context, I was able to use simpler, one-word responses to continue refining the visual appearance of the graphs.</li>
     </ul>
     <img src="/assets/fm_presentation/claude_code_example.png" alt="Claude Code interaction example">
@@ -252,7 +252,7 @@ description: "Reflection on using generative AI as research infrastructure."
     <p>At one point in the project after building the first line graphs, I prompted the coding agent with open-ended instructions asking for ideas for other ways to visualize the data from the corpus. One of the outputs of this prompt was this mangled heat map.</p>
     <ul>
       <li><strong>As part of the output</strong>, the agent recommended organizing the data into eras and suggested other terms to analyze, such as "surveillance", "authenticity", and "platformization". In the spirit of not including AI insights in this project, these eras and terms were not incorporated or developed further.</li>
-      <li><strong>Note the visual overlapping of the legend</strong> that has nonsense text about emerging and original terms in it, trying to group the terms into emerging concepts. The point it's trying to make might make an interesting analysis, but I did not provide the AI with any information on these new terms, meaning the findings are entirely hallucinated.</li>
+      <li><strong>Note the visual overlapping of the legend</strong> that has nonsense text about emerging and original terms in it, trying to group the terms into emerging concepts. The point it's trying to make might make an interesting analysis, but I did not provide the AI with any information on these new terms, meaning the <strong>added findings are entirely hallucinated.</strong></li>
       <li><strong>Despite the early "failure"</strong>, this heatmap served as inspiration for the heatmaps appearing in this project, which I believe offer some of the more compelling takeaways in all of the data.</li>
     </ul>
     <img src="/assets/fm_presentation/early_heatmap_example.png" alt="Claude Code's early heatmap attempt">
@@ -322,6 +322,7 @@ function showSlide(n) {
 function changeSlide(n) {
   currentSlide += n;
   showSlide(currentSlide);
+  document.getElementById('slideshow').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
