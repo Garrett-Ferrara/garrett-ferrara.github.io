@@ -322,10 +322,21 @@ See the following files for current configuration:
 ### Important Notes
 
 - **Don't modify** the Formspree action URL in `contact.md` unless you've set up a Formspree account
-- **Dark mode is default** — Users can toggle to light mode
+- **Dark mode only** — No light mode toggle (forced dark blue #111827 and gold #c79b3b theme)
 - **All CSS variables** in `assets/site.css` can be customized
 - **Content TODOs** remain in artifact files 3 and 4 for user to complete
-- **WCAG AA accessibility** is built-in (verified for both dark and light modes)
+- **WCAG AA accessibility** is built-in (verified for dark mode only)
+
+## GIT WORKFLOW
+
+**IMPORTANT: Do NOT push to GitHub automatically. Only push after user verification.**
+
+1. **Make changes locally** and commit with `git commit -m "..."`
+2. **User verifies changes** by viewing at `http://localhost:4000` in browser
+3. **User confirms** the changes look correct
+4. **Only then** push with `git push origin main`
+
+This prevents live site changes that haven't been tested locally first.
 
 ## TURN IN
 
