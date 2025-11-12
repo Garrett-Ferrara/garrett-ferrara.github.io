@@ -329,7 +329,7 @@ See the following files for current configuration:
 
 ## GIT WORKFLOW
 
-**IMPORTANT: Do NOT push to GitHub automatically. Only push after user verification.**
+**CRITICAL: Do NOT push to GitHub automatically. Only push after user verification.**
 
 1. **Make changes locally** and commit with `git commit -m "..."`
 2. **User verifies changes** by viewing at `http://localhost:4000` in browser
@@ -337,6 +337,16 @@ See the following files for current configuration:
 4. **Only then** push with `git push origin main`
 
 This prevents live site changes that haven't been tested locally first.
+
+## IMAGE HANDLING
+
+**Image Tracking:** All presentation images (PNG, JPG) are tracked directly in git, not via Git LFS.
+
+**Image Locations:**
+- `/assets/fm_presentation/` - Presentation analysis images (analysis_*.png)
+- `/assets/EveryFirstMonday/` - Working files and supporting materials
+
+**Note:** Images may take 1-2 minutes to appear on the live GitHub Pages site after pushing, as GitHub rebuilds the site. They will always be visible locally at `http://localhost:4000`.
 
 ## TURN IN
 

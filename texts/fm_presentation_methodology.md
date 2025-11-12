@@ -254,7 +254,7 @@ function showSlide(n) {
 function changeSlide(n) {
   currentSlide += n;
   showSlide(currentSlide);
-  document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
