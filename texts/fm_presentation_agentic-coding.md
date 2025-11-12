@@ -322,7 +322,7 @@ function showSlide(n) {
 function changeSlide(n) {
   currentSlide += n;
   showSlide(currentSlide);
-  document.getElementById('slideshow').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 document.addEventListener('DOMContentLoaded', function() {

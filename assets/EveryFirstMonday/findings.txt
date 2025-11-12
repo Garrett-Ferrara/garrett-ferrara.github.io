@@ -1,0 +1,125 @@
+﻿fm_presentation_findings
+INSTRUCTIONS: Each slide’s content starts with a number, and there are 6 slides. All images should be centered and sized appropriately to the slide width, the same as the images in the AI Reflections slides. Any sentence that begins with Caption should appear as a caption under the image. If there is not a caption for an image, generate a similar one based on context.
+
+
+1
+Key Findings
+
+
+Organizing nearly 30 years of a journal in a short presentation is exactly the job for thin and distant reading, and while analysis was not the central goal of this project, the process of building this project with agentic coding revealed two key findings: 
+
+
+* Visualizations revealed no turns explicitly toward or away from core terms representing explicit Rhetoric and Composition affiliation, such as “Writing”, “Rhetoric”, and “Composition”, though visualizations did reveal evidence of concurrent turns in the journal related to adjacent terms.
+* Phenomena most prominently displayed and worth further investigation include strong turns toward “Identity” and “Digital Media”, potential turns away from “Writing“ and “Digital Divide”, and spikes in the terms “Discourse” and “Civic Engagement” during election years.
+
+
+While the visualizations themselves are available from the hub page for you to explore yourself, the following slides offer a brief summary of 
+
+
+2. 
+
+Weak Direct Presence of “Rhetoric” and “Composition”
+
+
+Despite Rhetoric and Composition scholars’ activity in First Monday, the specific terms “Rhetoric” and “Composition” were underrepresented compared to adjacent terms, with their increasing trendline likely attributed to anomalous spikes instead of a general trend.
+
+
+analysis_2_RhetComp.png
+
+
+Caption: A heatmap comparing the five unigrams observed by the percentage of articles they were present in. Note the highlighted darker appearance for the terms “Rhetoric” and “Composition” compared to “Identity”, “Discourse”, and “Writing”
+
+
+analysis_2_RhetCompLines.png
+Caption: Line graphs for raw frequencies of “Rhetoric” and “Composition” with isolated spikes highlighted.
+
+
+3
+
+
+Strong and Increasing Presence of Related RhetComp Terms
+
+
+Compared to direct references to “Rhetoric” and “Composition”, the terms “Identity”, “Discourse”, and “Writing” carve out strong and generally increasing presences both by raw frequency and as a percentage of articles the terms appear in.
+
+
+This is seen most dramatically by comparing the normalized bubble charts for each term. Below is the most prevalent term, “Identity”, compared to the least prominent term, “Composition”. In these charts, the Y axis represents the term’s density per 5,000 words, the X axis represents the percent of articles the term appeared in, the color indicates the year, with warmer colors being more recent, and the bubble size represents the total number of articles published by First Monday that year.
+
+
+analysis_3_IdBubble.png
+
+
+Caption: A bubble graph depicting the prevalence of “Identity”. 
+
+
+analysis_3_CompBubble.png
+
+
+Caption: A bubble graph depicting the prevalence of “Composition
+
+
+4 
+
+
+Strongest n-Gram Trends
+
+
+Compared to other terms, the strongest indicated turns were associated with the terms “Identity” and “Digital Media”. Though neither turn is surprising against the backdrop of broader trends favoring social justice and multimodal media, a closer read of these terms specifically could reveal more about the role of Rhetoric and Composition in First Monday
+
+
+analysis_4_IdHeat
+
+
+Caption: A heat map comparing this project’s unigrams, with the term “Identity” highlighted.
+
+
+analysis_4_DMHeat
+
+
+Caption: A heat map comparing this project’s bigrams, with the term “Digital Media” highlighted.
+
+
+5
+
+
+Evidence of Turns Away in “Writing” and “Digital Divide”
+
+
+While “Writing” maintained a strong and mostly stable presence by raw frequency in the journal, the associated bubble chart reveals outliers in the three-year period of 2008-2010, with a smaller initial burst in 1997-1998
+
+
+analysis_5_WritBubble.png
+
+
+Caption: <FILL IN>
+
+
+Similarly, the term “Digital Divide” peaked in prominence in the 2010s, with some resurgence in the years 2020 and 2022.
+
+
+analysis_5_DDBubble.png
+
+
+Caption: <FILL IN>
+
+
+6 
+
+
+Election Year Spikes
+
+
+Visible most prominently in the normalized heat map, the terms “Civic Engagement” and “Discourse” begin spiking during recent U.S. election years, and “Public Sphere” spikes once during the 2016 election year. 
+
+
+* This effect is especially strong for “Civic Engagement”, where the term falls off dramatically between elections.
+* Notably, despite First Monday’s identity as an international journal, these spikes follow U.S. election years. 
+* Further investigation could explore this as a potential bias in myself or the journal, or to find other patterns not immediately visible, such as whether the 2015 increase in “Civic Engagement” is caused by the contentious 2015 French election featuring Marie Le Pen.
+
+
+
+
+analysis_6_ElectionYears.png
+
+
+Caption: FILL IN

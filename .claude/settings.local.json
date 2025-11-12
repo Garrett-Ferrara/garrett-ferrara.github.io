@@ -1,10 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(awk:*)",
-      "Bash(bundle exec jekyll build:*)",
-      "Bash(dir:*)",
-      "Bash(git add:*)"
+      "Bash(for:*)",
+      "Bash(done)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nRebuild agentic-coding page with 10 complete slides and update term-trajectories\n\n- Convert fm_presentation_agentic-coding to 10-slide interactive presentation\n- Include all numbered sections from reflection.txt: Introduction, Claude Code Interaction, Initial Frustrations, Combining LLMs, Automatic Style Choices, Mixed Success in Visual Elements, Serendipity in Visualizations, Heatmap Hallucination, Making Header Image, and final reflection on authorship\n- Center all images with display: block and margin: auto\n- Add styled container with link to shared Claude conversation example on Slide 4\n- Add one-paragraph description to term-trajectories visualization page\n- Update JavaScript totalSlides from 6 to 10\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit:*)",
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

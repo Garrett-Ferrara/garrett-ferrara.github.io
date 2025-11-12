@@ -1,0 +1,186 @@
+﻿fm_presentation-AIreflection
+
+Reflections on Agentic Coding
+
+
+1
+Reflections on Agentic Coding
+
+
+While I’ve worked on incorporating generative AI into my workflows over the last three years, this project is far and away the most control I’ve ever ceded to AI systems when doing higher-stakes work. 
+* Claude Code built, in whole or in part, everything you see on this website and more than that behind the scenes in building the corpus analyzed and the visualizations themselves. 
+* Both ChatGPT and Claude Sonnet played supporting roles when drafting much of the text and visuals for this project, either as a sounding board, editor, or research assistant. 
+* The project’s text, except for minor descriptive labels or explicitly cited slides in the Methodology section, is mine, as much as any assisted text can be. But how much of the entire project can I still call “mine”?
+To that last question, I don’t have a clear answer. Instead, this reflection pulls back the curtain on some specific uses of AI in each stage of the project, hoping to showcase the methods for others and offering you a chance for your own conclusion on how much of this project is Garrett’s and how much of this is Claude’s.
+
+
+2
+
+
+Interacting with Claude Code
+
+
+To understand the rest of these reflections, it is important to have a broad idea of how Claude Code looks and works in practice, with an example interaction in modifying visualizations below:
+* Claude Code runs in your terminal and uses plain-language instructions to create or modify files, folders, and code. With an example graph folder open, you can say “Reduce the thickness of the lines in the individual graphs,” which results in the agent replacing “linewidth=3” with “linewidth=1.5”.
+* Text highlighted in red means code that was modified or removed. Text highlighted in green reflects the new code.
+* In the example below, note that Claude Code handles typos well, and once it “understands” a context, I was able to use simpler, one-word responses to continue refining the visual appearance of the graphs.
+[PUT THIS FOLLOWING IMAGE IN A CONTAINER WITH A SCROLL BOX.]
+claude_code_example.png
+Caption: One simple interaction with Claude Code while building this project. 
+
+
+
+
+3
+
+
+Initial Frustrations
+
+
+Before this project, I only used agentic coding for minor, concrete tasks, such as simple data manipulation, scripts, and graphing.. The simple, plain-language instructions that worked in those contexts started failing quickly without a bigger plan. 
+
+
+For example, first attempts at building the scraper used in this project failed to capture most meaningful information:
+[PUT THIS FOLLOWING IMAGE IN A CONTAINER WITH A SCROLL BOX.]
+scraper_example.png
+Caption: An example export from the first version of the scraper. Note how many fields are “null”, including important ones like “published_date” and “full_text_content”.
+
+
+4
+Combining LLMs to Build Digital Artifacts
+
+
+The first major breakthrough in working with Claude Code was using a different general purpose LLM, like Sonnet or ChatGPT, to write more detailed starting  instructions to pass over to the coding agent.
+
+
+* Claude Code looks for “CLAUDE.MD” files for instructions, meaning you can implement very long or specific instructions that it can refer back to throughout a working session.
+* Using another LLM to build the instructions not only saves time, but also helps to identify knowledge gaps. In the example below, the prompt suggests specific libraries to use, which I could then go research traditionally to help identify the best option.
+* Over time, I incorporated more into building an initial prompt, including instructing the LLM to ask me questions about the project first and then reviewing the prompt manually after. These prompts were remarkably successful; a rudimentary version of this website worked on the first try only using the initial CLAUDE.MD file. 
+
+
+[A container page with a scrollbar displaying this webpage: https://claude.ai/share/f601dedc-3de0-41ae-bff4-31c612aeae12]
+
+
+5
+
+
+Automatic Style Choices:
+
+
+The coding agent did not need thorough instructions to develop visual elements, and was quick to fill in gaps with its own choice.
+
+
+Elements Selected By the AI
+
+
+* I did not instruct the AI to add any style to the hub cards; it included the rounded corners, highlighting, and animations on its own.
+* The AI picked appropriate emojis and other visualizations to add some visual diversity to plain text that was uploaded.
+* Though not specific to this project, the “Portfolio” cards and filtering at https://garrett-ferrara.github.io/portfolio/ was a surprise; a friend reviewing the site saw those before I did.
+Elements I Specifically Built or Instructed For
+* The overall hub and spoke appearance, including the grid structure.
+* The graphics for each of the graphs from screenshots I took.
+* The “slide-style” format of the first four spoke pages.
+
+6
+
+
+Mixed Success In Editing Visual Elements
+
+
+Some of the most surprising successes and frustrating failures when using Claude Code occurred while instructing the prompt on editing the visual appearance of aspects of the project.
+
+
+* Failure to Understand Spacing: Editing the spacing between elements on this webpage, such as gaps and margins between the header and the beginning of a page’s content, frequently took many, many attempts to get correct. In the end, it was faster to refresh myself on CSS and HTML and edit these elements myself rather than instruct the AI on it.
+* Understanding Charts: Early on, I knew I wanted the grid layout of the hub page to look like how it does now. To help convey this to the agent, I included a simple text grid and legend similar to the below:
+
+1XXX2                X = Area with title and center image
+3XXX4                1 = Introduction, 2 = Insights,
+56789                3 = Methodology, etc
+
+These instructions established the scaffolding for the hub successfully on the first try, though I still had to go in and manually set all the spacing myself.
+7
+
+
+Serendipity In Building Visualizations:
+
+
+Originally, I planned on building static graphs as images for the respective spoke visualization pages. However, while prompting the agent to try and recreate the Google Motion Charts featured in Mueller’s Network sense, the AI built a stand-alone webpage of a bubble chart using Plotly:
+
+
+[INSTRUCTIONS: PUT THESE TWO FOLLOWING IMAGES IN A SELECTOR CAROUSEL LIKE IN THE HEATMAP TOGGLE]
+
+
+early_discourse_example.png
+
+
+Caption: An early, static graph of the term “Discourse”
+
+
+
+
+early_bubble_example.png
+Caption: A screenshot of the first iteration of the Bubble Charts that appear in this project.
+
+
+I liked the interactive element so much that I replaced all the static images with interactive graphs.
+
+
+8 
+
+
+More Serendipity and Failure With Visual Elements, Heatmap Edition
+
+
+At one point in the project after building the first line graphs, I prompted the coding agent with open-ended instructions asking for ideas for other ways to visualize the data from the corpus. One of the outputs of this prompt was this mangled heat map. 
+
+
+   * As part of the output, the agent recommended organizing the data into eras and suggested other terms to analyze, such as “surveillance”, “authenticity”, and “platformization”. In the spirit of not including AI insights in this project, these eras and terms were not incorporated or developed further. 
+   * Note the visual overlapping of the legend that has nonsense text about emerging and original terms in it, trying to group the terms into emerging concepts. The point it’s trying to make might make an interesting analysis, but I did not provide the AI with any information on these new terms, meaning the findings are entirely hallucinated. 
+   * Despite the early “failure”, this heatmap served as inspiration for the heatmaps appearing in this project, which I believe offer some of the more compelling takeaways in all of the data.
+
+
+early_heatmap_example.png
+CAPTION: Claude Code’s attempt at its own heat map analysis. 
+9
+
+
+Making a Header Image
+
+
+Though not the focus of this project, I did want to use ChatGPT’s incorporation of DALL-E, an AI image generator, to create the frying pan graphic appearing on the hub page. The original plan was to combine this image with Adobe Photoshop’s generative fill and AI-assisted subject select tool to remove the watercolor background, but I didn’t like the results.
+
+
+To create this image, I instructed the AI to make an “ image of an egg being cracked into a pan. The egg should be the First Monday logo, and the egg contents in the pan should be this word cloud. Use a cartoony digital style appropriate for use as the header image in an academic project.”
+
+
+wordstat_wordcloud_fm.png
+
+
+
+
+Caption: A word cloud generated by WordStat displaying overall term frequency for the entire corpus.
+
+
+ChatGPT_First_Monday_Egg.png (in the Everyfirstmonday folder)
+Caption: The output image generated by ChatGPT and DALL-E. While the image looks fine at a glance, note how it changed the “r” in “First Monday” to a distorted “ñ”, and how the words in the cloud don’t necessarily match the word cloud (“FOPLE”).
+
+
+10 
+
+
+Did I Make This?
+
+
+After seeing all the ways that AI was used in this project and returning to the original question, I don’t think there is yet a clear answer where my contributions to this project end and where Claude’s begins, a subject likely worthy of its own analysis and investigation. Though clearly different, just how different is using the AI from any of the following:
+
+
+   * Using WordPress, Microsoft, or Google templates to build a presentation.
+   * Copying code templates or tutorials from Stack Overflow, GitHub, or other sources.
+   * Pulling imagery from stock image sites.
+   * Using a public word cloud generator instead of analyzing text directly.
+
+
+In the end, Claude Code offered me a way to create a digital text far beyond my capabilities. I learned or refreshed my learning on basic Python, HTML, and CSS; as I learned, I more frequently modified files and code directly rather than instructing the AI because I knew where I could do it faster. The final product meets the original goal: conduct an initial thin and distant assessment of a large corpus.
+
+
+Is this project mine? Maybe. The boundaries of authorship, creativity, and technical literacy are blurring with the rise of AI, and general purpose text generation is only the tip of the iceberg. Some value was inevitably lost by ceding control over to a coding agent. But what was gained was closing the gap between what a student might be able to achieve in a semester and what would usually be expected of a group with at least an intermediate level of technical proficiency. Just as something was lost, something else was gained, and I’m confident that rhetoric and composition as a field is positioned to maximize what’s gained while preserving the voice of those shepherding the bots.

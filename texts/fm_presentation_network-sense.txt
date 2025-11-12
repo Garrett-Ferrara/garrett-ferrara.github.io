@@ -1,0 +1,70 @@
+1
+An Introduction to Black Box Network Sense
+
+This project is a multimodal digital text that explores how agentic coding can be applied in conducting a thin and distant analysis of a journal beyond the time or skill constraints of what might usually be possible, while preserving the integrity of the academic findings.
+
+The case study explored in this application is a network sense analysis of Rhetoric and Composition’s relationship with First Monday, one of the first peer-reviewed journals dedicated to the interdisciplinary study of the internet. 
+
+Nearly entirely with the AI coding agent Claude Code, this project accomplished the following:
+
+Created an initial corpus by ethically and systematically scraping the entire history of First Monday.
+Distilled the corpus into actionable findings and charts.
+Explored different visualizations to capture the findings using Plotly
+Build a digital site / web-poster to host the content.
+
+2
+The Research Question: Where is RhetComp in Internet Studies?
+
+By darts or didacticism, we all usually come to believe that, like freight, information is boarded on a document at one end of its journey and taken out at the other. If a little is lost in the transaction, to most this seems no more significant than the occasional package lost in transit… we [instead] need to see the way documents have served not simply to write, but also to underwrite social interactions; not simply to communicate, but also to coordinate social practices. - Brown and Duguid, “The Social Life of Documents”
+
+The above quote is from the second article of First Monday’s first issue, published in May, 1996. Though not explicit, a close read of the full text reveals obvious ties to Rhetoric and Composition, with direct references to Habermas’s Public Sphere and indirect parallels to Miller’s “Genre as Social Action.”
+
+Though it is simple to read the first issue of a journal and see the connection, it is less impractical to reach back through nearly 30 years of scholarship to analyze how the disciplines of Internet Studies and Rhetoric and Composition have intertwined. The problem needs a different approach. 
+
+3
+What is Network Sense?
+
+Defined by Derek Mueller, Network Sense is the “incomplete but nevertheless vital glimpses of an interconnected disciplinary domain focused on relationships that define and cohere widespread scholarly activity.” As a methodological approach, it makes large-scale textual patterns legible and meaningful.
+
+Network sense relies on two methodologies:
+
+Distant Reading: Analysing large body of texts through metadata and analysis tools to identify patterns, trends, and relationships that would be otherwise invisible on a closer read of those texts.
+Thin Descriptions: Surface-level features of data such as frequencies, connections, and distributions that don’t require deep understanding of the work to surface.
+
+Together, these methods help ask:
+What connections hover just beyond immediate perception?
+How can we visualize disciplinary constellations?
+Where do scholars congregate?
+Which problems demand collective attention?
+How do concepts influence one another across time?
+
+4
+Applications of Thin and Distant Analyses
+
+“[Thin and distant research methods] lay plain layered and connective patterns that, because they can be apprehended, provide a basis for sensing more extensively the connections that hover just beyond the point where one decides to begin.” — Derek Mueller, Network Sense
+
+When combined, the core value seen in thin and distant reading comes from being able to triage potential patterns at a scale impossible when doing thorough research on a subject. 
+Patterns revealed from thin and distant analyses can be actionable on their own, or they can be used as the spark for more in-depth analysis of a phenomenon.
+In this project, one example pattern is how the term “Civic Engagement” spikes in prominence during election years, but only really since 2016. What changed?
+Thin and distant methods are particularly useful for graduate students and newcomers to the field, as they help build understanding of discourse trends without needing to catch up on years of academic debate and context.
+
+5
+Making Sense of First Monday and RhetComp
+
+This project uses these thin and distant methodologies to track ten n-grams over the lifespan of First Monday, five unigrams inspired by Chapter 3 of Mueller’s Network Sense, and five bigrams from the top 200 assessed to be most emblematic of Rhetoric and Composition:
+
+Unigrams: 
+Identity - Individual representation in text and online contexts.
+Discourse - Communicative practices that exchange and evaluate ideas.
+Writing - Composition practice, written expression, authorship, and textual production.
+Rhetoric - Theories and studies exploring the contexts and impacts of communication
+Composition - Writing instruction, curriculum, and the discipline of composition studies.
+
+Bigrams:
+Digital media - Electronic communication and text platforms.
+Digital divide - Technological access inequality and access disparities
+Public Sphere - Open and social areas for societal discourse
+Online communities - virtual collectives connected by digital platforms
+Civic Engagement - Political participation, activism, and collective action
+
+Through the initial assessment of these ten terms, I seek to 
