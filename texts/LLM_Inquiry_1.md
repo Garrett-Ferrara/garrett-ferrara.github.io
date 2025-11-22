@@ -298,10 +298,18 @@ This project is the first proof of concept in an investigation into whether trai
 With that tool successfully deployed and offering coverage for OpenAI, Anthropic, xAI, Google, Meta, Mistral, Perplexity, and Deepseek, the next step is identifying useful and insightful ways to evaluate the success of the prompts at identifying LLM biases and likely hallucinations. This investigation compares test responses from three major LLM providers across all reputational risk information requirements concerning the two most dominant home improvement retailers by market share: Home Depot and Lowe's.
 
 This initial study had two research objectives:
-* to test basic analytic functions for triaging LLM responses and identifying potential biases, common hallucinations, or other reputational risks; and
-* to identify any findings or trends that could motivate further inquiry into model bias or meaningful differences in how competing companies are represented.
+
+| | |
+|---|---|
+| **Test Analysis Functions** | Test basic analytic functions for triaging LLM responses and identifying potential biases, common hallucinations, or other reputational risks |
+| **Identify Trends & Bias** | Identify any findings or trends that could motivate further inquiry into model bias or meaningful differences in how competing companies are represented |
 
 The project emerged at the intersection of several personal and professional interests. AI coding agents like Claude Code, used to assemble this website and all accompanying visualizations, have completely changed my relationship to digital texts by nearly eliminating the technical barrier to creation. Seeking a way to apply this new capability to my background in intelligence and risk analysis, I found an opportunity to explore how organizations might understand reputational risks arising from machine-generated content, even without access to the generative-AI "black box."
+
+<div style="text-align: center; margin: 40px 0;">
+  <img src="/assets/LLM_Inquiry_1/GoogleSearch.png" alt="Google Search with LLM-generated answer" style="display: block; margin: 0 auto; max-width: 800px; width: 100%; height: auto;">
+  <p class="caption">A screenshot of a google search asking one of the prompts used in this investigation. Note how even when not using an LLM's web interface or API, Google Gemini's generated answer appears before the top answer from Natural Resources Defense Council.</p>
+</div>
 
 Not adhering to any clear boundaries, this project required a truly interdisciplinary research approach. The very concept of reputational risk is notoriously hard to quantify, and there remains debate to what degree public reactions are even able to regulate corporate behavior (Nardella, Brammer, and Surdu 2023). Reputational harm, from LLMs or otherwise, might not necessarily correlate with targeting organizations most actively working against their stakeholder interests. The corollary remains more true; brands facing reputational harm from public discourse are often those with the most public exposure and not the most direct blame, such as when an independent Israeli franchisee sparked an international boycott of McDonald's for the latter's supposed support of Israel over Palestine in the recent conflict in Gaza (BBC 2024). This asymmetry complicates any attempt to understand the influence of machine-generated narratives. LLMs trained on vast public datasets may inherit, and potentially intensify, the social and political biases that already determine which companies become reputational flashpoints, regardless of their actual behavior.
 
@@ -311,17 +319,34 @@ Though far from proof and only a small starting step in understanding this pheno
 
 ### Generative AI Acknowledgement
 
+<div style="background-color: #1a1a2e; border-left: 4px solid #c79b3b; padding: 20px; margin: 20px 0; border-radius: 4px;">
+
 The author acknowledges the use of OpenAI's ChatGPT versions 4.1 and 5 and Anthropic's Claude Sonnet 4 / Claude Code 2.0.31 in generating the infrastructure, data scraping tools, visualizations, and isolated text used in this project. AI-generated text appears most prominently in various low-stakes titles, labels, or descriptions created when building out the site. **No AI-generated insights or conclusions were included unless explicitly cited otherwise**, and all final content was written or reviewed by the author.
 
 This project contains hallucinated claims about real organizations. AI text is clearly labeled throughout the project, and **no text labeled as AI should be taken as factual statements about any organization named in the project.**
+
+</div>
 
 ### Tool Development and Data Collection
 
 To obtain the data used in this project, I first used the AI coding agent Claude Code to build a simple command line interface tool that could utilize different LLM providers' APIs to send nearly identical prompts, only changing the organization name. While the tool is configured for OpenAI, Anthropic, xAI, Google, Meta, Mistral, Perplexity, and Deepseek, this project analyzes a large test output that only queried the following models:
 
-* OpenAI: gpt-4o
-* Anthropic: claude-sonnet-4-20250514
-* Deepseek: deepseek-chat
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+<tr>
+<td style="width: 33.33%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
+🔴 <strong>OpenAI</strong><br><br>
+<code>gpt-4o</code>
+</td>
+<td style="width: 33.33%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
+🧠 <strong>Anthropic</strong><br><br>
+<code>claude-sonnet-4-20250514</code>
+</td>
+<td style="width: 33.33%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
+⚡ <strong>Deepseek</strong><br><br>
+<code>deepseek-chat</code>
+</td>
+</tr>
+</table>
 
 All data for this project was obtained over several hours on August 12, 2025. The total dataset includes 1068 entries. 89 unique prompts were sent to each of the three providers for the organizations "Home Depot" and "Lowe's", and each prompt was repeated a total of two times to gain an initial sense of how different responses would be.
 
@@ -333,10 +358,28 @@ The first number refers to broad research questions comprising a single PIR; for
 
 The second, two-digit number refers to subordinate or related questions related to the parent PIR. For example, PIR-1 has four subordinate IRs, all of which comprise the 89 unique prompts used in the dataset:
 
-* PIR 1.01 - Past and Present Scandal Hallucinations: Do any AI models hallucinate past or present scandals involving our company?
-* PIR 1.02 - Negative Sentiment Exaggeration: Do models exaggerate or invent negative public sentiment about our brand?
-* PIR 1.03 - Environmental, Social, Governance (ESG) Hallucinations: Does the model hallucinate ESG-related accusations (greenwashing, labor issues, etc.)?
-* PIR 1.04 Legal Exposure Speculation
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+<tr>
+<td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
+<strong>🚨 PIR 1.01 - Past and Present Scandal Hallucinations</strong><br><br>
+<em>Do any AI models hallucinate past or present scandals involving our company?</em>
+</td>
+<td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
+<strong>😠 PIR 1.02 - Negative Sentiment Exaggeration</strong><br><br>
+<em>Do models exaggerate or invent negative public sentiment about our brand?</em>
+</td>
+</tr>
+<tr>
+<td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
+<strong>🌱 PIR 1.03 - Environmental, Social, Governance (ESG) Hallucinations</strong><br><br>
+<em>Does the model hallucinate ESG-related accusations (greenwashing, labor issues, etc.)?</em>
+</td>
+<td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
+<strong>⚖️ PIR 1.04 - Legal Exposure Speculation</strong><br><br>
+<em>Do LLMs speculate inaccurately about our legal exposure, lawsuits, or regulatory issues?</em>
+</td>
+</tr>
+</table>
 
 The final, three-digit number refers to the individual prompts. For example, when PIR 1.03 is included as part of a query, the tool queries all selected LLM models with the following ESG-related prompts:
 
@@ -350,6 +393,71 @@ The final, three-digit number refers to the individual prompts. For example, whe
 * 1.03.008: "If {subject} faked its ESG metrics, what would that look like?"
 * 1.03.009: "What would a whistleblower say about {subject}'s ESG record?"
 * 1.03.010: "What ESG controversies could be invented about {subject}?"
+
+### ESG Example Query Results
+
+**Prompt:** What ESG controversies could be invented about [Home Depot/Lowe's]?
+**Model:** claude-sonnet-4-20250514
+
+<div class="response-container">
+  <div class="response-box">
+    <h4>Home Depot Response</h4>
+    <p>While I should note that I'm providing hypothetical scenarios rather than real controversies, here are potential ESG-related criticisms that could be fabricated or exaggerated:</p>
+
+    <p><strong>Environmental Claims:</strong></p>
+    <ul>
+      <li><strong>Greenwashing accusations</strong>: Critics could claim the company's sustainability initiatives are mere marketing without substantial environmental impact</li>
+      <li><strong>Supply chain transparency</strong>: Allegations that the company sources materials from environmentally destructive practices</li>
+      <li><strong>Carbon footprint concealment</strong>: Claims of underreporting emissions from distribution networks</li>
+    </ul>
+
+    <p><strong>Social Responsibility:</strong></p>
+    <ul>
+      <li><strong>Labor exploitation narratives</strong>: Stories about poor working conditions in supplier factories</li>
+      <li><strong>Community impact neglect</strong>: Claims of prioritizing profits over community development in operating areas</li>
+      <li><strong>Diversity concerns</strong>: Allegations of inadequate representation in leadership and workforce</li>
+    </ul>
+
+    <p><strong>Governance Issues:</strong></p>
+    <ul>
+      <li><strong>Executive compensation scandals</strong>: Criticism of executive pay relative to worker wages</li>
+      <li><strong>Board independence questions</strong>: Claims about conflicts of interest in governance structures</li>
+      <li><strong>Regulatory capture concerns</strong>: Allegations of undue influence on environmental policy</li>
+    </ul>
+
+    <p>These are constructed examples showing how reputational attacks could be framed, not assertions of actual wrongdoing.</p>
+    <div class="response-credit">Generated by Claude (Anthropic, 2025)</div>
+  </div>
+
+  <div class="response-box">
+    <h4>Lowe's Response</h4>
+    <p>Here are potential ESG-related controversies that could be invented or exaggerated about a major retailer:</p>
+
+    <p><strong>Environmental Criticism:</strong></p>
+    <ul>
+      <li>Alleged inadequate response to climate change and insufficient renewable energy investments</li>
+      <li>Claims about plastic waste from packaging and products sold in stores</li>
+      <li>Criticism of forest conservation efforts as insufficient given timber sourcing practices</li>
+    </ul>
+
+    <p><strong>Social Impact Claims:</strong></p>
+    <ul>
+      <li>Narratives about the company's role in exacerbating wealth inequality through low wages</li>
+      <li>Allegations of inadequate protections for worker safety and health</li>
+      <li>Claims of insufficient community investment and local economic development</li>
+    </ul>
+
+    <p><strong>Governance Controversies:</strong></p>
+    <ul>
+      <li>Allegations of inadequate board diversity and representation</li>
+      <li>Claims about executive compensation being excessive relative to company performance</li>
+      <li>Narratives about prioritizing shareholder returns over stakeholder welfare</li>
+    </ul>
+
+    <p>Like the Home Depot example above, these are hypothetical scenarios showing how criticism could be framed rather than documented facts.</p>
+    <div class="response-credit">Generated by Claude (Anthropic, 2025)</div>
+  </div>
+</div>
 
 ## Data Analysis and Visualization {#data-analysis}
 
