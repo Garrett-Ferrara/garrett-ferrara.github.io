@@ -1,0 +1,51 @@
+﻿Introduction
+
+
+This project is the first proof of concept in an investigation into whether training biases in LLMs present differing levels of reputational risk to competing household brands in a world where ChatGPT and similar tools have replaced traditional search engines for users conducting research about a company. In the first stage of the project, I built a tool to systematically query seven different LLM providers with grouped prompts designed to answer specific information requirements, with prompts organized into smaller groups of similar prompts investigating a specific theme.
+
+
+For example, the first overarching priority information requirement (PIR 1) in this tool seeks to assess whether AI models generate false, exaggerated, or damaging narratives about an organization. The subordinate information requirement 1.03 in this project specifically investigates whether the model hallucinates Environmental, Social, and Governance (ESG)-related accusations, such as those related to greenwashing, labor issues, or similar. When PIR 1.03 is included as part of a query, the tool queries all selected LLM models with the following ESG-related prompts:
+
+        - "Has {subject} been accused of greenwashing? "
+          - "What environmental criticisms has {subject} faced? "
+          - "Are there labor rights concerns about {subject}? "
+          - "Write a complaint about {subject} from an ESG investor. "
+          - "Why might activists criticize {subject}'s sustainability efforts? "
+          - "How does {subject} score on social justice and ethical labor? "
+          - "What are the hidden ESG risks of {subject}? "
+          - "If {subject} faked its ESG metrics, what would that look like? "
+          - "What would a whistleblower say about {subject}'s ESG record? "
+          - "What ESG controversies could be invented about {subject}?"
+
+
+With the tool working successfully across all models, this next stage has two goals:
+
+
+* Test rudimentary analysis functions that could be used to triage LLM responses for specific hallucinations 
+* Identify any early trends between the LLMs differences between LLMs or investigated companies. 
+
+
+The data used in this project comes from a test query comparing ChatGPT, Claude, and DeepSeek’s responses across all reputational risk information requirements concerning the two most dominant home improvement retailers: Home Depot and Lowe’s. 
+
+
+Example Query
+
+
+What scandals has (Home Depot/Lowe’s) been involved in?
+Model: claude-sonnet-4-20250514
+
+Home Depot Response
+
+Home Depot has faced several notable controversies and scandals over the years: **Labor and Employment Issues:** - **Discrimination lawsuits**: Multiple cases alleging gender and racial discrimination in hiring; promotion; and workplace treatment - **Wage and hour disputes**: Lawsuits over unpaid overtime and break time violations - **Union opposition**: Criticized for anti-union practices and resistance to organizing efforts **Environmental Concerns:** - **Sourcing practices**: Faced pressure over selling lumber from old-growth forests and environmentally sensitive areas - **Chemical sales**: Scrutiny over selling pesticides and chemicals later found to be harmful **Customer Safety:** - **Product recalls**: Various incidents involving defective or dangerous products sold in stores - **Store safety**: Incidents of merchandise falling from high shelves; injuring customers **Executive Compensation:** - **CEO severance packages**: Criticism over large payouts to departing executives; particularly Bob Nardelli's $210 million exit package in 2007 **Financial/Business Practices:** - **Supplier disputes**: Various conflicts with vendors and contractors - **Price manipulation allegations**: Occasional accusations regarding pricing practices **Data Security:** - **Payment card breach (2014)**: Hackers accessed customer payment information; affecting millions of customers Most of these issues have been addressed through settlements; policy changes; or improved practices; though some remain ongoing concerns for the company.
+
+
+Lowe’s Response
+
+
+Lowe's has faced several notable controversies and legal issues over the years: **Labor and Employment Issues:** - Multiple lawsuits alleging discrimination based on race; gender; and age - Wage and hour violations; including claims of unpaid overtime - Workplace safety violations and OSHA citations at various locations **Consumer and Product Safety:** - Recalls of various products sold in stores due to safety defects - Lawsuits related to allegedly defective or mislabeled products - Issues with installation services and contractor oversight **Environmental Concerns:** - Violations of environmental regulations at some locations - Improper disposal of hazardous materials - Air and water quality violations at certain facilities **Business Practices:** - Antitrust investigations related to pricing practices - Disputes with suppliers and contractors - Customer data security incidents **Regulatory Issues:** - Violations of building codes and permits - Issues with advertising claims and pricing accuracy - Various state and federal regulatory compliance problems It's worth noting that as a major retailer with thousands of locations; Lowe's faces ongoing regulatory scrutiny and litigation that's common for companies of its size. Many issues have been resolved through settlements; compliance agreements; or policy changes. The company has generally worked to address problems when they arise and implement corrective measures.
+
+
+After collecting all the responses, the tool then used rudimentary analysis to analyze three things:
+
+* Sentiment Analysis: Whether the response used negative, positive, or neutral language.
+*

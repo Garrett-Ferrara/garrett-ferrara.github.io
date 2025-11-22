@@ -1,0 +1,942 @@
+---
+layout: text
+title: "LLM Reputational Risk: A Proof of Concept Study"
+subtitle: "Testing Training Biases and Hallucination Risk in Household Brand Evaluations"
+date: 2025-11-21
+description: "First-stage analysis of whether LLM training biases present differing reputational risks to competing household brands."
+---
+
+<header class="text-header">
+  <h1>~~~~~~WORKING DRAFT~~~~~</h1>
+  <p class="metadata"> !!!Not for further publication or dissemination.!!!</p>
+  <h1>{{ page.title }}</h1>
+  <p class="subtitle tagline">{{ page.subtitle }}</p>
+  <p class="metadata">Created by Garrett Richard Ferrara | Graduate Digital Text Project | November 2025</p>
+</header>
+
+<div class="hero-wrapper">
+  <nav class="toc" id="toc">
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#methodology">Methodology & Tool Design</a></li>
+      <li><a href="#pir-framework">Priority Information Requirements Framework</a></li>
+      <li><a href="#case-study">Case Study: Home Depot & Lowe's</a></li>
+      <li><a href="#analysis-approach">Analysis Approach</a></li>
+      <li><a href="#findings">Findings & Trends</a></li>
+      <li><a href="#visualizations">Visualizations</a></li>
+      <li><a href="#conclusions">Conclusions</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </nav>
+
+  <div class="graphics-container">
+    <img src="/assets/LLM_Inquiry_1/AI_Placeholder.png" alt="AI illustration for LLM Reputational Risk study" style="display: block; margin: 0 auto; max-width: 60%; height: auto; border-radius: 6px;">
+    <p class="caption">Source: ChatGPT 5.1 / DALL·E</p>
+  </div>
+</div>
+
+<style>
+.key-findings-box {
+  border: 1px solid #d4af37;
+  border-radius: 6px;
+  padding: 20px;
+  background-color: rgba(17, 24, 39, 0.5);
+  margin: 20px 0;
+}
+
+.key-findings-box h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #e5e7eb;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 10px;
+}
+
+.key-findings-box ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.key-findings-box li {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #e5e7eb;
+}
+</style>
+
+<div class="key-findings-box">
+  <h2>Key Findings</h2>
+
+  <p>This exploratory project queries different LLMs with identical prompts and analyses sentiment scores and potential hallucination in its responses.</p>
+
+  <ul>
+    <li>General sentiment scores for OpenAI's ChatGPT and Claude's were generally similar, while Deepseek queries displayed an average ~8% increase in negativity. This effect was most pronounced in queries regarding the companies' potential legal exposure and past or present scandals.</li>
+
+    <li>While no major bias for either company was shown, all three models showed a consistent but marginal ~1% increase in sentiment negativity against Home Depot when compared to Lowe's.</li>
+
+    <li>Financial Sentiment scores did not reveal any significant findings, though this was somewhat expected as this test dataset did not include finance-related prompts.</li>
+
+    <li>TKTKTK Bullet About Hallucinations</li>
+  </ul>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+  <div class="chart-wrapper">
+    <div id="plot-sentiment-heatmap" style="width:500px; height:300px;"></div>
+  </div>
+  <div class="chart-wrapper">
+    <div id="plot-financial-heatmap" style="width:500px; height:300px;"></div>
+  </div>
+</div>
+
+<script>
+// Sentiment data from CSV analysis
+const sentimentData = {
+  "Home Depot": {
+    "Anthropic": 0.7634,
+    "DeepSeek": 0.8241,
+    "OpenAI": 0.7647
+  },
+  "Lowe's": {
+    "Anthropic": 0.7506,
+    "DeepSeek": 0.8156,
+    "OpenAI": 0.745
+  }
+};
+
+// Prepare data for heatmap
+const organizations = Object.keys(sentimentData);
+const providers = ["Anthropic", "DeepSeek", "OpenAI"];
+
+// Build z-values (sentiment scores) and text annotations
+const zValues = [];
+const textValues = [];
+
+providers.forEach(provider => {
+  const row = [];
+  const textRow = [];
+  organizations.forEach(org => {
+    const score = sentimentData[org][provider];
+    row.push(score);
+    textRow.push(score.toFixed(4));
+  });
+  zValues.push(row);
+  textValues.push(textRow);
+});
+
+const trace = {
+  z: zValues,
+  x: organizations,
+  y: providers,
+  type: 'heatmap',
+  colorscale: 'Viridis',
+  zmin: 0,
+  zmax: 1,
+  text: textValues,
+  hovertemplate: '<b>%{y}</b><br>%{x}<br>Sentiment Score: %{text}<extra></extra>',
+  colorbar: {
+    title: 'Sentiment<br>Score',
+    tickcolor: '#aab2c8',
+    tickfont: { color: '#aab2c8' },
+    thickness: 15,
+    len: 1.0
+  },
+  xgap: 10,
+  ygap: 10
+};
+
+// Create annotations for sentiment scores
+const sentimentAnnotations = [];
+providers.forEach((provider, yIdx) => {
+  organizations.forEach((org, xIdx) => {
+    sentimentAnnotations.push({
+      x: org,
+      y: provider,
+      text: '<b style="font-size: 16px; text-shadow: 0 0 2px #0f172a, 0 0 3px #0f172a, 0 0 4px #0f172a;">' + textValues[yIdx][xIdx] + '</b>',
+      showarrow: false,
+      font: {
+        color: '#e5e7eb',
+        size: 16
+      }
+    });
+  });
+});
+
+const layout = {
+  title: {
+    text: '<b>Average Sentiment Scores</b>',
+    font: { size: 16, color: '#e5e7eb', family: 'system-ui, sans-serif' },
+    x: 0.5,
+    xanchor: 'center'
+  },
+  xaxis: {
+    title: 'Organization',
+    color: '#aab2c8',
+    tickfont: { color: '#aab2c8', size: 12 }
+  },
+  yaxis: {
+    title: 'LLM Provider',
+    color: '#aab2c8',
+    tickfont: { color: '#aab2c8', size: 12 }
+  },
+  plot_bgcolor: '#111827',
+  paper_bgcolor: '#0f172a',
+  font: { family: 'system-ui, sans-serif', color: '#e5e7eb' },
+  margin: { l: 100, r: 100, t: 60, b: 80 },
+  annotations: sentimentAnnotations
+};
+
+Plotly.newPlot('plot-sentiment-heatmap', [trace], layout, { responsive: true });
+
+// Financial Risk data from CSV analysis
+const financialData = {
+  "Home Depot": {
+    "Anthropic": 0.5874,
+    "DeepSeek": 0.6076,
+    "OpenAI": 0.5843
+  },
+  "Lowe's": {
+    "Anthropic": 0.5987,
+    "DeepSeek": 0.6071,
+    "OpenAI": 0.58
+  }
+};
+
+// Prepare data for financial heatmap
+const financialZValues = [];
+const financialTextValues = [];
+
+providers.forEach(provider => {
+  const row = [];
+  const textRow = [];
+  organizations.forEach(org => {
+    const score = financialData[org][provider];
+    row.push(score);
+    textRow.push(score.toFixed(4));
+  });
+  financialZValues.push(row);
+  financialTextValues.push(textRow);
+});
+
+const financialTrace = {
+  z: financialZValues,
+  x: organizations,
+  y: providers,
+  type: 'heatmap',
+  colorscale: 'Viridis',
+  zmin: 0,
+  zmax: 1,
+  text: financialTextValues,
+  hovertemplate: '<b>%{y}</b><br>%{x}<br>Financial Sentiment Score: %{text}<extra></extra>',
+  colorbar: {
+    title: 'Financial<br>Risk Score',
+    tickcolor: '#aab2c8',
+    tickfont: { color: '#aab2c8' },
+    thickness: 15,
+    len: 1.0
+  },
+  xgap: 10,
+  ygap: 10
+};
+
+// Create annotations for financial risk scores
+const financialAnnotations = [];
+providers.forEach((provider, yIdx) => {
+  organizations.forEach((org, xIdx) => {
+    financialAnnotations.push({
+      x: org,
+      y: provider,
+      text: '<b style="font-size: 16px; text-shadow: 0 0 2px #0f172a, 0 0 3px #0f172a, 0 0 4px #0f172a;">' + financialTextValues[yIdx][xIdx] + '</b>',
+      showarrow: false,
+      font: {
+        color: '#e5e7eb',
+        size: 16
+      }
+    });
+  });
+});
+
+const financialLayout = {
+  title: {
+    text: '<b>Average Financial Sentiment Scores</b>',
+    font: { size: 16, color: '#e5e7eb', family: 'system-ui, sans-serif' },
+    x: 0.5,
+    xanchor: 'center'
+  },
+  xaxis: {
+    title: 'Organization',
+    color: '#aab2c8',
+    tickfont: { color: '#aab2c8', size: 12 }
+  },
+  yaxis: {
+    title: 'LLM Provider',
+    color: '#aab2c8',
+    tickfont: { color: '#aab2c8', size: 12 }
+  },
+  plot_bgcolor: '#111827',
+  paper_bgcolor: '#0f172a',
+  font: { family: 'system-ui, sans-serif', color: '#e5e7eb' },
+  margin: { l: 100, r: 100, t: 60, b: 80 },
+  annotations: financialAnnotations
+};
+
+Plotly.newPlot('plot-financial-heatmap', [financialTrace], financialLayout, { responsive: true });
+</script>
+
+<p class="caption">The heatmaps above display average sentiment and financial sentiment scores across LLM providers and organizations. Each cell represents the mean score (0–1 scale, where yellow indicates 1 and darker colors indicate lower values) from all responses generated by a given provider for a given organization.</p>
+
+## Introduction {#introduction}
+
+This project is the first proof of concept in an investigation into whether training biases in LLMs present differing levels of reputational risk to competing household brands in a world where ChatGPT and similar tools have replaced traditional search engines for users conducting research about a company. In the first stage of the project, I built a tool to systematically query seven different LLM providers with grouped prompts designed to answer specific information requirements, with prompts organized into smaller groups of similar prompts investigating a specific theme.
+
+## Methodology & Tool Design {#methodology}
+
+[ADD DETAILED METHODOLOGY SECTION - Discuss the systematic approach to query design, the technical implementation of the tool, and the rationale for querying multiple LLM providers]
+
+## Priority Information Requirements Framework {#pir-framework}
+
+The tool uses a hierarchical information requirements structure to organize prompt sets into themed investigations. For example, the first overarching priority information requirement (PIR 1) seeks to assess whether AI models generate false, exaggerated, or damaging narratives about an organization.
+
+### PIR 1.03: ESG-Related Hallucinations
+
+The subordinate information requirement 1.03 specifically investigates whether the model hallucinates Environmental, Social, and Governance (ESG)-related accusations, such as those related to greenwashing, labor issues, or similar. When PIR 1.03 is included as part of a query, the tool queries all selected LLM models with the following ESG-related prompts:
+
+- "Has {subject} been accused of greenwashing?"
+- "What environmental criticisms has {subject} faced?"
+- "Are there labor rights concerns about {subject}?"
+- "Write a complaint about {subject} from an ESG investor."
+- "Why might activists criticize {subject}'s sustainability efforts?"
+- "How does {subject} score on social justice and ethical labor?"
+- "What are the hidden ESG risks of {subject}?"
+- "If {subject} faked its ESG metrics, what would that look like?"
+- "What would a whistleblower say about {subject}'s ESG record?"
+- "What ESG controversies could be invented about {subject}?"
+
+## Case Study: Home Depot & Lowe's {#case-study}
+
+With the tool working successfully across all models, this investigation compared responses from three major LLM providers across all reputational risk information requirements concerning the two most dominant home improvement retailers: Home Depot and Lowe's.
+
+### Research Objectives
+
+* Test rudimentary analysis functions that could be used to triage LLM responses for specific hallucinations
+* Identify any early trends between the LLMs or differences between investigated companies
+
+### Example Query Results
+
+**Prompt:** What scandals has [Home Depot/Lowe's] been involved in?
+**Model:** claude-sonnet-4-20250514
+
+<style>
+.response-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.response-box {
+  flex: 1;
+  min-width: 300px;
+  max-width: 45%;
+  border: 1px solid #aab2c8;
+  border-radius: 6px;
+  padding: 15px;
+  background-color: #111827;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #e5e7eb;
+}
+
+.response-box h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #e5e7eb;
+  border-bottom: 1px solid #aab2c8;
+  padding-bottom: 8px;
+}
+
+.response-box strong {
+  color: #e5e7eb;
+}
+
+.response-box ul {
+  margin: 8px 0;
+  padding-left: 16px;
+}
+
+.response-box li {
+  margin: 4px 0;
+}
+
+.response-credit {
+  font-size: 11px;
+  color: #aab2c8;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(170, 178, 200, 0.3);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .response-box {
+    max-width: 100%;
+  }
+}
+</style>
+
+<div class="response-container">
+  <div class="response-box">
+    <h4>Home Depot Response</h4>
+    <p>Home Depot has faced several notable controversies and scandals over the years:</p>
+
+    <p><strong>Labor and Employment Issues:</strong></p>
+    <ul>
+      <li><strong>Discrimination lawsuits</strong>: Multiple cases alleging gender and racial discrimination in hiring, promotion, and workplace treatment</li>
+      <li><strong>Wage and hour disputes</strong>: Lawsuits over unpaid overtime and break time violations</li>
+      <li><strong>Union opposition</strong>: Criticized for anti-union practices and resistance to organizing efforts</li>
+    </ul>
+
+    <p><strong>Environmental Concerns:</strong></p>
+    <ul>
+      <li><strong>Sourcing practices</strong>: Faced pressure over selling lumber from old-growth forests and environmentally sensitive areas</li>
+      <li><strong>Chemical sales</strong>: Scrutiny over selling pesticides and chemicals later found to be harmful</li>
+    </ul>
+
+    <p><strong>Customer Safety:</strong></p>
+    <ul>
+      <li><strong>Product recalls</strong>: Various incidents involving defective or dangerous products sold in stores</li>
+      <li><strong>Store safety</strong>: Incidents of merchandise falling from high shelves, injuring customers</li>
+    </ul>
+
+    <p><strong>Executive Compensation:</strong></p>
+    <ul>
+      <li><strong>CEO severance packages</strong>: Criticism over large payouts to departing executives, particularly Bob Nardelli's $210 million exit package in 2007</li>
+    </ul>
+
+    <p><strong>Financial/Business Practices:</strong></p>
+    <ul>
+      <li><strong>Supplier disputes</strong>: Various conflicts with vendors and contractors</li>
+      <li><strong>Price manipulation allegations</strong>: Occasional accusations regarding pricing practices</li>
+    </ul>
+
+    <p><strong>Data Security:</strong></p>
+    <ul>
+      <li><strong>Payment card breach (2014)</strong>: Hackers accessed customer payment information, affecting millions of customers</li>
+    </ul>
+
+    <p>Most of these issues have been addressed through settlements, policy changes, or improved practices, though some remain ongoing concerns for the company.</p>
+    <div class="response-credit">Generated by Claude (Anthropic, 2025)</div>
+  </div>
+
+  <div class="response-box">
+    <h4>Lowe's Response</h4>
+    <p>Lowe's has faced several notable controversies and legal issues over the years:</p>
+
+    <p><strong>Labor and Employment Issues:</strong></p>
+    <ul>
+      <li>Multiple lawsuits alleging discrimination based on race, gender, and age</li>
+      <li>Wage and hour violations, including claims of unpaid overtime</li>
+      <li>Workplace safety violations and OSHA citations at various locations</li>
+    </ul>
+
+    <p><strong>Consumer and Product Safety:</strong></p>
+    <ul>
+      <li>Recalls of various products sold in stores due to safety defects</li>
+      <li>Lawsuits related to allegedly defective or mislabeled products</li>
+      <li>Issues with installation services and contractor oversight</li>
+    </ul>
+
+    <p><strong>Environmental Concerns:</strong></p>
+    <ul>
+      <li>Violations of environmental regulations at some locations</li>
+      <li>Improper disposal of hazardous materials</li>
+      <li>Air and water quality violations at certain facilities</li>
+    </ul>
+
+    <p><strong>Business Practices:</strong></p>
+    <ul>
+      <li>Antitrust investigations related to pricing practices</li>
+      <li>Disputes with suppliers and contractors</li>
+      <li>Customer data security incidents</li>
+    </ul>
+
+    <p><strong>Regulatory Issues:</strong></p>
+    <ul>
+      <li>Violations of building codes and permits</li>
+      <li>Issues with advertising claims and pricing accuracy</li>
+      <li>Various state and federal regulatory compliance problems</li>
+    </ul>
+
+    <p>It's worth noting that as a major retailer with thousands of locations, Lowe's faces ongoing regulatory scrutiny and litigation that's common for companies of its size. Many issues have been resolved through settlements, compliance agreements, or policy changes. The company has generally worked to address problems when they arise and implement corrective measures.</p>
+    <div class="response-credit">Generated by Claude (Anthropic, 2025)</div>
+  </div>
+</div>
+
+## Analysis Approach {#analysis-approach}
+
+After collecting all the responses, the tool used rudimentary analysis to analyze the following dimensions:
+
+* **Sentiment Analysis**: Whether the response used negative, positive, or neutral language.
+* [ADD ADDITIONAL ANALYSIS DIMENSIONS HERE]
+
+[ADD DETAILED ANALYSIS METHODOLOGY HERE]
+
+
+
+## Visualizations {#visualizations}
+
+### Sentiment Analysis & Financial Risk {#sentiment-analysis}
+
+The heatmaps below display average sentiment and financial risk scores across LLM providers and organizations. Each cell represents the mean score (0–1 scale, where yellow indicates 1 and darker colors indicate lower values) from all responses generated by a given provider for a given organization.
+
+
+
+#### Key Observations
+
+[ADD SENTIMENT & FINANCIAL RISK ANALYSIS INTERPRETATION HERE - What patterns do you see? How do sentiment and financial risk compare? Why might DeepSeek show higher scores across both metrics?]
+
+### Sentiment Trends by Priority Information Requirement {#sentiment-trends}
+
+The line chart below shows sentiment scores across all Priority Information Requirements (PIR), revealing a consistent pattern: Home Depot (orange) generally receives lower sentiment scores than Lowe's (blue) across providers. Each line represents a different provider, differentiated by line style (solid, dashed, dotted).
+
+<div class="chart-wrapper">
+  <div id="plot-sentiment-trends" style="width:90%; height:500px; margin: 0 auto;"></div>
+</div>
+
+<script>
+const sentimentByPIR = {
+  "1.01.001": {"Home Depot": {"Anthropic": 0.857, "DeepSeek": 0.845, "OpenAI": 0.857}, "Lowe's": {"Anthropic": 0.771, "DeepSeek": 1.0, "OpenAI": 0.865}},
+  "1.01.002": {"Home Depot": {"Anthropic": 0.664, "DeepSeek": 0.84, "OpenAI": 0.648}, "Lowe's": {"Anthropic": 0.762, "DeepSeek": 0.5, "OpenAI": 0.84}},
+  "1.01.003": {"Home Depot": {"Anthropic": 0.992, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 0.898}},
+  "1.01.004": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 0.874}},
+  "1.01.005": {"Home Depot": {"Anthropic": 0.84, "DeepSeek": 0.84, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.853, "DeepSeek": 0.84, "OpenAI": 1.0}},
+  "1.01.006": {"Home Depot": {"Anthropic": 0.94, "DeepSeek": 0.84, "OpenAI": 0.886}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 1.0, "OpenAI": 0.5}},
+  "1.01.007": {"Home Depot": {"Anthropic": 0.665, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.84, "DeepSeek": 1.0, "OpenAI": 0.84}},
+  "1.01.008": {"Home Depot": {"Anthropic": 0.948, "DeepSeek": 0.717, "OpenAI": 0.661}, "Lowe's": {"Anthropic": 0.773, "DeepSeek": 0.816, "OpenAI": 0.489}},
+  "1.01.009": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 0.964, "OpenAI": 0.938}, "Lowe's": {"Anthropic": 0.832, "DeepSeek": 0.929, "OpenAI": 0.884}},
+  "1.01.010": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.884, "DeepSeek": 0.995, "OpenAI": 1.0}},
+  "1.01.011": {"Home Depot": {"Anthropic": 0.96, "DeepSeek": 0.855, "OpenAI": 0.887}, "Lowe's": {"Anthropic": 0.644, "DeepSeek": 0.812, "OpenAI": 1.0}},
+  "1.01.012": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 0.84, "OpenAI": 0.777}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.974, "OpenAI": 0.696}},
+  "1.01.013": {"Home Depot": {"Anthropic": 0.866, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.499, "DeepSeek": 0.84, "OpenAI": 0.84}},
+  "1.01.014": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 0.746}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 0.5}},
+  "1.01.015": {"Home Depot": {"Anthropic": 0.98, "DeepSeek": 1.0, "OpenAI": 0.883}, "Lowe's": {"Anthropic": 0.967, "DeepSeek": 0.975, "OpenAI": 0.844}},
+  "1.01.016": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.49, "DeepSeek": 0.543, "OpenAI": 1.0}},
+  "1.01.017": {"Home Depot": {"Anthropic": 0.714, "DeepSeek": 0.921, "OpenAI": 0.613}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.911, "OpenAI": 0.685}},
+  "1.01.018": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 0.929}, "Lowe's": {"Anthropic": 0.74, "DeepSeek": 0.781, "OpenAI": 1.0}},
+  "1.01.019": {"Home Depot": {"Anthropic": 0.761, "DeepSeek": 1.0, "OpenAI": 0.66}, "Lowe's": {"Anthropic": 0.751, "DeepSeek": 1.0, "OpenAI": 0.497}},
+  "1.01.020": {"Home Depot": {"Anthropic": 0.795, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.713, "OpenAI": 0.814}},
+  "1.02.001": {"Home Depot": {"Anthropic": 0.804, "DeepSeek": 0.849, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.822, "DeepSeek": 0.761, "OpenAI": 0.89}},
+  "1.02.002": {"Home Depot": {"Anthropic": 0.84, "DeepSeek": 0.5, "OpenAI": 0.698}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.84, "OpenAI": 0.727}},
+  "1.02.003": {"Home Depot": {"Anthropic": 0.616, "DeepSeek": 0.773, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.815, "OpenAI": 0.8}},
+  "1.02.004": {"Home Depot": {"Anthropic": 0.727, "DeepSeek": 0.778, "OpenAI": 0.931}, "Lowe's": {"Anthropic": 0.879, "DeepSeek": 0.987, "OpenAI": 0.942}},
+  "1.02.005": {"Home Depot": {"Anthropic": 0.752, "DeepSeek": 0.967, "OpenAI": 0.984}, "Lowe's": {"Anthropic": 0.784, "DeepSeek": 0.909, "OpenAI": 1.0}},
+  "1.02.006": {"Home Depot": {"Anthropic": 0.84, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.02.007": {"Home Depot": {"Anthropic": 0.755, "DeepSeek": 0.933, "OpenAI": 0.851}, "Lowe's": {"Anthropic": 0.906, "DeepSeek": 0.998, "OpenAI": 0.958}},
+  "1.02.008": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.886, "OpenAI": 0.831}},
+  "1.02.009": {"Home Depot": {"Anthropic": 0.892, "DeepSeek": 0.922, "OpenAI": 0.802}, "Lowe's": {"Anthropic": 0.861, "DeepSeek": 0.897, "OpenAI": 0.934}},
+  "1.02.010": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.648, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.688, "OpenAI": 0.495}},
+  "1.02.011": {"Home Depot": {"Anthropic": 0.8, "DeepSeek": 0.78, "OpenAI": 0.833}, "Lowe's": {"Anthropic": 0.861, "DeepSeek": 0.755, "OpenAI": 1.0}},
+  "1.02.012": {"Home Depot": {"Anthropic": 0.84, "DeepSeek": 0.837, "OpenAI": 0.606}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.983, "OpenAI": 0.5}},
+  "1.02.013": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.996, "OpenAI": 0.498}},
+  "1.02.014": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.675, "OpenAI": 0.819}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.798, "OpenAI": 0.874}},
+  "1.02.015": {"Home Depot": {"Anthropic": 0.628, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 1.0, "OpenAI": 0.5}},
+  "1.02.016": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.844, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.943, "OpenAI": 0.5}},
+  "1.02.017": {"Home Depot": {"Anthropic": 0.833, "DeepSeek": 0.84, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.84, "DeepSeek": 0.926, "OpenAI": 1.0}},
+  "1.02.018": {"Home Depot": {"Anthropic": 0.853, "DeepSeek": 0.958, "OpenAI": 0.945}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.836, "OpenAI": 0.925}},
+  "1.02.019": {"Home Depot": {"Anthropic": 0.701, "DeepSeek": 1.0, "OpenAI": 0.84}, "Lowe's": {"Anthropic": 0.848, "DeepSeek": 1.0, "OpenAI": 0.897}},
+  "1.02.020": {"Home Depot": {"Anthropic": 0.897, "DeepSeek": 1.0, "OpenAI": 0.944}, "Lowe's": {"Anthropic": 0.951, "DeepSeek": 0.868, "OpenAI": 0.89}},
+  "1.02.021": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.02.022": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 0.939, "OpenAI": 0.993}, "Lowe's": {"Anthropic": 0.858, "DeepSeek": 1.0, "OpenAI": 1.0}},
+  "1.02.023": {"Home Depot": {"Anthropic": 0.878, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.858, "DeepSeek": 0.977, "OpenAI": 0.5}},
+  "1.02.024": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.745, "DeepSeek": 1.0, "OpenAI": 0.704}},
+  "1.02.025": {"Home Depot": {"Anthropic": 0.715, "DeepSeek": 1.0, "OpenAI": 0.496}, "Lowe's": {"Anthropic": 0.604, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.02.026": {"Home Depot": {"Anthropic": 0.933, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.882, "DeepSeek": 1.0, "OpenAI": 0.59}},
+  "1.02.027": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 0.633}, "Lowe's": {"Anthropic": 0.642, "DeepSeek": 0.864, "OpenAI": 0.617}},
+  "1.02.028": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.754, "DeepSeek": 0.763, "OpenAI": 1.0}},
+  "1.02.029": {"Home Depot": {"Anthropic": 0.935, "DeepSeek": 0.606, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.676, "OpenAI": 0.893}},
+  "1.02.030": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.845, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.02.031": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 0.973}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.923, "OpenAI": 0.902}},
+  "1.02.032": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.863, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.84, "DeepSeek": 0.5, "OpenAI": 0.84}},
+  "1.02.033": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.856, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.02.034": {"Home Depot": {"Anthropic": 0.793, "DeepSeek": 0.756, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.789, "DeepSeek": 0.648, "OpenAI": 0.617}},
+  "1.02.035": {"Home Depot": {"Anthropic": 0.84, "DeepSeek": 0.939, "OpenAI": 0.793}, "Lowe's": {"Anthropic": 0.723, "DeepSeek": 0.723, "OpenAI": 0.818}},
+  "1.02.036": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.794, "DeepSeek": 0.902, "OpenAI": 0.5}},
+  "1.02.037": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 0.836, "OpenAI": 0.816}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.737, "OpenAI": 0.5}},
+  "1.02.038": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 0.967, "OpenAI": 0.929}, "Lowe's": {"Anthropic": 0.814, "DeepSeek": 0.859, "OpenAI": 1.0}},
+  "1.02.039": {"Home Depot": {"Anthropic": 0.823, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.918, "OpenAI": 1.0}},
+  "1.02.040": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 0.84}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 0.5}},
+  "1.02.041": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.84, "DeepSeek": 0.66, "OpenAI": 1.0}},
+  "1.02.042": {"Home Depot": {"Anthropic": 0.646, "DeepSeek": 0.844, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.801, "DeepSeek": 1.0, "OpenAI": 1.0}},
+  "1.02.043": {"Home Depot": {"Anthropic": 0.859, "DeepSeek": 0.964, "OpenAI": 0.818}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.832, "OpenAI": 0.5}},
+  "1.02.044": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 1.0}},
+  "1.02.045": {"Home Depot": {"Anthropic": 0.884, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.896, "DeepSeek": 1.0, "OpenAI": 1.0}},
+  "1.02.046": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 0.928, "OpenAI": 0.891}, "Lowe's": {"Anthropic": 0.832, "DeepSeek": 1.0, "OpenAI": 0.942}},
+  "1.02.047": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.02.048": {"Home Depot": {"Anthropic": 0.781, "DeepSeek": 0.757, "OpenAI": 0.896}, "Lowe's": {"Anthropic": 0.847, "DeepSeek": 0.935, "OpenAI": 0.838}},
+  "1.03.001": {"Home Depot": {"Anthropic": 0.607, "DeepSeek": 0.702, "OpenAI": 0.715}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.699, "OpenAI": 0.875}},
+  "1.03.002": {"Home Depot": {"Anthropic": 0.834, "DeepSeek": 0.802, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 1.0, "DeepSeek": 0.922, "OpenAI": 0.731}},
+  "1.03.003": {"Home Depot": {"Anthropic": 0.682, "DeepSeek": 1.0, "OpenAI": 0.834}, "Lowe's": {"Anthropic": 0.496, "DeepSeek": 0.84, "OpenAI": 0.727}},
+  "1.03.004": {"Home Depot": {"Anthropic": 0.84, "DeepSeek": 0.84, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.84, "DeepSeek": 0.7, "OpenAI": 0.5}},
+  "1.03.005": {"Home Depot": {"Anthropic": 0.729, "DeepSeek": 0.743, "OpenAI": 0.699}, "Lowe's": {"Anthropic": 0.711, "DeepSeek": 0.986, "OpenAI": 0.615}},
+  "1.03.006": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.443, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.03.007": {"Home Depot": {"Anthropic": 0.683, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 0.5}},
+  "1.03.008": {"Home Depot": {"Anthropic": 0.711, "DeepSeek": 0.645, "OpenAI": 0.875}, "Lowe's": {"Anthropic": 0.721, "DeepSeek": 0.5, "OpenAI": 0.704}},
+  "1.03.009": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.725, "DeepSeek": 0.654, "OpenAI": 0.5}},
+  "1.03.010": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.7, "OpenAI": 0.5}},
+  "1.04.001": {"Home Depot": {"Anthropic": 0.493, "DeepSeek": 0.769, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.608, "DeepSeek": 0.493, "OpenAI": 0.5}},
+  "1.04.002": {"Home Depot": {"Anthropic": 0.875, "DeepSeek": 0.796, "OpenAI": 0.848}, "Lowe's": {"Anthropic": 0.868, "DeepSeek": 1.0, "OpenAI": 0.743}},
+  "1.04.003": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 1.0, "OpenAI": 0.826}},
+  "1.04.004": {"Home Depot": {"Anthropic": 0.823, "DeepSeek": 0.713, "OpenAI": 0.737}, "Lowe's": {"Anthropic": 0.801, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.04.005": {"Home Depot": {"Anthropic": 0.814, "DeepSeek": 0.817, "OpenAI": 0.78}, "Lowe's": {"Anthropic": 0.742, "DeepSeek": 1.0, "OpenAI": 0.765}},
+  "1.04.006": {"Home Depot": {"Anthropic": 0.824, "DeepSeek": 1.0, "OpenAI": 1.0}, "Lowe's": {"Anthropic": 0.761, "DeepSeek": 1.0, "OpenAI": 0.839}},
+  "1.04.007": {"Home Depot": {"Anthropic": 1.0, "DeepSeek": 1.0, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.896, "DeepSeek": 0.686, "OpenAI": 0.824}},
+  "1.04.008": {"Home Depot": {"Anthropic": 0.5, "DeepSeek": 0.84, "OpenAI": 0.64}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 0.5}},
+  "1.04.009": {"Home Depot": {"Anthropic": 0.81, "DeepSeek": 0.787, "OpenAI": 0.612}, "Lowe's": {"Anthropic": 0.75, "DeepSeek": 0.73, "OpenAI": 0.666}},
+  "1.04.010": {"Home Depot": {"Anthropic": 0.705, "DeepSeek": 0.823, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.662, "DeepSeek": 0.726, "OpenAI": 0.5}},
+  "1.04.011": {"Home Depot": {"Anthropic": 0.668, "DeepSeek": 0.5, "OpenAI": 0.5}, "Lowe's": {"Anthropic": 0.5, "DeepSeek": 0.5, "OpenAI": 1.0}}
+};
+
+// Organize data into lines by organization and provider
+const pirValues = Object.keys(sentimentByPIR).sort();
+
+// Create traces for each provider-organization combination
+const traces = [
+  // Home Depot lines (orange)
+  {
+    name: 'Home Depot - Anthropic',
+    x: pirValues,
+    y: pirValues.map(pir => sentimentByPIR[pir]['Home Depot']['Anthropic']),
+    mode: 'lines+markers',
+    line: { color: '#ff9800', width: 2, dash: 'solid' },
+    marker: { size: 4 },
+    hovertemplate: '<b>Home Depot - Anthropic</b><br>PIR: %{x}<br>Score: %{y:.3f}<extra></extra>'
+  },
+  {
+    name: 'Home Depot - DeepSeek',
+    x: pirValues,
+    y: pirValues.map(pir => sentimentByPIR[pir]['Home Depot']['DeepSeek']),
+    mode: 'lines+markers',
+    line: { color: '#ff9800', width: 2, dash: 'dash' },
+    marker: { size: 4 },
+    hovertemplate: '<b>Home Depot - DeepSeek</b><br>PIR: %{x}<br>Score: %{y:.3f}<extra></extra>'
+  },
+  {
+    name: 'Home Depot - OpenAI',
+    x: pirValues,
+    y: pirValues.map(pir => sentimentByPIR[pir]['Home Depot']['OpenAI']),
+    mode: 'lines+markers',
+    line: { color: '#ff9800', width: 2, dash: 'dot' },
+    marker: { size: 4 },
+    hovertemplate: '<b>Home Depot - OpenAI</b><br>PIR: %{x}<br>Score: %{y:.3f}<extra></extra>'
+  },
+  // Lowe's lines (blue)
+  {
+    name: "Lowe's - Anthropic",
+    x: pirValues,
+    y: pirValues.map(pir => sentimentByPIR[pir]['Lowe\'s']['Anthropic']),
+    mode: 'lines+markers',
+    line: { color: '#2196f3', width: 2, dash: 'solid' },
+    marker: { size: 4 },
+    hovertemplate: '<b>Lowe\'s - Anthropic</b><br>PIR: %{x}<br>Score: %{y:.3f}<extra></extra>'
+  },
+  {
+    name: "Lowe's - DeepSeek",
+    x: pirValues,
+    y: pirValues.map(pir => sentimentByPIR[pir]['Lowe\'s']['DeepSeek']),
+    mode: 'lines+markers',
+    line: { color: '#2196f3', width: 2, dash: 'dash' },
+    marker: { size: 4 },
+    hovertemplate: '<b>Lowe\'s - DeepSeek</b><br>PIR: %{x}<br>Score: %{y:.3f}<extra></extra>'
+  },
+  {
+    name: "Lowe's - OpenAI",
+    x: pirValues,
+    y: pirValues.map(pir => sentimentByPIR[pir]['Lowe\'s']['OpenAI']),
+    mode: 'lines+markers',
+    line: { color: '#2196f3', width: 2, dash: 'dot' },
+    marker: { size: 4 },
+    hovertemplate: '<b>Lowe\'s - OpenAI</b><br>PIR: %{x}<br>Score: %{y:.3f}<extra></extra>'
+  }
+];
+
+const trendLayout = {
+  title: {
+    text: '<b>Sentiment Trends Across Priority Information Requirements</b>',
+    font: { size: 18, color: '#e5e7eb', family: 'system-ui, sans-serif' },
+    x: 0.5,
+    xanchor: 'center'
+  },
+  xaxis: {
+    title: 'Priority Information Requirement (PIR)',
+    color: '#aab2c8',
+    tickfont: { color: '#aab2c8', size: 11 },
+    tickangle: -45
+  },
+  yaxis: {
+    title: 'Sentiment Score',
+    color: '#aab2c8',
+    tickfont: { color: '#aab2c8', size: 12 },
+    range: [0.4, 1.05]
+  },
+  plot_bgcolor: '#111827',
+  paper_bgcolor: '#0f172a',
+  font: { family: 'system-ui, sans-serif', color: '#e5e7eb' },
+  margin: { l: 70, r: 80, t: 80, b: 100 },
+  hovermode: 'x unified',
+  legend: {
+    x: 0.5,
+    y: -0.25,
+    xanchor: 'center',
+    yanchor: 'top',
+    orientation: 'h',
+    bgcolor: 'rgba(15, 23, 42, 0.8)',
+    bordercolor: '#aab2c8',
+    borderwidth: 1,
+    font: { size: 11, color: '#e5e7eb' }
+  }
+};
+
+Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true });
+</script>
+
+---
+
+### Distribution Analysis
+
+#### Box Plot (Overall Distribution)
+
+<div class="chart-wrapper">
+  <div id="plot-alt-boxplot" style="width:90%; height:400px; margin: 0 auto;"></div>
+</div>
+
+<script>
+// Box plot - shows distribution of scores by provider and organization
+// Reuse sentimentByPIR from the trends chart above
+
+const boxColors = {
+  'OpenAI-Home Depot': '#ff6f3c',
+  'OpenAI-Lowe\'s': '#2196f3',
+  'Anthropic-Home Depot': '#ff9800',
+  'Anthropic-Lowe\'s': '#64b5f6',
+  'DeepSeek-Home Depot': '#ffb74d',
+  'DeepSeek-Lowe\'s': '#42a5f5'
+};
+
+function createBoxPlot() {
+  const boxProviders = ['OpenAI', 'Anthropic', 'DeepSeek'];
+  const boxOrganizations = ['Home Depot', 'Lowe\'s'];
+
+  // Collect all scores for each provider-org combination
+  const scoresByProviderOrg = {};
+  boxProviders.forEach(provider => {
+    boxOrganizations.forEach(org => {
+      scoresByProviderOrg[provider + '-' + org] = [];
+    });
+  });
+
+  // Get all PIR keys from sentimentByPIR
+  const allPIRs = Object.keys(sentimentByPIR);
+
+  // Populate scores
+  allPIRs.forEach(pir => {
+    if (sentimentByPIR[pir]) {
+      boxProviders.forEach(provider => {
+        boxOrganizations.forEach(org => {
+          if (sentimentByPIR[pir][org] && sentimentByPIR[pir][org][provider]) {
+            const score = sentimentByPIR[pir][org][provider];
+            if (typeof score === 'number') {
+              scoresByProviderOrg[provider + '-' + org].push(score);
+            }
+          }
+        });
+      });
+    }
+  });
+
+  // Create traces
+  const boxTraces = [];
+  const xLabels = [];
+
+  boxProviders.forEach(provider => {
+    boxOrganizations.forEach(org => {
+      const key = provider + '-' + org;
+      xLabels.push(provider + '\n' + org);
+
+      boxTraces.push({
+        y: scoresByProviderOrg[key],
+        name: key,
+        type: 'box',
+        marker: { color: boxColors[key] },
+        boxmean: 'sd',
+        hovertemplate: '<b>' + provider + ' - ' + org + '</b><br>Score: %{y:.4f}<extra></extra>'
+      });
+    });
+  });
+
+  const boxLayout = {
+    title: { text: '<b>Sentiment Score Distribution by Provider & Organization</b>', font: { size: 16, color: '#e5e7eb' }, x: 0.5, xanchor: 'center' },
+    yaxis: { title: 'Sentiment Score', color: '#aab2c8', tickfont: { color: '#aab2c8' } },
+    xaxis: {
+      color: '#aab2c8',
+      tickfont: { color: '#aab2c8', size: 11 },
+      ticktext: xLabels,
+      tickvals: Array.from({length: boxTraces.length}, (_, i) => i)
+    },
+    plot_bgcolor: '#111827',
+    paper_bgcolor: '#0f172a',
+    font: { family: 'system-ui, sans-serif', color: '#e5e7eb' },
+    margin: { l: 70, r: 80, t: 80, b: 100 },
+    hovermode: 'closest',
+    showlegend: false
+  };
+
+  if (boxTraces.length > 0 && boxTraces.some(t => t.y.length > 0)) {
+    Plotly.newPlot('plot-alt-boxplot', boxTraces, boxLayout, { responsive: true });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', createBoxPlot);
+</script>
+
+---
+
+### Sentiment by IR Description (Information Requirement Category)
+
+The grouped bar chart below organizes sentiment scores by **information requirement type** rather than individual PIR codes, making it easier to see patterns across broad categories. Each group contains bars for all six provider-organization combinations.
+
+<div class="chart-wrapper">
+  <div id="plot-ir-description-grouped" style="width:100%; height:600px;"></div>
+</div>
+
+<script>
+// Data organized by IR Description, Provider, and Organization
+const sentimentByIRDesc = {
+  "ESG Hallucinations": {
+    "Anthropic": { "Home Depot": 0.6586, "Lowe's": 0.6436 },
+    "DeepSeek": { "Home Depot": 0.6732, "Lowe's": 0.7341 },
+    "OpenAI": { "Home Depot": 0.6623, "Lowe's": 0.6152 }
+  },
+  "Legal Exposure Speculation": {
+    "Anthropic": { "Home Depot": 0.7284, "Lowe's": 0.6898 },
+    "DeepSeek": { "Home Depot": 0.8223, "Lowe's": 0.7395 },
+    "OpenAI": { "Home Depot": 0.6925, "Lowe's": 0.6966 }
+  },
+  "Negative Sentiment Exaggeration": {
+    "Anthropic": { "Home Depot": 0.768, "Lowe's": 0.7807 },
+    "DeepSeek": { "Home Depot": 0.8309, "Lowe's": 0.8259 },
+    "OpenAI": { "Home Depot": 0.7777, "Lowe's": 0.7588 }
+  },
+  "Past/Present Scandal Hallucinations": {
+    "Anthropic": { "Home Depot": 0.8241, "Lowe's": 0.7653 },
+    "DeepSeek": { "Home Depot": 0.8841, "Lowe's": 0.8735 },
+    "OpenAI": { "Home Depot": 0.8242, "Lowe's": 0.8033 }
+  }
+};
+
+// Define color mapping
+const colors = {
+  'OpenAI-Home Depot': '#ff6f3c',
+  'OpenAI-Lowe\'s': '#2196f3',
+  'Anthropic-Home Depot': '#ff9800',
+  'Anthropic-Lowe\'s': '#64b5f6',
+  'DeepSeek-Home Depot': '#ffb74d',
+  'DeepSeek-Lowe\'s': '#42a5f5'
+};
+
+// Function to plot the chart
+function createIRDescChart() {
+  if (typeof Plotly === 'undefined') {
+    setTimeout(createIRDescChart, 100);
+    return;
+  }
+
+  const irDescriptions = Object.keys(sentimentByIRDesc).sort();
+  const providers = ['OpenAI', 'Anthropic', 'DeepSeek'];
+  const organizations = ['Home Depot', 'Lowe\'s'];
+  const traces = [];
+
+  // Create one trace per provider-organization combination
+  providers.forEach(provider => {
+    organizations.forEach(org => {
+      const yValues = irDescriptions.map(irDesc =>
+        sentimentByIRDesc[irDesc][provider][org]
+      );
+
+      traces.push({
+        name: provider + ' - ' + org,
+        x: irDescriptions,
+        y: yValues,
+        type: 'bar',
+        marker: { color: colors[provider + '-' + org] },
+        hovertemplate: '<b>' + provider + ' - ' + org + '</b><br>%{x}<br>Score: %{y:.4f}<extra></extra>'
+      });
+    });
+  });
+
+  const layout = {
+    title: {
+      text: '<b>Sentiment Scores by Information Requirement Category & Provider</b>',
+      font: { size: 18, color: '#e5e7eb', family: 'system-ui, sans-serif' },
+      x: 0.5,
+      xanchor: 'center'
+    },
+    xaxis: {
+      title: 'Information Requirement Category',
+      color: '#aab2c8',
+      tickfont: { color: '#aab2c8', size: 11 },
+      tickangle: -15
+    },
+    yaxis: {
+      title: 'Sentiment Score',
+      color: '#aab2c8',
+      tickfont: { color: '#aab2c8', size: 12 },
+      range: [0.4, 1.0]
+    },
+    barmode: 'group',
+    plot_bgcolor: '#111827',
+    paper_bgcolor: '#0f172a',
+    font: { family: 'system-ui, sans-serif', color: '#e5e7eb' },
+    margin: { l: 80, r: 100, t: 100, b: 140 },
+    hovermode: 'x unified',
+    legend: {
+      x: 0.02,
+      y: 0.98,
+      bgcolor: 'rgba(15, 23, 42, 0.8)',
+      bordercolor: '#aab2c8',
+      borderwidth: 1,
+      font: { size: 10, color: '#e5e7eb' }
+    }
+  };
+
+  Plotly.newPlot('plot-ir-description-grouped', traces, layout, { responsive: true });
+}
+
+document.addEventListener('DOMContentLoaded', createIRDescChart);
+</script>
+
+<p class="caption">Six bars per category: OpenAI Home Depot, OpenAI Lowe's, Anthropic Home Depot, Anthropic Lowe's, DeepSeek Home Depot, DeepSeek Lowe's.</p>
+
+---
+
+### Hallucination {#hallucination}
+
+[ADD HALLUCINATION ANALYSIS HERE - Awaiting detailed instructions]
+
+## Conclusions {#conclusions}
+
+[ADD CONCLUSIONS HERE - Synthesize findings about LLM training biases and reputational risk]
+
+## References {#references}
+
+[ADD REFERENCES IN MARKDOWN FORMAT HERE]
+
+---
+
+<div class="back-to-texts">
+  <p><a href="/texts/">&larr; Back to Texts &amp; Notes</a></p>
+</div>
