@@ -39,6 +39,16 @@ layout: default
       </div>
     {% endif %}
 
+    {% if page.links %}
+      <div class="artifact-links">
+        {% for link in page.links %}
+          <a href="{{ link.url }}" {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %} class="btn btn-accent">
+            {{ link.label }}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     {% if page.pdf %}
       <div class="pdf-viewer-container">
         <div class="pdf-viewer-header">

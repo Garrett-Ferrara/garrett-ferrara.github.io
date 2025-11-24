@@ -31,8 +31,8 @@ description: "First-stage analysis of whether LLM training biases present differ
   </nav>
 
   <div class="graphics-container">
-    <img src="/assets/LLM_Inquiry_1/AI_Placeholder.png" alt="AI illustration for LLM Reputational Risk study" style="display: block; margin: 0 auto; max-width: 60%; height: auto; border-radius: 6px;">
-    <p class="caption">Source: ChatGPT 5.1 / DALL·E</p>
+    <img src="/assets/LLM_Inquiry_1/AI_Placeholder.png" alt="AI illustration for LLM Reputational Risk study" style="display: block; margin: 0 auto; max-width: 100%; height: auto; border-radius: 6px;">
+    <p class="caption">Source: Image generated with ChatGPT 5.1 / DALL·E. While the prompt to generate this image didn't specify who was winning this "popularity contest", it is notable that Lowe's wound up coming in first.</p>
   </div>
 </div>
 
@@ -43,7 +43,7 @@ description: "First-stage analysis of whether LLM training biases present differ
   padding: 20px;
   background-color: rgba(17, 24, 39, 0.5);
   margin: 20px 0 40px 0;
-  max-width: 1000px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -86,7 +86,7 @@ description: "First-stage analysis of whether LLM training biases present differ
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto;">
+<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 100%; margin: 0 auto;">
   <div class="chart-wrapper" style="flex: 1; min-width: 400px;">
     <div id="plot-sentiment-heatmap" style="width:100%; height:350px;"></div>
   </div>
@@ -299,19 +299,19 @@ With that tool successfully deployed and offering coverage for OpenAI, Anthropic
 
 This initial study had two research objectives:
 
-| | |
-|---|---|
-| **Test Analysis Functions** | Test basic analytic functions for triaging LLM responses and identifying potential biases, common hallucinations, or other reputational risks |
-| **Identify Trends & Bias** | Identify any findings or trends that could motivate further inquiry into model bias or meaningful differences in how competing companies are represented |
+
+| Test basic analytic functions for triaging LLM responses and identifying potential biases, common hallucinations, or other reputational risks | Identify any findings or trends that could motivate further inquiry into model bias or meaningful differences in how competing companies are represented
 
 The project emerged at the intersection of several personal and professional interests. AI coding agents like Claude Code, used to assemble this website and all accompanying visualizations, have completely changed my relationship to digital texts by nearly eliminating the technical barrier to creation. Seeking a way to apply this new capability to my background in intelligence and risk analysis, I found an opportunity to explore how organizations might understand reputational risks arising from machine-generated content, even without access to the generative-AI "black box."
 
 <div style="text-align: center; margin: 40px 0;">
-  <img src="/assets/LLM_Inquiry_1/GoogleSearch.png" alt="Google Search with LLM-generated answer" style="display: block; margin: 0 auto; max-width: 800px; width: 100%; height: auto;">
+  <img src="/assets/LLM_Inquiry_1/GoogleSearch.png" alt="Google Search with LLM-generated answer" style="display: block; margin: 0 auto; max-width: 80%; width: 100%; height: auto;">
   <p class="caption">A screenshot of a google search asking one of the prompts used in this investigation. Note how even when not using an LLM's web interface or API, Google Gemini's generated answer appears before the top answer from Natural Resources Defense Council.</p>
 </div>
 
-Not adhering to any clear boundaries, this project required a truly interdisciplinary research approach. The very concept of reputational risk is notoriously hard to quantify, and there remains debate to what degree public reactions are even able to regulate corporate behavior (Nardella, Brammer, and Surdu 2023). Reputational harm, from LLMs or otherwise, might not necessarily correlate with targeting organizations most actively working against their stakeholder interests. The corollary remains more true; brands facing reputational harm from public discourse are often those with the most public exposure and not the most direct blame, such as when an independent Israeli franchisee sparked an international boycott of McDonald's for the latter's supposed support of Israel over Palestine in the recent conflict in Gaza (BBC 2024). This asymmetry complicates any attempt to understand the influence of machine-generated narratives. LLMs trained on vast public datasets may inherit, and potentially intensify, the social and political biases that already determine which companies become reputational flashpoints, regardless of their actual behavior.
+Not adhering to any clear boundaries, this project required a truly interdisciplinary research approach. The very concept of reputational risk is notoriously hard to quantify, and there remains debate to what degree public reactions are even able to regulate corporate behavior (Nardella, Brammer, and Surdu 2023). Reputational harm, from LLMs or otherwise, might not necessarily correlate with targeting organizations most actively working against their stakeholder interests. 
+
+The corollary remains more true; brands facing reputational harm from public discourse are often those with the most public exposure and not the most direct blame, such as when an independent Israeli franchisee sparked an international boycott of McDonald's for the latter's supposed support of Israel over Palestine in the recent conflict in Gaza (BBC 2024). This asymmetry complicates any attempt to understand the influence of machine-generated narratives. LLMs trained on vast public datasets may inherit, and potentially intensify, the social and political biases that already determine which companies become reputational flashpoints, regardless of their actual behavior.
 
 Though far from proof and only a small starting step in understanding this phenomenon, this project's findings indicate the existence of these biases, and communications scholars and risk analysts alike should treat them as early signals of how LLM-mediated discourse may shape brand perception in the near future.
 
@@ -321,9 +321,9 @@ Though far from proof and only a small starting step in understanding this pheno
 
 <div style="background-color: #1a1a2e; border-left: 4px solid #c79b3b; padding: 20px; margin: 20px 0; border-radius: 4px;">
 
-The author acknowledges the use of OpenAI's ChatGPT versions 4.1 and 5 and Anthropic's Claude Sonnet 4 / Claude Code 2.0.31 in generating the infrastructure, data scraping tools, visualizations, and isolated text used in this project. AI-generated text appears most prominently in various low-stakes titles, labels, or descriptions created when building out the site. **No AI-generated insights or conclusions were included unless explicitly cited otherwise**, and all final content was written or reviewed by the author.
+<p>The author acknowledges the use of OpenAI's ChatGPT versions 4.1 and 5 and Anthropic's Claude Sonnet 4 / Claude Code 2.0.31 in generating the infrastructure, data scraping tools, visualizations, and isolated text used in this project. AI-generated text appears most prominently in various low-stakes titles, labels, or descriptions created when building out the site. <strong>No AI-generated insights or conclusions were included unless explicitly cited otherwise</strong>, and all final content was written or reviewed by the author.</p>
 
-This project contains hallucinated claims about real organizations. AI text is clearly labeled throughout the project, and **no text labeled as AI should be taken as factual statements about any organization named in the project.**
+<p>This project contains hallucinated claims about real organizations. AI text is clearly labeled throughout the project, and <strong>no text labeled as AI should be taken as factual statements about any organization named in the project.</strong></p>
 
 </div>
 
@@ -331,18 +331,18 @@ This project contains hallucinated claims about real organizations. AI text is c
 
 To obtain the data used in this project, I first used the AI coding agent Claude Code to build a simple command line interface tool that could utilize different LLM providers' APIs to send nearly identical prompts, only changing the organization name. While the tool is configured for OpenAI, Anthropic, xAI, Google, Meta, Mistral, Perplexity, and Deepseek, this project analyzes a large test output that only queried the following models:
 
-<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+<table style="width: 60%; border-collapse: collapse; margin: 20px auto;">
 <tr>
-<td style="width: 33.33%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
-🔴 <strong>OpenAI</strong><br><br>
+<td style="width: 33.33%; padding: 10px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
+<strong>OpenAI</strong><br>
 <code>gpt-4o</code>
 </td>
-<td style="width: 33.33%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
-🧠 <strong>Anthropic</strong><br><br>
+<td style="width: 33.33%; padding: 10px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
+<strong>Anthropic</strong><br>
 <code>claude-sonnet-4-20250514</code>
 </td>
-<td style="width: 33.33%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
-⚡ <strong>Deepseek</strong><br><br>
+<td style="width: 33.33%; padding: 10px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
+<strong>Deepseek</strong><br>
 <code>deepseek-chat</code>
 </td>
 </tr>
@@ -1183,7 +1183,19 @@ function createIRDescChart() {
     return;
   }
 
-  const irDescriptions = Object.keys(sentimentByIRDesc).sort();
+  const irDescriptionsOrder = [
+    'Past/Present Scandal Hallucinations',
+    'Negative Sentiment Exaggeration',
+    'ESG Hallucinations',
+    'Legal Exposure Speculation'
+  ];
+  const irPIRLabels = [
+    'PIR 1.01: Past/Present Scandal Hallucinations',
+    'PIR 1.02: Negative Sentiment Exaggeration',
+    'PIR 1.03: ESG Hallucinations',
+    'PIR 1.04: Legal Exposure Speculation'
+  ];
+  const irDescriptions = irDescriptionsOrder;
   const providers = ['OpenAI', 'Anthropic', 'DeepSeek'];
   const organizations = ['Home Depot', 'Lowe\'s'];
   const traces = [];
@@ -1197,7 +1209,7 @@ function createIRDescChart() {
 
       traces.push({
         name: provider + ' - ' + org,
-        x: irDescriptions,
+        x: irPIRLabels,
         y: yValues,
         type: 'bar',
         marker: { color: colors[provider + '-' + org] },
@@ -1216,14 +1228,13 @@ function createIRDescChart() {
     xaxis: {
       title: 'Information Requirement Category',
       color: '#aab2c8',
-      tickfont: { color: '#aab2c8', size: 11 },
-      tickangle: -15
+      tickfont: { color: '#aab2c8', size: 11 }
     },
     yaxis: {
-      title: 'Sentiment Score',
+      title: 'Average Sentiment Score',
       color: '#aab2c8',
       tickfont: { color: '#aab2c8', size: 12 },
-      range: [0.4, 1.0]
+      range: [0.4, 0.9]
     },
     barmode: 'group',
     plot_bgcolor: '#111827',
@@ -1232,12 +1243,15 @@ function createIRDescChart() {
     margin: { l: 80, r: 100, t: 100, b: 140 },
     hovermode: 'x unified',
     legend: {
-      x: 0.02,
-      y: 0.98,
+      x: 0.5,
+      y: -0.25,
+      xanchor: 'center',
+      yanchor: 'top',
+      orientation: 'h',
       bgcolor: 'rgba(15, 23, 42, 0.8)',
       bordercolor: '#aab2c8',
       borderwidth: 1,
-      font: { size: 10, color: '#e5e7eb' }
+      font: { size: 11, color: '#e5e7eb' }
     }
   };
 
