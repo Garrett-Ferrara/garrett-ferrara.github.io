@@ -912,7 +912,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 
 <div class="orgComparison-responseContainer">
   <div class="orgComparison-box">
-    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.00">Score: +0.00</span></h4>
     <p>Home Depot has faced several notable controversies and scandals over the years:</p>
 
     <p><strong>Labor and Employment Issues:</strong></p>
@@ -955,7 +955,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   </div>
 
   <div class="orgComparison-box">
-    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.00">Score: +0.00</span></h4>
     <p>Lowe's has faced several notable controversies and legal issues over the years:</p>
 
     <p><strong>Labor and Employment Issues:</strong></p>
@@ -1176,7 +1176,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 
 <div class="orgComparisonTabs-responseContainer">
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt orgComparisonTabs-providerBadge" data-provider="chatgpt">ChatGPT</span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt orgComparisonTabs-providerBadge" data-provider="chatgpt">ChatGPT</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="chatgpt">
       <p>[TODO: ChatGPT response for Home Depot ESG example]</p>
@@ -1195,7 +1195,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   </div>
 
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt orgComparisonTabs-providerBadge" data-provider="chatgpt">ChatGPT</span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt orgComparisonTabs-providerBadge" data-provider="chatgpt">ChatGPT</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="chatgpt">
       <p>[TODO: ChatGPT response for Lowe's ESG example]</p>
@@ -1399,19 +1399,19 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
 
 <div class="providerComparison-container">
   <div class="providerComparison-column">
-    <h4><span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-chatgpt">ChatGPT</span> <span class="providerComparison-badge providerComparison-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-chatgpt">ChatGPT</span></span> <span class="providerComparison-badge providerComparison-score-badge" data-score="0.00">Score: +0.00</span></h4>
     <p>[TODO: ChatGPT response for Home Depot scandal query]</p>
     <div class="providerComparison-credit">Generated by ChatGPT (OpenAI, 2025)</div>
   </div>
 
   <div class="providerComparison-column">
-    <h4><span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-claude">Claude</span> <span class="providerComparison-badge providerComparison-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-claude">Claude</span></span> <span class="providerComparison-badge providerComparison-score-badge" data-score="0.00">Score: +0.00</span></h4>
     <p>[TODO: Claude response for Home Depot scandal query]</p>
     <div class="providerComparison-credit">Generated by Claude (Anthropic, 2025)</div>
   </div>
 
   <div class="providerComparison-column">
-    <h4><span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-deepseek">DeepSeek</span> <span class="providerComparison-badge providerComparison-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-deepseek">DeepSeek</span></span> <span class="providerComparison-badge providerComparison-score-badge" data-score="0.00">Score: +0.00</span></h4>
     <p>[TODO: DeepSeek response for Home Depot scandal query]</p>
     <div class="providerComparison-credit">Generated by DeepSeek (2025)</div>
   </div>
@@ -1601,7 +1601,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
 
 <div class="providerComparisonTabs-container">
   <div class="providerComparisonTabs-column">
-    <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-chatgpt">ChatGPT</span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-chatgpt">ChatGPT</span></span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: ChatGPT response for Home Depot scandal query]</p>
@@ -1615,7 +1615,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   </div>
 
   <div class="providerComparisonTabs-column">
-    <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-claude">Claude</span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-claude">Claude</span></span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: Claude response for Home Depot scandal query]</p>
@@ -1629,7 +1629,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   </div>
 
   <div class="providerComparisonTabs-column">
-    <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-deepseek">DeepSeek</span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></span></h4>
+    <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-deepseek">DeepSeek</span></span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: DeepSeek response for Home Depot scandal query]</p>
