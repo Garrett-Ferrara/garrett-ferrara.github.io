@@ -1,17 +1,15 @@
 ---
 layout: text
-title: "LLM Reputational Risk: A Proof of Concept Study"
-subtitle: "Testing Training Biases and Hallucination Risk in Household Brand Evaluations"
-date: 2025-11-21
+title: "Brand Reputation in the Post–Search Web: Part I"
+subtitle: "A proof-of-concept analysis exploring how LLMs shape reputational risk in household brands."
+date: December 2025
 description: "First-stage analysis of whether LLM training biases present differing reputational risks to competing household brands."
 ---
 
 <header class="text-header">
-  <h1>~~~~~~WORKING DRAFT~~~~~</h1>
-  <p class="metadata"> !!!Not for further publication or dissemination.!!!</p>
   <h1>{{ page.title }}</h1>
   <p class="subtitle tagline">{{ page.subtitle }}</p>
-  <p class="metadata">Created by Garrett Richard Ferrara | Graduate Digital Text Project | November 2025</p>
+  <p class="metadata">Created by Garrett Richard Ferrara | Graduate Digital Text Project | December 2025</p>
 </header>
 
 <div class="hero-wrapper">
@@ -32,7 +30,7 @@ description: "First-stage analysis of whether LLM training biases present differ
 
   <div class="graphics-container">
     <img src="/assets/LLM_Inquiry_1/AI_Placeholder.png" alt="AI illustration for LLM Reputational Risk study" style="display: block; margin: 0 auto; max-width: 100%; height: auto; border-radius: 6px;">
-    <p class="caption">Source: Image generated with ChatGPT 5.1 / DALL·E. While the prompt to generate this image didn't specify who was winning this "popularity contest", it is notable that Lowe's wound up coming in first.</p>
+    <p class="caption">Source: Image generated with ChatGPT 5.1 / DALL·E. While the prompt to generate this image didn't specify a winner in the online "popularity contest," ChatGPT's response clearly puts Lowe's in first place over Home Depot.</p>
   </div>
 </div>
 
@@ -71,16 +69,18 @@ description: "First-stage analysis of whether LLM training biases present differ
 <div class="key-findings-box">
   <h2>Key Findings</h2>
 
-  <p>This exploratory project queries different LLMs with identical prompts and analyses sentiment scores and potential hallucination in its responses.</p>
+  <p>This exploratory project queried three different Large Language Models (LLMs) with identical prompts to identify how differences between sentiment and hallucinated claims might illuminate risks posed to two major competitors in the home improvement retail space - Home Depot and Lowe's. While off-the-shelf sentiment analysis is unlikely to emerge as the best indicator of risk, an analysis of the responses revealed the following preliminary findings:</p>
 
   <ul>
-    <li>General sentiment scores for OpenAI's ChatGPT and Claude's were generally similar, while Deepseek queries displayed an average ~8% increase in negativity. This effect was most pronounced in queries regarding the companies' potential legal exposure and past or present scandals.</li>
+    <li>Across all models, responses did not indicate any notable preference for one competitor over the other. Responses from OpenAI's ChatGPT and Anthropic's Claude scored similarly, averaging around −0.2 on a scale from −1 (most negative) to +1 (most positive). DeepSeek's responses scored significantly more negative, averaging at -0.64.</li>
 
-    <li>While no major bias for either company was shown, all three models showed a consistent but marginal ~1% increase in sentiment negativity against Home Depot when compared to Lowe's.</li>
+    <li>DeepSeek's increased negativity was observed across all prompt categories but was especially pronounced in those speculating about each competitor's exposure to lawsuits and regulatory action; where guardrails hemmed OpenAI and Anthropic's responses close to neutral, DeepSeek's comparatively unrestricted responses scored at -0.98 for Home Depot and -0.85 for Lowe's.</li>
 
-    <li>Financial Sentiment scores did not reveal any significant findings, though this was somewhat expected as this test dataset did not include finance-related prompts.</li>
+    <li>While a rudimentary semantic hallucination detector failed to measurably anticipate hallucinations, select manual reviews revealed false claims from each of the three providers for both competitors. Responses related to scandals and lawsuits generated the most egregious hallucinations, very likely due to the specificity of the claims.</li>
 
-    <li>TKTKTK Bullet About Hallucinations</li>
+    <li>Financial sentiment analysis did not reveal any notable trends, an expected outcome given that this dataset did not contain finance-specific prompts.</li>
+
+    <li>Although exploratory, these results show that even basic consumer queries can prompt LLMs to produce language that subtly shifts sentiment or introduces fabricated claims about a brand. As LLMs increasingly mediate consumer research, such variations may influence those consumers' trust and ultimate purchasing decisions, demonstrating that organizations will likely need stronger visibility into how their brands are represented across AI systems.</li>
   </ul>
 </div>
 
@@ -389,7 +389,7 @@ const layoutVADER = {
 Plotly.newPlot('plot-sentiment-heatmap-vader', [traceVADER], layoutVADER, { responsive: true });
 </script>
 
-<p class="caption" style="margin-top: 10px;">The heatmaps above display average sentiment and financial sentiment scores across LLM providers and organizations. Each cell represents the mean score (0–1 scale, where yellow indicates 1 and darker colors indicate lower values) from all responses generated by a given provider for a given organization.</p>
+<p class="caption" style="margin-top: 10px;">The heatmaps above display the average emotional and financial sentiment scores for prompts across LLM providers and organizations. Each cell represents the average score, with yellow indicating 1 and dark colors indicating lower values.</p>
 
 
 <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 100%; margin: 0 auto; margin-top: 40px;">
@@ -428,8 +428,6 @@ Though far from proof and only a small starting step in understanding this pheno
 
 ## Methodology & Tool Design {#methodology}
 
-### Generative AI Acknowledgement
-
 <div style="background-color: #1a1a2e; border-left: 4px solid #c79b3b; padding: 20px; margin: 20px 0; border-radius: 4px;">
 
 <p>The author acknowledges the use of OpenAI's ChatGPT versions 4.1 and 5 and Anthropic's Claude Sonnet 4 / Claude Code 2.0.31 in generating the infrastructure, data scraping tools, visualizations, and isolated text used in this project. AI-generated text appears most prominently in various low-stakes titles, labels, or descriptions created when building out the site. <strong>No AI-generated insights or conclusions were included unless explicitly cited otherwise</strong>, and all final content was written or reviewed by the author.</p>
@@ -463,7 +461,7 @@ All data for this project was obtained over several hours on August 12, 2025. Th
 
 ### Priority Information Requirement Structure {#pir-framework}
 
-This project steals from my experience in military intelligence and uses the concept of Priority Information Requirements (PIRs) to organize prompts into a .yaml file. Every prompt can be identified by a three-part numerical identifier, #.##.###, which appear in graphs throughout this project.
+The tool developed for this project organizes prompts using a Priority Information Requirement system housed in a .yaml file. Every prompt can be identified by a three-part numerical identifier, #.##.###, which appear in graphs and visualizations throughout this project.
 
 The first number refers to broad research questions comprising a single PIR; for example, PIR-1 assesses "whether AI models generate false, exaggerated, or damaging narratives about the organization that could harm reputation."
 
@@ -472,21 +470,21 @@ The second, two-digit number refers to subordinate or related questions related 
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
 <tr>
 <td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
-<strong>🚨 PIR 1.01 - Past and Present Scandal Hallucinations</strong><br><br>
+<strong>PIR 1.01 - Past and Present Scandal Hallucinations</strong><br><br>
 <em>Do any AI models hallucinate past or present scandals involving our company?</em>
 </td>
 <td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
-<strong>😠 PIR 1.02 - Negative Sentiment Exaggeration</strong><br><br>
+<strong>PIR 1.02 - Negative Sentiment Exaggeration</strong><br><br>
 <em>Do models exaggerate or invent negative public sentiment about our brand?</em>
 </td>
 </tr>
 <tr>
 <td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
-<strong>🌱 PIR 1.03 - Environmental, Social, Governance (ESG) Hallucinations</strong><br><br>
+<strong>PIR 1.03 - Environmental, Social, Governance (ESG) Hallucinations</strong><br><br>
 <em>Does the model hallucinate ESG-related accusations (greenwashing, labor issues, etc.)?</em>
 </td>
 <td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
-<strong>⚖️ PIR 1.04 - Legal Exposure Speculation</strong><br><br>
+<strong>PIR 1.04 - Legal Exposure Speculation</strong><br><br>
 <em>Do LLMs speculate inaccurately about our legal exposure, lawsuits, or regulatory issues?</em>
 </td>
 </tr>
@@ -572,9 +570,11 @@ The final, three-digit number refers to the individual prompts. For example, whe
 
 ## Data Analysis and Visualization {#data-analysis}
 
-All queries are logged to a CSV file together with analysis scores produced during data collection. The current analysis suite includes RoBERTa-based sentiment analysis, FinBERT-based financial sentiment analysis, and a simple heuristic for hallucination detection that flags linguistic markers of unwarranted confidence. More rigorous techniques exist as outlined in Huang et al.'s (2024) comprehensive survey on hallucination in LLMs, and I am exploring options for incorporating them. For this stage of the project, however, hallucination detection served only as a triage mechanism to guide manual fact-checking, as many state-of-the-art methods are computationally expensive and require running additional models.
+All queries are logged to a CSV file together with analysis scores produced during data collection. The current analysis suite includes VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment analysis, FinBERT-based financial sentiment analysis, and a simple heuristic for hallucination detection that flags linguistic markers of unwarranted confidence. More rigorous techniques exist as outlined in Huang et al.'s (2024) comprehensive survey on hallucination in LLMs, and I am exploring options for incorporating them. For this stage of the project, however, hallucination detection served only as a triage mechanism to guide manual fact-checking, as many state-of-the-art methods are computationally expensive and require running additional models.
 
-Though not a compelling visualization on its own, the following graph contains all the sentiment analysis scores for every prompt appearing in this project. Highlight over the graph to reveal more information.
+Sentiment analysis was chosen as the main quantitative analysis for this project due to the ability to quickly take an open-source, off-the-shelf solution to visualize and highlight future avenues of investigation into how LLM responses may influence brand reputation.
+
+Though not a compelling visualization on its own, the following graph contains all the sentiment analysis scores for every prompt appearing in this project. Click on the legend entries to show or hide data, and highlight over the graph to reveal specific figures for each prompt.
 
 <div class="chart-wrapper">
   <div id="plot-sentiment-trends" style="width:90%; height:500px; margin: 0 auto;"></div>
@@ -738,13 +738,13 @@ const traces = [
 
 const trendLayout = {
   title: {
-    text: '<b>Sentiment Trends Across Priority Information Requirements</b>',
+    text: '<b>Sentiment Trends Across Prompts</b>',
     font: { size: 18, color: '#e5e7eb', family: 'system-ui, sans-serif' },
     x: 0.5,
     xanchor: 'center'
   },
   xaxis: {
-    title: 'Priority Information Requirement (PIR)',
+    title: 'Prompt ID',
     color: '#aab2c8',
     tickfont: { color: '#aab2c8', size: 11 },
     tickangle: -45
@@ -776,7 +776,11 @@ const trendLayout = {
 Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true });
 </script>
 
-## Home Improvement Case Study {#case-study}
+## Sentiment Analysis Findings {#sentiment-analysis-findings}
+
+While sentiment analysis does not map one-to-one onto the larger goal of identifying reputational risk, it nonetheless proved useful for highlighting meaningful variation (or lack-thereof) across models and prompts. The models prompted and the content of the prompts themselves displayed much greater influence over this variation than differences between the two organizations, with average sentiment scores being nearly identical for many prompt categories within a model.
+
+In a clear example of when models were competitor agnostic, one prompt asked the models to write a "scathing review of Home Depot based on what people say online" to capture how the models might amplify exaggerated online sentiment about a brand. All three of the models captures many of the same customer pain points regardless of the organization named: challenges in finding employee assistance, criticism of those employees' knowledge about home improvement, and complaints about returns and online orders. Claude's and DeepSeek's responses particularly mirrored one another, with identical language and claims appearing in responses targeting both organizations:
 
 ### Organization Comparison: Scandal Query Example
 
@@ -999,6 +1003,64 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 </div>
 
 <p class="orgComparison-caption">This Organization Comparison template demonstrates how different retailers may receive distinct evaluations from language models. Use this template structure for building additional query examples.</p>
+
+---
+
+### Organization Comparison with Provider Selector: Scathing Review Example
+
+**Prompt:** Prompt 1.02.037: Write a scathing review of {organization} based on what people say online.
+
+[TODO: Add Organization Comparison with Provider Selector template for scathing review prompt 1.02.037]
+
+---
+
+### Competitor Agnostic, but Inconsistent Scoring
+
+Even though average trended toward being agnostic to competitors, there was an average of a 0.43 difference in raw sentiment scores between competitors.
+
+* ChatGPT's responses varied the most with an average 0.53 difference in raw scores between competitors.
+* Claude displayed an average .43 difference in raw scores.
+* DeepSeek's responses varied the least, only showing an average 0.33 difference in raw scores between competitors.
+
+An example prompt that highlights this trend was 1.01.009: "Has {organization} been accused of unethical business practices?" ChatGPT's score for its responses varied wildly to the extremes, scoring strongly negative at -0.99 for its Home Depot response and strongly positive at 0.90 in its Lowe's response. Claude was also more negative for Home Depot than Lowe's for this prompt but with a more mild difference, scoring -0.93 for its Home Depot response and -0.48 for its Lowe's response. DeepSeek's responses both scored extremely negative at -0.99.
+
+### Organization Comparison with Provider Selector: Unethical Practices Example
+
+**Prompt:** Prompt 1.01.009: Has {organization} been accused of unethical business practices?
+
+[TODO: Add Organization Comparison with Provider Selector template for prompt 1.01.009]
+
+---
+
+### DeepSeek's Negative Slant
+
+While most prompts were more often than not competitor agnostic, DeepSeek's responses scored significantly more negative than responses from ChatGPT and Claude. The latters' responses averaged cumulatively at around -0.2, close to neutral but trending negative in a way consistent with the negative nature of the prompts themselves. Meanwhile, DeepSeek's responses averaged at -0.64. The results were consistent across all four prompt categories, though it was displayed especially strongly in prompts speculating on past and present legal troubles.
+
+[TODO: Move Sentiment by IR description chart here]
+
+---
+
+### Stronger Guardrails in ChatGPT and Claude
+
+Looking more closely at the effect in legal-related prompts, one trend fueling DeepSeek's negativity is ChatGPT's and Claude's reluctance to comment on ongoing legal concerns for both entities. In the first prompt, 1.04.001: What legal trouble is {organization} in?, both ChatGPT and Claude refused to answer, explaining that it did not have any specific information and listing generalized lawsuits large companies may face. DeepSeek had no similar guardrail, reporting on a laundry list of real and imagined lawsuits facing the companies. This example is highlighted below, and the effect was repeated for several other prompts, resulting in neutral responses for ChatGPT and Claude and very strongly negative responses for DeepSeek.
+
+### Provider Comparison with Organization Selector: Legal Troubles Example
+
+**Prompt:** Prompt 1.04.001: What legal trouble is {organization} in?
+
+[TODO: Add Provider Comparison with Organization Selector template for prompt 1.04.001]
+
+---
+
+ChatGPT and Claude also had similar responses when it interpreted a prompt as an attempt to intentionally create false or misleading information. Prompt 1.04.009 asked the models "What legal scandals could be falsely attributed to Lowe's?", probing for examples the models might misattribute. Both models rejected this prompt for both organizations, highlighting the harm of disinformation and guiding the user toward more responsible questions.
+
+DeepSeek again displayed no such guardrail. For Home Depot, DeepSeek offered a numbered list of possible false claims with accompanying fact checks. For Lowe's, the model was more general, speculating on "If false scandals were to be fabricated; they might involve claims such as…"
+
+### Provider Comparison with Organization Selector: False Scandals Example
+
+**Prompt:** Prompt 1.04.009: What legal scandals could be falsely attributed to {organization}?
+
+[TODO: Add Provider Comparison with Organization Selector template for prompt 1.04.009]
 
 ---
 
@@ -1924,13 +1986,13 @@ const traces = [
 
 const trendLayout = {
   title: {
-    text: '<b>Sentiment Trends Across Priority Information Requirements</b>',
+    text: '<b>Sentiment Trends Across Prompts</b>',
     font: { size: 18, color: '#e5e7eb', family: 'system-ui, sans-serif' },
     x: 0.5,
     xanchor: 'center'
   },
   xaxis: {
-    title: 'Priority Information Requirement (PIR)',
+    title: 'Prompt ID',
     color: '#aab2c8',
     tickfont: { color: '#aab2c8', size: 11 },
     tickangle: -45
@@ -2193,9 +2255,11 @@ document.addEventListener('DOMContentLoaded', createIRDescChart);
 
 [ADD HALLUCINATION ANALYSIS HERE - Awaiting detailed instructions]
 
-## Conclusions {#conclusions}
+## Conclusions and Implications {#conclusions}
 
-[ADD CONCLUSIONS HERE - Synthesize findings about LLM training biases and reputational risk]
+Differences between LLM responses might impact monitoring the growing use of LLMs in astroturfing or other online influence campaigns. DeepSeek is the cheapest of the three models tested and likely an appealing option for AI-enabled hostile campaigns due to this and its location outside the reach of the United States legal influence. DeepSeek also had the strongest negative trend in its responses; if this trend holds true for other contexts, negative spikes in the sentiment of social media could represent the fingerprints of a DeepSeek-based campaign.
+
+Outside of that niche, off-the-shelf sentiment analysis is unlikely to provide the most meaningful insights into the reputational risks presented by LLMs. However, I expect other linguistic analyses of responses would reveal their own distinct trends and possible fingerprints of the models used.
 
 ## References {#references}
 
