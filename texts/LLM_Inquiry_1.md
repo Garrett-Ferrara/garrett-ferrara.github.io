@@ -1154,7 +1154,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 
 <div class="orgComparisonTabs-responseContainer">
   <div class="orgComparisonTabs-box">
-    <h4>Response A <span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt">ChatGPT</span></span></h4>
+    <h4>Response A <span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt orgComparisonTabs-providerBadge" data-provider="chatgpt">ChatGPT</span></span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="chatgpt">
       <p>[TODO: ChatGPT response for Home Depot ESG example]</p>
@@ -1173,7 +1173,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   </div>
 
   <div class="orgComparisonTabs-box">
-    <h4>Response B <span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt">ChatGPT</span></span></h4>
+    <h4>Response B <span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt orgComparisonTabs-providerBadge" data-provider="chatgpt">ChatGPT</span></span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="chatgpt">
       <p>[TODO: ChatGPT response for Lowe's ESG example]</p>
@@ -1203,6 +1203,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   button.addEventListener('click', function() {
     const selectedProvider = this.getAttribute('data-provider');
+    const providerLabel = this.textContent;
 
     // Update button states
     document.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
@@ -1217,6 +1218,17 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
       } else {
         content.classList.add('hidden');
       }
+    });
+
+    // Update provider badges with correct colors and text
+    document.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
+      // Remove old provider class
+      badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
+
+      // Add new provider class and update text
+      badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
+      badge.textContent = providerLabel;
+      badge.setAttribute('data-provider', selectedProvider);
     });
   });
 });
@@ -1545,7 +1557,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
 
 <div class="providerComparisonTabs-container">
   <div class="providerComparisonTabs-column">
-    <h4>Response A <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-chatgpt">ChatGPT</span></span></h4>
+    <h4>Response A <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-chatgpt">ChatGPT</span></span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: ChatGPT response for Home Depot scandal query]</p>
@@ -1559,7 +1571,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   </div>
 
   <div class="providerComparisonTabs-column">
-    <h4>Response B <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-claude">Claude</span></span></h4>
+    <h4>Response B <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-claude">Claude</span></span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: Claude response for Home Depot scandal query]</p>
@@ -1573,7 +1585,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   </div>
 
   <div class="providerComparisonTabs-column">
-    <h4>Response C <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-deepseek">DeepSeek</span></span></h4>
+    <h4>Response C <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-deepseek">DeepSeek</span></span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: DeepSeek response for Home Depot scandal query]</p>
@@ -1614,9 +1626,15 @@ document.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
       }
     });
 
-    // Update organization badges
-    document.querySelectorAll('.providerComparisonTabs-badge').forEach(badge => {
+    // Update organization badges only (not provider badges)
+    document.querySelectorAll('.providerComparisonTabs-orgBadge').forEach(badge => {
+      // Remove old org class
+      badge.classList.remove('providerComparisonTabs-badge-homedepot', 'providerComparisonTabs-badge-lowes');
+
+      // Add new org class and update text
+      badge.classList.add(`providerComparisonTabs-badge-${selectedOrg}`);
       badge.textContent = orgName;
+      badge.setAttribute('data-org', selectedOrg);
     });
   });
 });
