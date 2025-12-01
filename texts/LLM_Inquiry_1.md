@@ -808,7 +808,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 
 .orgComparison-box h4 {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-top: 0;
   margin-bottom: 12px;
@@ -826,7 +826,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  margin-left: 0;
+  margin-left: auto;
 }
 
 .orgComparison-badgeGroup {
@@ -1031,7 +1031,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 
 .orgComparisonTabs-box h4 {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-top: 0;
   margin-bottom: 12px;
@@ -1049,7 +1049,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  margin-left: 0;
+  margin-left: auto;
 }
 
 .orgComparisonTabs-badgeGroup {
@@ -1289,7 +1289,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
 
 .providerComparison-column h4 {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-top: 0;
   margin-bottom: 12px;
@@ -1307,7 +1307,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
-  margin-left: 0;
+  margin-left: auto;
 }
 
 .providerComparison-badgeGroup {
@@ -1450,7 +1450,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
 
 .providerComparisonTabs-column h4 {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-top: 0;
   margin-bottom: 12px;
@@ -1468,7 +1468,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
-  margin-left: 0;
+  margin-left: auto;
 }
 
 .providerComparisonTabs-badgeGroup {
