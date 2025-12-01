@@ -818,6 +818,12 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   padding-bottom: 8px;
 }
 
+.orgComparison-badgeGroup {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
 .orgComparison-badge {
   background-color: #d4af37;
   color: #0f172a;
@@ -826,7 +832,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 .orgComparison-badge-homedepot {
@@ -837,6 +843,21 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 .orgComparison-badge-lowes {
   background-color: #0051BA;
   color: #ffffff;
+}
+
+.orgComparison-badge-chatgpt {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+.orgComparison-badge-claude {
+  background-color: #f5d5c3;
+  color: #1a1a1a;
+}
+
+.orgComparison-badge-deepseek {
+  background-color: #d4e5f0;
+  color: #1a1a1a;
 }
 
 .orgComparison-box strong {
@@ -880,7 +901,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 
 <div class="orgComparison-responseContainer">
   <div class="orgComparison-box">
-    <h4>Home Depot Response <span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span></h4>
+    <h4>Response A <span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span></h4>
     <p>Home Depot has faced several notable controversies and scandals over the years:</p>
 
     <p><strong>Labor and Employment Issues:</strong></p>
@@ -923,7 +944,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   </div>
 
   <div class="orgComparison-box">
-    <h4>Lowe's Response <span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span></h4>
+    <h4>Response B <span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span></h4>
     <p>Lowe's has faced several notable controversies and legal issues over the years:</p>
 
     <p><strong>Labor and Employment Issues:</strong></p>
@@ -1009,6 +1030,12 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   padding-bottom: 8px;
 }
 
+.orgComparisonTabs-badgeGroup {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
 .orgComparisonTabs-badge {
   background-color: #d4af37;
   color: #0f172a;
@@ -1017,7 +1044,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 .orgComparisonTabs-badge-homedepot {
@@ -1028,6 +1055,21 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 .orgComparisonTabs-badge-lowes {
   background-color: #0051BA;
   color: #ffffff;
+}
+
+.orgComparisonTabs-badge-chatgpt {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+.orgComparisonTabs-badge-claude {
+  background-color: #f5d5c3;
+  color: #1a1a1a;
+}
+
+.orgComparisonTabs-badge-deepseek {
+  background-color: #d4e5f0;
+  color: #1a1a1a;
 }
 
 .orgComparisonTabs-box strong {
@@ -1112,7 +1154,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 
 <div class="orgComparisonTabs-responseContainer">
   <div class="orgComparisonTabs-box">
-    <h4>Home Depot Response <span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span></h4>
+    <h4>Response A <span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt">ChatGPT</span></span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="chatgpt">
       <p>[TODO: ChatGPT response for Home Depot ESG example]</p>
@@ -1131,7 +1173,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
   </div>
 
   <div class="orgComparisonTabs-box">
-    <h4>Lowe's Response <span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span></h4>
+    <h4>Response B <span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt">ChatGPT</span></span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="chatgpt">
       <p>[TODO: ChatGPT response for Lowe's ESG example]</p>
@@ -1223,6 +1265,12 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   padding-bottom: 8px;
 }
 
+.providerComparison-badgeGroup {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
 .providerComparison-badge {
   background-color: #d4af37;
   color: #0f172a;
@@ -1231,7 +1279,17 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
-  margin-left: 8px;
+  margin-left: 0;
+}
+
+.providerComparison-badge-homedepot {
+  background-color: #FF6600;
+  color: #ffffff;
+}
+
+.providerComparison-badge-lowes {
+  background-color: #0051BA;
+  color: #ffffff;
 }
 
 .providerComparison-badge-chatgpt {
@@ -1296,19 +1354,19 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
 
 <div class="providerComparison-container">
   <div class="providerComparison-column">
-    <h4>ChatGPT Response <span class="providerComparison-badge providerComparison-badge-chatgpt">ChatGPT</span></h4>
+    <h4>Response A <span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-chatgpt">ChatGPT</span></span></h4>
     <p>[TODO: ChatGPT response for Home Depot scandal query]</p>
     <div class="providerComparison-credit">Generated by ChatGPT (OpenAI, 2025)</div>
   </div>
 
   <div class="providerComparison-column">
-    <h4>Claude Response <span class="providerComparison-badge providerComparison-badge-claude">Claude</span></h4>
+    <h4>Response B <span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-claude">Claude</span></span></h4>
     <p>[TODO: Claude response for Home Depot scandal query]</p>
     <div class="providerComparison-credit">Generated by Claude (Anthropic, 2025)</div>
   </div>
 
   <div class="providerComparison-column">
-    <h4>DeepSeek Response <span class="providerComparison-badge providerComparison-badge-deepseek">DeepSeek</span></h4>
+    <h4>Response C <span class="providerComparison-badgeGroup"><span class="providerComparison-badge providerComparison-badge-homedepot">Home Depot</span> <span class="providerComparison-badge providerComparison-badge-deepseek">DeepSeek</span></span></h4>
     <p>[TODO: DeepSeek response for Home Depot scandal query]</p>
     <div class="providerComparison-credit">Generated by DeepSeek (2025)</div>
   </div>
@@ -1357,6 +1415,12 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   padding-bottom: 8px;
 }
 
+.providerComparisonTabs-badgeGroup {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
 .providerComparisonTabs-badge {
   background-color: #d4af37;
   color: #0f172a;
@@ -1365,7 +1429,32 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
-  margin-left: 8px;
+  margin-left: 0;
+}
+
+.providerComparisonTabs-badge-homedepot {
+  background-color: #FF6600;
+  color: #ffffff;
+}
+
+.providerComparisonTabs-badge-lowes {
+  background-color: #0051BA;
+  color: #ffffff;
+}
+
+.providerComparisonTabs-badge-chatgpt {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+.providerComparisonTabs-badge-claude {
+  background-color: #f5d5c3;
+  color: #1a1a1a;
+}
+
+.providerComparisonTabs-badge-deepseek {
+  background-color: #d4e5f0;
+  color: #1a1a1a;
 }
 
 .providerComparisonTabs-column strong {
@@ -1456,7 +1545,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
 
 <div class="providerComparisonTabs-container">
   <div class="providerComparisonTabs-column">
-    <h4>ChatGPT Response <span class="providerComparisonTabs-badge">Home Depot</span></h4>
+    <h4>Response A <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-chatgpt">ChatGPT</span></span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: ChatGPT response for Home Depot scandal query]</p>
@@ -1470,7 +1559,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   </div>
 
   <div class="providerComparisonTabs-column">
-    <h4>Claude Response <span class="providerComparisonTabs-badge">Home Depot</span></h4>
+    <h4>Response B <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-claude">Claude</span></span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: Claude response for Home Depot scandal query]</p>
@@ -1484,7 +1573,7 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   </div>
 
   <div class="providerComparisonTabs-column">
-    <h4>DeepSeek Response <span class="providerComparisonTabs-badge">Home Depot</span></h4>
+    <h4>Response C <span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-deepseek">DeepSeek</span></span></h4>
 
     <div class="providerComparisonTabs-content" data-org="homedepot">
       <p>[TODO: DeepSeek response for Home Depot scandal query]</p>
