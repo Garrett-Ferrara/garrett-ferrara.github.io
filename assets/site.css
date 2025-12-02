@@ -1376,7 +1376,7 @@ strong {
 .job-date {
   position: absolute;
   left: -125px;
-  top: -1rem;
+  top: -1.5rem;
   padding: 0.35rem 0.5rem;
   background-color: var(--bg);
   border: 1px solid var(--accent);
@@ -1417,7 +1417,7 @@ strong {
 .origin-date {
   position: absolute;
   left: -125px;
-  top: -2.5rem;
+  top: -2rem;
   padding: 0.35rem 0.5rem;
   background-color: var(--bg);
   border: 1px solid var(--accent);
