@@ -1334,17 +1334,77 @@ strong {
   margin-bottom: 0rem;
 }
 
+/* Professional Experience Timeline */
+.experience-timeline {
+  position: relative;
+  padding-left: 140px;
+}
+
+/* Vertical timeline line */
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--accent);
+  opacity: 0.3;
+}
+
 .job-entry {
+  position: relative;
   background-color: rgba(199, 155, 59, 0.03);
   border-left: 3px solid var(--accent);
   padding: 1rem;
   padding-left: 1.25rem;
   border-radius: 4px;
   transition: background-color 0.2s ease;
+  margin-bottom: 2rem;
+}
+
+.job-entry:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline dot */
+.job-entry::before {
+  content: '';
+  position: absolute;
+  left: -54px;
+  top: 1.5rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent);
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Date badge */
+.job-date {
+  position: absolute;
+  left: -135px;
+  top: 0;
+  padding: 0.35rem 0.7rem;
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+  width: 120px;
+  text-align: center;
 }
 
 .job-entry:hover {
   background-color: rgba(199, 155, 59, 0.08);
+}
+
+.job-entry:hover .job-date {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
 }
 
 .education-banner,

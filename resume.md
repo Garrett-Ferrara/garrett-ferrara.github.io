@@ -29,20 +29,23 @@ description: "Education, professional experience, and training."
   </div>
 </div>
 
-{% for job in site.data.resume.experience %}
-<div class="cv-entry job-entry" data-job-index="{{ forloop.index0 }}">
-  <h3>{{ job.title }}</h3>
-  <p class="subtitle">{{ job.company }} | {{ job.location }} | {{ job.dates }}</p>
+<div class="experience-timeline">
+  {% for job in site.data.resume.experience %}
+  <div class="cv-entry job-entry" data-job-index="{{ forloop.index0 }}">
+    <span class="job-date">{{ job.dates }}</span>
+    <h3>{{ job.title }}</h3>
+    <p class="subtitle">{{ job.company }} | {{ job.location }}</p>
 
-  <ul class="job-bullets">
-    {% for bullet in job.bullets %}
-    <li class="job-bullet" data-tags="{% for tag in bullet.tags %}{{ tag }}{% unless forloop.last %},{% endunless %}{% endfor %}">
-      {{ bullet.text }}
-    </li>
-    {% endfor %}
-  </ul>
+    <ul class="job-bullets">
+      {% for bullet in job.bullets %}
+      <li class="job-bullet" data-tags="{% for tag in bullet.tags %}{{ tag }}{% unless forloop.last %},{% endunless %}{% endfor %}">
+        {{ bullet.text }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
 
 ## Training
 
