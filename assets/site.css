@@ -1349,6 +1349,10 @@ strong {
   gap: 2rem;
 }
 
+.resume-content .bio-hero {
+  margin-bottom: 3rem;
+}
+
 .resume-content h2 {
   margin-top: 0.25rem;
   margin-bottom: .25rem;
