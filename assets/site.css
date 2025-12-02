@@ -1376,7 +1376,7 @@ strong {
 .job-date {
   position: absolute;
   left: -125px;
-  top: -1.5rem;
+  top: 0;
   padding: 0.35rem 0.5rem;
   background-color: var(--bg);
   border: 1px solid var(--accent);
@@ -1390,6 +1390,11 @@ strong {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* Center middle date badges between entries */
+.job-entry:not(:first-of-type) .job-date {
+  top: -1.5rem;
 }
 
 .date-month,
