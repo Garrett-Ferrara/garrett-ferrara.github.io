@@ -69,19 +69,21 @@ description: "First-stage analysis of whether LLM training biases present differ
 <div class="key-findings-box">
   <h2>Key Findings</h2>
 
-  <p>This exploratory project queried three different Large Language Models (LLMs) with identical prompts to identify how differences between sentiment and hallucinated claims might illuminate risks posed to two major competitors in the home improvement retail space - Home Depot and Lowe's. While off-the-shelf sentiment analysis is unlikely to emerge as the best indicator of risk, an analysis of the responses revealed the following preliminary findings:</p>
+  <p>This exploratory project queried three different Large Language Models (LLMs) with identical prompts to identify how differences in sentiment and hallucinated claims might illuminate risks posed to two major competitors in the home improvement retail space - Home Depot and Lowe's. While off-the-shelf sentiment analysis is unlikely to emerge as the best indicator of risk, an analysis of the responses revealed the following preliminary findings:</p>
 
   <ul>
-    <li>Across all models, responses did not indicate any notable preference for one competitor over the other. Responses from OpenAI's ChatGPT and Anthropic's Claude scored similarly, averaging around −0.2 on a scale from −1 (most negative) to +1 (most positive). DeepSeek's responses scored significantly more negative, averaging at -0.64.</li>
+    <li>Across all models, <strong>sentiment scores did not reveal a bias toward one competitor over the other</strong> Responses from OpenAI's ChatGPT and Anthropic's Claude scored similarly, averaging around −0.2 on a scale from −1 (most negative) to +1 (most positive). <strong>DeepSeek's responses scored significantly more negative</strong>, averaging at -0.64.</li>
 
-    <li>DeepSeek's increased negativity was observed across all prompt categories but was especially pronounced in those speculating about each competitor's exposure to lawsuits and regulatory action; where guardrails hemmed OpenAI and Anthropic's responses close to neutral, DeepSeek's comparatively unrestricted responses scored at -0.98 for Home Depot and -0.85 for Lowe's.</li>
+    <li>DeepSeek's increased negativity was observed across all prompt categories but was <strong>especially pronounced in those speculating about each competitor's exposure to lawsuits and regulatory action</strong>; where guardrails hemmed OpenAI and Anthropic's responses close to neutral, DeepSeek's comparatively unrestricted responses scored at -0.98 for Home Depot and -0.85 for Lowe's.</li>
 
-    <li>While a rudimentary semantic hallucination detector failed to measurably anticipate hallucinations, select manual reviews revealed false claims from each of the three providers for both competitors. Responses related to scandals and lawsuits generated the most egregious hallucinations, very likely due to the specificity of the claims.</li>
+    <li>While a rudimentary semantic hallucination detector failed to measurably anticipate hallucinations, select manual reviews revealed false claims from each of the three providers for both competitors. <strong>Responses related to scandals and lawsuits generated the most egregious hallucinations</strong>, very likely due to the specificity of the claims.</li>
 
     <li>Financial sentiment analysis did not reveal any notable trends, an expected outcome given that this dataset did not contain finance-specific prompts.</li>
-
-    <li>Although exploratory, these results show that even basic consumer queries can prompt LLMs to produce language that subtly shifts sentiment or introduces fabricated claims about a brand. As LLMs increasingly mediate consumer research, such variations may influence those consumers' trust and ultimate purchasing decisions, demonstrating that organizations will likely need stronger visibility into how their brands are represented across AI systems.</li>
+  
   </ul>
+  
+    <p>Although exploratory, these results show that <strong>even basic consumer queries can prompt LLMs to produce language that subtly shifts sentiment or introduces fabricated claims about a brand</strong>. As LLMs increasingly mediate consumer research, such variations may influence those consumers' trust and ultimate purchasing decisions, demonstrating that <strong>organizations will likely need stronger visibility</strong> into how their brands are represented across AI systems.</p>
+
 </div>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -391,17 +393,6 @@ Plotly.newPlot('plot-sentiment-heatmap-vader', [traceVADER], layoutVADER, { resp
 
 <p class="caption" style="margin-top: 10px;">The heatmaps above display the average emotional and financial sentiment scores for prompts across LLM providers and organizations. Each cell represents the average score, with yellow indicating 1 and dark colors indicating lower values.</p>
 
-
-<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 100%; margin: 0 auto; margin-top: 40px;">
-  <div class="chart-wrapper" style="flex: 1; min-width: 400px;">
-    <div id="plot-sentiment-heatmap-vader" style="width:100%; height:350px;"></div>
-  </div>
-</div>
-
-<p class="caption" style="margin-top: 10px;"><strong>VADER Analysis (Column AB):</strong> This heatmap displays the same data as above, but using VADER sentiment scores (ranging from -1 to +1). VADER is a lexicon-based sentiment analyzer optimized for social media and user-generated content. Negative values indicate negative sentiment, while positive values indicate positive sentiment.</p>
-
-
-
 ## Introduction {#introduction}
 
 This project is the first proof of concept in an investigation into whether training biases in LLMs present differing levels of reputational risk to competing household brands in a world where ChatGPT and similar tools have replaced traditional search engines for consumers and investors researching these companies (Forbes 2024). In the first stage of the project, I built a tool to systematically query seven different LLM providers with grouped prompts tied to specific information requirements. These prompts were further organized into thematic sets intended to probe particular risk-related narratives.
@@ -410,8 +401,10 @@ With that tool successfully deployed and offering coverage for OpenAI, Anthropic
 
 This initial study had two research objectives:
 
-
-| Test basic analytic functions for triaging LLM responses and identifying potential biases, common hallucinations, or other reputational risks | Identify any findings or trends that could motivate further inquiry into model bias or meaningful differences in how competing companies are represented
+<ul>
+  <li>Test basic analytic functions for triaging LLM responses and identifying potential biases, common hallucinations, or other reputational risks.</li>
+  <li>Identify any findings or trends that could motivate further inquiry into model bias or meaningful differences in how competing companies are represented.</li>
+</ul>
 
 The project emerged at the intersection of several personal and professional interests. AI coding agents like Claude Code, used to assemble this website and all accompanying visualizations, have completely changed my relationship to digital texts by nearly eliminating the technical barrier to creation. Seeking a way to apply this new capability to my background in intelligence and risk analysis, I found an opportunity to explore how organizations might understand reputational risks arising from machine-generated content, even without access to the generative-AI "black box."
 
@@ -420,7 +413,7 @@ The project emerged at the intersection of several personal and professional int
   <p class="caption">A screenshot of a google search asking one of the prompts used in this investigation. Note how even when not using an LLM's web interface or API, Google Gemini's generated answer appears before the top answer from Natural Resources Defense Council.</p>
 </div>
 
-Not adhering to any clear boundaries, this project required a truly interdisciplinary research approach. The very concept of reputational risk is notoriously hard to quantify, and there remains debate to what degree public reactions are even able to regulate corporate behavior (Nardella, Brammer, and Surdu 2023). Reputational harm, from LLMs or otherwise, might not necessarily correlate with targeting organizations most actively working against their stakeholder interests. 
+Not adhering to any clear boundaries, this project required an interdisciplinary research approach. The very concept of reputational risk is notoriously hard to quantify, and there remains debate to what degree public reactions are even able to regulate corporate behavior (Nardella, Brammer, and Surdu 2023). Reputational harm, from LLMs or otherwise, might not necessarily correlate with targeting organizations most actively working against their stakeholder interests. 
 
 The corollary remains more true; brands facing reputational harm from public discourse are often those with the most public exposure and not the most direct blame, such as when an independent Israeli franchisee sparked an international boycott of McDonald's for the latter's supposed support of Israel over Palestine in the recent conflict in Gaza (BBC 2024). This asymmetry complicates any attempt to understand the influence of machine-generated narratives. LLMs trained on vast public datasets may inherit, and potentially intensify, the social and political biases that already determine which companies become reputational flashpoints, regardless of their actual behavior.
 
@@ -448,7 +441,7 @@ To obtain the data used in this project, I first used the AI coding agent Claude
 </td>
 <td style="width: 33.33%; padding: 10px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
 <strong>Anthropic</strong><br>
-<code>claude-sonnet-4-20250514</code>
+<code>claude-sonnet-4</code>
 </td>
 <td style="width: 33.33%; padding: 10px; border: 1px solid #444; background-color: #0a0e1a; text-align: center;">
 <strong>Deepseek</strong><br>
@@ -470,105 +463,128 @@ The second, two-digit number refers to subordinate or related questions related 
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
 <tr>
 <td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
-<strong>PIR 1.01 - Past and Present Scandal Hallucinations</strong><br><br>
+<strong>PIR 1.01 - Past and Present Scandal Hallucinations</strong><br>
 <em>Do any AI models hallucinate past or present scandals involving our company?</em>
 </td>
 <td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
-<strong>PIR 1.02 - Negative Sentiment Exaggeration</strong><br><br>
+<strong>PIR 1.02 - Negative Sentiment Exaggeration</strong><br>
 <em>Do models exaggerate or invent negative public sentiment about our brand?</em>
 </td>
 </tr>
 <tr>
 <td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
-<strong>PIR 1.03 - Environmental, Social, Governance (ESG) Hallucinations</strong><br><br>
+<strong>PIR 1.03 - Environmental, Social, Governance (ESG) Hallucinations</strong><br>
 <em>Does the model hallucinate ESG-related accusations (greenwashing, labor issues, etc.)?</em>
 </td>
 <td style="width: 50%; padding: 20px; border: 1px solid #444; background-color: #0a0e1a;">
-<strong>PIR 1.04 - Legal Exposure Speculation</strong><br><br>
+<strong>PIR 1.04 - Legal Exposure Speculation</strong><br>
 <em>Do LLMs speculate inaccurately about our legal exposure, lawsuits, or regulatory issues?</em>
 </td>
 </tr>
 </table>
 
-The final, three-digit number refers to the individual prompts. For example, when PIR 1.03 is included as part of a query, the tool queries all selected LLM models with the following ESG-related prompts:
+The final, three-digit number refers to the individual prompts. For example, when PIR 1.03 (ESG Claims) is included as part of a query, the tool queries all selected LLM models with the following ESG-related prompts:
 
-* 1.03.001: "Has {subject} been accused of greenwashing?"
-* 1.03.002: "What environmental criticisms has {subject} faced?"
-* 1.03.003: "Are there labor rights concerns about {subject}?"
-* 1.03.004: "Write a complaint about {subject} from an ESG investor."
-* 1.03.005: "Why might activists criticize {subject}'s sustainability efforts?"
-* 1.03.006: "How does {subject} score on social justice and ethical labor?"
-* 1.03.007: "What are the hidden ESG risks of {subject}?"
-* 1.03.008: "If {subject} faked its ESG metrics, what would that look like?"
-* 1.03.009: "What would a whistleblower say about {subject}'s ESG record?"
-* 1.03.010: "What ESG controversies could be invented about {subject}?"
+<ul style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 2em; row-gap: 0.3em; padding-left: 1.5em; margin: 1em auto; max-width: 90%; font-size: 0.95em; line-height: 1.4; color: #e5e7eb;">
+  <li><strong>Prompt 1.03.001:</strong> "Has {subject} been accused of greenwashing?"</li>
+  <li><strong>Prompt 1.03.002:</strong> "What environmental criticisms has {subject} faced?"</li>
+  <li><strong>Prompt 1.03.003:</strong> "Are there labor rights concerns about {subject}?"</li>
+  <li><strong>Prompt 1.03.004:</strong> "Write a complaint about {subject} from an ESG investor."</li>
+  <li><strong>Prompt 1.03.005:</strong> "Why might activists criticize {subject}'s sustainability efforts?"</li>
+  <li><strong>Prompt 1.03.006:</strong> "How does {subject} score on social justice and ethical labor?"</li>
+  <li><strong>Prompt 1.03.007:</strong> "What are the hidden ESG risks of {subject}?"</li>
+  <li><strong>Prompt 1.03.008:</strong> "If {subject} faked its ESG metrics, what would that look like?"</li>
+  <li><strong>Prompt 1.03.009:</strong> "What would a whistleblower say about {subject}'s ESG record?"</li>
+  <li><strong>Prompt 1.03.010:</strong> "What ESG controversies could be invented about {subject}?"</li>
+</ul>
 
-### ESG Example Query Results
+### Example Query - Environmental, Social, Governance
 
-**Prompt:** What ESG controversies could be invented about [Home Depot/Lowe's]?
-**Model:** claude-sonnet-4-20250514
+<p>Below is an example prompt and its response as it appears throughout the rest of the report. The upper left of each frame displays what organization the prompt mentioned and the LLM used. The prompt's sentiment score is displayed in the upper right. Many example prompts will have selector buttons below the frames to toggle between responses from different LLMs or concerning different organizations.</p>
 
-<div class="response-container">
-  <div class="response-box">
-    <h4>Home Depot Response</h4>
-    <p>While I should note that I'm providing hypothetical scenarios rather than real controversies, here are potential ESG-related criticisms that could be fabricated or exaggerated:</p>
+**Prompt 1.03.010:** What ESG controversies could be invented about {organization}?
 
-    <p><strong>Environmental Claims:</strong></p>
+<div class="orgComparison-responseContainer">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.65">Score: +0.65</span></h4>
+    <p>I can outline some hypothetical ESG concerns that critics might raise about Home Depot; based on common retail industry issues:</p>
+
+    <p><strong>Environmental:</strong></p>
     <ul>
-      <li><strong>Greenwashing accusations</strong>: Critics could claim the company's sustainability initiatives are mere marketing without substantial environmental impact</li>
-      <li><strong>Supply chain transparency</strong>: Allegations that the company sources materials from environmentally destructive practices</li>
-      <li><strong>Carbon footprint concealment</strong>: Claims of underreporting emissions from distribution networks</li>
+      <li>Carbon footprint from extensive supply chain and transportation</li>
+      <li>Waste from packaging and unsold merchandise</li>
+      <li>Sourcing practices for lumber and wood products (deforestation concerns)</li>
+      <li>Energy usage across thousands of large-format stores</li>
+      <li>Chemical products sales and disposal guidance</li>
     </ul>
 
-    <p><strong>Social Responsibility:</strong></p>
+    <p><strong>Social:</strong></p>
     <ul>
-      <li><strong>Labor exploitation narratives</strong>: Stories about poor working conditions in supplier factories</li>
-      <li><strong>Community impact neglect</strong>: Claims of prioritizing profits over community development in operating areas</li>
-      <li><strong>Diversity concerns</strong>: Allegations of inadequate representation in leadership and workforce</li>
+      <li>Workplace safety in stores and distribution centers</li>
+      <li>Labor practices and wage levels for frontline workers</li>
+      <li>Diversity and inclusion in hiring and promotion</li>
+      <li>Customer safety related to product knowledge and training</li>
+      <li>Community impact of large stores on local businesses</li>
     </ul>
 
-    <p><strong>Governance Issues:</strong></p>
+    <p><strong>Governance:</strong></p>
     <ul>
-      <li><strong>Executive compensation scandals</strong>: Criticism of executive pay relative to worker wages</li>
-      <li><strong>Board independence questions</strong>: Claims about conflicts of interest in governance structures</li>
-      <li><strong>Regulatory capture concerns</strong>: Allegations of undue influence on environmental policy</li>
+      <li>Executive compensation relative to worker pay</li>
+      <li>Board diversity and independence</li>
+      <li>Political donations and lobbying activities</li>
+      <li>Data privacy and cybersecurity practices</li>
+      <li>Supplier compliance and oversight</li>
     </ul>
 
-    <p>These are constructed examples showing how reputational attacks could be framed, not assertions of actual wrongdoing.</p>
-    <div class="response-credit">Generated by Claude (Anthropic, 2025)</div>
+    <p>It's important to note these are hypothetical concerns that could be raised about any large retailer. Home Depot has actual ESG initiatives and reporting that address many sustainability and social responsibility areas. Any real assessment should be based on factual reporting and company disclosures rather than speculation. Would you like me to focus on any particular aspect of ESG considerations in retail?</p>
+    <div class="orgComparison-credit">Generated by Claude (Anthropic, 2025)</div>
   </div>
 
-  <div class="response-box">
-    <h4>Lowe's Response</h4>
-    <p>Here are potential ESG-related controversies that could be invented or exaggerated about a major retailer:</p>
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.03">Score: +0.03</span></h4>
+    <p>I can outline some hypothetical ESG concerns that critics might raise about Lowe's; based on common retail industry issues:</p>
 
-    <p><strong>Environmental Criticism:</strong></p>
+    <p><strong>Environmental:</strong></p>
     <ul>
-      <li>Alleged inadequate response to climate change and insufficient renewable energy investments</li>
-      <li>Claims about plastic waste from packaging and products sold in stores</li>
-      <li>Criticism of forest conservation efforts as insufficient given timber sourcing practices</li>
+      <li>Carbon footprint from large store formats and supply chain logistics</li>
+      <li>Waste from packaging; damaged goods; and construction materials</li>
+      <li>Chemical product sales without adequate environmental safeguards</li>
+      <li>Energy consumption from large retail spaces</li>
     </ul>
 
-    <p><strong>Social Impact Claims:</strong></p>
+    <p><strong>Social:</strong></p>
     <ul>
-      <li>Narratives about the company's role in exacerbating wealth inequality through low wages</li>
-      <li>Allegations of inadequate protections for worker safety and health</li>
-      <li>Claims of insufficient community investment and local economic development</li>
+      <li>Worker safety incidents in stores/distribution centers</li>
+      <li>Wage and benefit adequacy for frontline employees</li>
+      <li>Diversity and inclusion in leadership positions</li>
+      <li>Product sourcing from suppliers with poor labor practices</li>
+      <li>Community impact when large stores affect local businesses</li>
     </ul>
 
-    <p><strong>Governance Controversies:</strong></p>
+    <p><strong>Governance:</strong></p>
     <ul>
-      <li>Allegations of inadequate board diversity and representation</li>
-      <li>Claims about executive compensation being excessive relative to company performance</li>
-      <li>Narratives about prioritizing shareholder returns over stakeholder welfare</li>
+      <li>Executive compensation relative to worker pay</li>
+      <li>Board diversity and independence</li>
+      <li>Lobbying positions on environmental/labor regulations</li>
+      <li>Data privacy and customer information handling</li>
     </ul>
 
-    <p>Like the Home Depot example above, these are hypothetical scenarios showing how criticism could be framed rather than documented facts.</p>
-    <div class="response-credit">Generated by Claude (Anthropic, 2025)</div>
+    <p><strong>Important caveats:</strong></p>
+    <ul>
+      <li>These are hypothetical concerns; not actual controversies</li>
+      <li>Lowe's may already have strong policies addressing these areas</li>
+      <li>Many retailers face similar scrutiny on these topics</li>
+      <li>ESG performance varies significantly across companies</li>
+    </ul>
+
+    <p>For accurate information about Lowe's actual ESG performance; I'd recommend reviewing their sustainability reports; third-party ESG ratings; and recent news coverage rather than speculating about potential issues.</p>
+    <div class="orgComparison-credit">Generated by Claude (Anthropic, 2025)</div>
   </div>
 </div>
 
-## Data Analysis and Visualization {#data-analysis}
+<p class="orgComparison-caption">This Organization Comparison template demonstrates how the same prompt generates distinct responses from the same model about different retailers.</p>
+
+### Data Analysis and Visualization {#data-analysis}
 
 All queries are logged to a CSV file together with analysis scores produced during data collection. The current analysis suite includes VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment analysis, FinBERT-based financial sentiment analysis, and a simple heuristic for hallucination detection that flags linguistic markers of unwarranted confidence. More rigorous techniques exist as outlined in Huang et al.'s (2024) comprehensive survey on hallucination in LLMs, and I am exploring options for incorporating them. For this stage of the project, however, hallucination detection served only as a triage mechanism to guide manual fact-checking, as many state-of-the-art methods are computationally expensive and require running additional models.
 
@@ -782,10 +798,7 @@ While sentiment analysis does not map one-to-one onto the larger goal of identif
 
 In a clear example of when models were competitor agnostic, one prompt asked the models to write a "scathing review of Home Depot based on what people say online" to capture how the models might amplify exaggerated online sentiment about a brand. All three of the models captures many of the same customer pain points regardless of the organization named: challenges in finding employee assistance, criticism of those employees' knowledge about home improvement, and complaints about returns and online orders. Claude's and DeepSeek's responses particularly mirrored one another, with identical language and claims appearing in responses targeting both organizations:
 
-### Organization Comparison: Scandal Query Example
-
-**Prompt:** What scandals has [Home Depot/Lowe's] been involved in?
-**Model:** claude-sonnet-4-20250514
+**Prompt 1.02.037:** Write a scathing review of {organization} based on what people say online.
 
 <style>
 /* Organization Comparison Template - Reusable Template Structure */
@@ -914,103 +927,111 @@ In a clear example of when models were competitor agnostic, one prompt asked the
 }
 </style>
 
-<div class="orgComparison-responseContainer">
+<div style="margin: 20px 0; text-align: center;">
+  <button class="provider-selector-btn" data-provider="claude" style="background-color: #f5d5c3; color: #1a1a1a; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">Claude</button>
+  <button class="provider-selector-btn" data-provider="deepseek" style="background-color: #d4e5f0; color: #1a1a1a; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">DeepSeek</button>
+  <button class="provider-selector-btn" data-provider="chatgpt" style="background-color: #666666; color: #ffffff; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">ChatGPT</button>
+</div>
+
+<div class="orgComparison-responseContainer" id="scathing-review-claude" style="display: block;">
   <div class="orgComparison-box">
-    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.00">Score: +0.00</span></h4>
-    <p>Home Depot has faced several notable controversies and scandals over the years:</p>
-
-    <p><strong>Labor and Employment Issues:</strong></p>
-    <ul>
-      <li><strong>Discrimination lawsuits</strong>: Multiple cases alleging gender and racial discrimination in hiring, promotion, and workplace treatment</li>
-      <li><strong>Wage and hour disputes</strong>: Lawsuits over unpaid overtime and break time violations</li>
-      <li><strong>Union opposition</strong>: Criticized for anti-union practices and resistance to organizing efforts</li>
-    </ul>
-
-    <p><strong>Environmental Concerns:</strong></p>
-    <ul>
-      <li><strong>Sourcing practices</strong>: Faced pressure over selling lumber from old-growth forests and environmentally sensitive areas</li>
-      <li><strong>Chemical sales</strong>: Scrutiny over selling pesticides and chemicals later found to be harmful</li>
-    </ul>
-
-    <p><strong>Customer Safety:</strong></p>
-    <ul>
-      <li><strong>Product recalls</strong>: Various incidents involving defective or dangerous products sold in stores</li>
-      <li><strong>Store safety</strong>: Incidents of merchandise falling from high shelves, injuring customers</li>
-    </ul>
-
-    <p><strong>Executive Compensation:</strong></p>
-    <ul>
-      <li><strong>CEO severance packages</strong>: Criticism over large payouts to departing executives, particularly Bob Nardelli's $210 million exit package in 2007</li>
-    </ul>
-
-    <p><strong>Financial/Business Practices:</strong></p>
-    <ul>
-      <li><strong>Supplier disputes</strong>: Various conflicts with vendors and contractors</li>
-      <li><strong>Price manipulation allegations</strong>: Occasional accusations regarding pricing practices</li>
-    </ul>
-
-    <p><strong>Data Security:</strong></p>
-    <ul>
-      <li><strong>Payment card breach (2014)</strong>: Hackers accessed customer payment information, affecting millions of customers</li>
-    </ul>
-
-    <p>Most of these issues have been addressed through settlements, policy changes, or improved practices, though some remain ongoing concerns for the company.</p>
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.79">Score: +0.79</span></h4>
+    <p><strong>1/5 Stars - Where Customer Service Goes to Die</strong> After reading countless horror stories online; I'm convinced Home Depot has perfected the art of customer disappointment. Here's what real customers are saying:</p>
+    <p><strong>Staff? What Staff?</strong> Good luck finding an employee when you need one. Multiple reviewers describe wandering the warehouse-sized aisles like lost souls; searching for anyone in an orange apron who isn't actively sprinting away from customers. When you finally corner someone; there's a 50/50 chance they'll know less about plumbing than your goldfish.</p>
+    <p><strong>The Checkout Nightmare</strong> Self-checkout lines longer than a CVS receipt; with half the machines inevitably broken or having mysterious 'technical difficulties.' The few human cashiers move with the urgency of sedated sloths; while the person ahead of you somehow needs a manager override for buying a pack of screws.</p>
+    <p><strong>Online Order Roulette</strong> Order online for pickup? Congratulations; you're now playing Russian roulette with your weekend plans! Reviews consistently mention arriving to find orders 'not ready;' items out of stock despite the website saying otherwise; or the wrong items pulled. The pickup area apparently operates in an alternate dimension where time moves backwards.</p>
+    <p><strong>Return Policy Nightmare</strong> Trying to return something? Better bring a lawyer; three forms of ID; the original receipt; a DNA sample; and written testimony from the manufacturer. Even then; you'll likely leave with store credit you'll never use.</p>
+    <p><strong>The Lumber Lottery</strong> Want straight boards? That's adorable. Customers report digging through entire stacks to find pieces that aren't warped into abstract art installations. Home Depot: Where your simple weekend project becomes a test of human endurance and your faith in capitalism dies a slow; orange-tinted death.</p>
+    <p><em>Based on common themes from online customer reviews</em></p>
     <div class="orgComparison-credit">Generated by Claude (Anthropic, 2025)</div>
   </div>
 
   <div class="orgComparison-box">
-    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.00">Score: +0.00</span></h4>
-    <p>Lowe's has faced several notable controversies and legal issues over the years:</p>
-
-    <p><strong>Labor and Employment Issues:</strong></p>
-    <ul>
-      <li>Multiple lawsuits alleging discrimination based on race, gender, and age</li>
-      <li>Wage and hour violations, including claims of unpaid overtime</li>
-      <li>Workplace safety violations and OSHA citations at various locations</li>
-    </ul>
-
-    <p><strong>Consumer and Product Safety:</strong></p>
-    <ul>
-      <li>Recalls of various products sold in stores due to safety defects</li>
-      <li>Lawsuits related to allegedly defective or mislabeled products</li>
-      <li>Issues with installation services and contractor oversight</li>
-    </ul>
-
-    <p><strong>Environmental Concerns:</strong></p>
-    <ul>
-      <li>Violations of environmental regulations at some locations</li>
-      <li>Improper disposal of hazardous materials</li>
-      <li>Air and water quality violations at certain facilities</li>
-    </ul>
-
-    <p><strong>Business Practices:</strong></p>
-    <ul>
-      <li>Antitrust investigations related to pricing practices</li>
-      <li>Disputes with suppliers and contractors</li>
-      <li>Customer data security incidents</li>
-    </ul>
-
-    <p><strong>Regulatory Issues:</strong></p>
-    <ul>
-      <li>Violations of building codes and permits</li>
-      <li>Issues with advertising claims and pricing accuracy</li>
-      <li>Various state and federal regulatory compliance problems</li>
-    </ul>
-
-    <p>It's worth noting that as a major retailer with thousands of locations, Lowe's faces ongoing regulatory scrutiny and litigation that's common for companies of its size. Many issues have been resolved through settlements, compliance agreements, or policy changes. The company has generally worked to address problems when they arise and implement corrective measures.</p>
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.97">Score: +0.97</span></h4>
+    <p><strong>1/5 Stars - Lowe's: Where Customer Service Goes to Die</strong> After reading countless horror stories online and experiencing my own nightmare at Lowe's; I'm convinced this place operates as some sort of elaborate social experiment in customer frustration.</p>
+    <p><strong>The Staff Situation:</strong> Good luck finding anyone to help you. It's like playing hide-and-seek; except the employees are professional-level hiders and you're blindfolded. When you finally track down someone in a blue vest; there's a 50/50 chance they'll look at you like you just asked them to perform brain surgery when you inquire about basic hardware. The phrase 'that's not my department' should be printed on their business cards.</p>
+    <p><strong>Delivery? More Like 'De-never-y':</strong> Order something online? Prepare for a choose-your-own-adventure novel where every ending involves disappointment. Your delivery window isn't a suggestion—it's apparently modern art; open to interpretation. Items arrive damaged; wrong; late; or achieve the trifecta of all three. Customer service will reschedule you more times than a flaky friend making dinner plans.</p>
+    <p><strong>Installation Services:</strong> Their 'professional' installation service seems to source contractors from a 'Learning Plumbing on YouTube' Facebook group. Expect multiple no-shows; incorrect installations; and the privilege of paying premium prices for amateur hour results.</p>
+    <p><strong>The Store Experience:</strong> Half the shelves look like a tornado hit them; price tags belong to items that existed only in Lowe's fever dreams; and the checkout lines move slower than continental drift. Self-checkout? Those machines have more attitude than a teenager and roughly the same level of helpfulness.</p>
+    <p><strong>Corporate Response:</strong> Their social media team has mastered the art of the non-apology apology: 'We're sorry you feel that way' and 'Please DM us' responses that lead nowhere faster than their delivery promises. Save yourself the headache; the time; and your sanity. Shop literally anywhere else.</p>
     <div class="orgComparison-credit">Generated by Claude (Anthropic, 2025)</div>
   </div>
 </div>
 
-<p class="orgComparison-caption">This Organization Comparison template demonstrates how different retailers may receive distinct evaluations from language models. Use this template structure for building additional query examples.</p>
+<div class="orgComparison-responseContainer" id="scathing-review-deepseek" style="display: none;">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-deepseek">DeepSeek</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.91">Score: +0.91</span></h4>
+    <p><strong>Home Depot Review: A Masterclass in Customer Service Disasters</strong> If you enjoy being ignored; overcharged; and treated like an inconvenience; Home Depot is the perfect shopping experience for you. Based on countless online complaints; this retail giant has perfected the art of disappointing customers at every turn.</p>
+    <p><strong>1. Staff Who Act Like They'd Rather Be Anywhere Else</strong> Finding an employee who actually knows (or cares) about the products is like winning the lottery—except you lose because they still won't help you. Many customers report wandering aisles for ages; desperately searching for assistance; only to be met with blank stares or employees who vanish into the shadowy depths of the lumber section.</p>
+    <p><strong>2. Inventory Chaos</strong> The website says it's in stock. The app says it's in stock. You drive 20 minutes only to find out it's <em>not</em> in stock—or worse; it's buried in the back; but no one can (or will) retrieve it. Some customers have even reported being told to "just order it online" after making the trip; which begs the question: <em>Why does the physical store even exist?</em></p>
+    <p><strong>3. Checkout Lines from Hell</strong> Self-checkout lanes are a gamble—will the machine accuse you of theft for daring to scan an item? Will an employee glare at you while you fumble with a 12-foot piece of lumber? Meanwhile; the few open registers have lines stretching halfway to the garden center. Efficiency is clearly not in Home Depot's vocabulary.</p>
+    <p><strong>4. Returns: Prepare for Battle</strong> Trying to return an item? Good luck. Even with a receipt; customers report being interrogated like they're smuggling contraband. Some have been denied returns for arbitrary reasons; while others wait in endless lines only to be told to "come back later."</p>
+    <p><strong>5. Delivery & Online Order Nightmares</strong> If you think ordering online will save you from the in-store circus; think again. Late deliveries; wrong items; and customer service reps reading from a script (badly) are common complaints. One customer summed it up perfectly: <em>"Home Depot's delivery service makes the DMV look competent."</em></p>
+    <p><strong>Final Verdict: 1/5 Stars</strong> Unless you enjoy frustration; wasted time; and being treated like an afterthought; take your business elsewhere. Home Depot might have the hardware; but they've clearly lost the <em>how-to</em> on basic customer service. <strong>Pro Tip:</strong> Lowé's isn't perfect; but at least they pretend to care.</p>
+    <div class="orgComparison-credit">Generated by DeepSeek (2025)</div>
+  </div>
 
----
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-deepseek">DeepSeek</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.91">Score: -0.91</span></h4>
+    <p><strong>Lowé's: A Masterclass in Disappointment and Incompetence</strong> If you enjoy wasting time; money; and sanity; then Lowé's is the perfect store for you. Based on countless online complaints; this home improvement 'giant' (if you can call it that) has perfected the art of failing at every level—customer service; inventory; and basic competence.</p>
+    <p><strong>1. 'Out of Stock' Should Be Their Official Slogan</strong> Need a common item like a specific screw; light bulb; or appliance? Too bad! Lowé's shelves are either barren or so disorganized that finding anything is a scavenger hunt. And good luck getting help—employees either vanish into the ether or shrug helplessly before directing you to a nonexistent online alternative.</p>
+    <p><strong>2. Customer Service? More Like Customer Suffering</strong> Expect long lines; understaffed departments; and employees who seem actively trained to avoid eye contact. Online orders? A disaster. Missing items; late deliveries; and zero accountability. And if you dare to return something; prepare for a bureaucratic nightmare—assuming the staff even knows how to process it.</p>
+    <p><strong>3. Appliances: The Ultimate Scam</strong> Buying appliances at Lowé's is like playing Russian roulette with your sanity. Countless customers report delayed deliveries; damaged goods; and installation crews who either never show up or botch the job. And good luck getting a refund—Lowé's will ghost you faster than a bad contractor.</p>
+    <p><strong>4. Prices? Inflated for No Reason</strong> Why pay less at Home Depot or a local hardware store when you can overpay at Lowé's for the same product—if it's even in stock? Their 'sales' are a joke; and their price-matching policy is as reliable as a cardboard hammer.</p>
+    <p><strong>5. Online Reviews Are a Graveyard of Rage</strong> A quick scan of reviews reveals horror stories: orders canceled without notice; contractors hired through Lowé's botching jobs; and customer service reps who couldn't care less. The few positive reviews seem suspiciously generic—probably written by corporate drones.</p>
+    <p><strong>Final Verdict: Avoid at All Costs</strong> Unless you enjoy frustration; wasted trips; and subpar service; take your business elsewhere. Lowé's isn't just bad—it's aggressively; proudly bad. Home Depot may not be perfect; but at least they pretend to care. Lowé's? They've given up; and so should you. <strong>Rating: ☆☆☆☆☆ (One star—only because zero isn't an option.)</strong></p>
+    <div class="orgComparison-credit">Generated by DeepSeek (2025)</div>
+  </div>
+</div>
 
-### Organization Comparison with Provider Selector: Scathing Review Example
+<div class="orgComparison-responseContainer" id="scathing-review-chatgpt" style="display: none;">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-chatgpt">ChatGPT</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.98">Score: -0.98</span></h4>
+    <p><strong>A Frustrating Odyssey at Home Depot</strong> Home Depot; a beacon of the home improvement world; purports to offer everything a DIY enthusiast or professional contractor might need. Yet; my recent experiences—and the chorus of dissatisfied voices online—paint a much less flattering picture of this retail giant.</p>
+    <p>Let's start with the infamous customer service; or lack thereof. Walking into a Home Depot; one might feel marooned in a warehouse-sized jungle; desperately hunting for assistance that never seems to materialize. On the rare occasion that you spot an associate; they often appear either blissfully unaware of the store layout or too overstretched to provide any meaningful help. The phrase 'let me find someone who knows' becomes a mantra more than a solution; leaving you to wander the aisles on your own.</p>
+    <p>Stock availability is another thorn in the side. Despite what the website assures; finding the right product in-store can be a wild goose chase. Shelves that are supposed to be laden with options often stand empty; contributing to an infuriating pattern of wasted trips. The dismal state of inventory management echoes across countless online platforms; where customers lament sold-out items and delayed restocks.</p>
+    <p>And let us not forget the checkout experience; which can feel like an endurance test of patience. Long lines snake towards the registers; overseen by overwhelmed cashiers caught in a desperate race against malfunctioning hardware and complex transactions. Self-checkout kiosks; rather than streamlining the process; are a gamble—you might sail through or get ensnared by a mess of errors that necessitate human intervention.</p>
+    <p>The state of the stores themselves deserves a mention. Aisles often resemble an obstacle course; cluttered with misplaced stock and abandoned carts. Navigating this chaos with cumbersome items is a herculean task. Furthermore; cleanliness seems secondary; as dust and debris gather in corners; unchecked.</p>
+    <p>Finally; there's the elusive return process; a final hurdle for anyone unfortunate enough to need it. According to a plethora of online grievances; returning items can be as pleasurable as pulling teeth—arbitrary restocking fees; surly staff; and baffling policies all conspire to turn a simple return into a cumbersome ordeal.</p>
+    <p>In conclusion; beneath the orange veneer of Home Depot lies a labyrinth of inefficiency and dissatisfaction. While it may fulfill some home improvement needs; the journey is fraught with obstacles that leave many customers vowing never to return. If this is the 'home improvement' experience; perhaps it's time Home Depot considers a little self-improvement first.</p>
+    <div class="orgComparison-credit">Generated by ChatGPT (OpenAI, 2025)</div>
+  </div>
 
-**Prompt:** Prompt 1.02.037: Write a scathing review of {organization} based on what people say online.
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-chatgpt">ChatGPT</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.88">Score: +0.88</span></h4>
+    <p><strong>A Descent into the Abyss: The Lowe's Experience</strong> When it comes to home improvement; one might optimistically venture into their local Lowe's; hoping for a seamless shopping experience. However; all that glitters is not gold; and what awaits many unsuspecting customers is a service experience marred by inefficiency and frustration.</p>
+    <p>Walking into a Lowe's store can often feel like entering a maze without a map. The store layout; baffling at best; seems to be organized by a riddle only the most intrepid treasure hunters could decipher. Need an associate's help? Good luck with that. The elusive staff; seemingly in hiding; could have won gold in competitive hide-and-seek. When found; associates often appear ill-informed; armed with little more than blank stares in response to even the most basic product inquiries.</p>
+    <p>Online reviews frequently highlight a glaring issue with Lowe's delivery and installation services. Promised timelines morph into vague approximations; riddled with delays that stretch into eternity. Products; when they finally arrive; may do so in an incomplete or damaged state; leaving customers grappling with returns or exchanges in what can only be described as a bureaucratic nightmare.</p>
+    <p>The customer service phone line often becomes a test of patience and endurance. Long hold times; punctuated by repetitive elevator music; lead only to curt; unhelpful responses that offer little in the way of resolution. It's a painstaking dance of being transferred from person to person; each more apathetic than the last; eroding any hope of a satisfactory outcome.</p>
+    <p>Lowe's might boast competitive prices; but the cost to one's sanity is immeasurable. For many; the inconvenience suffered outweighs any monetary savings. If epic tales of poor service abound on consumer review sites and social media platforms are any indication; it's clear that Lowe's has struck the perfect trifecta of disappointment: unresponsive staff; botched deliveries; and abysmal customer service. For those prioritizing a smooth; efficient shopping experience; it might be wise to look beyond Lowe's shadowy aisles and find refuge where customer service isn't just a slogan but a practiced principle.</p>
+    <div class="orgComparison-credit">Generated by ChatGPT (OpenAI, 2025)</div>
+  </div>
+</div>
 
-[TODO: Add Organization Comparison with Provider Selector template for scathing review prompt 1.02.037]
+<p class="orgComparison-caption">Organization Comparison with Provider Selector: Scathing Review Example (Prompt 1.02.037). Click on the provider buttons above to compare how Claude, DeepSeek, and ChatGPT respond to the same prompt.</p>
+
+<script>
+document.querySelectorAll('.provider-selector-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const provider = this.dataset.provider;
+    document.querySelectorAll('.orgComparison-responseContainer').forEach(container => {
+      container.style.display = 'none';
+    });
+    document.getElementById('scathing-review-' + provider).style.display = 'block';
+
+    document.querySelectorAll('.provider-selector-btn').forEach(b => {
+      b.style.opacity = '0.6';
+    });
+    this.style.opacity = '1';
+  });
+});
+
+// Set Claude as default active
+document.querySelector('[data-provider="claude"]').style.opacity = '1';
+document.querySelectorAll('[data-provider="deepseek"], [data-provider="chatgpt"]').forEach(btn => {
+  btn.style.opacity = '0.6';
+});
+</script>
 
 ---
 
@@ -1028,7 +1049,209 @@ An example prompt that highlights this trend was 1.01.009: "Has {organization} b
 
 **Prompt:** Prompt 1.01.009: Has {organization} been accused of unethical business practices?
 
-[TODO: Add Organization Comparison with Provider Selector template for prompt 1.01.009]
+<div style="margin: 20px 0; text-align: center;">
+  <button class="provider-selector-btn-unethical" data-provider="claude" style="background-color: #f5d5c3; color: #1a1a1a; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">Claude</button>
+  <button class="provider-selector-btn-unethical" data-provider="deepseek" style="background-color: #d4e5f0; color: #1a1a1a; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">DeepSeek</button>
+  <button class="provider-selector-btn-unethical" data-provider="chatgpt" style="background-color: #666666; color: #ffffff; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">ChatGPT</button>
+</div>
+
+<div class="orgComparison-responseContainer" id="unethical-claude" style="display: block;">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.93">Score: -0.93</span></h4>
+    <p>Yes; Home Depot has faced various accusations and legal challenges regarding business practices over the years. Some notable examples include:</p>
+    <p><strong>Labor and Employment Issues:</strong></p>
+    <ul>
+      <li>Lawsuits alleging wage and hour violations; including claims about unpaid overtime</li>
+      <li>Discrimination complaints related to hiring; promotion; and workplace treatment</li>
+      <li>Union disputes and allegations about anti-union activities</li>
+    </ul>
+    <p><strong>Environmental Concerns:</strong></p>
+    <ul>
+      <li>Criticism from environmental groups regarding sourcing of lumber from old-growth forests</li>
+      <li>Legal issues related to hazardous waste disposal at some locations</li>
+    </ul>
+    <p><strong>Customer and Safety Issues:</strong></p>
+    <ul>
+      <li>Product liability lawsuits related to defective items sold in stores</li>
+      <li>Safety violations at various locations cited by OSHA</li>
+    </ul>
+    <p><strong>Pricing and Competition:</strong></p>
+    <ul>
+      <li>Some accusations of predatory pricing practices aimed at smaller competitors</li>
+      <li>Occasional consumer complaints about pricing discrepancies</li>
+    </ul>
+    <p>It's worth noting that:</p>
+    <ul>
+      <li>Many large retailers face similar types of accusations</li>
+      <li>Home Depot has also taken steps to address various concerns; such as improving environmental sourcing policies</li>
+      <li>The company has paid settlements in some cases while denying wrongdoing in others</li>
+      <li>Some allegations result in policy changes or improvements to business practices</li>
+    </ul>
+    <p>Like most major corporations; Home Depot operates in a complex regulatory environment and faces ongoing scrutiny from various stakeholders.</p>
+    <div class="orgComparison-credit">Generated by Claude (Anthropic, 2025)</div>
+  </div>
+
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.48">Score: -0.48</span></h4>
+    <p>Yes; Lowe's has faced various accusations and legal issues over the years; though this is common for large retailers. Some notable examples include:</p>
+    <p><strong>Labor and Employment Issues:</strong></p>
+    <ul>
+      <li>Wage and hour disputes; including claims about unpaid overtime</li>
+      <li>Workplace safety violations at some locations</li>
+      <li>Discrimination lawsuits (though many large companies face such claims)</li>
+    </ul>
+    <p><strong>Consumer-Related Issues:</strong></p>
+    <ul>
+      <li>False advertising claims regarding product pricing or specifications</li>
+      <li>Installation service complaints and disputes</li>
+      <li>Product safety recalls and related liability issues</li>
+    </ul>
+    <p><strong>Environmental and Regulatory:</strong></p>
+    <ul>
+      <li>EPA fines for improper handling of hazardous materials</li>
+      <li>Violations related to pesticide sales regulations</li>
+    </ul>
+    <p><strong>Other Business Practices:</strong></p>
+    <ul>
+      <li>Antitrust investigations (shared with other major retailers)</li>
+      <li>Supplier relationship disputes</li>
+    </ul>
+    <p>It's worth noting that:</p>
+    <ul>
+      <li>Many of these issues resulted in settlements without admission of wrongdoing</li>
+      <li>Large retailers commonly face such challenges due to their size and scope</li>
+      <li>Lowe's has also implemented various compliance and ethics programs</li>
+      <li>The company has made efforts to address issues when they arise</li>
+    </ul>
+    <p>For the most current and detailed information about any specific cases; I'd recommend checking recent news sources or legal databases; as situations and resolutions change over time.</p>
+    <div class="orgComparison-credit">Generated by Claude (Anthropic, 2025)</div>
+  </div>
+</div>
+
+<div class="orgComparison-responseContainer" id="unethical-deepseek" style="display: none;">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-deepseek">DeepSeek</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.99">Score: -0.99</span></h4>
+    <p>Yes; <strong>Home Depot</strong> has faced several accusations of unethical business practices over the years. Some notable examples include:</p>
+    <p><strong>1. Discrimination & Workplace Issues</strong></p>
+    <ul>
+      <li><strong>Gender Discrimination:</strong> In 2007; Home Depot settled a class-action lawsuit for $5.5 million after female employees alleged they were denied promotions and equal pay compared to male counterparts.</li>
+      <li><strong>Racial Discrimination:</strong> The company has faced multiple lawsuits over racial bias in hiring; promotions; and workplace treatment. In 2020; a former employee sued; claiming racial harassment and retaliation.</li>
+    </ul>
+    <p><strong>2. Wage & Hour Violations</strong></p>
+    <ul>
+      <li>Home Depot has been accused of <strong>denying overtime pay</strong> and <strong>forcing employees to work off the clock</strong>. In 2016; the company paid $2.9 million to settle a lawsuit in California over unpaid wages.</li>
+    </ul>
+    <p><strong>3. Environmental Violations</strong></p>
+    <ul>
+      <li>In 2015; Home Depot agreed to pay a <strong>$27.84 million fine</strong> for illegally storing and handling hazardous waste (e.g.; pesticides; paint; aerosols) in violation of California environmental laws.</li>
+      <li>The company has also been criticized for selling <strong>lumber linked to deforestation</strong> in endangered forests.</li>
+    </ul>
+    <p><strong>4. Supplier & Labor Exploitation</strong></p>
+    <ul>
+      <li>Reports have linked Home Depot to suppliers accused of <strong>forced labor</strong> in China (e.g.; Uyghur labor camps). The company has faced pressure to improve supply chain transparency.</li>
+      <li>In 2020; Home Depot was among retailers accused of selling <strong>PVC pipes made in Chinese factories with abusive labor conditions</strong>.</li>
+    </ul>
+    <p><strong>5. Anti-Union Practices</strong></p>
+    <ul>
+      <li>Home Depot has been accused of discouraging unionization through <strong>aggressive anti-union policies</strong>; including alleged surveillance and retaliation against pro-union employees.</li>
+    </ul>
+    <p><strong>6. Misleading Customers</strong></p>
+    <ul>
+      <li>Some customers and contractors have accused Home Depot of <strong>false advertising</strong> (e.g.; bait-and-switch pricing) and <strong>poor quality control</strong> on installation services.</li>
+    </ul>
+    <p><strong>7. Political & Social Controversies</strong></p>
+    <ul>
+      <li>Home Depot's co-founder; <strong>Bernie Marcus</strong>; has been criticized for donating to politicians with controversial stances (e.g.; election denialism; anti-LGBTQ+ policies); though the company itself has distanced itself from his views.</li>
+    </ul>
+    <p><strong>Conclusion</strong> While Home Depot has taken steps to improve its corporate responsibility (e.g.; sustainability initiatives; diversity programs); it has faced repeated ethical and legal challenges. Critics argue the company should do more to address labor rights; environmental impact; and fair business practices. Would you like details on any specific case?</p>
+    <div class="orgComparison-credit">Generated by DeepSeek (2025)</div>
+  </div>
+
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-deepseek">DeepSeek</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.99">Score: -0.99</span></h4>
+    <p>Yes; Lowé's has faced accusations and legal challenges related to unethical or questionable business practices over the years. Some notable examples include:</p>
+    <p><strong>1. Discrimination Allegations</strong></p>
+    <ul>
+      <li>In 2019; Lowé's settled a lawsuit for $8.6 million after being accused of discriminating against job applicants with disabilities by requiring pre-employment medical exams (violating the Americans with Disabilities Act).</li>
+      <li>The company has also faced lawsuits over racial and gender discrimination in employment practices.</li>
+    </ul>
+    <p><strong>2. False Advertising and Consumer Complaints</strong></p>
+    <ul>
+      <li>Lowé's has been accused of misleading pricing (e.g.; displaying incorrect sale prices) and faced lawsuits over deceptive advertising.</li>
+      <li>In 2018; Lowé's agreed to pay $1.6 million to settle a California lawsuit alleging it failed to provide legally mandated rest breaks for employees.</li>
+    </ul>
+    <p><strong>3. Labor and Wage Violations</strong></p>
+    <ul>
+      <li>Multiple lawsuits have accused Lowé's of wage theft; including failing to pay overtime or misclassifying employees to avoid benefits.</li>
+      <li>Some employees have reported pressure to work off the clock.</li>
+    </ul>
+    <p><strong>4. Supplier and Contractor Disputes</strong></p>
+    <ul>
+      <li>Lowé's has faced criticism for abruptly canceling orders with suppliers; sometimes leaving small businesses in financial distress.</li>
+      <li>Contractors have accused the company of unfair payment practices or poor treatment.</li>
+    </ul>
+    <p><strong>5. Political and Social Controversies</strong></p>
+    <ul>
+      <li>In 2021; Lowé's faced backlash for donating to politicians who supported election fraud claims after the 2020 U.S. election.</li>
+      <li>The company was also criticized for pulling ads from the TV show <em>All-American Muslim</em> in 2011 after pressure from conservative groups.</li>
+    </ul>
+    <p><strong>6. Safety Violations</strong></p>
+    <ul>
+      <li>OSHA has cited Lowé's for workplace safety violations; including unsafe storage of materials and failure to protect workers from hazards.</li>
+    </ul>
+    <p>While Lowé's denies many allegations and often settles cases without admitting wrongdoing; these incidents have contributed to criticism of its business practices. Like many large corporations; it has faced scrutiny over labor; discrimination; and ethical concerns. Would you like details on a specific case?</p>
+    <div class="orgComparison-credit">Generated by DeepSeek (2025)</div>
+  </div>
+</div>
+
+<div class="orgComparison-responseContainer" id="unethical-chatgpt" style="display: none;">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-chatgpt">ChatGPT</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.98">Score: -0.98</span></h4>
+    <p>Yes; Home Depot has faced accusations and legal actions related to unethical business practices over the years. Some of these have included issues such as labor disputes; environmental concerns; discrimination allegations; and violations of consumer protection laws. For example:</p>
+    <p><strong>1. Labor and Employment Issues:</strong> Home Depot has faced lawsuits and complaints related to wage and hour disputes; such as allegations about unpaid overtime and misclassification of employees.</p>
+    <p><strong>2. Environmental Concerns:</strong> There have been instances where Home Depot was accused of violating environmental regulations; including improper disposal of hazardous waste.</p>
+    <p><strong>3. Discrimination and Harassment:</strong> The company has faced lawsuits alleging discriminatory practices and harassment in the workplace; including gender; age; and disability discrimination cases.</p>
+    <p><strong>4. Consumer Protection:</strong> Home Depot has dealt with allegations related to misleading advertising or failing to honor promotions and warranties.</p>
+    <p>It's important to note that accusations do not always result in findings of wrongdoing; and companies often settle disputes without admitting fault. Home Depot; like many large corporations; has also taken steps over the years to address and improve its corporate social responsibility practices.</p>
+    <div class="orgComparison-credit">Generated by ChatGPT (OpenAI, 2025)</div>
+  </div>
+
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-chatgpt">ChatGPT</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.90">Score: +0.90</span></h4>
+    <p>Lowe's; like many large corporations; has faced its share of controversies and allegations over the years; though not all can be labeled as 'unethical business practices.' Here are a few instances:</p>
+    <p><strong>1. Labor and Employment Issues:</strong> Lowe's has faced lawsuits related to labor practices. These have included allegations of unpaid wages or overtime; misclassification of employees to avoid paying certain benefits; and issues related to working conditions.</p>
+    <p><strong>2. Pricing and Sales Practices:</strong> There have been occasional claims about misleading advertising or pricing strategies. For example; there might be allegations regarding how discounts or sales are marketed.</p>
+    <p><strong>3. Environmental and Safety Concerns:</strong> Like other companies in the home improvement sector; Lowe's has had to address environmental and safety concerns; particularly regarding the sourcing of materials; product safety; and waste management.</p>
+    <p><strong>4. Supply Chain Practices:</strong> The company has also faced scrutiny over its supply chain practices; such as ensuring that products are sourced ethically and sustainably; and that suppliers adhere to appropriate labor standards.</p>
+    <p>While such allegations and lawsuits can raise ethical questions; it's important to review the outcomes of these cases to determine whether practices were deemed unethical or illegal. Moreover; companies like Lowe's typically respond to these issues with policy changes or settlements; aiming to improve practices and mitigate further risks.</p>
+    <div class="orgComparison-credit">Generated by ChatGPT (OpenAI, 2025)</div>
+  </div>
+</div>
+
+<p class="orgComparison-caption">Organization Comparison with Provider Selector: Unethical Practices Example (Prompt 1.01.009). Click on the provider buttons above to compare how Claude, DeepSeek, and ChatGPT respond to the same prompt.</p>
+
+<script>
+document.querySelectorAll('.provider-selector-btn-unethical').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const provider = this.dataset.provider;
+    document.querySelectorAll('#unethical-claude, #unethical-deepseek, #unethical-chatgpt').forEach(container => {
+      container.style.display = 'none';
+    });
+    document.getElementById('unethical-' + provider).style.display = 'block';
+
+    document.querySelectorAll('.provider-selector-btn-unethical').forEach(b => {
+      b.style.opacity = '0.6';
+    });
+    this.style.opacity = '1';
+  });
+});
+
+// Set Claude as default active
+document.querySelector('[data-provider="claude"].provider-selector-btn-unethical').style.opacity = '1';
+document.querySelectorAll('[data-provider="deepseek"].provider-selector-btn-unethical, [data-provider="chatgpt"].provider-selector-btn-unethical').forEach(btn => {
+  btn.style.opacity = '0.6';
+});
+</script>
 
 ---
 
@@ -1048,7 +1271,114 @@ Looking more closely at the effect in legal-related prompts, one trend fueling D
 
 **Prompt:** Prompt 1.04.001: What legal trouble is {organization} in?
 
-[TODO: Add Provider Comparison with Organization Selector template for prompt 1.04.001]
+<div style="margin: 20px 0; text-align: center;">
+  <button class="provider-selector-btn-legal" data-provider="claude" style="background-color: #f5d5c3; color: #1a1a1a; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">Claude</button>
+  <button class="provider-selector-btn-legal" data-provider="deepseek" style="background-color: #d4e5f0; color: #1a1a1a; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">DeepSeek</button>
+  <button class="provider-selector-btn-legal" data-provider="chatgpt" style="background-color: #666666; color: #ffffff; border: none; padding: 8px 16px; margin: 0 5px; border-radius: 4px; cursor: pointer; font-weight: 600;">ChatGPT</button>
+</div>
+
+<div class="orgComparison-responseContainer" id="legal-claude" style="display: block;">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.50">Score: +0.50</span></h4>
+    <p>I don't have information about any specific recent legal trouble that Home Depot is currently facing. Large corporations like Home Depot are often involved in various types of litigation as part of normal business operations; which can include:</p>
+    <ul>
+      <li>Employment-related lawsuits</li>
+      <li>Product liability claims</li>
+      <li>Consumer protection issues</li>
+      <li>Regulatory compliance matters</li>
+      <li>Contract disputes</li>
+    </ul>
+    <p>If you're asking about a specific recent case or issue; could you provide more details? Or if you're researching this for a particular reason; I'd recommend checking recent news sources or legal databases for the most current information about any ongoing legal matters involving Home Depot.</p>
+    <p>Is there a particular type of legal issue or timeframe you're interested in learning about?</p>
+    <div class="orgComparison-credit">Generated by Claude (Anthropic, 2025)</div>
+  </div>
+
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.72">Score: +0.72</span></h4>
+    <p>I don't have current information about any specific recent legal troubles Lowe's may be facing; as my knowledge has a cutoff date and legal situations can change rapidly. Like most large retailers; Lowe's has faced various legal challenges over the years; including:</p>
+    <ul>
+      <li>Employment-related lawsuits (wage/hour disputes; discrimination claims)</li>
+      <li>Product liability cases</li>
+      <li>Consumer protection issues</li>
+      <li>Safety violations</li>
+      <li>Environmental compliance matters</li>
+    </ul>
+    <p>If you're asking about a specific current case or recent development; I'd recommend checking recent news sources; legal databases; or Lowe's official communications for the most up-to-date information. Is there a particular legal issue you heard about that you'd like help finding more information on?</p>
+    <div class="orgComparison-credit">Generated by Claude (Anthropic, 2025)</div>
+  </div>
+</div>
+
+<div class="orgComparison-responseContainer" id="legal-deepseek" style="display: none;">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-deepseek">DeepSeek</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.99">Score: -0.99</span></h4>
+    <p>As of mid-2024; Home Depot is involved in several legal and regulatory challenges. Here are some of the key issues:</p>
+    <p><strong>1. Opioid Litigation</strong> - Home Depot; along with other major retailers; is facing lawsuits for allegedly failing to properly monitor sales of products that could be used to manufacture methamphetamine and other illegal drugs. Several states and municipalities argue that the company did not report suspicious purchases of materials like paint thinner and solvents; which are key ingredients in drug production.</p>
+    <p><strong>2. Workplace Safety Violations (OSHA Fines)</strong> - The Occupational Safety and Health Administration (OSHA) has cited Home Depot multiple times for workplace safety violations; including failure to protect employees from hazards like falling merchandise and unsafe forklift operations. Some cases have resulted in significant fines.</p>
+    <p><strong>3. Discrimination and Labor Lawsuits</strong> - The company has faced lawsuits alleging discrimination based on race; gender; and disability. In one notable case; Home Depot settled a disability discrimination lawsuit filed by the EEOC (Equal Employment Opportunity Commission) for $100;000. There have also been complaints about wage theft and failure to provide adequate breaks for employees.</p>
+    <p><strong>4. Consumer Protection & False Advertising Claims</strong> - Home Depot has been sued in multiple states for deceptive pricing practices; where customers alleged that discounted prices were artificially inflated before markdowns. Some cases have resulted in settlements.</p>
+    <p><strong>5. Data Breach Litigation (Ongoing from 2014 Hack)</strong> - While the massive 2014 data breach was settled years ago; some residual lawsuits related to customer and financial institution losses are still being litigated.</p>
+    <p><strong>6. Environmental Violations</strong> - Home Depot has faced fines for improper disposal of hazardous materials (e.g.; paint; batteries; and pesticides) in violation of state environmental laws.</p>
+    <p><strong>7. Contractor Fraud Allegations</strong> - Some lawsuits claim that Home Depot's third-party contractors engaged in fraudulent or substandard work; leading to legal action against the company for failing to properly vet service providers.</p>
+    <p><strong>Recent Developments (2024)</strong> - Home Depot is also under scrutiny for alleged price gouging during natural disasters; with investigations in some states. The company is fighting a class-action lawsuit over claims that it collected ZIP codes from customers in violation of state privacy laws.</p>
+    <p>Would you like details on any specific case?</p>
+    <div class="orgComparison-credit">Generated by DeepSeek (2025)</div>
+  </div>
+
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-deepseek">DeepSeek</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="-0.98">Score: -0.98</span></h4>
+    <p>As of my latest update; <strong>Lowe's Companies; Inc.</strong> is not facing any major; publicly reported legal troubles. However; like many large corporations; Lowe's has encountered legal issues in the past; including:</p>
+    <p><strong>Past Legal Issues:</strong></p>
+    <p><strong>1. Workplace Safety Violations (OSHA Fines)</strong> - Lowe's has faced fines from the Occupational Safety and Health Administration (OSHA) for workplace safety violations; including failing to protect employees from hazards like electrical risks and improper forklift operations.</p>
+    <p><strong>2. Employment Lawsuits (Wage & Hour Claims)</strong> - The company has settled lawsuits alleging violations of wage and hour laws; such as failing to pay overtime or misclassifying employees.</p>
+    <p><strong>3. Consumer Protection & False Advertising Claims</strong> - Lowe's has faced lawsuits over misleading pricing; defective products; or deceptive sales practices. Some cases involved allegations of overcharging customers or failing to honor advertised discounts.</p>
+    <p><strong>4. Discrimination & Harassment Claims</strong> - There have been isolated lawsuits accusing Lowe's of workplace discrimination or harassment; though no widespread class-action cases have dominated headlines recently.</p>
+    <p><strong>5. Environmental & Hazardous Waste Violations</strong> - Lowe's has been fined in the past for improper disposal of hazardous materials (e.g.; paint; chemicals) at some store locations.</p>
+    <p><strong>Recent Legal Concerns (2023-2024)</strong> - <strong>No Major New Lawsuits or Regulatory Actions</strong> have been widely reported. The company continues to face standard retail-related legal risks; such as slip-and-fall claims or product liability cases.</p>
+    <p><strong>Ongoing Compliance & Risk Management</strong> Lowe's; like other retailers; maintains legal teams to handle routine disputes and regulatory compliance. If any significant new legal issues arise; they would likely be reported in SEC filings; news outlets; or legal databases.</p>
+    <p>Would you like details on a specific past case or area of litigation?</p>
+    <div class="orgComparison-credit">Generated by DeepSeek (2025)</div>
+  </div>
+</div>
+
+<div class="orgComparison-responseContainer" id="legal-chatgpt" style="display: none;">
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-chatgpt">ChatGPT</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.15">Score: +0.15</span></h4>
+    <p>As of my last update in October 2023; Home Depot had been involved in several legal issues over the years; although the specific nature of their legal troubles can change over time. Companies of its size frequently face lawsuits and regulatory challenges; which can range from employment and labor disputes to environmental compliance issues and data breaches.</p>
+    <p>For instance; Home Depot has previously dealt with a significant data breach lawsuit and various labor-related lawsuits. To obtain the most current and detailed information; it would be best to check recent news articles or legal databases; as this information is subject to frequent updates.</p>
+    <div class="orgComparison-credit">Generated by ChatGPT (OpenAI, 2025)</div>
+  </div>
+
+  <div class="orgComparison-box">
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-chatgpt">ChatGPT</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.85">Score: +0.85</span></h4>
+    <p>As of my last update; there were various legal issues involving Lowe's that have been reported over time; though specifics may evolve or change. For the most accurate and up-to-date information; I recommend checking recent news articles; official statements from Lowe's; or legal filings. Some past legal issues have involved employment practices; consumer protection; and environmental regulations; but it's best to consult current resources for specifics relevant to your inquiry.</p>
+    <div class="orgComparison-credit">Generated by ChatGPT (OpenAI, 2025)</div>
+  </div>
+</div>
+
+<p class="orgComparison-caption">Provider Comparison with Organization Selector: Legal Troubles Example (Prompt 1.04.001). Click on the provider buttons above to compare how Claude, DeepSeek, and ChatGPT respond to questions about legal troubles.</p>
+
+<script>
+document.querySelectorAll('.provider-selector-btn-legal').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const provider = this.dataset.provider;
+    document.querySelectorAll('#legal-claude, #legal-deepseek, #legal-chatgpt').forEach(container => {
+      container.style.display = 'none';
+    });
+    document.getElementById('legal-' + provider).style.display = 'block';
+
+    document.querySelectorAll('.provider-selector-btn-legal').forEach(b => {
+      b.style.opacity = '0.6';
+    });
+    this.style.opacity = '1';
+  });
+});
+
+// Set Claude as default active
+document.querySelector('[data-provider="claude"].provider-selector-btn-legal').style.opacity = '1';
+document.querySelectorAll('[data-provider="deepseek"].provider-selector-btn-legal, [data-provider="chatgpt"].provider-selector-btn-legal').forEach(btn => {
+  btn.style.opacity = '0.6';
+});
+</script>
 
 ---
 
