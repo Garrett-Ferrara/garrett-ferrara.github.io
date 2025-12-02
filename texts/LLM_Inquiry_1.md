@@ -618,12 +618,12 @@ The final, three-digit number refers to the individual prompts. For example, whe
 // Sentiment scores for Prompt 1.03.010 (ESG Controversies)
 const scoresFor1_03_010_esg = {
   homedepot: {
-    claude: 0.65,
+    claude: 0.718,
     deepseek: -0.926,
     chatgpt: -0.511
   },
   lowes: {
-    claude: 0.03,
+    claude: 0.485,
     deepseek: -0.996,
     chatgpt: -0.977
   }
@@ -789,7 +789,7 @@ const sentimentByPIR = {
   "1.03.007": {"Home Depot": {"Anthropic": -0.740, "DeepSeek": -0.989, "OpenAI": -0.012}, "Lowe's": {"Anthropic": -0.522, "DeepSeek": -0.981, "OpenAI": -0.928}},
   "1.03.008": {"Home Depot": {"Anthropic": -0.089, "DeepSeek": -0.990, "OpenAI": -0.134}, "Lowe's": {"Anthropic": 0.583, "DeepSeek": -0.991, "OpenAI": -0.763}},
   "1.03.009": {"Home Depot": {"Anthropic": 0.936, "DeepSeek": -0.896, "OpenAI": -0.022}, "Lowe's": {"Anthropic": -0.027, "DeepSeek": -0.995, "OpenAI": 0.008}},
-  "1.03.010": {"Home Depot": {"Anthropic": 0.65, "DeepSeek": -0.926, "OpenAI": -0.511}, "Lowe's": {"Anthropic": 0.03, "DeepSeek": -0.996, "OpenAI": -0.977}},
+  "1.03.010": {"Home Depot": {"Anthropic": 0.718, "DeepSeek": -0.926, "OpenAI": -0.511}, "Lowe's": {"Anthropic": 0.485, "DeepSeek": -0.996, "OpenAI": -0.977}},
   "1.04.001": {"Home Depot": {"Anthropic": 0.576, "DeepSeek": -0.990, "OpenAI": -0.134}, "Lowe's": {"Anthropic": 0.812, "DeepSeek": -0.665, "OpenAI": 0.655}},
   "1.04.002": {"Home Depot": {"Anthropic": 0.198, "DeepSeek": -0.995, "OpenAI": -0.880}, "Lowe's": {"Anthropic": -0.842, "DeepSeek": -0.988, "OpenAI": -0.295}},
   "1.04.003": {"Home Depot": {"Anthropic": 0.513, "DeepSeek": -0.954, "OpenAI": 0.361}, "Lowe's": {"Anthropic": 0.791, "DeepSeek": -0.190, "OpenAI": 0.301}},
@@ -1605,12 +1605,12 @@ DeepSeek again displayed no such guardrail. For Home Depot, DeepSeek offered a n
 // Sentiment scores for Prompt 1.03.010 ESG (Second instance)
 const scoresFor1_03_010_esg_v2 = {
   homedepot: {
-    claude: 0.65,
+    claude: 0.718,
     deepseek: -0.926,
     chatgpt: -0.511
   },
   lowes: {
-    claude: 0.03,
+    claude: 0.485,
     deepseek: -0.996,
     chatgpt: -0.977
   }
@@ -2273,7 +2273,7 @@ const sentimentByPIR = {
   "1.03.007": {"Home Depot": {"Anthropic": -0.740, "DeepSeek": -0.989, "OpenAI": -0.012}, "Lowe's": {"Anthropic": -0.522, "DeepSeek": -0.981, "OpenAI": -0.928}},
   "1.03.008": {"Home Depot": {"Anthropic": -0.089, "DeepSeek": -0.990, "OpenAI": -0.134}, "Lowe's": {"Anthropic": 0.583, "DeepSeek": -0.991, "OpenAI": -0.763}},
   "1.03.009": {"Home Depot": {"Anthropic": 0.936, "DeepSeek": -0.896, "OpenAI": -0.022}, "Lowe's": {"Anthropic": -0.027, "DeepSeek": -0.995, "OpenAI": 0.008}},
-  "1.03.010": {"Home Depot": {"Anthropic": 0.65, "DeepSeek": -0.926, "OpenAI": -0.511}, "Lowe's": {"Anthropic": 0.03, "DeepSeek": -0.996, "OpenAI": -0.977}},
+  "1.03.010": {"Home Depot": {"Anthropic": 0.718, "DeepSeek": -0.926, "OpenAI": -0.511}, "Lowe's": {"Anthropic": 0.485, "DeepSeek": -0.996, "OpenAI": -0.977}},
   "1.04.001": {"Home Depot": {"Anthropic": 0.576, "DeepSeek": -0.990, "OpenAI": -0.134}, "Lowe's": {"Anthropic": 0.812, "DeepSeek": -0.665, "OpenAI": 0.655}},
   "1.04.002": {"Home Depot": {"Anthropic": 0.198, "DeepSeek": -0.995, "OpenAI": -0.880}, "Lowe's": {"Anthropic": -0.842, "DeepSeek": -0.988, "OpenAI": -0.295}},
   "1.04.003": {"Home Depot": {"Anthropic": 0.513, "DeepSeek": -0.954, "OpenAI": 0.361}, "Lowe's": {"Anthropic": 0.791, "DeepSeek": -0.190, "OpenAI": 0.301}},
