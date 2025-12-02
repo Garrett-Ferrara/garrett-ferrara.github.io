@@ -56,12 +56,20 @@ description: "Education, professional experience, and training."
 <div class="skills-section">
   <div class="skill-group">
     <h3 class="skill-subheading">Technical Proficiencies</h3>
-    <p>{{ site.data.resume.skills.technical | join: ", " }}</p>
+    <div class="skill-pills">
+      {% for skill in site.data.resume.skills.technical %}
+      <span class="skill-pill">{{ skill }}</span>
+      {% endfor %}
+    </div>
   </div>
 
   <div class="skill-group">
     <h3 class="skill-subheading">Regional & Subject Matter Expertise</h3>
-    <p>{{ site.data.resume.skills.expertise | join: ", " }}</p>
+    <div class="skill-pills">
+      {% for skill in site.data.resume.skills.expertise %}
+      <span class="skill-pill">{{ skill }}</span>
+      {% endfor %}
+    </div>
   </div>
 
   <div class="skill-group">
