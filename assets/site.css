@@ -319,6 +319,15 @@ select:focus-visible {
   width: 100%;            /* Expand underline to full link width */
 }
 
+/* Active page indicator - same styling as hover */
+.nav-link.active {
+  color: var(--link);     /* Gold color */
+}
+
+.nav-link.active::after {
+  width: 100%;            /* Full width underline */
+}
+
 /* Header buttons/actions container - holds theme toggle, etc */
 /* Header buttons/actions container - holds social links, etc */
 .header-actions {
@@ -1394,7 +1403,7 @@ strong {
 
 /* Center middle date badges between entries */
 .job-entry:not(:first-of-type) .job-date {
-  top: -1.5rem;
+  top: -2rem;
 }
 
 .date-month,
