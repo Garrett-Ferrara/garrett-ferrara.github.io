@@ -4,15 +4,6 @@ title: "Resume"
 description: "Education, professional experience, and training."
 ---
 
-<div class="bio-hero">
-  <img src="/assets/grfheadshot.png" alt="Garrett Richard Ferrara" class="bio-headshot">
-  <div class="bio-intro">
-    <h1>Garrett Richard Ferrara</h1>
-    <p class="bio-tagline">Analyst & Editor</p>
-    <p class="bio-summary">I am an analyst and editor with over fifteen years of experience applying intelligence tradecraft, editorial expertise, and knowledge management frameworks to ensure the right information reaches the right eyes at the right time. Drawing on experience spanning military intelligence operations, Fortune 500 threat analysis, and technical writing for internal and external knowledge bases, I specialize in translating complex findings into clear, actionable insights.</p>
-  </div>
-</div>
-
 ## Education
 
 <div class="education-banner">
