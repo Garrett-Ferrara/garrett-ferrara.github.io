@@ -1347,8 +1347,9 @@ strong {
   background-color: rgba(199, 155, 59, 0.08);
 }
 
-.education-banner,
-.training-banner {
+.degree-entry,
+.training-entry {
+  margin-bottom: 0.0rem;
   background-color: rgba(199, 155, 59, 0.03);
   border-left: 3px solid var(--accent);
   padding: 1rem;
@@ -1357,34 +1358,9 @@ strong {
   transition: background-color 0.2s ease;
 }
 
-.education-banner:hover,
-.training-banner:hover {
+.degree-entry:hover,
+.training-entry:hover {
   background-color: rgba(199, 155, 59, 0.08);
-}
-
-.education-item,
-.training-item {
-  margin-bottom: 1rem;
-}
-
-.education-item:last-child,
-.training-item:last-child {
-  margin-bottom: 0;
-}
-
-.education-item h3,
-.training-item h3 {
-  margin-top: 0;
-  margin-bottom: 0.25rem;
-  color: var(--text);
-}
-
-.education-item .subtitle,
-.training-item .subtitle {
-  color: var(--muted);
-  font-style: italic;
-  margin-bottom: 0;
-  font-size: 0.95rem;
 }
 
 .cv-entry h3 {
