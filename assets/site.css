@@ -1417,7 +1417,7 @@ strong {
 .origin-date {
   position: absolute;
   left: -135px;
-  top: 0;
+  top: -2.2rem;
   padding: 0.35rem 0.7rem;
   background-color: transparent;
   border: 1px solid var(--accent);
