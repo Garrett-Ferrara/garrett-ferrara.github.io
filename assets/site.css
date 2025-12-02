@@ -1407,6 +1407,28 @@ strong {
   color: var(--accent-contrast);
 }
 
+/* Timeline origin (starting point) */
+.timeline-origin {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.origin-date {
+  position: absolute;
+  left: -135px;
+  top: 0;
+  padding: 0.35rem 0.7rem;
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+  width: 120px;
+  text-align: center;
+}
+
 .education-banner,
 .training-banner {
   background-color: rgba(199, 155, 59, 0.03);
