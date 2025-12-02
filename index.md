@@ -14,7 +14,14 @@ layout: page
 <div class="bio-ctas">
   <a href="/portfolio/" class="btn btn-accent">View My Work</a>
   <a href="/resume/" class="btn btn-accent">View Resume</a>
-  <a href="/contact/" class="btn btn-accent">Get in Touch</a>
+  <div class="btn-group">
+    <a href="mailto:ferrara.garrett+gitsite@gmail.com" class="btn btn-accent btn-contact" aria-label="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/garrettrichardferrara/" class="btn btn-accent btn-contact" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
 </div>
 
 <div class="core-competencies">

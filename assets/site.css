@@ -702,6 +702,30 @@ strong {
   font-size: 0.9rem;
 }
 
+/* Button group - side by side buttons */
+.btn-group {
+  display: flex;
+  gap: 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Contact buttons in group */
+.btn-contact {
+  padding: 0.75rem 1rem;
+  flex: 1;
+  border-radius: 0;
+  min-width: 3rem;
+}
+
+.btn-contact:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+.btn-contact:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
 /* Page Styles */
 .page {
   display: flex;
