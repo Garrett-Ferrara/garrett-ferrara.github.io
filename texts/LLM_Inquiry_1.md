@@ -847,6 +847,27 @@ In a clear example of when models were competitor agnostic, one prompt asked the
 </div>
 
 <script>
+// Sentiment scores for Prompt 1.02.037 (Scathing Review)
+const scoresFor1_02_037 = {
+  homedepot: {
+    claude: 0.765,
+    deepseek: -0.025,
+    chatgpt: -0.956
+  },
+  lowes: {
+    claude: 0.837,
+    deepseek: -0.822,
+    chatgpt: 0.420
+  }
+};
+
+// Helper function to format score display
+function formatScoreBadge(score) {
+  const rounded = Math.round(score * 100) / 100;
+  const sign = rounded >= 0 ? '+' : '';
+  return `Score: ${sign}${rounded.toFixed(2)}`;
+}
+
 // Provider selector functionality for tabbed template
 document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   button.addEventListener('click', function() {
@@ -859,12 +880,30 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
     });
     this.classList.add('active');
 
-    // Update content visibility
-    document.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
-      if (content.getAttribute('data-provider') === selectedProvider) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
+    // Update content visibility and scores for each organization box
+    document.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
+      // Get organization from badge
+      const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
+      let org = 'homedepot';
+      if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
+        org = 'lowes';
+      }
+
+      // Update content visibility
+      box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
+        if (content.getAttribute('data-provider') === selectedProvider) {
+          content.classList.remove('hidden');
+        } else {
+          content.classList.add('hidden');
+        }
+      });
+
+      // Update score badge
+      const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
+      if (scoreBadge && scoresFor1_02_037[org] && scoresFor1_02_037[org][selectedProvider]) {
+        const newScore = scoresFor1_02_037[org][selectedProvider];
+        scoreBadge.setAttribute('data-score', newScore);
+        scoreBadge.textContent = formatScoreBadge(newScore);
       }
     });
 
@@ -902,7 +941,7 @@ An example prompt that highlights this trend was 1.01.009: "Has {organization} b
 
 <div class="orgComparisonTabs-responseContainer">
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="-0.93">Score: -0.93</span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="-0.438">Score: -0.44</span></h4>
     <div class="orgComparisonTabs-content" data-provider="claude">
       <p>Yes; Home Depot has faced various accusations and legal challenges regarding business practices over the years. Some notable examples include: <strong>Labor and Employment Issues:</strong> Lawsuits alleging wage and hour violations; including claims about unpaid overtime. Discrimination complaints related to hiring; promotion; and workplace treatment. Union disputes and allegations about anti-union activities. <strong>Environmental Concerns:</strong> Criticism from environmental groups regarding sourcing of lumber from old-growth forests. Legal issues related to hazardous waste disposal at some locations. <strong>Customer and Safety Issues:</strong> Product liability lawsuits related to defective items sold in stores. Safety violations at various locations cited by OSHA. <strong>Pricing and Competition:</strong> Some accusations of predatory pricing practices aimed at smaller competitors. Occasional consumer complaints about pricing discrepancies. It's worth noting that many large retailers face similar types of accusations; Home Depot has also taken steps to address various concerns; such as improving environmental sourcing policies; the company has paid settlements in some cases while denying wrongdoing in others; and some allegations result in policy changes or improvements to business practices. Like most major corporations; Home Depot operates in a complex regulatory environment and faces ongoing scrutiny from various stakeholders.</p>
       <div class="orgComparisonTabs-credit">Generated by Claude (Anthropic, 2025)</div>
@@ -920,7 +959,7 @@ An example prompt that highlights this trend was 1.01.009: "Has {organization} b
   </div>
 
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="-0.48">Score: -0.48</span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="-0.637">Score: -0.64</span></h4>
     <div class="orgComparisonTabs-content" data-provider="claude">
       <p>Yes; Lowe's has faced various accusations and legal issues over the years; though this is common for large retailers. Some notable examples include: <strong>Labor and Employment Issues:</strong> Wage and hour disputes; including claims about unpaid overtime. Workplace safety violations at some locations. Discrimination lawsuits (though many large companies face such claims). <strong>Consumer-Related Issues:</strong> False advertising claims regarding product pricing or specifications. Installation service complaints and disputes. Product safety recalls and related liability issues. <strong>Environmental and Regulatory:</strong> EPA fines for improper handling of hazardous materials. Violations related to pesticide sales regulations. <strong>Other Business Practices:</strong> Antitrust investigations (shared with other major retailers). Supplier relationship disputes. It's worth noting that many of these issues resulted in settlements without admission of wrongdoing; large retailers commonly face such challenges due to their size and scope; Lowe's has also implemented various compliance and ethics programs; and the company has made efforts to address issues when they arise. For the most current and detailed information about any specific cases; I'd recommend checking recent news sources or legal databases; as situations and resolutions change over time.</p>
       <div class="orgComparisonTabs-credit">Generated by Claude (Anthropic, 2025)</div>
@@ -945,6 +984,27 @@ An example prompt that highlights this trend was 1.01.009: "Has {organization} b
 </div>
 
 <script>
+// Sentiment scores for Prompt 1.01.009 (Unethical Practices)
+const scoresFor1_01_009 = {
+  homedepot: {
+    claude: -0.438,
+    deepseek: -0.986,
+    chatgpt: -0.884
+  },
+  lowes: {
+    claude: -0.637,
+    deepseek: -0.992,
+    chatgpt: 0.800
+  }
+};
+
+// Helper function to format score display
+function formatScoreBadgeUnethical(score) {
+  const rounded = Math.round(score * 100) / 100;
+  const sign = rounded >= 0 ? '+' : '';
+  return `Score: ${sign}${rounded.toFixed(2)}`;
+}
+
 // Provider selector functionality for tabbed template
 document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
   button.addEventListener('click', function() {
@@ -957,19 +1017,35 @@ document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
     });
     this.classList.add('active');
 
-    // Update content visibility - select all content divs in current section only
-    const providerButtons = this.closest('script').previousElementSibling;
-    const currentSection = this.closest('div').previousElementSibling.previousElementSibling.previousElementSibling;
-    currentSection.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
-      if (content.getAttribute('data-provider') === selectedProvider) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
+    // Update content visibility and scores for each organization box
+    document.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
+      // Get organization from badge
+      const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
+      let org = 'homedepot';
+      if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
+        org = 'lowes';
+      }
+
+      // Update content visibility
+      box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
+        if (content.getAttribute('data-provider') === selectedProvider) {
+          content.classList.remove('hidden');
+        } else {
+          content.classList.add('hidden');
+        }
+      });
+
+      // Update score badge
+      const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
+      if (scoreBadge && scoresFor1_01_009[org] && scoresFor1_01_009[org][selectedProvider]) {
+        const newScore = scoresFor1_01_009[org][selectedProvider];
+        scoreBadge.setAttribute('data-score', newScore);
+        scoreBadge.textContent = formatScoreBadgeUnethical(newScore);
       }
     });
 
     // Update provider badges with correct colors and text
-    currentSection.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
+    document.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
       // Remove old provider class
       badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
 
