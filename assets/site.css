@@ -1354,7 +1354,7 @@ strong {
 
 .job-entry {
   position: relative;
-  background-color: rgba(199, 155, 59, 0.03);
+  background-color: rgba(199, 155, 59, 0.08);
   border-left: 3px solid transparent;
   padding: 1rem;
   padding-left: 1.25rem;
