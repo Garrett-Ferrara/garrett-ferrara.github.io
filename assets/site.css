@@ -1375,27 +1375,18 @@ strong {
 /* Date badge */
 .job-date {
   position: absolute;
-  left: -80px;
+  left: -115px;
   top: -1rem;
-  padding: 0.4rem 0.6rem;
+  padding: 0.35rem 0.5rem;
   background-color: var(--bg);
   border: 1px solid var(--accent);
   border-radius: 12px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--accent);
-  width: 90px;
+  white-space: nowrap;
+  width: 70px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.date-month,
-.date-year {
-  display: block;
-  line-height: 1.2;
 }
 
 .job-entry:hover {
@@ -1416,21 +1407,18 @@ strong {
 
 .origin-date {
   position: absolute;
-  left: -80px;
+  left: -115px;
   top: -2.5rem;
-  padding: 0.4rem 0.6rem;
+  padding: 0.35rem 0.5rem;
   background-color: var(--bg);
   border: 1px solid var(--accent);
   border-radius: 12px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--accent);
-  width: 90px;
+  white-space: nowrap;
+  width: 70px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .education-banner,
