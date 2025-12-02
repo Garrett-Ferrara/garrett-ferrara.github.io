@@ -17,30 +17,17 @@ description: "First-stage analysis of whether LLM training biases present differ
     <h2>Contents</h2>
     <ul>
       <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#methodology">Methodology & Tool Design</a>
-        <ul>
-          <li><a href="#tool-development">Tool Development and Data Collection</a></li>
-          <li><a href="#pir-framework">Priority Information Requirements Framework</a></li>
-          <li><a href="#example-query">Example Query: Environmental, Social, Governance</a></li>
-          <li><a href="#data-analysis">Data Analysis and Visualization</a></li>
-        </ul>
-      </li>
-      <li><a href="#sentiment-analysis-findings">Sentiment Analysis Findings</a>
-        <ul>
-          <li><a href="#competitor-agnostic">Competitor Agnostic, but Inconsistent Scoring</a></li>
-          <li><a href="#deepseek-negative">DeepSeek's Negative Slant</a></li>
-          <li><a href="#guardrails">Stronger Guardrails in ChatGPT and Claude</a></li>
-          <li><a href="#hallucinations">Hallucinations in Highly Specific Claims</a></li>
-        </ul>
-      </li>
+      <li><a href="#methodology">Methodology & Tool Design</a></li>
+      <li><a href="#sentiment-analysis-findings">Sentiment Analysis Findings</a></li>
       <li><a href="#conclusions">Conclusions and Implications</a></li>
       <li><a href="#references">References</a></li>
     </ul>
+      <p class="caption">Source: Image generated with ChatGPT 5.1 / DALL·E. While the prompt to generate this image didn't specify a winner in the online "popularity contest," ChatGPT's response clearly puts Lowe's in first place over Home Depot.</p>
   </nav>
 
   <div class="graphics-container">
     <img src="/assets/LLM_Inquiry_1/AI_Placeholder.png" alt="AI illustration for LLM Reputational Risk study" style="display: block; margin: 0 auto; max-width: 100%; height: auto; border-radius: 6px;">
-    <p class="caption">Source: Image generated with ChatGPT 5.1 / DALL·E. While the prompt to generate this image didn't specify a winner in the online "popularity contest," ChatGPT's response clearly puts Lowe's in first place over Home Depot.</p>
+
   </div>
 </div>
 
@@ -73,6 +60,14 @@ description: "First-stage analysis of whether LLM training biases present differ
   margin: 10px 0;
   line-height: 1.6;
   color: #e5e7eb;
+}
+
+.toc .caption {
+  text-align: left;
+  padding: 10px 0;
+  margin: 10px 0;
+  font-size: 12px;
+  color: #aab2c8;
 }
 </style>
 
