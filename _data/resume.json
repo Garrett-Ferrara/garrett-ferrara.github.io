@@ -19,35 +19,50 @@
       "date": "May 2014"
     }
   ],
+
   "experience": [
     {
-      "title": "Analyst Team Managing Editor",
+      "title": "Managing Editor, Threat Intelligence Team",
       "company": "Alethea",
       "location": "Remote (Washington, D.C.)",
       "dates": "April 2022 – June 2025",
       "bullets": [
         {
-          "text": "Led a distributed team of 15 analysts in the production and dissemination of 60+ weekly pages of intelligence reporting and briefings for corporate, government, and nonprofit clients",
-          "tags": ["highlights", "leadership"]
+          "text": "Led a distributed team of 15 analysts in producing and disseminating 60+ weekly pages of threat intelligence reporting for Fortune 500, government, and nonprofit clients.",
+          "tags": ["highlights", "leadership", "intel_analysis", "writing_editing"]
         },
         {
-          "text": "Organized intelligence on thousands of tracked entities using Meltwater and proprietary analysis software; identified collection gaps and directed further research including alternative platform scraping to uncover threats",
-          "tags": ["highlights", "intel_analysis", "km_it"]
+          "text": "Integrated knowledge management tools and generative AI to cut report drafting time by ~80%, effectively 4–5x-ing team capacity while maintaining analytical rigor.",
+          "tags": ["highlights", "km_it", "leadership"]
         },
         {
-          "text": "Investigated online threats to Fortune 500 executives and public officials, conducting 100+ annual security assessments and escalating 18 high-risk cases yearly to law enforcement or corporate legal teams",
+          "text": "Conducted and oversaw 100+ annual risk assessments, escalating approximately two dozen high-risk cases each year to law enforcement or corporate security teams.",
           "tags": ["highlights", "intel_analysis"]
         },
         {
-          "text": "Integrated generative AI and project management tools, shortening 2-day reports and 4-hour alerts into 4-hour and 45-minute products",
-          "tags": ["highlights", "km_it"]
+          "text": "Designed and governed a cross-platform knowledge ecosystem (Jira, Google Workspace, Slack, Grammarly), including editorial standards, SOPs, and a 200-term glossary supporting cross-functional teams.",
+          "tags": ["highlights", "km_it", "leadership", "writing_editing"]
         },
         {
-          "text": "Coordinated cross-functional threat response with client teams and law enforcement to counter online harassment campaigns",
-          "tags": ["highlights", "leadership"]
+          "text": "Partnered with Product, Engineering, Investigations, and Sales to align editorial and KM strategy with emerging capabilities, authoring the company’s first client-facing SaaS user guides and training materials.",
+          "tags": ["highlights", "leadership", "writing_editing", "km_it"]
+        },
+
+        {
+          "text": "Investigated emerging threats from influence operations, extremist movements, and online polarization to mitigate reputational and physical risks for high-profile clients.",
+          "tags": ["intel_analysis"]
+        },
+        {
+          "text": "Organized intelligence on thousands of tracked entities using Meltwater and proprietary tools, identifying collection gaps and directing alternative-platform scraping efforts.",
+          "tags": ["intel_analysis", "km_it"]
+        },
+        {
+          "text": "Coordinated crisis management and threat-response operations with client communications, legal, and security teams, as well as outside investigators and law enforcement.",
+          "tags": ["leadership", "intel_analysis"]
         }
       ]
     },
+
     {
       "title": "Knowledge Management Specialist",
       "company": "Alegeus",
@@ -55,116 +70,147 @@
       "dates": "September 2019 – April 2022",
       "bullets": [
         {
-          "text": "Designed a HIPAA-compliant knowledge management system for 300+ employees using Topsight 2.0",
-          "tags": ["highlights", "km_it"]
+          "text": "Designed and launched a HIPAA-compliant knowledge management system for 300+ employees and 50+ client representatives, enabling secure, role-based access to 400+ knowledge artifacts.",
+          "tags": ["highlights", "km_it", "leadership"]
         },
         {
-          "text": "Collaborated across operations, compliance, and leadership to create taxonomy and access controls for 400+ articles",
-          "tags": ["leadership", "km_it"]
+          "text": "Led the migration from a legacy knowledge base to KMS Lighthouse, overseeing vendor evaluation, stakeholder alignment, and change management to improve operational efficiency.",
+          "tags": ["highlights", "km_it", "leadership"]
         },
         {
-          "text": "Enabled secure information dissemination through structured documentation and access management",
-          "tags": ["km_it"]
+          "text": "Applied Topsight 2.0 research and workflow analysis methods to identify knowledge gaps, improve process clarity, and enhance information flow across operations, compliance, and IT.",
+          "tags": ["km_it", "intel_analysis"]
+        },
+        {
+          "text": "Defined taxonomy, metadata, and publication standards for the KM ecosystem, auditing and maintaining articles for accuracy, consistency, and regulatory alignment.",
+          "tags": ["km_it", "writing_editing"]
         }
       ]
     },
+
     {
-      "title": "Freelance Analyst & Writer",
-      "company": "Self-employed through Upwork",
+      "title": "Technical Writer & Analyst (Contract)",
+      "company": "Self-employed via Upwork",
       "location": "Maitland, Florida",
       "dates": "October 2017 – September 2019",
       "bullets": [
         {
-          "text": "Provided writing and editing services for clients including Microsoft and nonprofit organizations",
-          "tags": ["writing_editing"]
+          "text": "Provided technical writing, copyediting, and content development services for Microsoft, nonprofits, and veteran support organizations.",
+          "tags": ["highlights", "writing_editing"]
         },
         {
-          "text": "Maintained a \"top-rated\" status on Upwork while completing undergraduate degree",
-          "tags": ["highlights"]
+          "text": "Maintained a top-rated Upwork profile while completing a full undergraduate course load.",
+          "tags": ["writing_editing"]
         }
       ]
     },
+
     {
       "title": "Counterintelligence Analyst",
-      "company": "US Army, 650th Military Intelligence Group",
+      "company": "U.S. Army, 650th Military Intelligence Group",
       "location": "Mons, Belgium",
       "dates": "November 2014 – August 2017",
       "bullets": [
         {
-          "text": "Monitored Human, Signal, and Open-Source Intelligence streams to identify threats impacting NATO personnel and installations",
-          "tags": ["intel_analysis"]
-        },
-        {
-          "text": "Reviewed 1,200+ base visitors to identify persons of interest, conducting follow-up investigations and providing risk assessments to agents across 19 field offices",
+          "text": "Fused HUMINT, SIGINT, and OSINT reporting to identify and mitigate terrorism, espionage, and insider-threat risks targeting NATO personnel and installations.",
           "tags": ["highlights", "intel_analysis"]
         },
         {
-          "text": "Conducted security assessments for senior leader travel, analyzing geographic and classified intelligence to develop tailored risk mitigation strategies",
-          "tags": ["intel_analysis"]
+          "text": "Reviewed 1,200+ base visitors annually to identify persons of interest, conducting follow-up investigations and issuing risk assessments for 19 field offices.",
+          "tags": ["highlights", "intel_analysis"]
         },
         {
-          "text": "Developed intelligence-sharing relationships with U.S. agencies, NATO allies, and host-nation law enforcement",
+          "text": "Designed and maintained a SharePoint- and Microsoft Forms–based RFI system, replacing a legacy email workflow with a searchable, trackable knowledge portal.",
+          "tags": ["highlights", "km_it"]
+        },
+        {
+          "text": "Conducted security and travel assessments for senior leaders, synthesizing classified intelligence, advisories, and geographic data to inform risk mitigation.",
+          "tags": ["highlights", "intel_analysis"]
+        },
+        {
+          "text": "Represented U.S. interests at NATO Intelligence Fusion Center conferences, strengthening intelligence-sharing relationships with allied agencies.",
           "tags": ["leadership", "intel_analysis"]
+        },
+        {
+          "text": "Managed classification, versioning, and lifecycle control for sensitive intelligence products aligned to U.S., NATO, and host-nation standards.",
+          "tags": ["km_it", "intel_analysis"]
         }
       ]
     },
+
     {
-      "title": "CENTCOM Team Leader",
-      "company": "US Army, III Corps HHBN",
+      "title": "All-Source Intelligence Team Leader (CENTCOM Focus)",
+      "company": "U.S. Army, III Corps HHBN Fusion Center",
       "location": "Various locations",
       "dates": "January 2011 – October 2014",
       "bullets": [
         {
-          "text": "Trained, mentored, and led two CENTCOM-focused analysis teams in intelligence production for Fort Hood command",
-          "tags": ["leadership", "intel_analysis"]
+          "text": "Co-authored an intelligence production SOP adopted Corps-wide, improving consistency, timeliness, and analytic rigor across III Corps and subordinate units.",
+          "tags": ["highlights", "leadership", "writing_editing", "km_it"]
         },
         {
-          "text": "Co-authored an SOP that became the intelligence production standard for the Corps and subordinate units",
-          "tags": ["highlights", "leadership", "km_it", "writing_editing"]
+          "text": "Deployed to Kabul as a dual-hatted Targeting Intelligence Sergeant and Knowledge Manager, maintaining a theater-wide targeting database and SharePoint portal.",
+          "tags": ["highlights", "intel_analysis", "km_it", "leadership"]
         },
         {
-          "text": "Deployed to Kabul, Afghanistan, as Targeting Intelligence Sergeant; managed theater-wide targeting database and assessed targets for legal viability and military efficacy",
-          "tags": ["highlights", "intel_analysis"]
+          "text": "Led an international training program that strengthened interoperability and analytic skills among coalition partners.",
+          "tags": ["highlights", "leadership"]
         },
         {
-          "text": "Leveraged analytical tools including IBM i2 Analyst's Notebook, DCGS-A, ArcGIS, and CPOF for intelligence production",
+          "text": "Led and mentored two intelligence teams in producing time-sensitive intelligence briefings, reports, and read books for senior commanders.",
+          "tags": ["leadership", "intel_analysis", "writing_editing"]
+        },
+        {
+          "text": "Used IBM i2 Analyst’s Notebook, DCGS-A, ArcGIS, and CPOF to perform link analysis, geospatial visualization, and threat tracking.",
           "tags": ["intel_analysis", "km_it"]
         }
       ]
     }
   ],
+
   "training": [
+    {
+      "title": "KCS v6 Fundamentals",
+      "date": "2025",
+      "location": "Consortium for Service Innovation (Online)"
+    },
+    {
+      "title": "Google Foundations of Project Management",
+      "date": "November 2025",
+      "location": "Online"
+    },
+    {
+      "title": "ATAP Fundamentals of Threat Assessment and Management",
+      "date": "October 2025",
+      "location": "Online"
+    },
     {
       "title": "Bellingcat Open-Source Verification Workshop",
       "date": "September 2020",
-      "location": "Virtual",
-      "hours": "16 Training Hours"
+      "location": "Virtual"
     },
     {
       "title": "Leading SAFe – Scaled Agile Framework Leadership",
       "date": "October 2019",
-      "location": "Maitland, Florida",
-      "hours": "40 Training Hours"
+      "location": "Maitland, Florida"
     },
     {
-      "title": "Proprietary Intelligence Software Training",
+      "title": "Signals Intelligence & Network Analysis Software Training",
       "date": "March 2016",
-      "location": "Stuttgart, Germany",
-      "hours": "40 Training Hours"
+      "location": "Stuttgart, Germany"
     },
     {
       "title": "CBRN-E Trainer Certification Course",
       "date": "March 2014",
-      "location": "Grafenwoehr, Germany",
-      "hours": "80 Training Hours"
+      "location": "Grafenwoehr, Germany"
     },
     {
       "title": "TROJAN SPIRIT Operator's Course",
       "date": "May 2011",
-      "location": "Sierra Vista, Arizona",
-      "hours": "80 Training Hours"
+      "location": "Sierra Vista, Arizona"
     }
   ],
+
   "skills": {
     "technical": [
       "Meltwater",
@@ -175,16 +221,28 @@
       "CPOF",
       "LexisNexis",
       "Social Listening Platforms",
-      "Generative AI (ChatGPT, Claude Code, Gemini)",
+      "KMS Lighthouse",
+      "SharePoint",
+      "Jira",
+      "Confluence",
+      "Google Workspace",
+      "Slack Integrations",
+      "Grammarly Business",
+      "Generative AI (ChatGPT, Claude, Gemini)",
       "Structured Analytic Techniques",
       "Case Management Systems",
       "Data Visualization Systems"
     ],
     "expertise": [
+      "Protective Intelligence",
+      "Open-Source Intelligence (OSINT)",
+      "Threat Assessment",
+      "Knowledge Management & Governance",
       "U.S. Extremism",
       "Southwest Asia",
       "Middle East",
-      "Eastern Europe"
+      "Eastern Europe",
+      "Europe Area Knowledge"
     ],
     "clearance": "Previously held Top Secret clearance with SCI (last investigation in 2017)"
   }
