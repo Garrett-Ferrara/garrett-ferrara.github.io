@@ -1003,7 +1003,7 @@ An example prompt that highlights this trend was 1.01.009: "Has {organization} b
 
 **Prompt:** Prompt 1.01.009: Has {organization} been accused of unethical business practices?
 
-<div class="orgComparisonTabs-responseContainer">
+<div class="orgComparisonTabs-responseContainer" id="frame-1-01-009">
   <div class="orgComparisonTabs-box">
     <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="-0.93">Score: -0.93</span></h4>
     <div class="orgComparisonTabs-content content-scroll" data-provider="claude">
@@ -1156,9 +1156,11 @@ function formatScoreBadgeUnethical(score) {
 
 // Self-executing function to scope to this frame only
 (function() {
-  const thisScript = document.currentScript;
-  const buttonContainer = thisScript.previousElementSibling;
-  const responseContainer = buttonContainer.previousElementSibling;
+  const frameContainer = document.getElementById('frame-1-01-009');
+  if (!frameContainer) return;
+
+  const buttonContainer = frameContainer.nextElementSibling;
+  if (!buttonContainer || !buttonContainer.classList.contains('orgComparisonTabs-providerButtons')) return;
 
   // Provider selector functionality - scoped to this frame only
   buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
@@ -1172,8 +1174,8 @@ function formatScoreBadgeUnethical(score) {
       });
       this.classList.add('active');
 
-      // Update content visibility and scores for each organization box
-      responseContainer.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
+      // Update content visibility and scores for each organization box within this frame only
+      frameContainer.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
         // Get organization from badge
         const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
         let org = 'homedepot';
@@ -1199,8 +1201,8 @@ function formatScoreBadgeUnethical(score) {
         }
       });
 
-      // Update provider badges with correct colors and text
-      responseContainer.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
+      // Update provider badges with correct colors and text within this frame only
+      frameContainer.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
         // Remove old provider class
         badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
 
@@ -2318,7 +2320,7 @@ function formatScorePR(score) {
 }
 </style>
 
-<div class="orgComparisonTabs-responseContainer">
+<div class="orgComparisonTabs-responseContainer" id="frame-esg-query">
   <div class="orgComparisonTabs-box">
     <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.718">Score: +0.72</span></h4>
 
@@ -2386,14 +2388,15 @@ function formatScoreESGv2(score) {
   return `Score: ${sign}${rounded.toFixed(2)}`;
 }
 
-// Self-executing function to scope to this instance
+// Self-executing function to scope to this frame only
 (function() {
-  // Find this script's parent container
-  const thisScript = document.currentScript;
-  const buttonContainer = thisScript.previousElementSibling;
-  const responseContainer = buttonContainer.previousElementSibling;
+  const frameContainer = document.getElementById('frame-esg-query');
+  if (!frameContainer) return;
 
-  // Add event listeners only to buttons in this specific container
+  const buttonContainer = frameContainer.nextElementSibling;
+  if (!buttonContainer || !buttonContainer.classList.contains('orgComparisonTabs-providerButtons')) return;
+
+  // Add event listeners only to buttons in this specific frame
   buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
     button.addEventListener('click', function() {
       const selectedProvider = this.getAttribute('data-provider');
@@ -2405,8 +2408,8 @@ function formatScoreESGv2(score) {
       });
       this.classList.add('active');
 
-      // Update content visibility and scores for each organization box
-      responseContainer.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
+      // Update content visibility and scores for each organization box within this frame only
+      frameContainer.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
         // Get organization from badge
         const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
         let org = 'homedepot';
@@ -2432,8 +2435,8 @@ function formatScoreESGv2(score) {
         }
       });
 
-      // Update provider badges with correct colors and text
-      responseContainer.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
+      // Update provider badges with correct colors and text within this frame only
+      frameContainer.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
         // Remove old provider class
         badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
 
