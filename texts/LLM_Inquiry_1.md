@@ -2843,39 +2843,49 @@ function formatScoreESGv2(score) {
 </div>
 
 <script>
-// Organization selector functionality for provider comparison
-document.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
-  button.addEventListener('click', function() {
-    const selectedOrg = this.getAttribute('data-org');
-    const orgName = this.textContent;
+// Organization selector functionality for provider comparison - scoped to this frame
+(function() {
+  const thisScript = document.currentScript;
+  const buttonContainer = thisScript.previousElementSibling;
+  const frameContainer = buttonContainer.previousElementSibling;
 
-    // Update button states
-    document.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    this.classList.add('active');
+  if (!frameContainer || !buttonContainer) return;
+  if (!buttonContainer.classList.contains('providerComparisonTabs-orgButtons')) return;
 
-    // Update content visibility
-    document.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
-      if (content.getAttribute('data-org') === selectedOrg) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
-      }
-    });
+  // Organization selector functionality - scoped to this frame only
+  buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedOrg = this.getAttribute('data-org');
+      const orgName = this.textContent;
 
-    // Update organization badges only (not provider badges)
-    document.querySelectorAll('.providerComparisonTabs-orgBadge').forEach(badge => {
-      // Remove old org class
-      badge.classList.remove('providerComparisonTabs-badge-homedepot', 'providerComparisonTabs-badge-lowes');
+      // Update button states within this frame's button container
+      buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
 
-      // Add new org class and update text
-      badge.classList.add(`providerComparisonTabs-badge-${selectedOrg}`);
-      badge.textContent = orgName;
-      badge.setAttribute('data-org', selectedOrg);
+      // Update content visibility within this frame only
+      frameContainer.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
+        if (content.getAttribute('data-org') === selectedOrg) {
+          content.classList.remove('hidden');
+        } else {
+          content.classList.add('hidden');
+        }
+      });
+
+      // Update organization badges only (not provider badges) - within this frame only
+      frameContainer.querySelectorAll('.providerComparisonTabs-orgBadge').forEach(badge => {
+        // Remove old org class
+        badge.classList.remove('providerComparisonTabs-badge-homedepot', 'providerComparisonTabs-badge-lowes');
+
+        // Add new org class and update text
+        badge.classList.add(`providerComparisonTabs-badge-${selectedOrg}`);
+        badge.textContent = orgName;
+        badge.setAttribute('data-org', selectedOrg);
+      });
     });
   });
-});
+})();
 </script>
 
 <script>
