@@ -12,10 +12,7 @@
       "Bash(git lfs:*)",
       "Bash(bundle exec jekyll serve:*)",
       "Bash(timeout 10 bash:*)",
-      "Bash(python:*)",
-      "Bash(gh repo view:*)",
-      "Bash(gh api:*)",
-      "Bash(pip install:*)"
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
