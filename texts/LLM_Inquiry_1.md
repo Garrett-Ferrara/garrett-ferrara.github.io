@@ -1386,7 +1386,7 @@ Looking more closely at the effect in legal-related prompts, one trend fueling D
 }
 </style>
 
-<div class="providerComparisonTabs-container">
+<div class="providerComparisonTabs-container" id="frame-1-04-001">
   <div class="providerComparisonTabs-column">
     <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-claude">Claude</span></span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="0.50">Score: +0.50</span></h4>
 
@@ -1497,10 +1497,12 @@ function formatScore(score) {
 
 // Self-executing function to scope to this frame only
 (function() {
-  const thisScript = document.currentScript;
-  const caption = thisScript.previousElementSibling;
-  const buttonContainer = caption.previousElementSibling;
-  const responseContainer = buttonContainer.previousElementSibling;
+  const frameContainer = document.getElementById('frame-1-04-001');
+  if (!frameContainer) return;
+
+  // Find button and response containers within this frame
+  const buttonContainer = frameContainer.nextElementSibling;
+  if (!buttonContainer || !buttonContainer.classList.contains('providerComparisonTabs-orgButtons')) return;
 
   // Organization selector functionality - scoped to this frame only
   buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
@@ -1508,14 +1510,14 @@ function formatScore(score) {
       const selectedOrg = this.getAttribute('data-org');
       const orgName = this.textContent;
 
-      // Update button states
+      // Update button states within this frame's button container
       buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(btn => {
         btn.classList.remove('active');
       });
       this.classList.add('active');
 
-      // Update content visibility
-      responseContainer.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
+      // Update content visibility within this frame only
+      frameContainer.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
         if (content.getAttribute('data-org') === selectedOrg) {
           content.classList.remove('hidden');
         } else {
@@ -1523,8 +1525,8 @@ function formatScore(score) {
         }
       });
 
-      // Update organization badges and scores
-      responseContainer.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
+      // Update organization badges and scores within this frame only
+      frameContainer.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
         const providers = ['claude', 'deepseek', 'chatgpt'];
         const provider = providers[index];
 
@@ -2788,7 +2790,7 @@ function formatScoreESGv2(score) {
 }
 </style>
 
-<div class="providerComparisonTabs-container">
+<div class="providerComparisonTabs-container" id="frame-scandal-query">
   <div class="providerComparisonTabs-column">
     <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-chatgpt">ChatGPT</span></span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></h4>
 
