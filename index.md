@@ -13,7 +13,7 @@ layout: page
 
 <div class="bio-ctas">
   <a href="/portfolio/" class="btn btn-accent">View My Work</a>
-  <a href="/cv/" class="btn btn-accent">Download CV</a>
+  <a href="/resume/" class="btn btn-accent">View Resume</a>
   <a href="/contact/" class="btn btn-accent">Get in Touch</a>
 </div>
 
