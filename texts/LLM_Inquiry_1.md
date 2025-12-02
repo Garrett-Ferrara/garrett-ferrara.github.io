@@ -909,7 +909,7 @@ In a clear example of when models were competitor agnostic, one prompt asked the
 
 <div class="orgComparisonTabs-responseContainer">
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.79">Score: +0.79</span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.765">Score: +0.77</span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="claude">
       <p><strong>1/5 Stars - Where Customer Service Goes to Die</strong> After reading countless horror stories online; I'm convinced Home Depot has perfected the art of customer disappointment. Here's what real customers are saying: <strong>Staff? What Staff?</strong> Good luck finding an employee when you need one. Multiple reviewers describe wandering the warehouse-sized aisles like lost souls; searching for anyone in an orange apron who isn't actively sprinting away from customers. When you finally corner someone; there's a 50/50 chance they'll know less about plumbing than your goldfish. <strong>The Checkout Nightmare</strong> Self-checkout lines longer than a CVS receipt; with half the machines inevitably broken or having mysterious 'technical difficulties.' The few human cashiers move with the urgency of sedated sloths; while the person ahead of you somehow needs a manager override for buying a pack of screws. <strong>Online Order Roulette</strong> Order online for pickup? Congratulations; you're now playing Russian roulette with your weekend plans! Reviews consistently mention arriving to find orders 'not ready;' items out of stock despite the website saying otherwise; or the wrong items pulled. The pickup area apparently operates in an alternate dimension where time moves backwards. <strong>Return Policy Nightmare</strong> Trying to return something? Better bring a lawyer; three forms of ID; the original receipt; a DNA sample; and written testimony from the manufacturer. Even then; you'll likely leave with store credit you'll never use. <strong>The Lumber Lottery</strong> Want straight boards? That's adorable. Customers report digging through entire stacks to find pieces that aren't warped into abstract art installations. Home Depot: Where your simple weekend project becomes a test of human endurance and your faith in capitalism dies a slow; orange-tinted death. <em>Based on common themes from online customer reviews</em></p>
@@ -928,7 +928,7 @@ In a clear example of when models were competitor agnostic, one prompt asked the
   </div>
 
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.97">Score: +0.97</span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.837">Score: +0.84</span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="claude">
       <p><strong>1/5 Stars - Lowe's: Where Customer Service Goes to Die</strong> After reading countless horror stories online and experiencing my own nightmare at Lowe's; I'm convinced this place operates as some sort of elaborate social experiment in customer frustration. <strong>The Staff Situation:</strong> Good luck finding anyone to help you. It's like playing hide-and-seek; except the employees are professional-level hiders and you're blindfolded. When you finally track down someone in a blue vest; there's a 50/50 chance they'll look at you like you just asked them to perform brain surgery when you inquire about basic hardware. The phrase 'that's not my department' should be printed on their business cards. <strong>Delivery? More Like 'De-never-y':</strong> Order something online? Prepare for a choose-your-own-adventure novel where every ending involves disappointment. Your delivery window isn't a suggestion—it's apparently modern art; open to interpretation. Items arrive damaged; wrong; late; or achieve the trifecta of all three. Customer service will reschedule you more times than a flaky friend making dinner plans. <strong>Installation Services:</strong> Their 'professional' installation service seems to source contractors from a 'Learning Plumbing on YouTube' Facebook group. Expect multiple no-shows; incorrect installations; and the privilege of paying premium prices for amateur hour results. <strong>The Store Experience:</strong> Half the shelves look like a tornado hit them; price tags belong to items that existed only in Lowe's fever dreams; and the checkout lines move slower than continental drift. Self-checkout? Those machines have more attitude than a teenager and roughly the same level of helpfulness. <strong>Corporate Response:</strong> Their social media team has mastered the art of the non-apology apology: 'We're sorry you feel that way' and 'Please DM us' responses that lead nowhere faster than their delivery promises. Save yourself the headache; the time; and your sanity. Shop literally anywhere else.</p>
@@ -1529,14 +1529,14 @@ DeepSeek again displayed no such guardrail. For Home Depot, DeepSeek offered a n
 
 <div class="orgComparisonTabs-responseContainer">
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt orgComparisonTabs-providerBadge" data-provider="chatgpt">ChatGPT</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.718">Score: +0.72</span></h4>
 
-    <div class="orgComparisonTabs-content" data-provider="chatgpt">
+    <div class="orgComparisonTabs-content hidden" data-provider="chatgpt">
       <p>[TODO: ChatGPT response for Home Depot ESG example]</p>
       <div class="orgComparisonTabs-credit">Generated by ChatGPT (OpenAI, 2025)</div>
     </div>
 
-    <div class="orgComparisonTabs-content hidden" data-provider="claude">
+    <div class="orgComparisonTabs-content" data-provider="claude">
       <p>[TODO: Claude response for Home Depot ESG example]</p>
       <div class="orgComparisonTabs-credit">Generated by Claude (Anthropic, 2025)</div>
     </div>
@@ -1548,14 +1548,14 @@ DeepSeek again displayed no such guardrail. For Home Depot, DeepSeek offered a n
   </div>
 
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-chatgpt orgComparisonTabs-providerBadge" data-provider="chatgpt">ChatGPT</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.00">Score: +0.00</span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.485">Score: +0.49</span></h4>
 
-    <div class="orgComparisonTabs-content" data-provider="chatgpt">
+    <div class="orgComparisonTabs-content hidden" data-provider="chatgpt">
       <p>[TODO: ChatGPT response for Lowe's ESG example]</p>
       <div class="orgComparisonTabs-credit">Generated by ChatGPT (OpenAI, 2025)</div>
     </div>
 
-    <div class="orgComparisonTabs-content hidden" data-provider="claude">
+    <div class="orgComparisonTabs-content" data-provider="claude">
       <p>[TODO: Claude response for Lowe's ESG example]</p>
       <div class="orgComparisonTabs-credit">Generated by Claude (Anthropic, 2025)</div>
     </div>
@@ -1568,45 +1568,92 @@ DeepSeek again displayed no such guardrail. For Home Depot, DeepSeek offered a n
 </div>
 
 <div class="orgComparisonTabs-providerButtons">
-  <button class="orgComparisonTabs-btn active" data-provider="chatgpt">ChatGPT</button>
-  <button class="orgComparisonTabs-btn" data-provider="claude">Claude</button>
+  <button class="orgComparisonTabs-btn active" data-provider="claude">Claude</button>
   <button class="orgComparisonTabs-btn" data-provider="deepseek">DeepSeek</button>
+  <button class="orgComparisonTabs-btn" data-provider="chatgpt">ChatGPT</button>
 </div>
 
 <script>
-// Provider selector functionality for tabbed template
-document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
-  button.addEventListener('click', function() {
-    const selectedProvider = this.getAttribute('data-provider');
-    const providerLabel = this.textContent;
+// Sentiment scores for Prompt 1.03.010 ESG (Second instance)
+const scoresFor1_03_010_esg_v2 = {
+  homedepot: {
+    claude: 0.718,
+    deepseek: -0.926,
+    chatgpt: -0.511
+  },
+  lowes: {
+    claude: 0.485,
+    deepseek: -0.996,
+    chatgpt: -0.977
+  }
+};
 
-    // Update button states
-    document.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    this.classList.add('active');
+// Helper function to format score display
+function formatScoreESGv2(score) {
+  const rounded = Math.round(score * 100) / 100;
+  const sign = rounded >= 0 ? '+' : '';
+  return `Score: ${sign}${rounded.toFixed(2)}`;
+}
 
-    // Update content visibility
-    document.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
-      if (content.getAttribute('data-provider') === selectedProvider) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
-      }
-    });
+// Self-executing function to scope to this instance
+(function() {
+  // Find this script's parent container
+  const thisScript = document.currentScript;
+  const buttonContainer = thisScript.previousElementSibling;
+  const responseContainer = buttonContainer.previousElementSibling;
 
-    // Update provider badges with correct colors and text
-    document.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
-      // Remove old provider class
-      badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
+  // Add event listeners only to buttons in this specific container
+  buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedProvider = this.getAttribute('data-provider');
+      const providerLabel = this.textContent;
 
-      // Add new provider class and update text
-      badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
-      badge.textContent = providerLabel;
-      badge.setAttribute('data-provider', selectedProvider);
+      // Update button states
+      buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      // Update content visibility and scores for each organization box
+      responseContainer.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
+        // Get organization from badge
+        const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
+        let org = 'homedepot';
+        if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
+          org = 'lowes';
+        }
+
+        // Update content visibility
+        box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
+          if (content.getAttribute('data-provider') === selectedProvider) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+
+        // Update score badge
+        const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
+        if (scoreBadge && scoresFor1_03_010_esg_v2[org] && scoresFor1_03_010_esg_v2[org][selectedProvider]) {
+          const newScore = scoresFor1_03_010_esg_v2[org][selectedProvider];
+          scoreBadge.setAttribute('data-score', newScore);
+          scoreBadge.textContent = formatScoreESGv2(newScore);
+        }
+      });
+
+      // Update provider badges with correct colors and text
+      responseContainer.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
+        // Remove old provider class
+        badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
+
+        // Add new provider class and update text
+        badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
+        badge.textContent = providerLabel;
+        badge.setAttribute('data-provider', selectedProvider);
+      });
     });
   });
-});
+})();
 </script>
 
 <p class="orgComparisonTabs-caption">Use the provider selector buttons above to compare responses from different LLM providers. This template structure allows easy expansion with additional providers.</p>
