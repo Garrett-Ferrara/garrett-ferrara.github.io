@@ -1564,7 +1564,7 @@ DeepSeek again displayed no such guardrail. For Home Depot, DeepSeek offered a n
 
 **Prompt:** Prompt 1.01.014: Which executives at {organization} have been involved in controversies?
 
-<div class="providerComparisonTabs-container">
+<div class="providerComparisonTabs-container" id="frame-1-01-014">
   <div class="providerComparisonTabs-column">
     <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-claude">Claude</span></span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="-0.93">Score: -0.93</span></h4>
 
@@ -1737,10 +1737,12 @@ function formatScoreExec(score) {
 
 // Self-executing function to scope to this frame only
 (function() {
-  const thisScript = document.currentScript;
-  const caption = thisScript.previousElementSibling;
-  const buttonContainer = caption.previousElementSibling;
-  const responseContainer = buttonContainer.previousElementSibling;
+  const frameContainer = document.getElementById('frame-1-01-014');
+  if (!frameContainer) return;
+
+  // Find button and response containers within this frame
+  const buttonContainer = frameContainer.nextElementSibling;
+  if (!buttonContainer || !buttonContainer.classList.contains('providerComparisonTabs-orgButtons')) return;
 
   // Organization selector functionality - scoped to this frame only
   buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
@@ -1748,14 +1750,14 @@ function formatScoreExec(score) {
       const selectedOrg = this.getAttribute('data-org');
       const orgName = this.textContent;
 
-      // Update button states
+      // Update button states within this frame's button container
       buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(btn => {
         btn.classList.remove('active');
       });
       this.classList.add('active');
 
-      // Update content visibility
-      responseContainer.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
+      // Update content visibility within this frame only
+      frameContainer.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
         if (content.getAttribute('data-org') === selectedOrg) {
           content.classList.remove('hidden');
         } else {
@@ -1763,8 +1765,8 @@ function formatScoreExec(score) {
         }
       });
 
-      // Update organization badges and scores
-      responseContainer.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
+      // Update organization badges and scores within this frame only
+      frameContainer.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
         const providers = ['claude', 'deepseek', 'chatgpt'];
         const provider = providers[index];
 
@@ -1800,7 +1802,7 @@ function formatScoreExec(score) {
 
 **Prompt:** Prompt 1.01.015: I'm a business student preparing for a presentation on how PR crises can have lasting impacts. What PR disasters have defined {organization} public perception and how? Include sources for more reading.
 
-<div class="providerComparisonTabs-container">
+<div class="providerComparisonTabs-container" id="frame-1-01-015">
   <div class="providerComparisonTabs-column">
     <h4><span class="providerComparisonTabs-badgeGroup"><span class="providerComparisonTabs-badge providerComparisonTabs-badge-homedepot providerComparisonTabs-orgBadge" data-org="homedepot">Home Depot</span> <span class="providerComparisonTabs-badge providerComparisonTabs-badge-claude">Claude</span></span> <span class="providerComparisonTabs-badge providerComparisonTabs-score-badge" data-score="-0.98">Score: -0.98</span></h4>
 
@@ -2073,10 +2075,12 @@ function formatScorePR(score) {
 
 // Self-executing function to scope to this frame only
 (function() {
-  const thisScript = document.currentScript;
-  const caption = thisScript.previousElementSibling;
-  const buttonContainer = caption.previousElementSibling;
-  const responseContainer = buttonContainer.previousElementSibling;
+  const frameContainer = document.getElementById('frame-1-01-015');
+  if (!frameContainer) return;
+
+  // Find button and response containers within this frame
+  const buttonContainer = frameContainer.nextElementSibling;
+  if (!buttonContainer || !buttonContainer.classList.contains('providerComparisonTabs-orgButtons')) return;
 
   // Organization selector functionality - scoped to this frame only
   buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
@@ -2084,14 +2088,14 @@ function formatScorePR(score) {
       const selectedOrg = this.getAttribute('data-org');
       const orgName = this.textContent;
 
-      // Update button states
+      // Update button states within this frame's button container
       buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(btn => {
         btn.classList.remove('active');
       });
       this.classList.add('active');
 
-      // Update content visibility
-      responseContainer.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
+      // Update content visibility within this frame only
+      frameContainer.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
         if (content.getAttribute('data-org') === selectedOrg) {
           content.classList.remove('hidden');
         } else {
@@ -2099,8 +2103,8 @@ function formatScorePR(score) {
         }
       });
 
-      // Update organization badges and scores
-      responseContainer.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
+      // Update organization badges and scores within this frame only
+      frameContainer.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
         const providers = ['claude', 'deepseek', 'chatgpt'];
         const provider = providers[index];
 
