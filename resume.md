@@ -32,9 +32,9 @@ description: "Education, professional experience, and training."
 <div class="experience-timeline">
   {% for job in site.data.resume.experience %}
   <div class="cv-entry job-entry" data-job-index="{{ forloop.index0 }}">
-    <span class="job-date">{{ job.dates | split: "–" | last | strip }}</span>
+    <span class="job-date">{{ job.dates | split: "–" | last | strip | date: "%m/%Y" }}</span>
     <h3>{{ job.title }}</h3>
-    <p class="subtitle">{{ job.company }} | {{ job.location }}</p>
+    <p class="subtitle">{{ job.company }} | {{ job.location }} | {{ job.dates }}</p>
 
     <ul class="job-bullets">
       {% for bullet in job.bullets %}
@@ -48,7 +48,7 @@ description: "Education, professional experience, and training."
 
   <!-- Timeline origin date -->
   <div class="timeline-origin">
-    <span class="job-date origin-date">January 2011</span>
+    <span class="job-date origin-date">01/2011</span>
   </div>
 </div>
 
