@@ -22,12 +22,11 @@ description: "First-stage analysis of whether LLM training biases present differ
       <li><a href="#conclusions">Conclusions and Implications</a></li>
       <li><a href="#references">References</a></li>
     </ul>
-      <p class="caption">Source: Image generated with ChatGPT 5.1 / DALL·E. While the prompt to generate this image didn't specify a winner in the online "popularity contest," ChatGPT's response clearly puts Lowe's in first place over Home Depot.</p>
   </nav>
 
   <div class="graphics-container">
-    <img src="/assets/LLM_Inquiry_1/AI_Placeholder.png" alt="AI illustration for LLM Reputational Risk study" style="display: block; margin: 0 auto; max-width: 100%; height: auto; border-radius: 6px;">
-
+    <img src="/assets/LLM_Inquiry_1/AI_Placeholder.png" alt="AI illustration for LLM Reputational Risk study" style="display: block; margin: 0; max-width: 105%; height: auto; border-radius: 6px;">
+    <p class="caption">Source: Image generated with ChatGPT 5.1 / DALL·E. While the prompt to generate this image didn't specify a winner in the online "popularity contest," ChatGPT's response clearly puts Lowe's in first place over Home Depot.</p>
   </div>
 </div>
 
@@ -61,14 +60,6 @@ description: "First-stage analysis of whether LLM training biases present differ
   line-height: 1.6;
   color: #e5e7eb;
 }
-
-.toc .caption {
-  text-align: left;
-  padding: 10px 0;
-  margin: 10px 0;
-  font-size: 12px;
-  color: #aab2c8;
-}
 </style>
 
 <div class="key-findings-box">
@@ -77,7 +68,7 @@ description: "First-stage analysis of whether LLM training biases present differ
   <p>This exploratory project queried three different Large Language Models (LLMs) with identical prompts to identify how differences in sentiment and hallucinated claims might illuminate risks posed to two major competitors in the home improvement retail space - Home Depot and Lowe's. While off-the-shelf sentiment analysis is unlikely to emerge as the best indicator of risk, an analysis of the responses revealed the following preliminary findings:</p>
 
   <ul>
-    <li>Across all models, <strong>sentiment scores did not reveal a bias toward one competitor over the other</strong> Responses from OpenAI's ChatGPT and Anthropic's Claude scored similarly, averaging around −0.2 on a scale from −1 (most negative) to +1 (most positive). <strong>DeepSeek's responses scored significantly more negative</strong>, averaging at -0.64.</li>
+    <li>Across all models, <strong>sentiment scores did not reveal a bias toward one competitor over the other</strong>. Responses from OpenAI's ChatGPT and Anthropic's Claude scored similarly, averaging around −0.2 on a scale from −1 (most negative) to +1 (most positive). <strong>DeepSeek's responses scored significantly more negative</strong>, averaging at -0.64.</li>
 
     <li>DeepSeek's increased negativity was observed across all prompt categories but was <strong>especially pronounced in those speculating about each competitor's exposure to lawsuits and regulatory action</strong>; where guardrails hemmed OpenAI and Anthropic's responses close to neutral, DeepSeek's comparatively unrestricted responses scored at -0.98 for Home Depot and -0.85 for Lowe's.</li>
 
@@ -601,7 +592,7 @@ All queries are logged to a CSV file together with analysis scores produced duri
 
 Sentiment analysis was chosen as the main quantitative analysis for this project due to the ability to quickly take an open-source, off-the-shelf solution to visualize and highlight future avenues of investigation into how LLM responses may influence brand reputation.
 
-Though not a compelling visualization on its own, the following graph contains all the sentiment analysis scores for every prompt appearing in this project. Click on the legend entries to show or hide data, and highlight over the graph to reveal specific figures for each prompt.
+The following graph contains all the sentiment analysis scores for every prompt appearing in this project. Click on the legend entries to show or hide data, and highlight over the graph to reveal specific figures for each prompt.
 
 <div class="chart-wrapper">
   <div id="plot-sentiment-trends" style="width:90%; height:500px; margin: 0 auto;"></div>
@@ -807,7 +798,7 @@ Plotly.newPlot('plot-sentiment-trends', traces, trendLayout, { responsive: true 
 
 While sentiment analysis does not map one-to-one onto the larger goal of identifying reputational risk, it nonetheless proved useful for highlighting meaningful variation (or lack-thereof) across models and prompts. The models prompted and the content of the prompts themselves displayed much greater influence over this variation than differences between the two organizations, with average sentiment scores being nearly identical for many prompt categories within a model.
 
-In a clear example of when models were competitor agnostic, one prompt asked the models to write a "scathing review of Home Depot based on what people say online" to capture how the models might amplify exaggerated online sentiment about a brand. All three of the models captures many of the same customer pain points regardless of the organization named: challenges in finding employee assistance, criticism of those employees' knowledge about home improvement, and complaints about returns and online orders. Claude's and DeepSeek's responses particularly mirrored one another, with identical language and claims appearing in responses targeting both organizations:
+In a clear example of when models were competitor-agnostic, one prompt asked the models to write a "scathing review of Home Depot based on what people say online" to capture how the models might amplify exaggerated online sentiment about a brand. All three of the models captures many of the same customer pain points regardless of the organization named: challenges in finding employee assistance, criticism of those employees' knowledge about home improvement, and complaints about returns and online orders. Claude's and DeepSeek's responses particularly mirrored one another, with identical language and claims appearing in responses targeting both organizations:
 
 ---
 
@@ -3014,9 +3005,13 @@ document.querySelectorAll('[class*="score-badge"]').forEach(badge => {
 
 ## Conclusions and Implications {#conclusions}
 
-Differences between LLM responses might impact monitoring the growing use of LLMs in astroturfing or other online influence campaigns. DeepSeek is the cheapest of the three models tested and likely an appealing option for AI-enabled hostile campaigns due to this and its location outside the reach of the United States legal influence. DeepSeek also had the strongest negative trend in its responses; if this trend holds true for other contexts, negative spikes in the sentiment of social media could represent the fingerprints of a DeepSeek-based campaign.
+The main preliminary take-away from this project is that the differences between LLM providers can prove a much bigger factor in language describing brands than differences in the brands themselves, especially when the two brands are so similar. Future research might pick competitors with more distinct niches.
+
+An unexpected conclusion from this project indicates that differences between LLM responses might impact monitoring the growing use of LLMs in astroturfing or other online influence campaigns. DeepSeek is the cheapest of the three models tested and likely an appealing option for AI-enabled hostile campaigns due to this and its location outside the reach of the United States legal influence. DeepSeek also had the strongest negative trend in its responses; if this trend holds true for other contexts, negative spikes in the sentiment of social media could represent the fingerprints of a DeepSeek-based campaign.
 
 Outside of that niche, off-the-shelf sentiment analysis is unlikely to provide the most meaningful insights into the reputational risks presented by LLMs. However, I expect other linguistic analyses of responses would reveal their own distinct trends and possible fingerprints of the models used.
+
+As an exploratory investigation, this project accomplished exactly what it was designed to do. Though almost too obvious to state, there are certainly AI-generated risks to brands, and differences between training data, models, and model guardrails mean that there are differences between how different models expose different brands to risk. Future investigations in this series will seek to capture those differences in a meaningful way.
 
 ## References {#references}
 
