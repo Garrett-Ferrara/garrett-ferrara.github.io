@@ -6,12 +6,14 @@ description: "Education, professional experience, and training."
 
 ## Education
 
-{% for degree in site.data.resume.degrees %}
-<div class="cv-entry degree-entry">
-  <h3>{{ degree.title }}</h3>
-  <p class="subtitle">{{ degree.institution }} | {{ degree.location }} | {{ degree.date }}</p>
+<div class="education-banner">
+  {% for degree in site.data.resume.degrees %}
+  <div class="education-item">
+    <h3>{{ degree.title }}</h3>
+    <p class="subtitle">{{ degree.institution }} | {{ degree.location }} | {{ degree.date }}</p>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
 
 ## Professional Experience
 
@@ -44,12 +46,14 @@ description: "Education, professional experience, and training."
 
 ## Training
 
-{% for training in site.data.resume.training %}
-<div class="cv-entry training-entry">
-  <h3>{{ training.title }}</h3>
-  <p class="subtitle">{{ training.date }} | {{ training.location }}</p>
+<div class="training-banner">
+  {% for training in site.data.resume.training %}
+  <div class="training-item">
+    <h3>{{ training.title }}</h3>
+    <p class="subtitle">{{ training.date }} | {{ training.location }}</p>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
 
 ## Skills & Certifications
 
