@@ -71,11 +71,6 @@ description: "Education, professional experience, and training."
       {% endfor %}
     </div>
   </div>
-
-  <div class="skill-group">
-    <h3 class="skill-subheading">Security Clearance</h3>
-    <p>{{ site.data.resume.skills.clearance }}</p>
-  </div>
 </div>
 
 <script src="/assets/resume-filter.js"></script>

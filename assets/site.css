@@ -1350,6 +1350,17 @@ strong {
 .degree-entry,
 .training-entry {
   margin-bottom: 0.0rem;
+  background-color: rgba(199, 155, 59, 0.03);
+  border-left: 3px solid var(--accent);
+  padding: 1rem;
+  padding-left: 1.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.degree-entry:hover,
+.training-entry:hover {
+  background-color: rgba(199, 155, 59, 0.08);
 }
 
 .cv-entry h3 {
@@ -1401,10 +1412,11 @@ strong {
 
 .skill-subheading {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 0.75rem;
-  font-size: 0.95rem;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .skill-group p {
