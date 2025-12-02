@@ -702,28 +702,73 @@ strong {
   font-size: 0.9rem;
 }
 
-/* Button group - side by side buttons */
-.btn-group {
+/* Get In Touch button wrapper */
+.btn-touch-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-touch-label {
+  position: relative;
+  z-index: 2;
+  min-width: 140px;
+}
+
+.btn-touch-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   gap: 0;
   border-radius: 6px;
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 1;
 }
 
-/* Contact buttons in group */
-.btn-contact {
-  padding: 0.75rem 1rem;
+.btn-touch-wrapper:hover .btn-touch-label {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.btn-touch-wrapper:hover .btn-touch-icons {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Individual touch icon buttons */
+.btn-touch-icon {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  text-decoration: none;
   border-radius: 0;
-  min-width: 3rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.btn-contact:first-child {
+.btn-touch-icon:first-child {
   border-radius: 6px 0 0 6px;
 }
 
-.btn-contact:last-child {
+.btn-touch-icon:last-child {
   border-radius: 0 6px 6px 0;
+}
+
+.btn-touch-icon:hover {
+  background-color: var(--link);
+}
+
+.btn-touch-icon i {
+  font-size: 1.5rem;
 }
 
 /* Page Styles */
