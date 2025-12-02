@@ -506,7 +506,7 @@ The final, three-digit number refers to the individual prompts. For example, whe
 
 <div class="orgComparison-responseContainer">
   <div class="orgComparison-box">
-    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.65">Score: +0.65</span></h4>
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-homedepot">Home Depot</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.718">Score: +0.72</span></h4>
     <p>I can outline some hypothetical ESG concerns that critics might raise about Home Depot; based on common retail industry issues:</p>
 
     <p><strong>Environmental:</strong></p>
@@ -541,7 +541,7 @@ The final, three-digit number refers to the individual prompts. For example, whe
   </div>
 
   <div class="orgComparison-box">
-    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.03">Score: +0.03</span></h4>
+    <h4><span class="orgComparison-badgeGroup"><span class="orgComparison-badge orgComparison-badge-lowes">Lowe's</span> <span class="orgComparison-badge orgComparison-badge-claude">Claude</span></span> <span class="orgComparison-badge orgComparison-score-badge" data-score="0.485">Score: +0.49</span></h4>
     <p>I can outline some hypothetical ESG concerns that critics might raise about Lowe's; based on common retail industry issues:</p>
 
     <p><strong>Environmental:</strong></p>
@@ -1090,6 +1090,27 @@ Looking more closely at the effect in legal-related prompts, one trend fueling D
 <p class="providerComparisonTabs-caption">Provider Comparison with Organization Selector: Legal Troubles Example (Prompt 1.04.001). Use the organization selector buttons to compare how Claude, DeepSeek, and ChatGPT respond to questions about legal troubles for each company.</p>
 
 <script>
+// Sentiment scores for Prompt 1.04.001
+const scoresFor1_04_001 = {
+  homedepot: {
+    claude: 0.576,
+    deepseek: -0.990,
+    chatgpt: -0.134
+  },
+  lowes: {
+    claude: 0.812,
+    deepseek: -0.665,
+    chatgpt: 0.655
+  }
+};
+
+// Helper function to format score display
+function formatScore(score) {
+  const rounded = Math.round(score * 100) / 100;
+  const sign = rounded >= 0 ? '+' : '';
+  return `${sign}${rounded.toFixed(2)}`;
+}
+
 // Organization selector functionality for provider comparison
 document.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
   button.addEventListener('click', function() {
@@ -1111,15 +1132,27 @@ document.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
       }
     });
 
-    // Update organization badges only (not provider badges)
-    document.querySelectorAll('.providerComparisonTabs-orgBadge').forEach(badge => {
-      // Remove old org class
-      badge.classList.remove('providerComparisonTabs-badge-homedepot', 'providerComparisonTabs-badge-lowes');
+    // Update organization badges and scores
+    document.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
+      const providers = ['claude', 'deepseek', 'chatgpt'];
+      const provider = providers[index];
 
-      // Add new org class and update text
-      badge.classList.add(`providerComparisonTabs-badge-${selectedOrg}`);
-      badge.textContent = orgName;
-      badge.setAttribute('data-org', selectedOrg);
+      // Update org badge
+      const orgBadge = column.querySelector('.providerComparisonTabs-orgBadge');
+      if (orgBadge) {
+        orgBadge.classList.remove('providerComparisonTabs-badge-homedepot', 'providerComparisonTabs-badge-lowes');
+        orgBadge.classList.add(`providerComparisonTabs-badge-${selectedOrg}`);
+        orgBadge.textContent = orgName;
+        orgBadge.setAttribute('data-org', selectedOrg);
+      }
+
+      // Update score badge
+      const scoreBadge = column.querySelector('.providerComparisonTabs-score-badge');
+      if (scoreBadge && scoresFor1_04_001[selectedOrg] && scoresFor1_04_001[selectedOrg][provider]) {
+        const newScore = scoresFor1_04_001[selectedOrg][provider];
+        scoreBadge.setAttribute('data-score', newScore);
+        scoreBadge.textContent = `Score: ${formatScore(newScore)}`;
+      }
     });
   });
 });
