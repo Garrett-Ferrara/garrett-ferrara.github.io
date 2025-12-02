@@ -16,6 +16,12 @@
         <i class="fab fa-github"></i>
       </a>
       {% endif %}
+
+      {% if site.data.site.email %}
+      <a href="mailto:{{ site.data.site.email }}" class="social-link" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      {% endif %}
     </div>
   </div>
 
