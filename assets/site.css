@@ -1410,7 +1410,8 @@ strong {
 /* Timeline origin (starting point) */
 .timeline-origin {
   position: relative;
-  margin-top: 1rem;
+  height: 0;
+  margin-top: -2rem;
 }
 
 .origin-date {
