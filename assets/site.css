@@ -705,13 +705,16 @@ strong {
 /* Get In Touch button wrapper */
 .btn-touch-wrapper {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  height: auto;
 }
 
 .btn-touch-label {
   position: relative;
   z-index: 2;
   min-width: 140px;
+  height: 100%;
 }
 
 .btn-touch-icons {
