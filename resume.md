@@ -47,7 +47,7 @@ description: "Education, professional experience, and training."
 {% for training in site.data.resume.training %}
 <div class="cv-entry training-entry">
   <h3>{{ training.title }}</h3>
-  <p class="subtitle">{{ training.date }} | {{ training.location }} | {{ training.hours }}</p>
+  <p class="subtitle">{{ training.date }} | {{ training.location }}</p>
 </div>
 {% endfor %}
 
