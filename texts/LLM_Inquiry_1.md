@@ -506,7 +506,7 @@ The final, three-digit number refers to the individual prompts. For example, whe
 
 <div class="orgComparisonTabs-responseContainer">
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.718">Score: +0.72</span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-homedepot">Home Depot</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.65">Score: +0.65</span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="claude">
       <p>I can outline some hypothetical ESG concerns that critics might raise about Home Depot; based on common retail industry issues:</p>
@@ -554,7 +554,7 @@ The final, three-digit number refers to the individual prompts. For example, whe
   </div>
 
   <div class="orgComparisonTabs-box">
-    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.485">Score: +0.49</span></h4>
+    <h4><span class="orgComparisonTabs-badgeGroup"><span class="orgComparisonTabs-badge orgComparisonTabs-badge-lowes">Lowe's</span> <span class="orgComparisonTabs-badge orgComparisonTabs-badge-claude orgComparisonTabs-providerBadge" data-provider="claude">Claude</span></span> <span class="orgComparisonTabs-badge orgComparisonTabs-score-badge" data-score="0.03">Score: +0.03</span></h4>
 
     <div class="orgComparisonTabs-content" data-provider="claude">
       <p>I can outline some hypothetical ESG concerns that critics might raise about Lowe's; based on common retail industry issues:</p>
@@ -636,57 +636,64 @@ function formatScoreESG(score) {
   return `Score: ${sign}${rounded.toFixed(2)}`;
 }
 
-// Provider selector functionality for tabbed template
-document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
-  button.addEventListener('click', function() {
-    const selectedProvider = this.getAttribute('data-provider');
-    const providerLabel = this.textContent;
+// Self-executing function to scope to this frame only
+(function() {
+  const thisScript = document.currentScript;
+  const buttonContainer = thisScript.previousElementSibling;
+  const responseContainer = buttonContainer.previousElementSibling;
 
-    // Update button states
-    document.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    this.classList.add('active');
+  // Provider selector functionality - scoped to this frame only
+  buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedProvider = this.getAttribute('data-provider');
+      const providerLabel = this.textContent;
 
-    // Update content visibility and scores for each organization box
-    document.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
-      // Get organization from badge
-      const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
-      let org = 'homedepot';
-      if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
-        org = 'lowes';
-      }
+      // Update button states
+      buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
 
-      // Update content visibility
-      box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
-        if (content.getAttribute('data-provider') === selectedProvider) {
-          content.classList.remove('hidden');
-        } else {
-          content.classList.add('hidden');
+      // Update content visibility and scores for each organization box
+      responseContainer.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
+        // Get organization from badge
+        const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
+        let org = 'homedepot';
+        if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
+          org = 'lowes';
+        }
+
+        // Update content visibility
+        box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
+          if (content.getAttribute('data-provider') === selectedProvider) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+
+        // Update score badge
+        const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
+        if (scoreBadge && scoresFor1_03_010_esg[org] && scoresFor1_03_010_esg[org][selectedProvider]) {
+          const newScore = scoresFor1_03_010_esg[org][selectedProvider];
+          scoreBadge.setAttribute('data-score', newScore);
+          scoreBadge.textContent = formatScoreESG(newScore);
         }
       });
 
-      // Update score badge
-      const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
-      if (scoreBadge && scoresFor1_03_010_esg[org] && scoresFor1_03_010_esg[org][selectedProvider]) {
-        const newScore = scoresFor1_03_010_esg[org][selectedProvider];
-        scoreBadge.setAttribute('data-score', newScore);
-        scoreBadge.textContent = formatScoreESG(newScore);
-      }
-    });
+      // Update provider badges with correct colors and text
+      responseContainer.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
+        // Remove old provider class
+        badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
 
-    // Update provider badges with correct colors and text
-    document.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
-      // Remove old provider class
-      badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
-
-      // Add new provider class and update text
-      badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
-      badge.textContent = providerLabel;
-      badge.setAttribute('data-provider', selectedProvider);
+        // Add new provider class and update text
+        badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
+        badge.textContent = providerLabel;
+        badge.setAttribute('data-provider', selectedProvider);
+      });
     });
   });
-});
+})();
 </script>
 
 <p class="orgComparisonTabs-caption">Organization Comparison with Provider Selector: ESG Controversies Example (Prompt 1.03.010). Use the provider selector buttons above to compare how Claude, DeepSeek, and ChatGPT respond to the same prompt.</p>
@@ -975,57 +982,64 @@ function formatScoreBadge(score) {
   return `Score: ${sign}${rounded.toFixed(2)}`;
 }
 
-// Provider selector functionality for tabbed template
-document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
-  button.addEventListener('click', function() {
-    const selectedProvider = this.getAttribute('data-provider');
-    const providerLabel = this.textContent;
+// Self-executing function to scope to this frame only
+(function() {
+  const thisScript = document.currentScript;
+  const buttonContainer = thisScript.previousElementSibling;
+  const responseContainer = buttonContainer.previousElementSibling;
 
-    // Update button states
-    document.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    this.classList.add('active');
+  // Provider selector functionality - scoped to this frame only
+  buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedProvider = this.getAttribute('data-provider');
+      const providerLabel = this.textContent;
 
-    // Update content visibility and scores for each organization box
-    document.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
-      // Get organization from badge
-      const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
-      let org = 'homedepot';
-      if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
-        org = 'lowes';
-      }
+      // Update button states
+      buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
 
-      // Update content visibility
-      box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
-        if (content.getAttribute('data-provider') === selectedProvider) {
-          content.classList.remove('hidden');
-        } else {
-          content.classList.add('hidden');
+      // Update content visibility and scores for each organization box
+      responseContainer.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
+        // Get organization from badge
+        const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
+        let org = 'homedepot';
+        if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
+          org = 'lowes';
+        }
+
+        // Update content visibility
+        box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
+          if (content.getAttribute('data-provider') === selectedProvider) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+
+        // Update score badge
+        const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
+        if (scoreBadge && scoresFor1_02_037[org] && scoresFor1_02_037[org][selectedProvider]) {
+          const newScore = scoresFor1_02_037[org][selectedProvider];
+          scoreBadge.setAttribute('data-score', newScore);
+          scoreBadge.textContent = formatScoreBadge(newScore);
         }
       });
 
-      // Update score badge
-      const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
-      if (scoreBadge && scoresFor1_02_037[org] && scoresFor1_02_037[org][selectedProvider]) {
-        const newScore = scoresFor1_02_037[org][selectedProvider];
-        scoreBadge.setAttribute('data-score', newScore);
-        scoreBadge.textContent = formatScoreBadge(newScore);
-      }
-    });
+      // Update provider badges with correct colors and text
+      responseContainer.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
+        // Remove old provider class
+        badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
 
-    // Update provider badges with correct colors and text
-    document.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
-      // Remove old provider class
-      badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
-
-      // Add new provider class and update text
-      badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
-      badge.textContent = providerLabel;
-      badge.setAttribute('data-provider', selectedProvider);
+        // Add new provider class and update text
+        badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
+        badge.textContent = providerLabel;
+        badge.setAttribute('data-provider', selectedProvider);
+      });
     });
   });
-});
+})();
 </script>
 
 <p class="orgComparisonTabs-caption">Organization Comparison with Provider Selector: Scathing Review Example (Prompt 1.02.037). Use the provider selector buttons above to compare how Claude, DeepSeek, and ChatGPT respond to the same prompt.</p>
@@ -1112,57 +1126,64 @@ function formatScoreBadgeUnethical(score) {
   return `Score: ${sign}${rounded.toFixed(2)}`;
 }
 
-// Provider selector functionality for tabbed template
-document.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
-  button.addEventListener('click', function() {
-    const selectedProvider = this.getAttribute('data-provider');
-    const providerLabel = this.textContent;
+// Self-executing function to scope to this frame only
+(function() {
+  const thisScript = document.currentScript;
+  const buttonContainer = thisScript.previousElementSibling;
+  const responseContainer = buttonContainer.previousElementSibling;
 
-    // Update button states
-    document.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    this.classList.add('active');
+  // Provider selector functionality - scoped to this frame only
+  buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedProvider = this.getAttribute('data-provider');
+      const providerLabel = this.textContent;
 
-    // Update content visibility and scores for each organization box
-    document.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
-      // Get organization from badge
-      const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
-      let org = 'homedepot';
-      if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
-        org = 'lowes';
-      }
+      // Update button states
+      buttonContainer.querySelectorAll('.orgComparisonTabs-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
 
-      // Update content visibility
-      box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
-        if (content.getAttribute('data-provider') === selectedProvider) {
-          content.classList.remove('hidden');
-        } else {
-          content.classList.add('hidden');
+      // Update content visibility and scores for each organization box
+      responseContainer.querySelectorAll('.orgComparisonTabs-box').forEach((box) => {
+        // Get organization from badge
+        const orgBadge = box.querySelector('.orgComparisonTabs-badge[class*="badge-home"], .orgComparisonTabs-badge[class*="badge-lowes"]');
+        let org = 'homedepot';
+        if (orgBadge && orgBadge.classList.contains('orgComparisonTabs-badge-lowes')) {
+          org = 'lowes';
+        }
+
+        // Update content visibility
+        box.querySelectorAll('.orgComparisonTabs-content').forEach(content => {
+          if (content.getAttribute('data-provider') === selectedProvider) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+
+        // Update score badge
+        const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
+        if (scoreBadge && scoresFor1_01_009[org] && scoresFor1_01_009[org][selectedProvider]) {
+          const newScore = scoresFor1_01_009[org][selectedProvider];
+          scoreBadge.setAttribute('data-score', newScore);
+          scoreBadge.textContent = formatScoreBadgeUnethical(newScore);
         }
       });
 
-      // Update score badge
-      const scoreBadge = box.querySelector('.orgComparisonTabs-score-badge');
-      if (scoreBadge && scoresFor1_01_009[org] && scoresFor1_01_009[org][selectedProvider]) {
-        const newScore = scoresFor1_01_009[org][selectedProvider];
-        scoreBadge.setAttribute('data-score', newScore);
-        scoreBadge.textContent = formatScoreBadgeUnethical(newScore);
-      }
-    });
+      // Update provider badges with correct colors and text
+      responseContainer.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
+        // Remove old provider class
+        badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
 
-    // Update provider badges with correct colors and text
-    document.querySelectorAll('.orgComparisonTabs-providerBadge').forEach(badge => {
-      // Remove old provider class
-      badge.classList.remove('orgComparisonTabs-badge-chatgpt', 'orgComparisonTabs-badge-claude', 'orgComparisonTabs-badge-deepseek');
-
-      // Add new provider class and update text
-      badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
-      badge.textContent = providerLabel;
-      badge.setAttribute('data-provider', selectedProvider);
+        // Add new provider class and update text
+        badge.classList.add(`orgComparisonTabs-badge-${selectedProvider}`);
+        badge.textContent = providerLabel;
+        badge.setAttribute('data-provider', selectedProvider);
+      });
     });
   });
-});
+})();
 </script>
 
 <p class="orgComparisonTabs-caption">Organization Comparison with Provider Selector: Unethical Practices Example (Prompt 1.01.009). Use the provider selector buttons above to compare how Claude, DeepSeek, and ChatGPT respond to the same prompt.</p>
@@ -1294,51 +1315,58 @@ function formatScore(score) {
   return `${sign}${rounded.toFixed(2)}`;
 }
 
-// Organization selector functionality for provider comparison
-document.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
-  button.addEventListener('click', function() {
-    const selectedOrg = this.getAttribute('data-org');
-    const orgName = this.textContent;
+// Self-executing function to scope to this frame only
+(function() {
+  const thisScript = document.currentScript;
+  const buttonContainer = thisScript.previousElementSibling;
+  const responseContainer = buttonContainer.previousElementSibling;
 
-    // Update button states
-    document.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    this.classList.add('active');
+  // Organization selector functionality - scoped to this frame only
+  buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedOrg = this.getAttribute('data-org');
+      const orgName = this.textContent;
 
-    // Update content visibility
-    document.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
-      if (content.getAttribute('data-org') === selectedOrg) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
-      }
-    });
+      // Update button states
+      buttonContainer.querySelectorAll('.providerComparisonTabs-orgBtn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
 
-    // Update organization badges and scores
-    document.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
-      const providers = ['claude', 'deepseek', 'chatgpt'];
-      const provider = providers[index];
+      // Update content visibility
+      responseContainer.querySelectorAll('.providerComparisonTabs-content').forEach(content => {
+        if (content.getAttribute('data-org') === selectedOrg) {
+          content.classList.remove('hidden');
+        } else {
+          content.classList.add('hidden');
+        }
+      });
 
-      // Update org badge
-      const orgBadge = column.querySelector('.providerComparisonTabs-orgBadge');
-      if (orgBadge) {
-        orgBadge.classList.remove('providerComparisonTabs-badge-homedepot', 'providerComparisonTabs-badge-lowes');
-        orgBadge.classList.add(`providerComparisonTabs-badge-${selectedOrg}`);
-        orgBadge.textContent = orgName;
-        orgBadge.setAttribute('data-org', selectedOrg);
-      }
+      // Update organization badges and scores
+      responseContainer.querySelectorAll('.providerComparisonTabs-column').forEach((column, index) => {
+        const providers = ['claude', 'deepseek', 'chatgpt'];
+        const provider = providers[index];
 
-      // Update score badge
-      const scoreBadge = column.querySelector('.providerComparisonTabs-score-badge');
-      if (scoreBadge && scoresFor1_04_001[selectedOrg] && scoresFor1_04_001[selectedOrg][provider]) {
-        const newScore = scoresFor1_04_001[selectedOrg][provider];
-        scoreBadge.setAttribute('data-score', newScore);
-        scoreBadge.textContent = `Score: ${formatScore(newScore)}`;
-      }
+        // Update org badge
+        const orgBadge = column.querySelector('.providerComparisonTabs-orgBadge');
+        if (orgBadge) {
+          orgBadge.classList.remove('providerComparisonTabs-badge-homedepot', 'providerComparisonTabs-badge-lowes');
+          orgBadge.classList.add(`providerComparisonTabs-badge-${selectedOrg}`);
+          orgBadge.textContent = orgName;
+          orgBadge.setAttribute('data-org', selectedOrg);
+        }
+
+        // Update score badge
+        const scoreBadge = column.querySelector('.providerComparisonTabs-score-badge');
+        if (scoreBadge && scoresFor1_04_001[selectedOrg] && scoresFor1_04_001[selectedOrg][provider]) {
+          const newScore = scoresFor1_04_001[selectedOrg][provider];
+          scoreBadge.setAttribute('data-score', newScore);
+          scoreBadge.textContent = `Score: ${formatScore(newScore)}`;
+        }
+      });
     });
   });
-});
+})();
 </script>
 
 ---
