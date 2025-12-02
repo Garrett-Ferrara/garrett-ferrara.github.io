@@ -1469,8 +1469,8 @@ Looking more closely at the effect in legal-related prompts, one trend fueling D
 </div>
 
 <div class="providerComparisonTabs-orgButtons">
-  <button class="providerComparisonTabs-orgBtn active" data-org="homedepot">Home Depot</button>
-  <button class="providerComparisonTabs-orgBtn" data-org="lowes">Lowe's</button>
+  <button class="providerComparisonTabs-btn active" data-org="homedepot">Home Depot</button>
+  <button class="providerComparisonTabs-btn" data-org="lowes">Lowe's</button>
 </div>
 
 <p class="providerComparisonTabs-caption">Provider Comparison with Organization Selector: Legal Troubles Example (Prompt 1.04.001). Use the organization selector buttons to compare how Claude, DeepSeek, and ChatGPT respond to questions about legal troubles for each company.</p>
@@ -1711,8 +1711,8 @@ DeepSeek again displayed no such guardrail. For Home Depot, DeepSeek offered a n
 </div>
 
 <div class="providerComparisonTabs-orgButtons">
-  <button class="providerComparisonTabs-orgBtn active" data-org="homedepot">Home Depot</button>
-  <button class="providerComparisonTabs-orgBtn" data-org="lowes">Lowe's</button>
+  <button class="providerComparisonTabs-btn active" data-org="homedepot">Home Depot</button>
+  <button class="providerComparisonTabs-btn" data-org="lowes">Lowe's</button>
 </div>
 
 <p class="providerComparisonTabs-caption">Provider Comparison with Organization Selector: Executive Controversies Example (Prompt 1.01.014). Use the organization selector buttons to compare how Claude, DeepSeek, and ChatGPT respond to questions about executive controversies.</p>
@@ -2049,8 +2049,8 @@ function formatScoreExec(score) {
 </div>
 
 <div class="providerComparisonTabs-orgButtons">
-  <button class="providerComparisonTabs-orgBtn active" data-org="homedepot">Home Depot</button>
-  <button class="providerComparisonTabs-orgBtn" data-org="lowes">Lowe's</button>
+  <button class="providerComparisonTabs-btn active" data-org="homedepot">Home Depot</button>
+  <button class="providerComparisonTabs-btn" data-org="lowes">Lowe's</button>
 </div>
 
 <p class="providerComparisonTabs-caption">Provider Comparison with Organization Selector: PR Crises Example (Prompt 1.01.015). Use the organization selector buttons to compare how Claude, DeepSeek, and ChatGPT respond to questions about PR crises.</p>
