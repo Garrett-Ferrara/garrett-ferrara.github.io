@@ -1378,7 +1378,7 @@ strong {
   left: -135px;
   top: 0;
   padding: 0.35rem 0.7rem;
-  background-color: transparent;
+  background-color: var(--bg);
   border: 1px solid var(--accent);
   border-radius: 12px;
   font-size: 0.8rem;
@@ -1411,7 +1411,7 @@ strong {
   left: -135px;
   top: -2.2rem;
   padding: 0.35rem 0.7rem;
-  background-color: transparent;
+  background-color: var(--bg);
   border: 1px solid var(--accent);
   border-radius: 12px;
   font-size: 0.8rem;
