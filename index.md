@@ -17,7 +17,7 @@ layout: page
   <div class="btn-touch-wrapper">
     <button class="btn btn-accent btn-touch-label">Get In Touch</button>
     <div class="btn-touch-icons">
-      <a href="mailto:ferrara.garrett%2Bgitsite@gmail.com" class="btn-touch-icon" aria-label="Email">
+      <a href="mailto:ferrara.garrett+gitsite@gmail.com" class="btn-touch-icon" aria-label="Email">
         <i class="fas fa-envelope"></i>
       </a>
       <a href="https://www.linkedin.com/in/garrettrichardferrara/" class="btn-touch-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
