@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Only set up filters if we're not printing
   if (filterContainer && filterPills.length > 0) {
+    // Apply default filter (highlights)
+    applyFilter('highlights');
+
     filterPills.forEach(pill => {
       pill.addEventListener('click', function() {
         const selectedFilter = this.dataset.filter;

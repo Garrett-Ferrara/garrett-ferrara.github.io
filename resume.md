@@ -1,29 +1,10 @@
 ---
 layout: resume
 title: "Resume"
-description: "Degrees, professional experience, and training."
+description: "Education, professional experience, and training."
 ---
 
-<div class="resume-controls">
-  <div class="resume-actions">
-    <button id="print-btn" class="btn btn-accent print-button">Print / Save as PDF</button>
-    <p class="pdf-note">This resume can be printed or saved as a PDF using the button above. Use your browser's print function (Ctrl+P or Cmd+P) to generate a PDF file.</p>
-  </div>
-
-  <div class="filter-container" id="filter-container">
-    <div class="filter-label">Filter Professional Experience:</div>
-    <div class="filter-pills">
-      <button class="filter-pill active" data-filter="all">All</button>
-      <button class="filter-pill" data-filter="highlights">Highlights</button>
-      <button class="filter-pill" data-filter="leadership">Leadership</button>
-      <button class="filter-pill" data-filter="intel_analysis">Intelligence Analysis</button>
-      <button class="filter-pill" data-filter="writing_editing">Writing & Editing</button>
-      <button class="filter-pill" data-filter="km_it">KM / IT</button>
-    </div>
-  </div>
-</div>
-
-## Degrees
+## Education
 
 {% for degree in site.data.resume.degrees %}
 <div class="cv-entry degree-entry">
@@ -33,6 +14,18 @@ description: "Degrees, professional experience, and training."
 {% endfor %}
 
 ## Professional Experience
+
+<div class="filter-container" id="filter-container">
+  <div class="filter-label">Filter:</div>
+  <div class="filter-pills">
+    <button class="filter-pill" data-filter="all">All</button>
+    <button class="filter-pill active" data-filter="highlights">Highlights</button>
+    <button class="filter-pill" data-filter="leadership">Leadership</button>
+    <button class="filter-pill" data-filter="intel_analysis">Intelligence Analysis</button>
+    <button class="filter-pill" data-filter="writing_editing">Writing & Editing</button>
+    <button class="filter-pill" data-filter="km_it">KM / IT</button>
+  </div>
+</div>
 
 {% for job in site.data.resume.experience %}
 <div class="cv-entry job-entry" data-job-index="{{ forloop.index0 }}">
@@ -78,3 +71,4 @@ description: "Degrees, professional experience, and training."
 </div>
 
 <script src="/assets/resume-filter.js"></script>
+
