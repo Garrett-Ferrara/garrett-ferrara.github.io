@@ -1,7 +1,7 @@
 ---
-title: "TPC Map"
-summary: "A comprehensive mapping of Technical and Professional Communication as a discipline, exploring its intellectual foundations, methodological approaches, and contemporary practitioners."
-role: "Graduate Researcher"
+title: "Applied Technical & Professional Communication Theory Worksheet"
+summary: "A student worksheet designed to help explore the rhetorical situation of technical and professional communication contexts as they connect to major theoretical frameworks."
+role: "Graduate Student"
 course: "ENC 6701 - Professional Writing Studies"
 tags: ["Academic Writing"]
 date: 2019-09-01
@@ -12,12 +12,10 @@ preview_image: "/assets/previews/TPC_Map.jpg"
 
 ## Overview
 
-This project maps the landscape of Technical and Professional Communication (TPC) as an interdisciplinary field, examining how it positions itself within broader conversations about rhetoric, composition, and organizational communication. Through research into key scholars, methodologies, and institutional contexts, the work traces the intellectual genealogy of TPC and its continuing evolution.
+This worksheet is designed to be printed out and used to help understand the rhetorical situation of technical and professional communication contexts, guiding users through what theoretical frameworks are most relevant to each aspect.
 
-## Approach
+Each of the white boxes lists one aspect of the rhetorical situation, with a description for each. The multi-colored callout boxes provide additional context from the perspective of different theoretical frameworks, with the color corresponding to the five frameworks described at the bottom.
 
-The mapping explores TPC's relationships to adjacent fields—composition studies, rhetoric, business communication, and organizational studies—while identifying the distinctive contributions and concerns that characterize the discipline. It documents how TPC addresses the communication needs of contemporary organizations and knowledge work.
+## Reflection
 
----
-
-> This project represents academic research completed as part of graduate coursework in Professional Writing.
+If the Rhetoric and Composition MA program had done nothing else of value, it would still have been worth it just for its instruction in analysing texts and communication situations through the lens of the rhetorical situation. This early and relatively minor assignment is the only artifact I have showcasing my studies in the rhetorical situation, but it's a concept I've thoroughly embedded into all of my work. To this day, I still brainstorm with Purpose, Audience, Genre, and Constraints at a minimum when approaching any impactful writing assignments.

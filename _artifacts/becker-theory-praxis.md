@@ -1,7 +1,7 @@
 ---
-title: "Becker, Theory & Praxis"
-summary: "An exploration of Howard Becker's contributions to understanding rhetoric and composition through the lens of practice theory and craft knowledge."
-role: "Graduate Researcher"
+title: "Becker in Rhetoric Theory and Praxis"
+summary: "An argument in favor of exploring Ernest Becker's *The Denial of Death* from a rhetoric and composition lens."
+role: "Graduate Student"
 course: "ENC 6335 - Rhetorical Traditions"
 tags: ["Academic Writing"]
 date: 2019-12-01
@@ -12,12 +12,8 @@ preview_image: "/assets/previews/BeckerTheoryPraxis.jpg"
 
 ## Overview
 
-This essay examines Howard Becker's work as it relates to rhetorical theory and composition practice, exploring how his sociological perspective on craft and convention illuminates the work of writing and communication. Through engagement with his key texts, the essay investigates how understanding rhetoric as situated practice—rather than abstract principle—shapes our pedagogical approaches and theoretical frameworks.
+This essay argues in favor of adding Ernest Becker's *The Denial of Death* to the canon of rhetoric studies. Through an analysis of early psychoanalyst theories, heroism, and death anxiety, Becker tries to reconcile our relationship to death with our motivations behind why we act. The core argument of the piece connects Becker's ideas of heroic transference to concepts by Michel Foucault and Kenneth Burke, particularly those dealing with identity and culture. Becker's contributions are especially notable when studying the rhetoric of extremist actors, with Becker mirroring Burke's language about war and conflict being, at its core, the most extreme result of identification with a cause or figure.
 
-## Approach
+## Reflections
 
-The work traces Becker's influence across composition studies and rhetoric, examining how his concepts of convention, audience, and iterative craft apply to contemporary writing instruction and scholarly communication. It reflects on how practice-based theories offer alternatives to purely prescriptive or theoretical approaches to rhetoric and writing.
-
----
-
-> This essay represents academic research completed as part of graduate coursework in Rhetoric and Composition.
+This paper is one of the very first major assignments I completed during my master's. Though my study of rhetoric and composition has led me toward professional and practical applications of understanding how information flows, it started from a deep connection with authors like Foucault and Burke. When I was introduced to those authors, I saw parallels to another author whose work had a large impact on me, Ernest Becker. Though dated and in some cases problematic or reductive in its discussion of gender and mental illness, Becker's work is the culmination of his life's work in exploring how our identities are created and maintained. This essay was my first opportunity to truly engage with the canon of rhetoric studies in a way that felt like I was a participant, not just a student.
