@@ -10,7 +10,6 @@ description: "Selected public work and academic projects."
   <button class="filter-tag" data-filter="OSINT">OSINT</button>
   <button class="filter-tag" data-filter="Academic Writing">Academic Writing</button>
   <button class="filter-tag" data-filter="Agentic Coding">Agentic Coding</button>
-  <button class="filter-tag" data-filter="LLM Evaluation">LLM Evaluation</button>
 </div>
 
 <div class="portfolio-grid">
