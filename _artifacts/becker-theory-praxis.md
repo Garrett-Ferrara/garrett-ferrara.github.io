@@ -1,6 +1,6 @@
 ---
 title: "Becker in Rhetoric Theory and Praxis"
-summary: "An argument in favor of exploring Ernest Becker's *The Denial of Death* from a rhetoric and composition lens."
+summary: "An argument for adding Ernest Becker's *The Denial of Death* to the rhetoric studies canon, connecting his ideas of heroic transference and death anxiety to the work of Michel Foucault and Kenneth Burke—with implications for understanding extremist rhetoric."
 role: "Graduate Student"
 course: "ENC 6335 - Rhetorical Traditions"
 tags: ["Academic Writing"]
