@@ -3,7 +3,7 @@ title: "AI Assessment Tool"
 summary: "Defensive AI security platform that performs red team testing of LLM models using Priority Intelligence Requirements framework to assess organizational reputation and security risks."
 role: "Designer & Developer"
 tags: ["Agentic Coding", "AI Security", "Risk Analysis", "Python"]
-date: 2025-11-02
+date: 2025-08-01
 weight: 5
 github: "https://github.com/Garrett-Ferrara/ai-assessment-tool"
 ---
