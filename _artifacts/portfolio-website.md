@@ -2,7 +2,8 @@
 title: "Portfolio Website"
 summary: "A professional portfolio website built with Jekyll and hosted on GitHub Pages, showcasing work, CV, and writing with responsive design and accessible features."
 role: "Designer & Developer"
-tags: ["Web Design", "Accessible Design", "Technical Writing"]
+course: "ENC 6952 - Rhetoric and Composition Graduate Capstone"
+tags: ["Agentic Coding", "Academic Writing", "Web Design"]
 date: 2025-12-01
 weight: 7
 github: "https://github.com/Garrett-Ferrara/garrett-ferrara.github.io"
