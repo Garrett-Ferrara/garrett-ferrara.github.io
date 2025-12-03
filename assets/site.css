@@ -1047,26 +1047,8 @@ strong {
 }
 
 .artifact-header {
-  display: flex;
-  gap: 2rem;
   border-bottom: 1px solid var(--border);
   padding-bottom: 2rem;
-  align-items: flex-start;
-}
-
-.artifact-header-content {
-  flex: 1;
-}
-
-.artifact-header-image {
-  flex: 0 0 300px;
-}
-
-.artifact-header-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid var(--border);
 }
 
 .artifact-header h1 {

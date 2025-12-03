@@ -6,7 +6,7 @@ course: "ENC 6952 - Rhetoric and Composition Graduate Capstone"
 tags: ["LLM Evaluation", "Academic Writing", "Data Visualization"]
 date: 2025-12-01
 weight: 5
-preview_image: "/assets/LLM_Inquiry_1/LLM_Inquiry_1.jpg"
+preview_image: "/assets/previews/LLM_Inquiry_1.jpg"
 links:
   - label: "Explore the Project →"
     url: "/texts/LLM_Inquiry_1/"
