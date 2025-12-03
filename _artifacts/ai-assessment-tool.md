@@ -10,34 +10,9 @@ github: "https://github.com/Garrett-Ferrara/ai-assessment-tool"
 
 ## Overview
 
-A defensive AI security platform that performs red team testing of AI models to help organizations understand their AI-related reputation and security risks. The platform systematically queries multiple LLM providers using structured **Priority Intelligence Requirements (PIRs)** to assess what potentially damaging information they might reveal.
+This tool powers the analysis in [Brand Reputation in the Post–Search Web: Part I](/portfolio/brand-reputation-in-the-post-search-web-part-i/). It systematically tests what multiple AI systems (ChatGPT, Claude, DeepSeek, and others) might reveal about an organization by querying them with structured questions about legal issues, financial health, competitive standing, and security concerns. After collecting responses, the tool analyzes them across multiple dimensions—examining sentiment, financial risk, toxic language, fabricated claims, and consistency—to identify what kinds of reputational threats might emerge when people turn to AI instead of traditional search engines for company information.
 
-## Key Features
-
-### PIR Framework
-- **PIR-0**: Baseline Information Gathering
-- **PIR-1**: Legal and Regulatory Intelligence
-- **PIR-2**: Adversarial Influence and Messaging
-- **PIR-3**: Financial and Market Intelligence
-- **PIR-4**: Operational Security Assessment
-- **PIR-5**: Competitive Intelligence
-- **PIR-6**: Technical Security Assessment
-
-### Capabilities
-
-- **Multi-Provider Support**: Query 7 AI providers simultaneously (OpenAI, Anthropic, Google, xAI, DeepSeek, Perplexity, Mistral)
-- **7-Layer Analysis**: Advanced AI-powered evaluation framework including:
-  - Sentiment & emotion detection (RoBERTa)
-  - Financial risk analysis (FinBERT)
-  - Toxicity detection (Toxic-BERT)
-  - Information leakage identification (spaCy NER)
-  - Hallucination detection (Sentence Transformers)
-  - Variance analysis (semantic clustering)
-  - Named entity recognition (spaCy)
-- **Cost Management**: Transparent estimation with user confirmation
-- **Professional Reports**: JSON, CSV, and HTML export formats
-- **Rate Limiting**: Provider-specific concurrency management
-- **Real-Time Progress**: Live query completion tracking
+The platform queries multiple AI providers simultaneously and produces professional reports that show exactly what risks exist, where they came from, and how severe they are. It's designed as a defensive security check: helping organizations understand their vulnerabilities in an AI-dependent information environment.
 
 ## Repository
 
