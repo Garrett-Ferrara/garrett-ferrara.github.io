@@ -14,6 +14,4 @@ This tool powers the analysis in [Brand Reputation in the Post–Search Web: Par
 
 The platform queries multiple AI providers simultaneously and produces professional reports that show exactly what risks exist, where they came from, and how severe they are. It's designed as a defensive security check: helping organizations understand their vulnerabilities in an AI-dependent information environment.
 
-## Repository
-
-**[View on GitHub](https://github.com/Garrett-Ferrara/ai-assessment-tool)** — Full source code, documentation, and installation instructions.
+The full source code, documentation, and installation instructions are available [on GitHub](https://github.com/Garrett-Ferrara/ai-assessment-tool).
