@@ -1,24 +1,17 @@
 ---
 title: "First Monday Scraper & Corpus"
-summary: "Agentic coding + research design to build a clean corpus of 2,710 articles across 359 issues (1996–2025) with 100% extraction success."
+summary: "Automated tool that collects nearly 30 years of academic research from the First Monday journal, creating a complete dataset of 2,710 articles for analysis."
 role: "Researcher & Technical Lead"
-tags: ["Agentic Coding", "Web Scraping", "Corpus Building", "Academic Methods"]
+tags: ["Agentic Coding", "Web Scraping", "Academic Methods"]
 date: 2025-08-20
 weight: 2
+github: "https://github.com/Garrett-Ferrara/FirstMondayScraperV2"
 ---
 
-## Technical Development Through AI Collaboration
+## Overview
 
-Working iteratively with Claude Code in VS, I directed a web scraping system that extracted 2,710 articles from 359 issues (1996–2025). Challenges included platform migrations (legacy HTML → OJS), changing metadata schemas, and ethical crawling with robust error handling and checkpointing.
+This tool powers the data collection for [Black Box Network Sense](/portfolio/black-box-network-sense/). Rather than manually visiting the First Monday journal website and collecting articles one at a time, the scraper automatically gathers nearly 30 years of published research—2,710 articles across 359 issues from 1996 to 2025—and organizes them into a clean, structured dataset. This makes it possible to conduct large-scale analysis of how internet research and rhetoric have evolved over decades, without the tedious work of manual collection.
 
-## Research Design and Quality Assurance
+The tool respects the journal's servers by spacing out requests, can resume partway through if interrupted, and produces organized files that are ready for academic analysis. It demonstrates how ethical automation can make research at scale possible.
 
-I established the research framework, validation protocols, and QA standards—dual parsing strategies (legacy + modern), ISO 8601 date normalization, and documentation/validation reports—to ensure research-grade data quality.
-
-## Academic Impact and Methodology
-
-The resulting corpus supports thin/distant analysis of internet research trends, author-network mapping, and citation analysis across foundational digital-studies literature—demonstrating effective human-AI collaboration.
-
----
-
-> **Stack & Ethics:** Requests throttled; robots and ToS respected; retries and idempotent checkpoints; transparent provenance docs included.
+The full source code, documentation, and installation instructions are available [on GitHub](https://github.com/Garrett-Ferrara/FirstMondayScraperV2).
