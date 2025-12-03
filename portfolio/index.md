@@ -4,8 +4,6 @@ title: "Portfolio"
 description: "Selected public work and academic projects."
 ---
 
-Use the filter below to explore by topic.
-
 <div class="filter-controls">
   <span class="filter-label">Filter by:</span>
   <button class="filter-tag active" data-filter="all">All</button>

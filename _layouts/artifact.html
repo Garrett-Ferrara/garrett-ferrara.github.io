@@ -4,57 +4,68 @@ layout: default
 
 <article class="artifact">
   <div class="artifact-header">
-    <h1>{{ page.title }}</h1>
-    <p class="artifact-summary">{{ page.summary }}</p>
+    <div class="artifact-header-content">
+      <h1>{{ page.title }}</h1>
+      <p class="artifact-summary">{{ page.summary }}</p>
 
-    <div class="artifact-meta">
-      {% if page.role %}
-        <div class="meta-item">
-          <span class="meta-label">Role:</span>
-          <span class="meta-value">{{ page.role }}</span>
+      <div class="artifact-meta">
+        {% if page.role %}
+          <div class="meta-item">
+            <span class="meta-label">Role:</span>
+            <span class="meta-value">{{ page.role }}</span>
+          </div>
+        {% endif %}
+
+        {% if page.course %}
+          <div class="meta-item">
+            <span class="meta-label">Course:</span>
+            <span class="meta-value">{{ page.course }}</span>
+          </div>
+        {% endif %}
+
+        {% if page.date %}
+          <div class="meta-item">
+            <span class="meta-label">Date:</span>
+            <span class="meta-value">{{ page.date | date: "%b %Y" }}</span>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if page.tags %}
+        <div class="artifact-tags">
+          {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
         </div>
       {% endif %}
 
-      {% if page.date %}
-        <div class="meta-item">
-          <span class="meta-label">Date:</span>
-          <span class="meta-value">{{ page.date | date: "%b %Y" }}</span>
+      {% if page.github %}
+        <div class="artifact-links">
+          <a href="{{ page.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
+      {% endif %}
+
+      {% if page.links %}
+        <div class="artifact-links">
+          {% for link in page.links %}
+            <a href="{{ link.url }}" {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %} class="btn btn-accent">
+              {{ link.label }}
+            </a>
+          {% endfor %}
         </div>
       {% endif %}
     </div>
 
-    {% if page.tags %}
-      <div class="artifact-tags">
-        {% for tag in page.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-    {% endif %}
-
-    {% if page.github %}
-      <div class="artifact-links">
-        <a href="{{ page.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-    {% endif %}
-
-    {% if page.links %}
-      <div class="artifact-links">
-        {% for link in page.links %}
-          <a href="{{ link.url }}" {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %} class="btn btn-accent">
-            {{ link.label }}
-          </a>
-        {% endfor %}
+    {% if page.preview_image %}
+      <div class="artifact-header-image">
+        <img src="{{ page.preview_image }}" alt="{{ page.title }}">
       </div>
     {% endif %}
 
     {% if page.pdf %}
       <div class="pdf-viewer-container">
-        <div class="pdf-viewer-header">
-          <h3>{{ page.pdf | split: "/" | last }}</h3>
-          <a href="{{ page.pdf }}" download class="btn btn-accent btn-sm">Download PDF</a>
-        </div>
         <embed
           src="{{ page.pdf }}#zoom=80"
           type="application/pdf"
