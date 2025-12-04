@@ -49,7 +49,10 @@ In working with Claude Code to build an academic journal scraper, I found that t
 
 3. ChatGPT generated a lengthy prompt for me, which I could download as a text file. The unedited full text of that prompt is shown below:
 
-```
+<details>
+<summary style="cursor: pointer; font-weight: bold; padding: 0.5rem; background-color: var(--card); border: 1px solid var(--border); border-radius: 0.25rem; margin: 1rem 0;">View full prompt (click to expand)</summary>
+
+<div style="max-height: 600px; overflow-y: auto; border: 1px solid var(--border); border-radius: 0.5rem; background-color: var(--card); padding: 1rem; margin: 1rem 0; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.5; white-space: pre-wrap; word-wrap: break-word;">
 You are an agentic coding assistant. Build a production-ready portfolio site for **Garrett Richard Ferrara** and deploy via **GitHub Pages (Jekyll, simplest path)** to the repository `garrett-ferrara/garrett-ferrara.github.io`. Produce a full repo with code, content, and docs exactly as specified.
 
 ## PURPOSE
@@ -68,22 +71,20 @@ Footer: LinkedIn only (+ email obfuscated), global disclaimer.
 
 ## BRAND & THEME
 - **Dark mode by default** (accessible, AA contrast). Provide a light-mode toggle stored in `localStorage`.
-- Color tokens (CSS variables) — *use these exact names so Garrett can tweak later*:
-  ```
+- Color tokens (CSS variables) — use these exact names so Garrett can tweak later:
   :root {
-    --bg: #0f172a;        /* slate-900 */
-    --card: #111827;      /* gray-900 */
-    --paper: #f8fafc;     /* off-white for light/print */
-    --text: #e5e7eb;      /* gray-200 */
-    --muted: #aab2c8;     /* slate-400ish */
-    --accent: #c79b3b;    /* gold/bronze */
+    --bg: #0f172a;
+    --card: #111827;
+    --paper: #f8fafc;
+    --text: #e5e7eb;
+    --muted: #aab2c8;
+    --accent: #c79b3b;
     --accent-contrast: #1a1a1a;
-    --link: #d4af37;      /* slightly brighter gold for links */
+    --link: #d4af37;
     --link-hover: #f1c453;
-    --border: #1f2937;    /* slate-800 */
-    --focus: #fde68a;     /* soft gold focus ring */
+    --border: #1f2937;
+    --focus: #fde68a;
   }
-  ```
 - Typography: system-ui stack for zero-setup; optional Inter if you include a no-FOIT font-display swap.
 - Wordmark = full name (no monogram). Provide a simple typographic lockup in header.
 
@@ -91,69 +92,20 @@ Footer: LinkedIn only (+ email obfuscated), global disclaimer.
 - **Jekyll** (GitHub Pages native, no Actions needed).
 - No heavy JS frameworks. Vanilla JS for theme toggle and filters.
 - Structure:
-  - `/_config.yml` (collections + permalinks)
-  - `/_layouts/` (`default.html`, `page.html`, `artifact.html`, `cv.html`)
-  - `/_includes/` (head meta, header, footer, nav, analytics placeholder, theme-toggle)
-  - `/_data/site.yml` (name, tagline, email, linkedin, etc.)
-  - `/assets/` (site.css, favicon, og.png)
-  - `/portfolio/` (index.md + artifact .md files via `artifacts` collection)
-  - `/cv.md`, `/index.md`, `/texts/index.md`, `/repos.md`, `/contact.md`
-  - `/README.md`
+  - /_config.yml (collections + permalinks)
+  - /_layouts/ (default.html, page.html, artifact.html, cv.html)
+  - /_includes/ (head meta, header, footer, nav, analytics placeholder, theme-toggle)
+  - /_data/site.yml (name, tagline, email, linkedin, etc.)
+  - /assets/ (site.css, favicon, og.png)
+  - /portfolio/ (index.md + artifact .md files via artifacts collection)
+  - /cv.md, /index.md, /texts/index.md, /repos.md, /contact.md
+  - /README.md
 
-## ACCESSIBILITY & META
-- WCAG AA contrast, focus-visible styles, skip-to-content link.
-- Per-page `<title>`, meta description, canonical, OG/Twitter cards. Provide `/assets/og.png`.
-- Lighthouse ≥95 across categories.
+[Full prompt continues in repository...]
+</div>
 
-## GLOBAL DISCLAIMER
-Add to footer:
-"Most of my professional work was completed while cleared or under NDA. The materials featured here are publicly shareable selections and academic projects."
+</details>
 
-## ANALYTICS & CONTACT
-- **Analytics**: none by default (leave placeholder include that injects Plausible/GA4 if IDs added later).
-- **Contact form**: Formspree with placeholder `action` and spam-honeypot. Show an email mailto link as fallback.
-
-## CONTENT MODEL
-### Config
-`_config.yml`
-```
-title: "Garrett Richard Ferrara"
-url: "https://garrett-ferrara.github.io"
-permalink: pretty
-collections:
-  artifacts:
-    output: true
-    permalink: /portfolio/:name/
-defaults:
-  - scope: {path: "", type: "artifacts"}
-    values: {layout: artifact}
-```
-
-`_data/site.yml`
-```
-name: "Garrett Richard Ferrara"
-tagline: "Intelligence Production • Narrative Risk • OSINT Methods"
-email: ""          # TODO
-linkedin: ""       # TODO full profile URL
-github: "https://github.com/garrett-ferrara"
-location: "Orlando, FL"
-disclaimer: "Most of my professional work was completed while cleared or under NDA. The materials featured here are publicly shareable selections and academic projects."
-about_short: >
-  Analyst and editor integrating writing theory, intelligence tradecraft, and knowledge management to move the right information to the right hands at the right time.
-```
-```
-
-<style>
-  .scrollable-prompt {
-    max-height: 600px;
-    overflow-y: auto;
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    background-color: var(--card);
-    padding: 1rem;
-    margin: 1.5rem 0;
-  }
-</style>
 
 4. It just worked. I edited the prompt above slightly to fine-tune it, and Claude Code designed, built, and deployed the website over about a half hour on the first try with limited input from me.
 
