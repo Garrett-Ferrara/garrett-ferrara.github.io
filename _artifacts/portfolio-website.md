@@ -9,7 +9,7 @@ weight: 7
 github: "https://github.com/Garrett-Ferrara/garrett-ferrara.github.io"
 ---
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/hUFNLTZn7QI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="540" src="https://www.youtube.com/embed/hUFNLTZn7QI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="aspect-ratio: 16 / 9;"></iframe>
 
 ## Overview
 
