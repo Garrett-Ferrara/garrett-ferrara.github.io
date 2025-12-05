@@ -1,6 +1,6 @@
 ---
 title: "Becker in Rhetoric Theory and Praxis"
-summary: "An argument for adding Ernest Becker's *The Denial of Death* to the rhetoric studies canon, connecting his ideas of heroic transference and death anxiety to the work of Michel Foucault and Kenneth Burke—with implications for understanding extremist rhetoric."
+summary: "An argument for adding Ernest Becker's The Denial of Death to the rhetoric studies canon, connecting his ideas of heroic transference and death anxiety to the work of Michel Foucault and Kenneth Burke—with implications for understanding extremist rhetoric."
 role: "Graduate Student"
 course: "ENC 6335 - Rhetorical Traditions"
 tags: ["Academic Writing"]
@@ -12,7 +12,7 @@ preview_image: "/assets/previews/BeckerTheoryPraxis.jpg"
 
 ## Overview
 
-This essay argues in favor of adding Ernest Becker's *The Denial of Death* to the canon of rhetoric studies. Through an analysis of early psychoanalyst theories, heroism, and death anxiety, Becker tries to reconcile our relationship to death with our motivations behind why we act. The core argument of the piece connects Becker's ideas of heroic transference to concepts by Michel Foucault and Kenneth Burke, particularly those dealing with identity and culture. Becker's contributions are especially notable when studying the rhetoric of extremist actors, with Becker mirroring Burke's language about war and conflict being, at its core, the most extreme result of identification with a cause or figure.
+This essay argues in favor of adding Ernest Becker's The Denial of Death to the canon of rhetoric studies. Through an analysis of early psychoanalyst theories, heroism, and death anxiety, Becker tries to reconcile our relationship to death with our motivations behind why we act. The core argument of the piece connects Becker's ideas of heroic transference to concepts by Michel Foucault and Kenneth Burke, particularly those dealing with identity and culture. Becker's contributions are especially notable when studying the rhetoric of extremist actors, with Becker mirroring Burke's language about war and conflict being, at its core, the most extreme result of identification with a cause or figure.
 
 ## Reflections
 

@@ -1,5 +1,5 @@
 ---
-title: "Spamouflage Dragon: Chinese Influence Operation"
+title: "Spamou-Gabbing: Chinese Influence Operations"
 summary: "Documented the first confirmed expansion of China's Spamouflage Dragon campaign to American alternative social platforms, targeting right-wing audiences on Gab."
 role: "Managing Editor, Alethea Analysis Team"
 tags: ["OSINT", "Editorial Leadership", "Influence Operations", "Methodology"]

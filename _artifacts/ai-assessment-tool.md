@@ -1,6 +1,6 @@
 ---
 title: "AI Assessment Tool"
-summary: "Defensive AI security platform that performs red team testing of LLM models using Priority Intelligence Requirements framework to assess organizational reputation and security risks."
+summary: "An LLM response analyzer that prompts seven different LLM providers to assess the reputational and security harms they expose organizations to."
 role: "Designer & Developer"
 tags: ["Agentic Coding", "AI Security", "Risk Analysis", "Python"]
 date: 2025-08-01

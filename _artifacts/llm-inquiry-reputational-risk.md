@@ -3,7 +3,7 @@ title: "Brand Reputation in the Post–Search Web: Part I"
 summary: "A proof-of-concept analysis exploring how LLMs shape reputational risk in household brands through sentiment analysis and hallucination detection."
 role: "Student / Independent Researcher"
 course: "ENC 6952 - Rhetoric and Composition Graduate Capstone"
-tags: ["LLM Evaluation", "Academic Writing", "Data Visualization"]
+tags: ["LLM Evaluation", "Academic Writing", "Data Visualization", "Online Risks"]
 date: 2025-12-01
 weight: 5
 preview_image: "/assets/previews/LLM_Inquiry_1.jpg"
