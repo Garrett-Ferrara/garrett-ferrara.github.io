@@ -35,7 +35,7 @@ layout: page
   <div class="competencies-grid">
     <div class="competency-card">
       <h3><i class="fas fa-magnifying-glass"></i> Investigative Analysis</h3>
-      <p>I apply an adaptable analysis toolbox of **network analysis, structured analytical techniques, and data and geospatial visualizations** to synthesize actionable conclusions from diverse datasets. I'm eager to leap into unfamiliar or esoteric domains, either as surge support or as the team's dedicated subject matter expert.</p>
+      <p>I apply an adaptable analysis toolbox of <strong>network analysis, structured analytical techniques, and data and geospatial visualizations</strong> to synthesize actionable conclusions from diverse datasets. I'm eager to leap into unfamiliar or esoteric domains, either as surge support or as the team's dedicated subject matter expert.</p>
     </div>
 
     <div class="competency-card">
@@ -50,17 +50,17 @@ layout: page
 
     <div class="competency-card">
       <h3><i class="fas fa-comments"></i> Strategic Communication</h3>
-      <p>I translate technical or ambiguous analysis into **actionable, concise products tailored for different stakeholders**, with particular expertise in executive briefings for time-constrained decision-makers and comprehensive how-to documentation.</p>
+      <p>I translate technical or ambiguous analysis into <strong>actionable, concise products tailored for different stakeholders</strong>, with particular expertise in executive briefings for time-constrained decision-makers and comprehensive how-to documentation.</p>
     </div>
 
     <div class="competency-card">
       <h3><i class="fas fa-puzzle-piece"></i> Technical Integration</h3>
-      <p>I leverage and administrate off-the-shelf products like Grammarly, Jira, and Monday alongside generative AI to **automate routine tasks, streamline workflow documentation, and build tools that enhance team productivity**, championing their use to increase adoption throughout teams.</p>
+      <p>I leverage and administrate off-the-shelf products like Grammarly, Jira, and Monday alongside generative AI to <strong>automate routine tasks, streamline workflow documentation, and build tools that enhance team productivity</strong>, championing their use to increase adoption throughout teams.</p>
     </div>
 
     <div class="competency-card">
       <h3><i class="fas fa-layer-group"></i> Narrative Analysis</h3>
-      <p>I deconstruct information ecosystems and rhetorical contexts to identify the narratives, frames, and stakeholder positions that shape outcomes. Whether analyzing influence operations, organizational communication, or knowledge landscapes, I **reveal the hidden structures that drive decisions**.</p>
+      <p>I deconstruct information ecosystems and rhetorical contexts to identify the narratives, frames, and stakeholder positions that shape outcomes. Whether analyzing influence operations, organizational communication, or knowledge landscapes, I <strong>reveal the hidden structures that drive decisions</strong>.</p>
     </div>
   </div>
 </div>
